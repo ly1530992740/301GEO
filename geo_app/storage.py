@@ -112,6 +112,32 @@ class Storage:
                     created_at text not null,
                     updated_at text not null
                 );
+
+                create table if not exists trend_reports (
+                    id integer primary key autoincrement,
+                    task_id text,
+                    city text,
+                    industry text,
+                    seed_keyword text,
+                    report_md text,
+                    raw_json text,
+                    file_path text,
+                    created_at text not null
+                );
+
+                create table if not exists trend_keywords (
+                    id integer primary key autoincrement,
+                    task_id text,
+                    keyword text not null,
+                    trend_score real default 0,
+                    growth_score real default 0,
+                    commercial_score real default 0,
+                    local_score real default 0,
+                    final_score real default 0,
+                    reason text,
+                    raw_json text,
+                    created_at text not null
+                );
                 """
             )
             self.conn.commit()
@@ -320,3 +346,49 @@ class Storage:
             f"update articles set {assignments} where id=?",
             tuple(fields.values()) + (row_id,),
         )
+
+    def add_trend_report(self, item: dict[str, Any]) -> int:
+        now = utc_now_iso()
+        cur = self.execute(
+            """
+            insert into trend_reports (
+                task_id, city, industry, seed_keyword, report_md, raw_json, file_path, created_at
+            ) values (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                item.get("task_id", ""),
+                item.get("city", ""),
+                item.get("industry", ""),
+                item.get("seed_keyword", ""),
+                item.get("report_md", ""),
+                json.dumps(item.get("raw_json", {}), ensure_ascii=False),
+                item.get("file_path", ""),
+                now,
+            ),
+        )
+        return int(cur.lastrowid)
+
+    def replace_trend_keywords(self, task_id: str, items: list[dict[str, Any]]) -> None:
+        self.execute("delete from trend_keywords where task_id=?", (task_id,))
+        now = utc_now_iso()
+        for item in items:
+            self.execute(
+                """
+                insert into trend_keywords (
+                    task_id, keyword, trend_score, growth_score, commercial_score,
+                    local_score, final_score, reason, raw_json, created_at
+                ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    task_id,
+                    item.get("keyword", ""),
+                    item.get("trend_score", 0),
+                    item.get("growth_score", 0),
+                    item.get("commercial_score", 0),
+                    item.get("local_score", 0),
+                    item.get("final_score", 0),
+                    item.get("reason", ""),
+                    json.dumps(item, ensure_ascii=False),
+                    now,
+                ),
+            )

@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import uuid
+from csv import DictWriter
+from io import StringIO
 from pathlib import Path
 from typing import Any, Callable
 
@@ -9,7 +11,16 @@ from .config import AppConfig, TASKS_DIR
 from .meijieku_client import MeijiekuClient
 from .platform_matcher import PlatformMatcher
 from .qwen_client import QwenClient
+from .serpapi_client import SerpApiClient
 from .storage import Storage
+from .trend_analyzer import (
+    build_candidate_keywords,
+    build_market_queries,
+    extract_related_queries,
+    extract_timeseries_scores,
+    score_keywords,
+    summarize_search_result,
+)
 from .utils import markdown_to_html, safe_filename, utc_now_iso, write_text
 
 
@@ -86,6 +97,150 @@ def run_search_and_analysis(
     write_text(Path(task["format_md_path"]), format_md)
     storage.update_task(task["id"], status="analyzed", format_md_path=task["format_md_path"])
     return {**task, "status": "analyzed"}
+
+
+def run_trend_analysis(
+    storage: Storage,
+    config: AppConfig,
+    task: dict[str, Any],
+    city: str,
+    industry: str,
+    competitors: str = "",
+    trend_date: str = "today 12-m",
+    max_search_queries: int = 4,
+    progress: ProgressFn | None = None,
+) -> dict[str, Any]:
+    storage.update_task(task["id"], status="trend_analyzing")
+    task_dir = Path(task["task_dir"])
+    serpapi = SerpApiClient(config.serpapi)
+    qwen = QwenClient(config.qwen)
+
+    seed_keyword = task["keyword"]
+    queries = build_market_queries(city, industry, seed_keyword, competitors)[:max_search_queries]
+    search_summaries: list[dict[str, Any]] = []
+    search_raw: list[dict[str, Any]] = []
+    for idx, query in enumerate(queries, start=1):
+        if progress:
+            progress(f"SerpApi Search {idx}/{len(queries)}：{query}")
+        raw = serpapi.google_search(query=query, location="", num=10)
+        search_raw.append({"query": query, "raw": raw})
+        search_summaries.append(summarize_search_result(query, raw))
+
+    candidates = build_candidate_keywords(seed_keyword, search_summaries, limit=12)
+    trend_keywords = candidates[:5]
+
+    if progress:
+        progress(f"Google Trends 时间序列：{', '.join(trend_keywords)}")
+    timeseries_raw = _safe_serpapi_call(
+        lambda: serpapi.trends_timeseries(trend_keywords, date=trend_date),
+        "timeseries",
+    )
+    timeseries_scores = {}
+    if "error" not in timeseries_raw:
+        timeseries_scores = extract_timeseries_scores(timeseries_raw)
+
+    related_queries: dict[str, Any] = {}
+    for idx, keyword in enumerate(trend_keywords, start=1):
+        if progress:
+            progress(f"Google Trends 相关上升词 {idx}/{len(trend_keywords)}：{keyword}")
+        raw = _safe_serpapi_call(
+            lambda keyword=keyword: serpapi.trends_related_queries(keyword, date=trend_date),
+            f"related_queries:{keyword}",
+        )
+        related_queries[keyword] = raw if "error" in raw else extract_related_queries(raw)
+
+    if progress:
+        progress(f"Google Trends 地域热度：{seed_keyword}")
+    geo_map_raw = _safe_serpapi_call(
+        lambda: serpapi.trends_geo_map(seed_keyword, date=trend_date),
+        "geo_map",
+    )
+
+    keyword_scores = score_keywords(candidates, timeseries_scores)
+    analysis_data = {
+        "input": {
+            "city": city,
+            "industry": industry,
+            "customer_product": task["customer_product"],
+            "seed_keyword": seed_keyword,
+            "competitors": competitors,
+            "trend_date": trend_date,
+        },
+        "search_summaries": search_summaries,
+        "candidate_keywords": candidates,
+        "trend_keywords": trend_keywords,
+        "timeseries_scores": timeseries_scores,
+        "related_queries": related_queries,
+        "geo_map": geo_map_raw,
+        "keyword_scores": keyword_scores,
+    }
+
+    if progress:
+        progress("正在生成客户趋势分析报告")
+    report_md = qwen.generate_trend_report(
+        city=city,
+        industry=industry,
+        customer_product=task["customer_product"],
+        seed_keyword=seed_keyword,
+        analysis_data=analysis_data,
+    )
+
+    trend_dir = task_dir / "trend_analysis"
+    report_path = trend_dir / "trend_report.md"
+    data_path = trend_dir / "trend_data.json"
+    csv_path = trend_dir / "keyword_scores.csv"
+    write_text(report_path, report_md)
+    write_text(
+        data_path,
+        json.dumps({**analysis_data, "search_raw": search_raw, "timeseries_raw": timeseries_raw}, ensure_ascii=False, indent=2),
+    )
+    write_text(csv_path, _keyword_scores_csv(keyword_scores))
+    storage.add_trend_report(
+        {
+            "task_id": task["id"],
+            "city": city,
+            "industry": industry,
+            "seed_keyword": seed_keyword,
+            "report_md": report_md,
+            "raw_json": analysis_data,
+            "file_path": str(report_path),
+        }
+    )
+    storage.replace_trend_keywords(task["id"], keyword_scores)
+    storage.update_task(task["id"], status="trend_analyzed")
+    return {
+        "task_id": task["id"],
+        "report_path": str(report_path),
+        "data_path": str(data_path),
+        "csv_path": str(csv_path),
+        "keyword_scores": keyword_scores,
+        "report_md": report_md,
+    }
+
+
+def _safe_serpapi_call(fn: Callable[[], dict[str, Any]], label: str) -> dict[str, Any]:
+    try:
+        return fn()
+    except Exception as exc:
+        return {"error": str(exc), "label": label}
+
+
+def _keyword_scores_csv(items: list[dict[str, Any]]) -> str:
+    output = StringIO()
+    fieldnames = [
+        "keyword",
+        "trend_score",
+        "growth_score",
+        "commercial_score",
+        "local_score",
+        "final_score",
+        "reason",
+    ]
+    writer = DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for item in items:
+        writer.writerow({key: item.get(key, "") for key in fieldnames})
+    return output.getvalue()
 
 
 def refresh_media_resources(

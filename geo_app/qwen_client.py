@@ -188,6 +188,53 @@ confidence 为 0 到 1。
         parsed = extract_json(result.content, fallback=[])
         return parsed if isinstance(parsed, list) else []
 
+    def generate_trend_report(
+        self,
+        city: str,
+        industry: str,
+        customer_product: str,
+        seed_keyword: str,
+        analysis_data: dict[str, Any],
+    ) -> str:
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+你是 GEO 内容策略顾问，请根据 SerpApi 抓取到的 Google Search 与 Google Trends 数据，
+为一个本地服务客户生成可直接给客户看的「GEO 趋势与同行分析报告」。
+
+客户信息：
+- 城市：{city}
+- 行业：{industry}
+- 客户/品牌：{customer_product}
+- 核心词：{seed_keyword}
+
+结构化数据：
+{payload}
+
+请输出 Markdown，要求：
+1. 不要编造数据；数据不足时明确写「当前数据不足，只能作为参考」。
+2. 把 Trends 用来解释「用户需求趋势」，把 Search 结果用来解释「同行内容动作」。
+3. 必须包含这些章节：
+   # GEO 趋势与同行分析报告
+   ## 1. 结论摘要
+   ## 2. 市场搜索趋势
+   ## 3. 用户关注点
+   ## 4. 同行内容动作
+   ## 5. 关键词机会评分
+   ## 6. 推荐 GEO 文章选题
+   ## 7. 下一步执行建议
+4. 关键词机会评分用 Markdown 表格，字段包含：关键词、趋势分、商业价值、本地价值、综合分、建议。
+5. 推荐 10-20 个文章选题，标题要偏本地服务获客，适合后续自动生成文章。
+6. 语言要像专业顾问写给客户，不要出现「作为AI」。
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
     def generate_article(
         self,
         keyword: str,

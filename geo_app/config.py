@@ -45,6 +45,15 @@ class MeijiekuConfig:
 
 
 @dataclass
+class SerpApiConfig:
+    api_key: str = ""
+    default_geo: str = "CN"
+    default_hl: str = "zh-CN"
+    default_gl: str = "cn"
+    timeout_seconds: int = 30
+
+
+@dataclass
 class BudgetConfig:
     max_price_per_platform: float = 0.0
     max_total_budget: float = 0.0
@@ -55,6 +64,7 @@ class BudgetConfig:
 class AppConfig:
     qwen: QwenConfig
     meijieku: MeijiekuConfig
+    serpapi: SerpApiConfig
     budget: BudgetConfig
 
 
@@ -108,6 +118,13 @@ def load_config() -> AppConfig:
             resource_page_size=_int_env("MEIJIEKU_RESOURCE_PAGE_SIZE", 100),
             resource_max_pages=_int_env("MEIJIEKU_RESOURCE_MAX_PAGES", 20),
             mock_mode=os.getenv("MEIJIEKU_MOCK_MODE", "false").lower() in {"1", "true", "yes"},
+        ),
+        serpapi=SerpApiConfig(
+            api_key=os.getenv("SERPAPI_API_KEY", "").strip(),
+            default_geo=os.getenv("SERPAPI_DEFAULT_GEO", "CN").strip() or "CN",
+            default_hl=os.getenv("SERPAPI_DEFAULT_HL", "zh-CN").strip() or "zh-CN",
+            default_gl=os.getenv("SERPAPI_DEFAULT_GL", "cn").strip() or "cn",
+            timeout_seconds=_int_env("SERPAPI_TIMEOUT_SECONDS", 30),
         ),
         budget=BudgetConfig(
             max_price_per_platform=_float_env("MAX_PRICE_PER_PLATFORM", 0.0),

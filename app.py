@@ -4,7 +4,15 @@ import sys
 
 import streamlit as st
 
-from geo_app.config import AppConfig, BudgetConfig, MeijiekuConfig, QwenConfig, load_config, normalize_meijieku_base_url
+from geo_app.config import (
+    AppConfig,
+    BudgetConfig,
+    MeijiekuConfig,
+    QwenConfig,
+    SerpApiConfig,
+    load_config,
+    normalize_meijieku_base_url,
+)
 from geo_app.storage import Storage
 from geo_app.workflow import (
     create_task,
@@ -14,6 +22,7 @@ from geo_app.workflow import (
     publish_articles,
     refresh_media_resources,
     run_search_and_analysis,
+    run_trend_analysis,
     sync_pending_orders,
 )
 
@@ -51,6 +60,12 @@ def sidebar_config() -> AppConfig:
         writing_model = st.text_input("写作模型", value=base.qwen.writing_model)
 
         st.divider()
+        serpapi_key = st.text_input("SerpApi API Key", value=base.serpapi.api_key, type="password")
+        serpapi_geo = st.text_input("Trends 默认地区 geo", value=base.serpapi.default_geo)
+        serpapi_hl = st.text_input("SerpApi 语言 hl", value=base.serpapi.default_hl)
+        serpapi_gl = st.text_input("Google 搜索地区 gl", value=base.serpapi.default_gl)
+
+        st.divider()
         meijieku_base_url = st.text_input("媒介库 API 地址", value=base.meijieku.base_url)
         meijieku_mobile = st.text_input("媒介库手机号", value=base.meijieku.mobile)
         meijieku_password = st.text_input("媒介库密码", value=base.meijieku.password, type="password")
@@ -82,6 +97,13 @@ def sidebar_config() -> AppConfig:
             resource_max_pages=int(max_pages),
             mock_mode=bool(meijieku_mock_mode),
         ),
+        serpapi=SerpApiConfig(
+            api_key=serpapi_key.strip(),
+            default_geo=serpapi_geo.strip() or "CN",
+            default_hl=serpapi_hl.strip() or "zh-CN",
+            default_gl=serpapi_gl.strip() or "cn",
+            timeout_seconds=base.serpapi.timeout_seconds,
+        ),
         budget=BudgetConfig(
             max_price_per_platform=float(max_price),
             max_total_budget=float(max_total),
@@ -107,6 +129,13 @@ def require_meijieku(config: AppConfig) -> bool:
     if config.meijieku.token or (config.meijieku.mobile and config.meijieku.password):
         return True
     st.error("请先在左侧配置媒介库手机号/密码，或填写媒介库 Token。")
+    return False
+
+
+def require_serpapi(config: AppConfig) -> bool:
+    if config.serpapi.api_key:
+        return True
+    st.error("请先在左侧配置 SerpApi API Key，或在 .env 中设置 SERPAPI_API_KEY。")
     return False
 
 
@@ -218,6 +247,78 @@ def render_create_task(storage: Storage, config: AppConfig) -> None:
             except Exception as exc:
                 status.update(label="搜索分析失败", state="error")
                 show_action_error("搜索分析", exc)
+
+
+def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
+    st.subheader("趋势与同行分析")
+    st.caption("用于 GEO 前置分析：先判断用户在搜什么、同行在做什么，再决定优先写哪些内容。")
+    with st.form("trend_analysis"):
+        c1, c2 = st.columns(2)
+        city = c1.text_input("城市", value="福州")
+        industry = c2.text_input("行业", value="家装公司")
+        seed_keyword = st.text_input("核心词", value="福州家装公司推荐")
+        customer_product = st.text_input("客户/品牌", value="XX家装公司")
+        competitors = st.text_area("同行名称（可选，每行一个）", value="", height=90)
+        c3, c4 = st.columns(2)
+        trend_date = c3.selectbox("趋势时间范围", ["today 12-m", "today 5-y", "now 7-d", "now 30-d", "all"], index=0)
+        max_search_queries = c4.number_input("SERP 搜索问题数", min_value=1, max_value=8, value=4, step=1)
+        submitted = st.form_submit_button("创建任务并生成趋势报告", type="primary")
+
+    if submitted:
+        if not city.strip() or not industry.strip() or not seed_keyword.strip() or not customer_product.strip():
+            st.error("城市、行业、核心词、客户/品牌都不能为空。")
+            return
+        if not require_serpapi(config) or not require_qwen(config):
+            return
+        task = create_task(
+            storage,
+            seed_keyword.strip(),
+            customer_product.strip(),
+            search_count=3,
+            links_per_search=10,
+            query_templates="",
+        )
+        with st.status("正在生成趋势与同行分析报告", expanded=True) as status:
+            try:
+                result = run_trend_analysis(
+                    storage=storage,
+                    config=config,
+                    task=task,
+                    city=city.strip(),
+                    industry=industry.strip(),
+                    competitors=competitors.strip(),
+                    trend_date=trend_date,
+                    max_search_queries=int(max_search_queries),
+                    progress=st.write,
+                )
+                status.update(label="趋势报告生成完成", state="complete")
+                st.success(f"报告已保存：{result['report_path']}")
+                st.markdown(result["report_md"])
+            except Exception as exc:
+                status.update(label="趋势报告生成失败", state="error")
+                show_action_error("趋势分析", exc)
+
+    reports = storage.query("select * from trend_reports order by created_at desc limit 10")
+    if reports:
+        st.markdown("**最近趋势报告**")
+        st.dataframe(
+            [
+                {
+                    "报告ID": item["id"],
+                    "任务ID": item["task_id"],
+                    "城市": item["city"],
+                    "行业": item["industry"],
+                    "核心词": item["seed_keyword"],
+                    "文件": item["file_path"],
+                    "生成时间": item["created_at"],
+                }
+                for item in reports
+            ],
+            width="stretch",
+            hide_index=True,
+        )
+        with st.expander("预览最新趋势报告"):
+            st.markdown(reports[0]["report_md"][:6000])
 
 
 def render_publish(storage: Storage, config: AppConfig) -> None:
@@ -403,17 +504,18 @@ def render_help() -> None:
     st.markdown(
         """
 1. 在左侧配置 Qwen API Key、媒介库账号和预算。
-2. 在“新建任务”输入推广词条和客户产品，执行搜索分析。
-3. 在“平台匹配与发布”刷新媒介库资源，生成平台匹配。
-4. 模糊匹配需要批量确认，确认后选择本批平台生成文章。
-5. 预览待发布文章，勾选扣费确认，再提交媒介库。
-6. 下次启动或进入“文章与订单状态”刷新未完成订单。
+2. 可先在“趋势与同行分析”输入城市、行业、核心词，生成客户前置分析报告。
+3. 在“新建任务”输入推广词条和客户产品，执行搜索分析。
+4. 在“平台匹配与发布”刷新媒介库资源，生成平台匹配。
+5. 模糊匹配需要批量确认，确认后选择本批平台生成文章。
+6. 预览待发布文章，勾选扣费确认，再提交媒介库。
+7. 下次启动或进入“文章与订单状态”刷新未完成订单。
 
 如果真实媒介库 API 地址暂时不可用，可先在左侧开启“媒介库模拟模式”测试匹配和文章生成流程。
 """
     )
     st.code("python -m streamlit run app.py --server.headless true --server.port 8501", language="bash")
-    st.caption("建议把 DASHSCOPE_API_KEY、MEIJIEKU_MOBILE、MEIJIEKU_PASSWORD 写入 .env。")
+    st.caption("建议把 DASHSCOPE_API_KEY、SERPAPI_API_KEY、MEIJIEKU_MOBILE、MEIJIEKU_PASSWORD 写入 .env。")
 
 
 def main() -> None:
@@ -432,16 +534,18 @@ def main() -> None:
             except Exception as exc:
                 st.toast(f"启动状态同步失败：{exc}")
 
-    tabs = st.tabs(["任务看板", "新建任务", "平台匹配与发布", "文章与订单状态", "说明"])
+    tabs = st.tabs(["任务看板", "趋势与同行分析", "新建任务", "平台匹配与发布", "文章与订单状态", "说明"])
     with tabs[0]:
         render_dashboard(storage, config)
     with tabs[1]:
-        render_create_task(storage, config)
+        render_trend_analysis(storage, config)
     with tabs[2]:
-        render_publish(storage, config)
+        render_create_task(storage, config)
     with tabs[3]:
-        render_status(storage, config)
+        render_publish(storage, config)
     with tabs[4]:
+        render_status(storage, config)
+    with tabs[5]:
         render_help()
 
 
