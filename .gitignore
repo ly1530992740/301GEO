@@ -1,0 +1,7 @@
+.env
+output/geo_tasks.sqlite3
+output/tasks/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+
