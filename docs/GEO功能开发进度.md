@@ -211,3 +211,48 @@
 3. 第一版报告以 Markdown 为准。
 4. 资料不足不会中断生成，但报告会标记待补充内容。
 5. 手动监控每执行一次都会保存一份新报告，后续可用于历史对比。
+
+## 2026-07-01 模拟测试记录
+
+测试场景：
+
+- 城市/市场：Los Angeles
+- 行业：LED Sign Company
+- 客户/品牌：BrightLA Signs
+- 核心词：custom LED signs Los Angeles
+- 竞品：Front Signs、Signs.com
+
+已执行模块：
+
+1. 竞品分析：成功。
+   - 输出：`output/strategy_reports/20260701T065007_d4d41e_custom_LED_signs_Los_Angeles/competitor_analysis.md`
+   - 结果：报告识别 BrightLA Signs 在公开搜索中实体认知较弱，Front Signs、Signs.com、SignMakers 等竞品/同行具备更强信源。
+
+2. AI 可见度诊断：成功。
+   - 输出：`output/strategy_reports/20260701T065212_9247f6_custom_LED_signs_Los_Angeles/ai_visibility.md`
+   - 结果：报告能统计品牌提及、竞品出现、情绪和引用来源。
+
+3. 品牌定位策略：成功。
+   - 输出：`output/strategy_reports/20260701T065421_231332_custom_LED_signs_Los_Angeles/brand_strategy.md`
+   - 结果：报告给出 BrightLA Signs 应聚焦 “Los Angeles local permit + installation + turnkey signage” 的定位方向。
+
+4. GEO 手动监控：成功。
+   - 输出：`output/strategy_reports/20260701T065643_00f557_BrightLA_Signs_LA_LED_Sign_Monitor_Test/geo_monitor.md`
+   - 结果：报告生成本次手动监控结论，记录客户提及率、竞品动态、内容缺口和下一轮动作。
+
+测试中发现并已修复：
+
+1. 英文测试问题超过 200 字符时被过滤，导致实际执行问题数少于用户输入值。
+   - 修复：问题最大长度从 200 提升到 320。
+   - 文件：`geo_app/strategy_workflow.py`
+
+2. 品牌策略搜索词可能出现城市重复，例如 `custom LED signs Los Angeles Los Angeles`。
+   - 修复：新增 `_append_city_once()`，如果核心词已包含城市则不重复追加。
+   - 文件：`geo_app/strategy_workflow.py`
+
+仍需后续优化：
+
+1. 如果 AI 生成的问题数仍不足用户设定，应自动生成 fallback 问题补齐。
+2. AI 可见度统计目前依赖模型返回 JSON，需要增加更严格的解析校验。
+3. 报告生成耗时较长，后续可增加后台任务队列、进度日志和取消按钮。
+4. Console 在 Windows PowerShell 下显示中文进度会乱码，但保存的 Markdown 文件为 UTF-8，内容正常。

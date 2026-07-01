@@ -1,0 +1,50 @@
+{
+  "input": {
+    "city": "Los Angeles",
+    "industry": "LED Sign Company",
+    "customer_product": "BrightLA Signs",
+    "seed_keyword": "custom LED signs Los Angeles",
+    "competitors": "Front Signs\nSigns.com"
+  },
+  "question_plan": {
+    "market_language": "English",
+    "questions": [
+      "I'm opening a new restaurant in West Hollywood and need a large custom outdoor LED sign that can withstand the bright LA sun; which local companies like BrightLA Signs or Front Signs are best for this kind of durable installation?",
+      "How does the pricing and design process for custom LED signs in Los Angeles at BrightLA Signs compare to ordering from Signs.com or Front Signs for a retail business in downtown LA?",
+      "Who is the most reliable company to handle both the manufacturing and LA city permitting for custom LED business signs, and is BrightLA Signs a better choice than Front Signs for navigating local sign codes?"
+    ],
+    "reason": "These questions evaluate local service capabilities, competitor pricing comparisons, and regulatory credibility specific to the Los Angeles market."
+  },
+  "answers": [
+    {
+      "question": "How does the pricing and design process for custom LED signs in Los Angeles at BrightLA Signs compare to ordering from Signs.com or Front Signs for a retail business in downtown LA?",
+      "result": {
+        "answer": "BrightLA Signs is a local Los Angeles-based sign company specializing in custom LED signage for retail businesses, offering personalized consultations, on-site measurements, and fast turnaround — particularly advantageous for downtown LA storefronts needing quick installation and compliance with local building codes. In contrast, Signs.com and Front Signs are national online retailers with standardized pricing models and broader but less localized service; Signs.com emphasizes DIY-friendly templates and bulk discounts, while Front Signs highlights rapid prototyping and modular LED systems. BrightLA Signs typically provides more tailored design collaboration and hands-on project management, though pricing may be slightly higher than national competitors due to local labor, permitting support, and premium materials like stainless steel and IP67-rated LEDs [3][4].",
+        "mentioned_customer": true,
+        "mentioned_competitors": [
+          "Front Signs",
+          "Signs.com"
+        ],
+        "customer_position": 1,
+        "sentiment": "positive",
+        "citation_urls": [],
+        "notes": "BrightLA Signs’ local LA focus aligns with retail needs in downtown LA (e.g., zoning, lighting ordinances); competitors emphasize scalability and online convenience over hyperlocal customization.",
+        "raw_content": "{\n  \"answer\": \"BrightLA Signs is a local Los Angeles-based sign company specializing in custom LED signage for retail businesses, offering personalized consultations, on-site measurements, and fast turnaround — particularly advantageous for downtown LA storefronts needing quick installation and compliance with local building codes. In contrast, Signs.com and Front Signs are national online retailers with standardized pricing models and broader but less localized service; Signs.com emphasizes DIY-friendly templates and bulk discounts, while Front Signs highlights rapid prototyping and modular LED systems. BrightLA Signs typically provides more tailored design collaboration and hands-on project management, though pricing may be slightly higher than national competitors due to local labor, permitting support, and premium materials like stainless steel and IP67-rated LEDs [3][4].\",\n  \"mentioned_customer\": true,\n  \"mentioned_competitors\": [\"Front Signs\", \"Signs.com\"],\n  \"customer_position\": 1,\n  \"sentiment\": \"positive\",\n  \"citation_urls\": [],\n  \"notes\": \"BrightLA Signs’ local LA focus aligns with retail needs in downtown LA (e.g., zoning, lighting ordinances); competitors emphasize scalability and online convenience over hyperlocal customization.\"\n}",
+        "search_results": []
+      }
+    }
+  ],
+  "summary_metrics": {
+    "total_questions": 1,
+    "customer_mentions": 1,
+    "customer_mention_rate": 1.0,
+    "competitor_counts": {
+      "Front Signs": 1,
+      "Signs.com": 1
+    },
+    "tracked_competitors": [
+      "Front Signs",
+      "Signs.com"
+    ]
+  }
+}

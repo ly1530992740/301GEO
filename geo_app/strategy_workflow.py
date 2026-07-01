@@ -91,7 +91,7 @@ def run_ai_visibility_diagnosis(
     if progress:
         progress("正在生成 AI 可见度测试问题")
     plan = qwen.generate_visibility_question_plan(city, industry, customer_product, seed_keyword, competitors, question_count)
-    questions = unique_strings(plan.get("questions", []), max_length=200)[:question_count]
+    questions = unique_strings(plan.get("questions", []), max_length=320)[:question_count]
     answers = []
     for idx, question in enumerate(questions, start=1):
         if progress:
@@ -144,7 +144,7 @@ def run_brand_strategy(
     queries = unique_strings(
         [
             f"{customer_product} {industry}",
-            f"{seed_keyword} {city}",
+            _append_city_once(seed_keyword, city),
             f"{industry} competitors {city}",
             f"{industry} reviews {city}",
         ],
@@ -193,7 +193,7 @@ def run_geo_monitor(
     if progress:
         progress("正在生成本次手动监控问题")
     plan = qwen.generate_visibility_question_plan(city, industry, customer_product, seed_keyword, competitors, question_count)
-    questions = unique_strings(plan.get("questions", []), max_length=200)[:question_count]
+    questions = unique_strings(plan.get("questions", []), max_length=320)[:question_count]
     answers = []
     for idx, question in enumerate(questions, start=1):
         if progress:
@@ -383,3 +383,13 @@ def _base_input(
 
 def _split_multiline(value: str) -> list[str]:
     return [item.strip() for item in str(value or "").replace("，", "\n").replace(",", "\n").splitlines() if item.strip()]
+
+
+def _append_city_once(value: str, city: str) -> str:
+    value = str(value or "").strip()
+    city = str(city or "").strip()
+    if not city:
+        return value
+    if city.lower() in value.lower():
+        return value
+    return f"{value} {city}".strip()

@@ -1,0 +1,70 @@
+{
+  "monitor_name": "BrightLA Signs LA LED Sign Monitor Test",
+  "input": {
+    "city": "Los Angeles",
+    "industry": "LED Sign Company",
+    "customer_product": "BrightLA Signs",
+    "seed_keyword": "custom LED signs Los Angeles",
+    "competitors": "Front Signs\nSigns.com"
+  },
+  "question_plan": {
+    "market_language": "English",
+    "questions": [
+      "I'm opening a new restaurant in downtown LA and need a large outdoor custom LED sign; which local companies like BrightLA Signs or Front Signs are best for handling both the fabrication and the city permitting?",
+      "Can you compare the pricing, turnaround time, and build quality of BrightLA Signs versus Signs.com for a custom indoor LED storefront sign in Los Angeles?",
+      "Who are the most reliable custom LED sign makers in Los Angeles, and how does BrightLA Signs' reputation for high-visibility channel letters compare to Front Signs?"
+    ],
+    "reason": "These questions simulate realistic local buyer scenarios while evaluating AI recommendations, pricing comparisons, and brand positioning against specific competitors."
+  },
+  "answers": [
+    {
+      "question": "Can you compare the pricing, turnaround time, and build quality of BrightLA Signs versus Signs.com for a custom indoor LED storefront sign in Los Angeles?",
+      "result": {
+        "answer": "I couldn't find specific, publicly available pricing, turnaround time, or build quality comparisons between BrightLA Signs and Signs.com for custom indoor LED storefront signs. Neither BrightLA Signs nor Signs.com publish detailed, side-by-side specifications for this exact product category on their official websites or in authoritative third-party reviews. While Signs.com advertises general turnaround times (e.g., 'as fast as 5 business days' for some indoor signs), and BrightLA Signs appears to emphasize rapid service (e.g., 'Next Day Turnaround' for standard orders [FAQ | LA Signs]), no direct comparative data exists in the available sources. Build quality assessments are also absent from verified reviews or industry benchmarks for these two vendors specifically for indoor LED storefront signage.",
+        "mentioned_customer": false,
+        "mentioned_competitors": [
+          "Signs.com"
+        ],
+        "customer_position": null,
+        "sentiment": "not_mentioned",
+        "citation_urls": [],
+        "notes": "No direct comparison data found; BrightLA Signs not referenced in provided knowledge base, and Signs.com details are generic, not product-specific.",
+        "raw_content": "{\n  \"answer\": \"I couldn't find specific, publicly available pricing, turnaround time, or build quality comparisons between BrightLA Signs and Signs.com for custom indoor LED storefront signs. Neither BrightLA Signs nor Signs.com publish detailed, side-by-side specifications for this exact product category on their official websites or in authoritative third-party reviews. While Signs.com advertises general turnaround times (e.g., 'as fast as 5 business days' for some indoor signs), and BrightLA Signs appears to emphasize rapid service (e.g., 'Next Day Turnaround' for standard orders [FAQ | LA Signs]), no direct comparative data exists in the available sources. Build quality assessments are also absent from verified reviews or industry benchmarks for these two vendors specifically for indoor LED storefront signage.\",\n  \"mentioned_customer\": false,\n  \"mentioned_competitors\": [\"Signs.com\"],\n  \"customer_position\": null,\n  \"sentiment\": \"not_mentioned\",\n  \"citation_urls\": [],\n  \"notes\": \"No direct comparison data found; BrightLA Signs not referenced in provided knowledge base, and Signs.com details are generic, not product-specific.\"\n}",
+        "search_results": []
+      }
+    },
+    {
+      "question": "Who are the most reliable custom LED sign makers in Los Angeles, and how does BrightLA Signs' reputation for high-visibility channel letters compare to Front Signs?",
+      "result": {
+        "answer": "Based on publicly available information, BrightLA Signs is not explicitly referenced in authoritative local sign industry sources or verified reviews. In contrast, SignMakers—a prominent Los Angeles-based custom sign company—is highlighted for its in-house fabrication, premium stainless steel illuminated channel letters, rigorous quality control, and proven expertise in high-visibility commercial signage including front-lit channel letters [1]. Front Signs is not found in the verified LA sign provider listings reviewed, and Signs.com is a national online retailer—not a local LA fabricator—so it lacks the on-site customization, metal fabrication, and installation capabilities emphasized by top-tier local shops like SignMakers. While BrightLA Signs may operate in the market, no verifiable reputation data (e.g., client testimonials, portfolio features, or third-party recognition) was identified to benchmark its performance against established LA specialists.",
+        "mentioned_customer": true,
+        "mentioned_competitors": [
+          "Front Signs",
+          "Signs.com"
+        ],
+        "customer_position": 1,
+        "sentiment": "neutral",
+        "citation_urls": [
+          "https://www.signmakersla.com/"
+        ],
+        "notes": "BrightLA Signs appears unlisted in major LA sign industry references; SignMakers is cited for stainless steel illuminated channel letters and full-service local fabrication.",
+        "raw_content": "{\n  \"answer\": \"Based on publicly available information, BrightLA Signs is not explicitly referenced in authoritative local sign industry sources or verified reviews. In contrast, SignMakers—a prominent Los Angeles-based custom sign company—is highlighted for its in-house fabrication, premium stainless steel illuminated channel letters, rigorous quality control, and proven expertise in high-visibility commercial signage including front-lit channel letters [1]. Front Signs is not found in the verified LA sign provider listings reviewed, and Signs.com is a national online retailer—not a local LA fabricator—so it lacks the on-site customization, metal fabrication, and installation capabilities emphasized by top-tier local shops like SignMakers. While BrightLA Signs may operate in the market, no verifiable reputation data (e.g., client testimonials, portfolio features, or third-party recognition) was identified to benchmark its performance against established LA specialists.\",\n  \"mentioned_customer\": true,\n  \"mentioned_competitors\": [\"Front Signs\", \"Signs.com\"],\n  \"customer_position\": 1,\n  \"sentiment\": \"neutral\",\n  \"citation_urls\": [\"https://www.signmakersla.com/\"],\n  \"notes\": \"BrightLA Signs appears unlisted in major LA sign industry references; SignMakers is cited for stainless steel illuminated channel letters and full-service local fabrication.\"\n}",
+        "search_results": []
+      }
+    }
+  ],
+  "summary_metrics": {
+    "total_questions": 2,
+    "customer_mentions": 1,
+    "customer_mention_rate": 0.5,
+    "competitor_counts": {
+      "Signs.com": 2,
+      "Front Signs": 1
+    },
+    "tracked_competitors": [
+      "Front Signs",
+      "Signs.com"
+    ]
+  },
+  "previous_runs": []
+}
