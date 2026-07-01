@@ -292,6 +292,261 @@ Output requirements:
         )
         return result.content
 
+    def generate_competitor_research_plan(
+        self,
+        city: str,
+        industry: str,
+        customer_product: str,
+        seed_keyword: str,
+        competitors: str = "",
+    ) -> dict[str, Any]:
+        prompt = f"""
+You are a GEO competitor research strategist. Build a research plan for competitor analysis.
+
+Inputs:
+- City/market: {city}
+- Industry: {industry}
+- Customer/brand: {customer_product}
+- Seed keyword or product: {seed_keyword}
+- Known competitors, URLs, or product names: {competitors or "none"}
+
+Rules:
+1. Competitors may be missing, partial, or only product names. Generate useful search queries anyway.
+2. Search queries should help discover competitor websites, service pages, reviews, comparison pages, product pages, and authoritative mentions.
+3. Trend keywords should be short terms suitable for Google Trends, not long questions.
+4. If the market is English-speaking, use natural English user/search expressions.
+5. Return JSON only.
+
+JSON schema:
+{{
+  "search_queries": ["..."],
+  "trend_keywords": ["..."],
+  "competitor_entities": ["..."],
+  "reason": "one short sentence"
+}}
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        return parsed if isinstance(parsed, dict) else {}
+
+    def generate_competitor_analysis_report(self, analysis_data: dict[str, Any]) -> str:
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are a GEO product strategist. Write a competitor analysis report in Simplified Chinese.
+
+Data:
+{payload}
+
+Report requirements:
+1. Use Markdown.
+2. If competitor data is incomplete, mark the report as a "待补充版报告" and list missing evidence.
+3. Compare: what competitors have, what we currently have, what we still need to build.
+4. Separate evidence from inference.
+5. Include these sections:
+   # 竞品 GEO 分析报告
+   ## 1. 结论摘要
+   ## 2. 竞品信息与证据来源
+   ## 3. 竞品已有能力
+   ## 4. 我们已有能力
+   ## 5. 功能差距
+   ## 6. 优先开发建议
+   ## 7. 待补充资料清单
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
+    def generate_visibility_question_plan(
+        self,
+        city: str,
+        industry: str,
+        customer_product: str,
+        seed_keyword: str,
+        competitors: str = "",
+        question_count: int = 8,
+    ) -> dict[str, Any]:
+        prompt = f"""
+You are designing AI-search visibility test questions for GEO monitoring.
+
+Inputs:
+- City/market: {city}
+- Industry: {industry}
+- Customer/brand: {customer_product}
+- Seed keyword/product: {seed_keyword}
+- Competitors: {competitors or "none"}
+- Question count: {question_count}
+
+Rules:
+1. Do not use hardcoded templates. Generate realistic buyer questions based on the market.
+2. Questions should test recommendation, comparison, pricing, credibility, service scenario, local intent, and competitor awareness.
+3. If the target market is English-speaking, generate natural English questions.
+4. Return JSON only.
+
+JSON schema:
+{{
+  "market_language": "English or Chinese",
+  "questions": ["..."],
+  "reason": "one short sentence"
+}}
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        return parsed if isinstance(parsed, dict) else {"questions": []}
+
+    def answer_visibility_question(
+        self,
+        question: str,
+        customer_product: str,
+        competitors: str = "",
+    ) -> dict[str, Any]:
+        prompt = f"""
+Act like a normal AI search assistant answering a buyer's question. Use web search when helpful.
+
+Question:
+{question}
+
+Tracked customer/brand:
+{customer_product}
+
+Known competitors:
+{competitors or "none"}
+
+Return JSON only:
+{{
+  "answer": "the answer you would give to the user",
+  "mentioned_customer": true,
+  "mentioned_competitors": ["..."],
+  "customer_position": 1,
+  "sentiment": "positive/neutral/negative/not_mentioned",
+  "citation_urls": ["..."],
+  "notes": "short evidence note"
+}}
+If the customer is not mentioned, customer_position should be null.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.search_model,
+            enable_search=True,
+            search_options={
+                "forced_search": self.config.forced_search,
+                "enable_source": self.config.enable_source,
+                "enable_citation": self.config.enable_citation,
+                "search_strategy": self.config.search_strategy,
+            },
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            parsed = {"answer": result.content}
+        parsed["raw_content"] = result.content
+        parsed["search_results"] = result.search_results or []
+        return parsed
+
+    def generate_visibility_report(self, analysis_data: dict[str, Any]) -> str:
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are a GEO analyst. Write an AI visibility diagnosis report in Simplified Chinese.
+
+Data:
+{payload}
+
+Requirements:
+1. Use Markdown.
+2. Separate direct evidence from inference.
+3. Explain whether the tracked customer/brand appears in AI-style answers, how often, in what position, and against which competitors.
+4. Include these sections:
+   # AI 可见度诊断报告
+   ## 1. 结论摘要
+   ## 2. 测试问题清单
+   ## 3. 品牌提及表现
+   ## 4. 竞品出现情况
+   ## 5. 引用来源与内容缺口
+   ## 6. 优先优化建议
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
+    def generate_brand_strategy_report(self, analysis_data: dict[str, Any]) -> str:
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are a brand positioning and GEO content strategy consultant. Write a Simplified Chinese report.
+
+Data:
+{payload}
+
+Requirements:
+1. Use Markdown.
+2. If data is incomplete, produce a "待补充版报告" instead of refusing.
+3. Build a practical positioning and content strategy for GEO.
+4. Include:
+   # 品牌定位与 GEO 内容策略报告
+   ## 1. 结论摘要
+   ## 2. 当前资料完整度
+   ## 3. 品牌定位建议
+   ## 4. 差异化卖点
+   ## 5. 证据库与可信信源
+   ## 6. 用户高频问题 FAQ
+   ## 7. GEO 内容主题池
+   ## 8. 30 天执行建议
+   ## 9. 待补充资料清单
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
+    def generate_geo_monitor_report(self, analysis_data: dict[str, Any]) -> str:
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are a GEO monitoring analyst. Write a manual monitoring run report in Simplified Chinese.
+
+Data:
+{payload}
+
+Requirements:
+1. Use Markdown.
+2. This is a manual monitoring run, not an automated scheduled task.
+3. Compare current visibility, competitor presence, source quality, and next actions.
+4. Include:
+   # GEO 手动监控报告
+   ## 1. 本次监控结论
+   ## 2. 监控问题与结果
+   ## 3. 品牌可见度变化记录
+   ## 4. 竞品动态
+   ## 5. 风险与内容缺口
+   ## 6. 下一轮优化动作
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
     def generate_article(
         self,
         keyword: str,

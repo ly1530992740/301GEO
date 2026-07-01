@@ -14,6 +14,12 @@ from geo_app.config import (
     normalize_meijieku_base_url,
 )
 from geo_app.storage import Storage
+from geo_app.strategy_workflow import (
+    run_ai_visibility_diagnosis,
+    run_brand_strategy,
+    run_competitor_analysis,
+    run_geo_monitor,
+)
 from geo_app.workflow import (
     create_task,
     generate_articles_for_matches,
@@ -321,6 +327,178 @@ def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
             st.markdown(reports[0]["report_md"][:6000])
 
 
+def render_strategy_tools(storage: Storage, config: AppConfig) -> None:
+    st.subheader("GEO 策略工具")
+    st.caption("第一版：竞品分析、AI 可见度诊断、品牌定位策略、手动 GEO 监控，全部输出 Markdown。")
+
+    tool_tabs = st.tabs(["竞品分析", "AI可见度诊断", "品牌定位策略", "手动监控", "历史报告"])
+
+    with tool_tabs[0]:
+        with st.form("competitor_analysis"):
+            c1, c2 = st.columns(2)
+            city = c1.text_input("城市/市场", value="Los Angeles", key="ca_city")
+            industry = c2.text_input("行业", value="LED Sign", key="ca_industry")
+            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="ca_customer")
+            seed_keyword = st.text_input("核心词/商品名", value="Led Sign Company recommend", key="ca_seed")
+            competitors = st.text_area("竞品名称/商品名（可选，每行一个）", height=90, key="ca_competitors")
+            competitor_urls = st.text_area("竞品官网 URL（可选，每行一个）", height=90, key="ca_urls")
+            pdf_paths = st.text_area("竞品 PDF 路径（可选，每行一个）", height=90, key="ca_pdfs")
+            submitted = st.form_submit_button("生成竞品分析报告", type="primary")
+        if submitted:
+            if not require_qwen(config) or not require_serpapi(config):
+                return
+            with st.status("正在生成竞品分析报告", expanded=True) as status:
+                try:
+                    result = run_competitor_analysis(
+                        storage,
+                        config,
+                        city.strip(),
+                        industry.strip(),
+                        customer_product.strip(),
+                        seed_keyword.strip(),
+                        competitors.strip(),
+                        competitor_urls.strip(),
+                        pdf_paths.strip(),
+                        progress=st.write,
+                    )
+                    status.update(label="竞品分析报告已生成", state="complete")
+                    st.success(result["report_path"])
+                    st.markdown(result["report_md"])
+                except Exception as exc:
+                    status.update(label="竞品分析失败", state="error")
+                    show_action_error("竞品分析", exc)
+
+    with tool_tabs[1]:
+        with st.form("visibility_diagnosis"):
+            c1, c2 = st.columns(2)
+            city = c1.text_input("城市/市场", value="Los Angeles", key="vd_city")
+            industry = c2.text_input("行业", value="LED Sign", key="vd_industry")
+            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="vd_customer")
+            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="vd_seed")
+            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="vd_competitors")
+            question_count = st.number_input("测试问题数", min_value=3, max_value=20, value=8, step=1, key="vd_count")
+            submitted = st.form_submit_button("执行 AI 可见度诊断", type="primary")
+        if submitted:
+            if not require_qwen(config):
+                return
+            with st.status("正在执行 AI 可见度诊断", expanded=True) as status:
+                try:
+                    result = run_ai_visibility_diagnosis(
+                        storage,
+                        config,
+                        city.strip(),
+                        industry.strip(),
+                        customer_product.strip(),
+                        seed_keyword.strip(),
+                        competitors.strip(),
+                        int(question_count),
+                        progress=st.write,
+                    )
+                    status.update(label="AI 可见度诊断完成", state="complete")
+                    st.success(result["report_path"])
+                    st.markdown(result["report_md"])
+                except Exception as exc:
+                    status.update(label="AI 可见度诊断失败", state="error")
+                    show_action_error("AI 可见度诊断", exc)
+
+    with tool_tabs[2]:
+        with st.form("brand_strategy"):
+            c1, c2 = st.columns(2)
+            city = c1.text_input("城市/市场", value="Los Angeles", key="bs_city")
+            industry = c2.text_input("行业", value="LED Sign", key="bs_industry")
+            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="bs_customer")
+            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="bs_seed")
+            customer_advantages = st.text_area("客户优势/已有资料（可不完整）", height=120, key="bs_advantages")
+            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="bs_competitors")
+            website_url = st.text_input("客户官网 URL（可选）", key="bs_website")
+            pdf_paths = st.text_area("客户/竞品资料 PDF 路径（可选，每行一个）", height=90, key="bs_pdfs")
+            submitted = st.form_submit_button("生成品牌定位与内容策略报告", type="primary")
+        if submitted:
+            if not require_qwen(config) or not require_serpapi(config):
+                return
+            with st.status("正在生成品牌定位与内容策略报告", expanded=True) as status:
+                try:
+                    result = run_brand_strategy(
+                        storage,
+                        config,
+                        city.strip(),
+                        industry.strip(),
+                        customer_product.strip(),
+                        seed_keyword.strip(),
+                        customer_advantages.strip(),
+                        competitors.strip(),
+                        website_url.strip(),
+                        pdf_paths.strip(),
+                        progress=st.write,
+                    )
+                    status.update(label="品牌策略报告已生成", state="complete")
+                    st.success(result["report_path"])
+                    st.markdown(result["report_md"])
+                except Exception as exc:
+                    status.update(label="品牌策略生成失败", state="error")
+                    show_action_error("品牌策略", exc)
+
+    with tool_tabs[3]:
+        with st.form("geo_monitor"):
+            monitor_name = st.text_input("监控名称", value="LED Sign LA 手动监控", key="gm_name")
+            c1, c2 = st.columns(2)
+            city = c1.text_input("城市/市场", value="Los Angeles", key="gm_city")
+            industry = c2.text_input("行业", value="LED Sign", key="gm_industry")
+            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="gm_customer")
+            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="gm_seed")
+            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="gm_competitors")
+            question_count = st.number_input("监控问题数", min_value=3, max_value=20, value=8, step=1, key="gm_count")
+            submitted = st.form_submit_button("立即执行一次手动监控", type="primary")
+        if submitted:
+            if not require_qwen(config):
+                return
+            with st.status("正在执行 GEO 手动监控", expanded=True) as status:
+                try:
+                    result = run_geo_monitor(
+                        storage,
+                        config,
+                        monitor_name.strip(),
+                        city.strip(),
+                        industry.strip(),
+                        customer_product.strip(),
+                        seed_keyword.strip(),
+                        competitors.strip(),
+                        int(question_count),
+                        progress=st.write,
+                    )
+                    status.update(label="GEO 手动监控完成", state="complete")
+                    st.success(result["report_path"])
+                    st.markdown(result["report_md"])
+                except Exception as exc:
+                    status.update(label="GEO 手动监控失败", state="error")
+                    show_action_error("GEO 手动监控", exc)
+
+    with tool_tabs[4]:
+        reports = storage.query("select * from strategy_reports order by created_at desc limit 50")
+        if not reports:
+            st.info("还没有策略报告。")
+        else:
+            st.dataframe(
+                [
+                    {
+                        "ID": item["id"],
+                        "类型": item["report_type"],
+                        "主题": item["subject"],
+                        "客户": item["customer_product"],
+                        "城市": item["city"],
+                        "行业": item["industry"],
+                        "文件": item["file_path"],
+                        "时间": item["created_at"],
+                    }
+                    for item in reports
+                ],
+                width="stretch",
+                hide_index=True,
+            )
+            with st.expander("预览最新策略报告"):
+                st.markdown(reports[0]["report_md"][:8000])
+
+
 def render_publish(storage: Storage, config: AppConfig) -> None:
     st.subheader("平台匹配与发布")
     tasks = task_options(storage)
@@ -505,11 +683,12 @@ def render_help() -> None:
         """
 1. 在左侧配置 Qwen API Key、媒介库账号和预算。
 2. 可先在“趋势与同行分析”输入城市、行业、核心词，生成客户前置分析报告。
-3. 在“新建任务”输入推广词条和客户产品，执行搜索分析。
-4. 在“平台匹配与发布”刷新媒介库资源，生成平台匹配。
-5. 模糊匹配需要批量确认，确认后选择本批平台生成文章。
-6. 预览待发布文章，勾选扣费确认，再提交媒介库。
-7. 下次启动或进入“文章与订单状态”刷新未完成订单。
+3. 在“GEO 策略工具”生成竞品分析、AI 可见度诊断、品牌定位策略和手动监控报告。
+4. 在“新建任务”输入推广词条和客户产品，执行搜索分析。
+5. 在“平台匹配与发布”刷新媒介库资源，生成平台匹配。
+6. 模糊匹配需要批量确认，确认后选择本批平台生成文章。
+7. 预览待发布文章，勾选扣费确认，再提交媒介库。
+8. 下次启动或进入“文章与订单状态”刷新未完成订单。
 
 如果真实媒介库 API 地址暂时不可用，可先在左侧开启“媒介库模拟模式”测试匹配和文章生成流程。
 """
@@ -534,18 +713,20 @@ def main() -> None:
             except Exception as exc:
                 st.toast(f"启动状态同步失败：{exc}")
 
-    tabs = st.tabs(["任务看板", "趋势与同行分析", "新建任务", "平台匹配与发布", "文章与订单状态", "说明"])
+    tabs = st.tabs(["任务看板", "趋势与同行分析", "GEO 策略工具", "新建任务", "平台匹配与发布", "文章与订单状态", "说明"])
     with tabs[0]:
         render_dashboard(storage, config)
     with tabs[1]:
         render_trend_analysis(storage, config)
     with tabs[2]:
-        render_create_task(storage, config)
+        render_strategy_tools(storage, config)
     with tabs[3]:
-        render_publish(storage, config)
+        render_create_task(storage, config)
     with tabs[4]:
-        render_status(storage, config)
+        render_publish(storage, config)
     with tabs[5]:
+        render_status(storage, config)
+    with tabs[6]:
         render_help()
 
 

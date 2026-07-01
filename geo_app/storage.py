@@ -138,6 +138,20 @@ class Storage:
                     raw_json text,
                     created_at text not null
                 );
+
+                create table if not exists strategy_reports (
+                    id integer primary key autoincrement,
+                    report_type text not null,
+                    subject text,
+                    city text,
+                    industry text,
+                    customer_product text,
+                    competitors text,
+                    report_md text,
+                    raw_json text,
+                    file_path text,
+                    created_at text not null
+                );
                 """
             )
             self.conn.commit()
@@ -392,3 +406,27 @@ class Storage:
                     now,
                 ),
             )
+
+    def add_strategy_report(self, item: dict[str, Any]) -> int:
+        now = utc_now_iso()
+        cur = self.execute(
+            """
+            insert into strategy_reports (
+                report_type, subject, city, industry, customer_product, competitors,
+                report_md, raw_json, file_path, created_at
+            ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                item.get("report_type", ""),
+                item.get("subject", ""),
+                item.get("city", ""),
+                item.get("industry", ""),
+                item.get("customer_product", ""),
+                item.get("competitors", ""),
+                item.get("report_md", ""),
+                json.dumps(item.get("raw_json", {}), ensure_ascii=False),
+                item.get("file_path", ""),
+                now,
+            ),
+        )
+        return int(cur.lastrowid)
