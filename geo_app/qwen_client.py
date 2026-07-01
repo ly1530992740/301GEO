@@ -188,6 +188,61 @@ confidence 为 0 到 1。
         parsed = extract_json(result.content, fallback=[])
         return parsed if isinstance(parsed, list) else []
 
+    def generate_trend_query_plan(
+        self,
+        city: str,
+        industry: str,
+        customer_product: str,
+        seed_keyword: str,
+        competitors: str = "",
+        max_search_queries: int = 5,
+    ) -> dict[str, Any]:
+        prompt = f"""
+You are a local-service SEO/GEO keyword strategist. Build a SerpApi keyword plan for Google Search
+and Google Trends.
+
+Inputs:
+- City or market: {city}
+- Industry: {industry}
+- Customer or brand: {customer_product}
+- User seed keyword: {seed_keyword}
+- Competitors: {competitors or "none"}
+
+Rules:
+1. Detect the target market language from the city, industry, and seed keyword.
+2. If the target market is English-speaking or US-based, generate natural English queries that real US users would type.
+3. Do not mechanically preserve awkward seed phrasing. For example, rewrite "xxx company recommend" into natural forms such as "best xxx companies in Los Angeles", "top rated xxx company near me", "xxx company reviews", or "custom xxx company Los Angeles".
+4. Do not append translated Chinese suffixes such as recommend / which one is good / ranking / price. Use native expressions such as best, top rated, reviews, near me, cost, pricing, quote, installer, manufacturer, supplier.
+5. search_queries are for Google Search SERP analysis. Include local commercial intent, service scenarios, pricing/quote, reviews, competitors, and buyer questions.
+6. trend_keywords are for Google Trends. They must be short, broad, and comparable. Avoid long sentences. Return at most 5.
+7. Use Chinese natural queries only when the target market is Chinese-speaking.
+8. Return JSON only, no Markdown and no explanation outside JSON.
+
+JSON schema:
+{{
+  "market_language": "English or Chinese",
+  "search_queries": ["..."],
+  "trend_keywords": ["..."],
+  "reason": "one short sentence"
+}}
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            return {"search_queries": [], "trend_keywords": []}
+        search_queries = [str(item).strip() for item in parsed.get("search_queries", []) if str(item).strip()]
+        trend_keywords = [str(item).strip() for item in parsed.get("trend_keywords", []) if str(item).strip()]
+        return {
+            "market_language": str(parsed.get("market_language", "")).strip(),
+            "search_queries": search_queries[:max_search_queries],
+            "trend_keywords": trend_keywords[:5],
+            "reason": str(parsed.get("reason", "")).strip(),
+        }
+
     def generate_trend_report(
         self,
         city: str,
@@ -198,33 +253,35 @@ confidence 为 0 到 1。
     ) -> str:
         payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
         prompt = f"""
-你是 GEO 内容策略顾问，请根据 SerpApi 抓取到的 Google Search 与 Google Trends 数据，
-为一个本地服务客户生成可直接给客户看的「GEO 趋势与同行分析报告」。
+You are a GEO content strategy consultant. Based on the SerpApi Google Search and Google Trends data,
+write a client-facing GEO trend and competitor content analysis report.
 
-客户信息：
-- 城市：{city}
-- 行业：{industry}
-- 客户/品牌：{customer_product}
-- 核心词：{seed_keyword}
+Client information:
+- City: {city}
+- Industry: {industry}
+- Customer/brand: {customer_product}
+- Seed keyword: {seed_keyword}
 
-结构化数据：
+Structured data:
 {payload}
 
-请输出 Markdown，要求：
-1. 不要编造数据；数据不足时明确写「当前数据不足，只能作为参考」。
-2. 把 Trends 用来解释「用户需求趋势」，把 Search 结果用来解释「同行内容动作」。
-3. 必须包含这些章节：
-   # GEO 趋势与同行分析报告
-   ## 1. 结论摘要
-   ## 2. 市场搜索趋势
-   ## 3. 用户关注点
-   ## 4. 同行内容动作
-   ## 5. 关键词机会评分
-   ## 6. 推荐 GEO 文章选题
-   ## 7. 下一步执行建议
-4. 关键词机会评分用 Markdown 表格，字段包含：关键词、趋势分、商业价值、本地价值、综合分、建议。
-5. 推荐 10-20 个文章选题，标题要偏本地服务获客，适合后续自动生成文章。
-6. 语言要像专业顾问写给客户，不要出现「作为AI」。
+Output requirements:
+1. Write the report in Simplified Chinese.
+2. Do not invent data. If the data is weak, say that it is only a directional reference.
+3. Use Trends data to explain demand trends. Use Search data to explain competitor content actions.
+4. If the target market is English-speaking, keep search terms and suggested article titles in natural English. Do not translate them into awkward Chinese-English.
+5. Include these exact Markdown sections:
+   # GEO ?????????
+   ## 1. ????
+   ## 2. ??????
+   ## 3. ?????
+   ## 4. ??????
+   ## 5. ???????
+   ## 6. ?? GEO ????
+   ## 7. ???????
+6. Keyword opportunity scoring must be a Markdown table with: ???, ???, ????, ????, ???, ??.
+7. Recommend 10-20 article topics suitable for automated GEO article generation.
+8. Do not mention that you are an AI.
 """
         result = self._call(
             [{"role": "user", "content": prompt}],

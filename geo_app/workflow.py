@@ -20,6 +20,7 @@ from .trend_analyzer import (
     extract_timeseries_scores,
     score_keywords,
     summarize_search_result,
+    unique_strings,
 )
 from .utils import markdown_to_html, safe_filename, utc_now_iso, write_text
 
@@ -116,21 +117,44 @@ def run_trend_analysis(
     qwen = QwenClient(config.qwen)
 
     seed_keyword = task["keyword"]
-    queries = build_market_queries(city, industry, seed_keyword, competitors)[:max_search_queries]
+    if progress:
+        progress("??? Qwen ?????????")
+    query_plan = _safe_qwen_query_plan(
+        qwen=qwen,
+        city=city,
+        industry=industry,
+        customer_product=task["customer_product"],
+        seed_keyword=seed_keyword,
+        competitors=competitors,
+        max_search_queries=max_search_queries,
+    )
+    queries = unique_strings(query_plan.get("search_queries", []))[:max_search_queries]
+    if not queries:
+        queries = build_market_queries(city, industry, seed_keyword, competitors)[:max_search_queries]
+        query_plan["fallback_used"] = True
+
     search_summaries: list[dict[str, Any]] = []
     search_raw: list[dict[str, Any]] = []
     for idx, query in enumerate(queries, start=1):
         if progress:
-            progress(f"SerpApi Search {idx}/{len(queries)}：{query}")
+            progress(f"SerpApi Search {idx}/{len(queries)}?{query}")
         raw = serpapi.google_search(query=query, location="", num=10)
         search_raw.append({"query": query, "raw": raw})
         search_summaries.append(summarize_search_result(query, raw))
 
-    candidates = build_candidate_keywords(seed_keyword, search_summaries, limit=12)
-    trend_keywords = candidates[:5]
+    planned_trend_keywords = unique_strings(query_plan.get("trend_keywords", []), max_length=72)[:5]
+    candidates = build_candidate_keywords(
+        seed_keyword,
+        search_summaries,
+        extra_keywords=planned_trend_keywords,
+        limit=12,
+    )
+    trend_keywords = unique_strings(planned_trend_keywords + candidates, max_length=72)[:5]
+    if not trend_keywords:
+        trend_keywords = [seed_keyword]
 
     if progress:
-        progress(f"Google Trends 时间序列：{', '.join(trend_keywords)}")
+        progress(f"Google Trends ?????{', '.join(trend_keywords)}")
     timeseries_raw = _safe_serpapi_call(
         lambda: serpapi.trends_timeseries(trend_keywords, date=trend_date),
         "timeseries",
@@ -142,7 +166,7 @@ def run_trend_analysis(
     related_queries: dict[str, Any] = {}
     for idx, keyword in enumerate(trend_keywords, start=1):
         if progress:
-            progress(f"Google Trends 相关上升词 {idx}/{len(trend_keywords)}：{keyword}")
+            progress(f"Google Trends ????? {idx}/{len(trend_keywords)}?{keyword}")
         raw = _safe_serpapi_call(
             lambda keyword=keyword: serpapi.trends_related_queries(keyword, date=trend_date),
             f"related_queries:{keyword}",
@@ -150,13 +174,13 @@ def run_trend_analysis(
         related_queries[keyword] = raw if "error" in raw else extract_related_queries(raw)
 
     if progress:
-        progress(f"Google Trends 地域热度：{seed_keyword}")
+        progress(f"Google Trends ?????{seed_keyword}")
     geo_map_raw = _safe_serpapi_call(
         lambda: serpapi.trends_geo_map(seed_keyword, date=trend_date),
         "geo_map",
     )
 
-    keyword_scores = score_keywords(candidates, timeseries_scores)
+    keyword_scores = score_keywords(candidates, timeseries_scores, local_terms=[city])
     analysis_data = {
         "input": {
             "city": city,
@@ -166,6 +190,8 @@ def run_trend_analysis(
             "competitors": competitors,
             "trend_date": trend_date,
         },
+        "query_plan": query_plan,
+        "search_queries": queries,
         "search_summaries": search_summaries,
         "candidate_keywords": candidates,
         "trend_keywords": trend_keywords,
@@ -176,7 +202,7 @@ def run_trend_analysis(
     }
 
     if progress:
-        progress("正在生成客户趋势分析报告")
+        progress("????????????")
     report_md = qwen.generate_trend_report(
         city=city,
         industry=industry,
@@ -216,6 +242,28 @@ def run_trend_analysis(
         "keyword_scores": keyword_scores,
         "report_md": report_md,
     }
+
+
+def _safe_qwen_query_plan(
+    qwen: QwenClient,
+    city: str,
+    industry: str,
+    customer_product: str,
+    seed_keyword: str,
+    competitors: str,
+    max_search_queries: int,
+) -> dict[str, Any]:
+    try:
+        return qwen.generate_trend_query_plan(
+            city=city,
+            industry=industry,
+            customer_product=customer_product,
+            seed_keyword=seed_keyword,
+            competitors=competitors,
+            max_search_queries=max_search_queries,
+        )
+    except Exception as exc:
+        return {"search_queries": [], "trend_keywords": [], "error": str(exc)}
 
 
 def _safe_serpapi_call(fn: Callable[[], dict[str, Any]], label: str) -> dict[str, Any]:
