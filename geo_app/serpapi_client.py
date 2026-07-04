@@ -74,7 +74,7 @@ class SerpApiClient:
     ) -> dict[str, Any]:
         return self._google_trends(
             keywords=[keyword],
-            data_type="GEO_MAP",
+            data_type="GEO_MAP_0",
             geo=geo,
             date=date,
             hl=hl,

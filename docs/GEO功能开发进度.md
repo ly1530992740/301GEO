@@ -256,3 +256,99 @@
 2. AI 可见度统计目前依赖模型返回 JSON，需要增加更严格的解析校验。
 3. 报告生成耗时较长，后续可增加后台任务队列、进度日志和取消按钮。
 4. Console 在 Windows PowerShell 下显示中文进度会乱码，但保存的 Markdown 文件为 UTF-8，内容正常。
+
+## 2026-07-01 Google Trends 可视化报告升级
+
+目标：
+
+把原本偏文字的 `trend_report.md` 升级为接近 Google Trends 体验的可视化报告，重点突出：
+
+1. 热度随时间变化。
+2. 搜索这个词的用户还搜索了这些查询内容。
+3. 地域热度。
+4. 多关键词对比卡片。
+5. 月度趋势对比。
+6. CSV、JSON、HTML、PDF、截图等完整数据输出。
+
+新增文件：
+
+- `geo_app/trend_report_renderer.py`
+
+修改文件：
+
+- `geo_app/workflow.py`
+- `geo_app/serpapi_client.py`
+- `app.py`
+- `requirements.txt`
+
+新增输出文件：
+
+每次趋势分析会在任务目录的 `trend_analysis/` 下生成：
+
+- `trend_report.html`：客户主要查看的可视化报告。
+- `trend_report_print.html`：可打印版本。
+- `trend_report.pdf`：如果本机 Edge/Chrome 或 Playwright 可用，会自动导出。
+- `trend_report.png`：如果本机 Edge/Chrome 或 Playwright 可用，会自动截图。
+- `trend_report.md`：文字策略摘要。
+- `trend_data.json`：完整数据。
+- `visual_data.json`：标准化后的图表数据。
+- `interest_over_time.csv`：热度随时间变化。
+- `monthly_interest.csv`：月度趋势对比。
+- `related_queries.csv`：相关查询。
+- `geo_interest.csv`：地域热度。
+- `keyword_scores.csv`：关键词机会评分。
+- `pdf_export_status.json`：PDF/截图导出状态。
+
+已完成能力：
+
+1. 折线图：多关键词 `Interest over time`。
+2. 表格：Top queries / Rising queries。
+3. 柱图：相关查询热度/涨幅。
+4. 地域热度：区域热度柱图和表格。
+5. 多关键词对比卡片：平均热度、峰值、最近热度、相关查询数量。
+6. 月度趋势对比：按月聚合平均热度。
+7. 自动导出 CSV。
+8. 自动导出 HTML。
+9. 自动导出 PDF 和 PNG 截图：优先调用本机 Edge/Chrome headless；失败后尝试 Python Playwright；都失败则保留 HTML 打印方案。
+10. Streamlit 内嵌 HTML 预览。
+11. 第二阶段：Streamlit 原生图表预览，包含热度趋势、常见搜索查询、地域热度、完整数据、HTML报告五个标签页。
+12. 第二阶段：趋势报告页面增加下载按钮，可下载 HTML、PDF、热度 CSV、相关查询 CSV、完整 JSON。
+13. 第二阶段：HTML 报告优先内嵌 Plotly JS，减少离线查看和 PDF/PNG 导出时图表加载失败的概率；如果本地没有 Plotly，则回退 CDN。
+
+已修复问题：
+
+1. SerpApi 单关键词地域热度使用 `GEO_MAP` 会返回 400。
+   - 修复：`trends_geo_map()` 改为 `GEO_MAP_0`。
+
+2. 旧的趋势 Markdown 缺少直观图表和完整数据。
+   - 修复：新增 HTML 可视化报告和 CSV/JSON 数据导出。
+
+测试记录：
+
+- 使用 `Chicken Fries` / `Burger King fries` / `US` / `today 12-m` 做真实 Trends 测试。
+- 成功生成：
+  - `output/test_trends_visual/trend_report.html`
+  - `output/test_trends_visual/interest_over_time.csv`
+  - `output/test_trends_visual/related_queries.csv`
+  - `output/test_trends_visual/geo_interest.csv`
+  - `output/test_trends_visual/monthly_interest.csv`
+- 使用最小测试数据成功验证本机 Edge headless 导出：
+  - `output/test_trends_export/trend_report.pdf`
+  - `output/test_trends_export/trend_report.png`
+- 第二阶段补充验证：
+  - 已安装 `plotly>=5.24.0` 到当前 Python 环境。
+  - `python -m compileall geo_app app.py tests` 通过。
+  - `python .\tests\simulate_workflow.py` 通过。
+  - Streamlit 已重启并验证 `http://localhost:8501` 返回 200。
+  - 浏览器验证“趋势与同行分析”页面无 `Traceback`、`ImportError`、`ModuleNotFoundError`、`TypeError`。
+  - 最新历史报告预览已显示下载按钮、关键词卡片、`热度趋势 / 常见搜索查询 / 地域热度 / 完整数据 / HTML报告` 标签页。
+  - 使用真实 Trends 测试数据生成 `output/test_trends_phase2/trend_report.html`，并成功导出：
+    - `output/test_trends_phase2/trend_report.pdf`
+    - `output/test_trends_phase2/trend_report.png`
+
+仍需后续优化：
+
+1. 地域热度第一版使用柱图和表格，尚未做真正地图边界着色。
+2. PDF 导出依赖本机 Edge/Chrome 或 Playwright，如果部署服务器没有浏览器，需要安装浏览器运行环境。
+3. 当前历史列表只预览最新报告，后续可增加按报告选择、删除、重跑、对比。
+4. 真实 Google Trends 数据为空时，页面会显示“暂无数据”，后续可把 SerpApi 原始错误和补救建议展示得更明显。

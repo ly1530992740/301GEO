@@ -1,8 +1,11 @@
 ﻿from __future__ import annotations
 
+import json
 import sys
+from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 from geo_app.config import (
     AppConfig,
@@ -161,6 +164,161 @@ def show_action_error(title: str, exc: Exception) -> None:
         )
 
 
+def render_file_downloads(paths: list[tuple[str, str, str]]) -> None:
+    existing = [(label, Path(path), mime) for label, path, mime in paths if path and Path(path).exists()]
+    if not existing:
+        return
+    cols = st.columns(min(4, len(existing)))
+    for idx, (label, path, mime) in enumerate(existing):
+        cols[idx % len(cols)].download_button(
+            label,
+            data=path.read_bytes(),
+            file_name=path.name,
+            mime=mime,
+            key=f"download_{path}",
+        )
+
+
+def render_trend_visual_preview(report_path: str, report_md: str = "", html_path: str = "") -> None:
+    report_file = Path(report_path) if report_path else None
+    trend_dir = report_file.parent if report_file else None
+    visual_path = trend_dir / "visual_data.json" if trend_dir else None
+    if not visual_path or not visual_path.exists():
+        if html_path and Path(html_path).exists():
+            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
+        elif report_md:
+            st.markdown(report_md[:8000])
+        return
+
+    try:
+        import pandas as pd
+        import plotly.express as px
+    except ModuleNotFoundError as exc:
+        st.warning(f"缺少图表依赖：{exc.name}。请运行 `python -m pip install -r requirements.txt`。")
+        if html_path and Path(html_path).exists():
+            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
+        return
+
+    visual_data = json.loads(visual_path.read_text(encoding="utf-8"))
+    cards = visual_data.get("comparison_cards") or []
+    if cards:
+        metric_cols = st.columns(min(5, len(cards)))
+        for idx, card in enumerate(cards[:5]):
+            metric_cols[idx].metric(
+                str(card.get("keyword", "")),
+                card.get("avg_heat", 0),
+                delta=f"峰值 {card.get('peak_heat', 0)} / 相关查询 {card.get('related_query_count', 0)}",
+            )
+
+    tab_trend, tab_related, tab_geo, tab_data, tab_html = st.tabs(
+        ["热度趋势", "常见搜索查询", "地域热度", "完整数据", "HTML报告"]
+    )
+
+    with tab_trend:
+        interest_df = pd.DataFrame(visual_data.get("interest_over_time") or [])
+        if interest_df.empty:
+            st.info("暂无热度随时间变化数据。")
+        else:
+            interest_df["date_axis"] = pd.to_datetime(interest_df.get("timestamp"), unit="s", errors="coerce")
+            if interest_df["date_axis"].isna().all():
+                interest_df["date_axis"] = interest_df["date"]
+            fig = px.line(
+                interest_df,
+                x="date_axis",
+                y="value",
+                color="keyword",
+                markers=True,
+                labels={"date_axis": "", "value": "Search interest", "keyword": "关键词"},
+                height=460,
+            )
+            fig.update_yaxes(range=[0, 100])
+            fig.update_layout(legend_orientation="h", margin=dict(l=40, r=20, t=20, b=40))
+            st.plotly_chart(fig, width="stretch")
+
+        monthly_df = pd.DataFrame(visual_data.get("monthly_interest") or [])
+        if not monthly_df.empty:
+            fig = px.bar(
+                monthly_df,
+                x="month",
+                y="avg_value",
+                color="keyword",
+                barmode="group",
+                labels={"month": "月份", "avg_value": "月均热度", "keyword": "关键词"},
+                height=360,
+            )
+            fig.update_yaxes(range=[0, 100])
+            fig.update_layout(legend_orientation="h", margin=dict(l=40, r=20, t=20, b=40))
+            st.plotly_chart(fig, width="stretch")
+
+    with tab_related:
+        related_df = pd.DataFrame(visual_data.get("related_queries") or [])
+        if related_df.empty:
+            st.info("暂无相关查询数据。")
+        else:
+            top_df = related_df[related_df["type"].eq("top")].head(20)
+            rising_df = related_df[related_df["type"].eq("rising")].head(20)
+            c1, c2 = st.columns(2)
+            c1.markdown("**重点常见搜索查询 Top queries**")
+            c1.dataframe(top_df, width="stretch", hide_index=True)
+            c2.markdown("**搜索用户还在增长搜索的 Rising queries**")
+            c2.dataframe(rising_df, width="stretch", hide_index=True)
+
+            chart_df = related_df.dropna(subset=["extracted_value"]).head(25)
+            if not chart_df.empty:
+                fig = px.bar(
+                    chart_df.sort_values("extracted_value"),
+                    x="extracted_value",
+                    y="query",
+                    color="type",
+                    orientation="h",
+                    hover_data=["source_keyword"],
+                    labels={"extracted_value": "热度/涨幅", "query": "查询"},
+                    height=560,
+                )
+                fig.update_layout(margin=dict(l=180, r=20, t=20, b=40))
+                st.plotly_chart(fig, width="stretch")
+
+    with tab_geo:
+        geo_df = pd.DataFrame(visual_data.get("geo_interest") or [])
+        if geo_df.empty:
+            st.info("暂无地域热度数据。")
+        else:
+            chart_df = geo_df.dropna(subset=["extracted_value"]).head(25)
+            if not chart_df.empty:
+                fig = px.bar(
+                    chart_df.sort_values("extracted_value"),
+                    x="extracted_value",
+                    y="location",
+                    color="keyword",
+                    orientation="h",
+                    labels={"extracted_value": "地域热度", "location": "地区"},
+                    height=520,
+                )
+                fig.update_xaxes(range=[0, 100])
+                fig.update_layout(margin=dict(l=160, r=20, t=20, b=40))
+                st.plotly_chart(fig, width="stretch")
+            st.dataframe(geo_df, width="stretch", hide_index=True)
+
+    with tab_data:
+        data_tabs = st.tabs(["热度时间序列", "相关查询", "月度趋势", "地域热度", "关键词评分"])
+        datasets = [
+            visual_data.get("interest_over_time") or [],
+            visual_data.get("related_queries") or [],
+            visual_data.get("monthly_interest") or [],
+            visual_data.get("geo_interest") or [],
+            visual_data.get("keyword_scores") or [],
+        ]
+        for data_tab, rows in zip(data_tabs, datasets):
+            with data_tab:
+                st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+
+    with tab_html:
+        if html_path and Path(html_path).exists():
+            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
+        elif report_md:
+            st.markdown(report_md[:8000])
+
+
 def money(value: object) -> str:
     try:
         return f"{float(value or 0):.2f}"
@@ -298,8 +456,31 @@ def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
                     progress=st.write,
                 )
                 status.update(label="趋势报告生成完成", state="complete")
-                st.success(f"报告已保存：{result['report_path']}")
-                st.markdown(result["report_md"])
+                st.success(f"Markdown 报告：{result['report_path']}")
+                st.success(f"HTML 可视化报告：{result.get('report_html_path', '')}")
+                st.caption(f"热度 CSV：{result.get('interest_csv_path', '')}")
+                st.caption(f"相关查询 CSV：{result.get('related_csv_path', '')}")
+                st.caption(f"月度趋势 CSV：{result.get('monthly_csv_path', '')}")
+                if result.get("pdf_path"):
+                    st.caption(f"PDF 报告：{result['pdf_path']}")
+                else:
+                    st.caption("PDF 未自动导出；可打开 HTML 报告后使用浏览器打印为 PDF。")
+                if result.get("screenshot_path"):
+                    st.caption(f"报告截图：{result['screenshot_path']}")
+                render_file_downloads(
+                    [
+                        ("下载 HTML 报告", result.get("report_html_path", ""), "text/html"),
+                        ("下载 PDF 报告", result.get("pdf_path", ""), "application/pdf"),
+                        ("下载热度 CSV", result.get("interest_csv_path", ""), "text/csv"),
+                        ("下载相关查询 CSV", result.get("related_csv_path", ""), "text/csv"),
+                        ("下载完整 JSON", str(Path(result["report_path"]).with_name("trend_data.json")), "application/json"),
+                    ]
+                )
+                render_trend_visual_preview(
+                    result["report_path"],
+                    report_md=result["report_md"],
+                    html_path=result.get("report_html_path", ""),
+                )
             except Exception as exc:
                 status.update(label="趋势报告生成失败", state="error")
                 show_action_error("趋势分析", exc)
@@ -315,7 +496,8 @@ def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
                     "城市": item["city"],
                     "行业": item["industry"],
                     "核心词": item["seed_keyword"],
-                    "文件": item["file_path"],
+                    "Markdown": item["file_path"],
+                    "HTML": str(Path(item["file_path"]).with_name("trend_report.html")),
                     "生成时间": item["created_at"],
                 }
                 for item in reports
@@ -324,7 +506,21 @@ def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
             hide_index=True,
         )
         with st.expander("预览最新趋势报告"):
-            st.markdown(reports[0]["report_md"][:6000])
+            html_path = Path(reports[0]["file_path"]).with_name("trend_report.html")
+            render_file_downloads(
+                [
+                    ("下载 HTML 报告", str(html_path), "text/html"),
+                    ("下载 PDF 报告", str(Path(reports[0]["file_path"]).with_name("trend_report.pdf")), "application/pdf"),
+                    ("下载热度 CSV", str(Path(reports[0]["file_path"]).with_name("interest_over_time.csv")), "text/csv"),
+                    ("下载相关查询 CSV", str(Path(reports[0]["file_path"]).with_name("related_queries.csv")), "text/csv"),
+                    ("下载完整 JSON", str(Path(reports[0]["file_path"]).with_name("trend_data.json")), "application/json"),
+                ]
+            )
+            render_trend_visual_preview(
+                reports[0]["file_path"],
+                report_md=reports[0]["report_md"],
+                html_path=str(html_path),
+            )
 
 
 def render_strategy_tools(storage: Storage, config: AppConfig) -> None:

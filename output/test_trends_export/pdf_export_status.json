@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "method": "system_browser_headless",
+  "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "pdf_path": "output\\test_trends_export\\trend_report.pdf",
+  "screenshot_path": "output\\test_trends_export\\trend_report.png"
+}

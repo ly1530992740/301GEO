@@ -1,0 +1,44 @@
+{
+  "interest_over_time": [
+    {
+      "date": "2026-01-01",
+      "timestamp": "1767225600",
+      "keyword": "Chicken Fries",
+      "value": 40.0
+    },
+    {
+      "date": "2026-02-01",
+      "timestamp": "1769904000",
+      "keyword": "Chicken Fries",
+      "value": 60.0
+    }
+  ],
+  "monthly_interest": [
+    {
+      "month": "2026-01",
+      "keyword": "Chicken Fries",
+      "avg_value": 40.0,
+      "max_value": 40.0,
+      "points": 1
+    },
+    {
+      "month": "2026-02",
+      "keyword": "Chicken Fries",
+      "avg_value": 60.0,
+      "max_value": 60.0,
+      "points": 1
+    }
+  ],
+  "related_queries": [],
+  "geo_interest": [],
+  "comparison_cards": [
+    {
+      "keyword": "Chicken Fries",
+      "avg_heat": 50.0,
+      "peak_heat": 60.0,
+      "recent_heat": 50.0,
+      "related_query_count": 0
+    }
+  ],
+  "keyword_scores": []
+}

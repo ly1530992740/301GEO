@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chicken Fries - Google Trends 可视化报告</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --blue: #2563eb;
+      --green: #059669;
+      --amber: #d97706;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .page { max-width: 1200px; margin: 0 auto; padding: 28px; }
+    .hero { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 20px; }
+    h1 { font-size: 30px; margin: 0 0 10px; letter-spacing: 0; }
+    h2 { font-size: 20px; margin: 0 0 14px; }
+    .sub { color: var(--muted); line-height: 1.6; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .card, .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .card .label { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .card .value { font-size: 24px; font-weight: 700; }
+    .card .hint { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .panel { margin-top: 14px; }
+    .chart { width: 100%; height: 430px; }
+    .chart.small { height: 360px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; background: #f9fafb; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 8px; background: #eef2ff; color: #3730a3; font-size: 12px; }
+    .note { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .md-body { line-height: 1.72; }
+    .md-body table { margin: 12px 0; }
+    .empty { color: var(--muted); padding: 18px; border: 1px dashed var(--border); border-radius: 8px; }
+    @media (max-width: 900px) { .grid, .two-col { grid-template-columns: 1fr; } .hero { display: block; } }
+    @media print {
+      body { background: white; }
+      .actions { display: none; }
+      .page { max-width: none; padding: 16px; }
+      .panel, .card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <div>
+        <h1>Google Trends 可视化报告</h1>
+        <div class="sub">
+          <strong>Chicken Fries</strong><br>
+          地区：US / today 12-m<br>
+          行业：Fast food　客户：Test
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">打印 / 导出 PDF</button>
+        <a class="btn" href="interest_over_time.csv">热度 CSV</a>
+        <a class="btn" href="related_queries.csv">相关查询 CSV</a>
+        <a class="btn" href="monthly_interest.csv">月度 CSV</a>
+        <a class="btn" href="trend_data.json">完整 JSON</a>
+      </div>
+    </div>
+
+    <div class="grid">
+<div class="card">
+  <div class="label">Chicken Fries</div>
+  <div class="value">69.38</div>
+  <div class="hint">平均热度 / 峰值 100.0 / 相关查询 32</div>
+</div>
+
+<div class="card">
+  <div class="label">Burger King fries</div>
+  <div class="value">13.0</div>
+  <div class="hint">平均热度 / 峰值 18.0 / 相关查询 37</div>
+</div></div>
+
+    <section class="panel">
+      <h2>热度随时间变化</h2>
+      <div id="interestChart" class="chart"></div>
+      <p class="note">数值为 Google Trends 相对热度，0-100 表示指定地区和时间范围内的相对搜索兴趣，不等于真实搜索量。</p>
+    </section>
+
+    <section class="panel">
+      <h2>月度趋势对比</h2>
+      <div id="monthlyChart" class="chart small"></div>
+    </section>
+
+    <section class="panel">
+      <h2>搜索这个词的用户还搜索了这些查询内容</h2>
+      <div class="two-col">
+        <div>
+          <h3>热门查询 Top queries</h3>
+          <table><thead><tr><th>#</th><th>查询</th><th>热度/涨幅</th><th>来源词</th></tr></thead><tbody><tr><td>1</td><td>chicken and fries</td><td>100</td><td>Chicken Fries</td></tr><tr><td>2</td><td>fries calories</td><td>58</td><td>Chicken Fries</td></tr><tr><td>3</td><td>chicken fries calories</td><td>57</td><td>Chicken Fries</td></tr><tr><td>4</td><td>french fries</td><td>35</td><td>Chicken Fries</td></tr><tr><td>5</td><td>chicken nuggets</td><td>32</td><td>Chicken Fries</td></tr><tr><td>6</td><td>burger</td><td>30</td><td>Chicken Fries</td></tr><tr><td>7</td><td>chicken sandwich</td><td>30</td><td>Chicken Fries</td></tr><tr><td>8</td><td>chicken tenders</td><td>22</td><td>Chicken Fries</td></tr><tr><td>9</td><td>chicken fries burger king</td><td>22</td><td>Chicken Fries</td></tr><tr><td>10</td><td>burger king fries</td><td>22</td><td>Chicken Fries</td></tr><tr><td>11</td><td>burger king</td><td>21</td><td>Chicken Fries</td></tr><tr><td>12</td><td>fried chicken</td><td>20</td><td>Chicken Fries</td></tr><tr><td>13</td><td>hot fries</td><td>20</td><td>Chicken Fries</td></tr><tr><td>14</td><td>cheese fries</td><td>19</td><td>Chicken Fries</td></tr><tr><td>15</td><td>mcdonald&#x27;s</td><td>19</td><td>Chicken Fries</td></tr></tbody></table>
+        </div>
+        <div>
+          <h3>上升查询 Rising queries</h3>
+          <table><thead><tr><th>#</th><th>查询</th><th>热度/涨幅</th><th>来源词</th></tr></thead><tbody><tr><td>1</td><td>zab&#x27;s chicken ranch nacho fries</td><td>飙升</td><td>Chicken Fries</td></tr><tr><td>2</td><td>who owns bowflex</td><td>飙升</td><td>Chicken Fries</td></tr><tr><td>3</td><td>rays chicken and fries</td><td>飙升</td><td>Chicken Fries</td></tr><tr><td>4</td><td>mcdonald&#x27;s 10 piece chicken nuggets price</td><td>+4,300%</td><td>Chicken Fries</td></tr><tr><td>5</td><td>current s</td><td>+550%</td><td>Chicken Fries</td></tr><tr><td>6</td><td>tyson cheesy chicken fries</td><td>+400%</td><td>Chicken Fries</td></tr><tr><td>7</td><td>chicken nuggets and fries</td><td>+70%</td><td>Chicken Fries</td></tr><tr><td>8</td><td>burger king spongebob meal</td><td>飙升</td><td>Burger King fries</td></tr><tr><td>9</td><td>loaded fries near me</td><td>+300%</td><td>Burger King fries</td></tr><tr><td>10</td><td>did burger king get rid of chicken fries</td><td>+300%</td><td>Burger King fries</td></tr><tr><td>11</td><td>did burger king change their fries</td><td>+190%</td><td>Burger King fries</td></tr><tr><td>12</td><td>burger king large fries price</td><td>+180%</td><td>Burger King fries</td></tr><tr><td>13</td><td>burger king kids meal</td><td>+140%</td><td>Burger King fries</td></tr><tr><td>14</td><td>new burger king fries</td><td>+130%</td><td>Burger King fries</td></tr><tr><td>15</td><td>burger king fries price</td><td>+80%</td><td>Burger King fries</td></tr></tbody></table>
+        </div>
+      </div>
+      <div id="relatedChart" class="chart small"></div>
+    </section>
+
+    <section class="panel">
+      <h2>地域热度</h2>
+      <div id="geoChart" class="chart small"></div>
+      <table><thead><tr><th>#</th><th>地区</th><th>关键词</th><th>热度</th></tr></thead><tbody><tr><td>1</td><td>密西西比州</td><td></td><td>100</td></tr><tr><td>2</td><td>亚拉巴马州</td><td></td><td>97</td></tr><tr><td>3</td><td>特拉华</td><td></td><td>96</td></tr><tr><td>4</td><td>肯塔基州</td><td></td><td>91</td></tr><tr><td>5</td><td>西弗吉尼亚州</td><td></td><td>89</td></tr><tr><td>6</td><td>路易斯安那州</td><td></td><td>89</td></tr><tr><td>7</td><td>南卡罗来纳州</td><td></td><td>88</td></tr><tr><td>8</td><td>宾夕法尼亚州</td><td></td><td>87</td></tr><tr><td>9</td><td>内华达</td><td></td><td>86</td></tr><tr><td>10</td><td>纽约州</td><td></td><td>86</td></tr><tr><td>11</td><td>俄克拉何马</td><td></td><td>85</td></tr><tr><td>12</td><td>伊利诺伊州</td><td></td><td>85</td></tr><tr><td>13</td><td>乔治亚州</td><td></td><td>84</td></tr><tr><td>14</td><td>阿肯色州</td><td></td><td>84</td></tr><tr><td>15</td><td>北卡罗来纳州</td><td></td><td>83</td></tr><tr><td>16</td><td>田纳西州</td><td></td><td>82</td></tr><tr><td>17</td><td>密苏里州</td><td></td><td>82</td></tr><tr><td>18</td><td>怀俄明州</td><td></td><td>81</td></tr><tr><td>19</td><td>新泽西州</td><td></td><td>81</td></tr><tr><td>20</td><td>德克萨斯州</td><td></td><td>81</td></tr></tbody></table>
+    </section>
+
+    <section class="panel">
+      <h2>关键词机会评分</h2>
+      <div class="empty">暂无关键词评分数据</div>
+    </section>
+
+    <section class="panel">
+      <h2>本次用于 SERP 分析的搜索查询</h2>
+      <ul><li>Chicken Fries</li><li>Burger King fries</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>策略摘要</h2>
+      <div class="md-body"><h1>Chicken Fries Trends Test</h1>
+<p>????????</p></div>
+    </section>
+  </div>
+
+  <script>
+    const interestRows = [{"date": "2025年6月29日 – 7月5日", "timestamp": "1751155200", "keyword": "Chicken Fries", "value": 54.0}, {"date": "2025年6月29日 – 7月5日", "timestamp": "1751155200", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年7月6日 – 12日", "timestamp": "1751760000", "keyword": "Chicken Fries", "value": 63.0}, {"date": "2025年7月6日 – 12日", "timestamp": "1751760000", "keyword": "Burger King fries", "value": 13.0}, {"date": "2025年7月13日 – 19日", "timestamp": "1752364800", "keyword": "Chicken Fries", "value": 65.0}, {"date": "2025年7月13日 – 19日", "timestamp": "1752364800", "keyword": "Burger King fries", "value": 14.0}, {"date": "2025年7月20日 – 26日", "timestamp": "1752969600", "keyword": "Chicken Fries", "value": 66.0}, {"date": "2025年7月20日 – 26日", "timestamp": "1752969600", "keyword": "Burger King fries", "value": 14.0}, {"date": "2025年7月27日 – 8月2日", "timestamp": "1753574400", "keyword": "Chicken Fries", "value": 66.0}, {"date": "2025年7月27日 – 8月2日", "timestamp": "1753574400", "keyword": "Burger King fries", "value": 16.0}, {"date": "2025年8月3日 – 9日", "timestamp": "1754179200", "keyword": "Chicken Fries", "value": 58.0}, {"date": "2025年8月3日 – 9日", "timestamp": "1754179200", "keyword": "Burger King fries", "value": 14.0}, {"date": "2025年8月10日 – 16日", "timestamp": "1754784000", "keyword": "Chicken Fries", "value": 61.0}, {"date": "2025年8月10日 – 16日", "timestamp": "1754784000", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年8月17日 – 23日", "timestamp": "1755388800", "keyword": "Chicken Fries", "value": 60.0}, {"date": "2025年8月17日 – 23日", "timestamp": "1755388800", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年8月24日 – 30日", "timestamp": "1755993600", "keyword": "Chicken Fries", "value": 57.0}, {"date": "2025年8月24日 – 30日", "timestamp": "1755993600", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年8月31日 – 9月6日", "timestamp": "1756598400", "keyword": "Chicken Fries", "value": 59.0}, {"date": "2025年8月31日 – 9月6日", "timestamp": "1756598400", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年9月7日 – 13日", "timestamp": "1757203200", "keyword": "Chicken Fries", "value": 56.0}, {"date": "2025年9月7日 – 13日", "timestamp": "1757203200", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年9月14日 – 20日", "timestamp": "1757808000", "keyword": "Chicken Fries", "value": 57.0}, {"date": "2025年9月14日 – 20日", "timestamp": "1757808000", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年9月21日 – 27日", "timestamp": "1758412800", "keyword": "Chicken Fries", "value": 62.0}, {"date": "2025年9月21日 – 27日", "timestamp": "1758412800", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年9月28日 – 10月4日", "timestamp": "1759017600", "keyword": "Chicken Fries", "value": 69.0}, {"date": "2025年9月28日 – 10月4日", "timestamp": "1759017600", "keyword": "Burger King fries", "value": 13.0}, {"date": "2025年10月5日 – 11日", "timestamp": "1759622400", "keyword": "Chicken Fries", "value": 81.0}, {"date": "2025年10月5日 – 11日", "timestamp": "1759622400", "keyword": "Burger King fries", "value": 13.0}, {"date": "2025年10月12日 – 18日", "timestamp": "1760227200", "keyword": "Chicken Fries", "value": 96.0}, {"date": "2025年10月12日 – 18日", "timestamp": "1760227200", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年10月19日 – 25日", "timestamp": "1760832000", "keyword": "Chicken Fries", "value": 73.0}, {"date": "2025年10月19日 – 25日", "timestamp": "1760832000", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年10月26日 – 11月1日", "timestamp": "1761436800", "keyword": "Chicken Fries", "value": 59.0}, {"date": "2025年10月26日 – 11月1日", "timestamp": "1761436800", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年11月2日 – 8日", "timestamp": "1762041600", "keyword": "Chicken Fries", "value": 58.0}, {"date": "2025年11月2日 – 8日", "timestamp": "1762041600", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年11月9日 – 15日", "timestamp": "1762646400", "keyword": "Chicken Fries", "value": 62.0}, {"date": "2025年11月9日 – 15日", "timestamp": "1762646400", "keyword": "Burger King fries", "value": 11.0}, {"date": "2025年11月16日 – 22日", "timestamp": "1763251200", "keyword": "Chicken Fries", "value": 62.0}, {"date": "2025年11月16日 – 22日", "timestamp": "1763251200", "keyword": "Burger King fries", "value": 13.0}, {"date": "2025年11月23日 – 29日", "timestamp": "1763856000", "keyword": "Chicken Fries", "value": 52.0}, {"date": "2025年11月23日 – 29日", "timestamp": "1763856000", "keyword": "Burger King fries", "value": 10.0}, {"date": "2025年11月30日 – 12月6日", "timestamp": "1764460800", "keyword": "Chicken Fries", "value": 64.0}, {"date": "2025年11月30日 – 12月6日", "timestamp": "1764460800", "keyword": "Burger King fries", "value": 15.0}, {"date": "2025年12月7日 – 13日", "timestamp": "1765065600", "keyword": "Chicken Fries", "value": 63.0}, {"date": "2025年12月7日 – 13日", "timestamp": "1765065600", "keyword": "Burger King fries", "value": 14.0}, {"date": "2025年12月14日 – 20日", "timestamp": "1765670400", "keyword": "Chicken Fries", "value": 60.0}, {"date": "2025年12月14日 – 20日", "timestamp": "1765670400", "keyword": "Burger King fries", "value": 12.0}, {"date": "2025年12月21日 – 27日", "timestamp": "1766275200", "keyword": "Chicken Fries", "value": 54.0}, {"date": "2025年12月21日 – 27日", "timestamp": "1766275200", "keyword": "Burger King fries", "value": 10.0}, {"date": "2025年12月28日 – 2026年1月3日", "timestamp": "1766880000", "keyword": "Chicken Fries", "value": 69.0}, {"date": "2025年12月28日 – 2026年1月3日", "timestamp": "1766880000", "keyword": "Burger King fries", "value": 13.0}, {"date": "2026年1月4日 – 10日", "timestamp": "1767484800", "keyword": "Chicken Fries", "value": 70.0}, {"date": "2026年1月4日 – 10日", "timestamp": "1767484800", "keyword": "Burger King fries", "value": 12.0}, {"date": "2026年1月11日 – 17日", "timestamp": "1768089600", "keyword": "Chicken Fries", "value": 72.0}, {"date": "2026年1月11日 – 17日", "timestamp": "1768089600", "keyword": "Burger King fries", "value": 12.0}, {"date": "2026年1月18日 – 24日", "timestamp": "1768694400", "keyword": "Chicken Fries", "value": 70.0}, {"date": "2026年1月18日 – 24日", "timestamp": "1768694400", "keyword": "Burger King fries", "value": 12.0}, {"date": "2026年1月25日 – 31日", "timestamp": "1769299200", "keyword": "Chicken Fries", "value": 65.0}, {"date": "2026年1月25日 – 31日", "timestamp": "1769299200", "keyword": "Burger King fries", "value": 11.0}, {"date": "2026年2月1日 – 7日", "timestamp": "1769904000", "keyword": "Chicken Fries", "value": 75.0}, {"date": "2026年2月1日 – 7日", "timestamp": "1769904000", "keyword": "Burger King fries", "value": 11.0}, {"date": "2026年2月8日 – 14日", "timestamp": "1770508800", "keyword": "Chicken Fries", "value": 68.0}, {"date": "2026年2月8日 – 14日", "timestamp": "1770508800", "keyword": "Burger King fries", "value": 10.0}, {"date": "2026年2月15日 – 21日", "timestamp": "1771113600", "keyword": "Chicken Fries", "value": 69.0}, {"date": "2026年2月15日 – 21日", "timestamp": "1771113600", "keyword": "Burger King fries", "value": 11.0}, {"date": "2026年2月22日 – 28日", "timestamp": "1771718400", "keyword": "Chicken Fries", "value": 72.0}, {"date": "2026年2月22日 – 28日", "timestamp": "1771718400", "keyword": "Burger King fries", "value": 12.0}, {"date": "2026年3月1日 – 7日", "timestamp": "1772323200", "keyword": "Chicken Fries", "value": 74.0}, {"date": "2026年3月1日 – 7日", "timestamp": "1772323200", "keyword": "Burger King fries", "value": 15.0}, {"date": "2026年3月8日 – 14日", "timestamp": "1772928000", "keyword": "Chicken Fries", "value": 79.0}, {"date": "2026年3月8日 – 14日", "timestamp": "1772928000", "keyword": "Burger King fries", "value": 18.0}, {"date": "2026年3月15日 – 21日", "timestamp": "1773532800", "keyword": "Chicken Fries", "value": 74.0}, {"date": "2026年3月15日 – 21日", "timestamp": "1773532800", "keyword": "Burger King fries", "value": 15.0}, {"date": "2026年3月22日 – 28日", "timestamp": "1774137600", "keyword": "Chicken Fries", "value": 76.0}, {"date": "2026年3月22日 – 28日", "timestamp": "1774137600", "keyword": "Burger King fries", "value": 16.0}, {"date": "2026年3月29日 – 4月4日", "timestamp": "1774742400", "keyword": "Chicken Fries", "value": 70.0}, {"date": "2026年3月29日 – 4月4日", "timestamp": "1774742400", "keyword": "Burger King fries", "value": 15.0}, {"date": "2026年4月5日 – 11日", "timestamp": "1775347200", "keyword": "Chicken Fries", "value": 74.0}, {"date": "2026年4月5日 – 11日", "timestamp": "1775347200", "keyword": "Burger King fries", "value": 14.0}, {"date": "2026年4月12日 – 18日", "timestamp": "1775952000", "keyword": "Chicken Fries", "value": 100.0}, {"date": "2026年4月12日 – 18日", "timestamp": "1775952000", "keyword": "Burger King fries", "value": 13.0}, {"date": "2026年4月19日 – 25日", "timestamp": "1776556800", "keyword": "Chicken Fries", "value": 81.0}, {"date": "2026年4月19日 – 25日", "timestamp": "1776556800", "keyword": "Burger King fries", "value": 16.0}, {"date": "2026年4月26日 – 5月2日", "timestamp": "1777161600", "keyword": "Chicken Fries", "value": 79.0}, {"date": "2026年4月26日 – 5月2日", "timestamp": "1777161600", "keyword": "Burger King fries", "value": 14.0}, {"date": "2026年5月3日 – 9日", "timestamp": "1777766400", "keyword": "Chicken Fries", "value": 79.0}, {"date": "2026年5月3日 – 9日", "timestamp": "1777766400", "keyword": "Burger King fries", "value": 17.0}, {"date": "2026年5月10日 – 16日", "timestamp": "1778371200", "keyword": "Chicken Fries", "value": 81.0}, {"date": "2026年5月10日 – 16日", "timestamp": "1778371200", "keyword": "Burger King fries", "value": 14.0}, {"date": "2026年5月17日 – 23日", "timestamp": "1778976000", "keyword": "Chicken Fries", "value": 79.0}, {"date": "2026年5月17日 – 23日", "timestamp": "1778976000", "keyword": "Burger King fries", "value": 15.0}, {"date": "2026年5月24日 – 30日", "timestamp": "1779580800", "keyword": "Chicken Fries", "value": 82.0}, {"date": "2026年5月24日 – 30日", "timestamp": "1779580800", "keyword": "Burger King fries", "value": 16.0}, {"date": "2026年5月31日 – 6月6日", "timestamp": "1780185600", "keyword": "Chicken Fries", "value": 81.0}, {"date": "2026年5月31日 – 6月6日", "timestamp": "1780185600", "keyword": "Burger King fries", "value": 16.0}, {"date": "2026年6月7日 – 13日", "timestamp": "1780790400", "keyword": "Chicken Fries", "value": 79.0}, {"date": "2026年6月7日 – 13日", "timestamp": "1780790400", "keyword": "Burger King fries", "value": 15.0}, {"date": "2026年6月14日 – 20日", "timestamp": "1781395200", "keyword": "Chicken Fries", "value": 75.0}, {"date": "2026年6月14日 – 20日", "timestamp": "1781395200", "keyword": "Burger King fries", "value": 13.0}, {"date": "2026年6月21日 – 27日", "timestamp": "1782000000", "keyword": "Chicken Fries", "value": 76.0}, {"date": "2026年6月21日 – 27日", "timestamp": "1782000000", "keyword": "Burger King fries", "value": 12.0}, {"date": "2026年6月28日 – 7月4日", "timestamp": "1782604800", "keyword": "Chicken Fries", "value": 71.0}, {"date": "2026年6月28日 – 7月4日", "timestamp": "1782604800", "keyword": "Burger King fries", "value": 12.0}];
+    const relatedRows = [{"source_keyword": "Chicken Fries", "query": "zab's chicken ranch nacho fries", "type": "rising", "value": "飙升", "extracted_value": 58200.0}, {"source_keyword": "Chicken Fries", "query": "who owns bowflex", "type": "rising", "value": "飙升", "extracted_value": 15900.0}, {"source_keyword": "Chicken Fries", "query": "rays chicken and fries", "type": "rising", "value": "飙升", "extracted_value": 6950.0}, {"source_keyword": "Chicken Fries", "query": "mcdonald's 10 piece chicken nuggets price", "type": "rising", "value": "+4,300%", "extracted_value": 4300.0}, {"source_keyword": "Chicken Fries", "query": "current s", "type": "rising", "value": "+550%", "extracted_value": 550.0}, {"source_keyword": "Chicken Fries", "query": "tyson cheesy chicken fries", "type": "rising", "value": "+400%", "extracted_value": 400.0}, {"source_keyword": "Chicken Fries", "query": "chicken nuggets and fries", "type": "rising", "value": "+70%", "extracted_value": 70.0}, {"source_keyword": "Chicken Fries", "query": "chicken and fries", "type": "top", "value": "100", "extracted_value": 100.0}, {"source_keyword": "Chicken Fries", "query": "fries calories", "type": "top", "value": "58", "extracted_value": 58.0}, {"source_keyword": "Chicken Fries", "query": "chicken fries calories", "type": "top", "value": "57", "extracted_value": 57.0}, {"source_keyword": "Chicken Fries", "query": "french fries", "type": "top", "value": "35", "extracted_value": 35.0}, {"source_keyword": "Chicken Fries", "query": "chicken nuggets", "type": "top", "value": "32", "extracted_value": 32.0}, {"source_keyword": "Chicken Fries", "query": "burger", "type": "top", "value": "30", "extracted_value": 30.0}, {"source_keyword": "Chicken Fries", "query": "chicken sandwich", "type": "top", "value": "30", "extracted_value": 30.0}, {"source_keyword": "Chicken Fries", "query": "chicken tenders", "type": "top", "value": "22", "extracted_value": 22.0}, {"source_keyword": "Chicken Fries", "query": "chicken fries burger king", "type": "top", "value": "22", "extracted_value": 22.0}, {"source_keyword": "Chicken Fries", "query": "burger king fries", "type": "top", "value": "22", "extracted_value": 22.0}, {"source_keyword": "Chicken Fries", "query": "burger king", "type": "top", "value": "21", "extracted_value": 21.0}, {"source_keyword": "Chicken Fries", "query": "fried chicken", "type": "top", "value": "20", "extracted_value": 20.0}, {"source_keyword": "Chicken Fries", "query": "hot fries", "type": "top", "value": "20", "extracted_value": 20.0}, {"source_keyword": "Chicken Fries", "query": "cheese fries", "type": "top", "value": "19", "extracted_value": 19.0}, {"source_keyword": "Chicken Fries", "query": "mcdonald's", "type": "top", "value": "19", "extracted_value": 19.0}, {"source_keyword": "Chicken Fries", "query": "mcdonald's fries", "type": "top", "value": "19", "extracted_value": 19.0}, {"source_keyword": "Chicken Fries", "query": "chicken near me", "type": "top", "value": "15", "extracted_value": 15.0}, {"source_keyword": "Chicken Fries", "query": "chicken fries near me", "type": "top", "value": "15", "extracted_value": 15.0}, {"source_keyword": "Chicken Fries", "query": "fries near me", "type": "top", "value": "14", "extracted_value": 14.0}, {"source_keyword": "Chicken Fries", "query": "chick fil a fries", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Chicken Fries", "query": "chicken nuggets and fries", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Chicken Fries", "query": "chicken fries air fryer", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Chicken Fries", "query": "air fryer fries", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Chicken Fries", "query": "chick fil a", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Chicken Fries", "query": "chicken wings", "type": "top", "value": "12", "extracted_value": 12.0}, {"source_keyword": "Burger King fries", "query": "burger king spongebob meal", "type": "rising", "value": "飙升", "extracted_value": 30200.0}, {"source_keyword": "Burger King fries", "query": "loaded fries near me", "type": "rising", "value": "+300%", "extracted_value": 300.0}, {"source_keyword": "Burger King fries", "query": "did burger king get rid of chicken fries", "type": "rising", "value": "+300%", "extracted_value": 300.0}, {"source_keyword": "Burger King fries", "query": "did burger king change their fries", "type": "rising", "value": "+190%", "extracted_value": 190.0}, {"source_keyword": "Burger King fries", "query": "burger king large fries price", "type": "rising", "value": "+180%", "extracted_value": 180.0}, {"source_keyword": "Burger King fries", "query": "burger king kids meal", "type": "rising", "value": "+140%", "extracted_value": 140.0}, {"source_keyword": "Burger King fries", "query": "new burger king fries", "type": "rising", "value": "+130%", "extracted_value": 130.0}, {"source_keyword": "Burger King fries", "query": "burger king fries price", "type": "rising", "value": "+80%", "extracted_value": 80.0}, {"source_keyword": "Burger King fries", "query": "burger and fries", "type": "rising", "value": "+70%", "extracted_value": 70.0}, {"source_keyword": "Burger King fries", "query": "burger king large fries", "type": "rising", "value": "+40%", "extracted_value": 40.0}, {"source_keyword": "Burger King fries", "query": "burger king nutrition", "type": "rising", "value": "+40%", "extracted_value": 40.0}, {"source_keyword": "Burger King fries", "query": "burger king fries nutrition", "type": "rising", "value": "+40%", "extracted_value": 40.0}, {"source_keyword": "Burger King fries", "query": "burger king chicken fries", "type": "top", "value": "100", "extracted_value": 100.0}, {"source_keyword": "Burger King fries", "query": "chicken", "type": "top", "value": "96", "extracted_value": 96.0}, {"source_keyword": "Burger King fries", "query": "chicken fries", "type": "top", "value": "96", "extracted_value": 96.0}, {"source_keyword": "Burger King fries", "query": "burger king fries calories", "type": "top", "value": "55", "extracted_value": 55.0}, {"source_keyword": "Burger King fries", "query": "burger king calories", "type": "top", "value": "51", "extracted_value": 51.0}, {"source_keyword": "Burger King fries", "query": "burger and fries", "type": "top", "value": "30", "extracted_value": 30.0}, {"source_keyword": "Burger King fries", "query": "burger king whopper", "type": "top", "value": "23", "extracted_value": 23.0}, {"source_keyword": "Burger King fries", "query": "whopper", "type": "top", "value": "23", "extracted_value": 23.0}, {"source_keyword": "Burger King fries", "query": "burger king chicken fries calories", "type": "top", "value": "22", "extracted_value": 22.0}, {"source_keyword": "Burger King fries", "query": "chicken fries calories", "type": "top", "value": "22", "extracted_value": 22.0}, {"source_keyword": "Burger King fries", "query": "calories in burger king fries", "type": "top", "value": "20", "extracted_value": 20.0}, {"source_keyword": "Burger King fries", "query": "burger king french fries", "type": "top", "value": "18", "extracted_value": 18.0}, {"source_keyword": "Burger King fries", "query": "french fries", "type": "top", "value": "18", "extracted_value": 18.0}, {"source_keyword": "Burger King fries", "query": "burger king menu", "type": "top", "value": "18", "extracted_value": 18.0}, {"source_keyword": "Burger King fries", "query": "burger king large fries", "type": "top", "value": "15", "extracted_value": 15.0}, {"source_keyword": "Burger King fries", "query": "burger king small fries", "type": "top", "value": "15", "extracted_value": 15.0}, {"source_keyword": "Burger King fries", "query": "burger king nutrition", "type": "top", "value": "14", "extracted_value": 14.0}, {"source_keyword": "Burger King fries", "query": "burger king fries nutrition", "type": "top", "value": "14", "extracted_value": 14.0}, {"source_keyword": "Burger King fries", "query": "burger king cheese fries", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Burger King fries", "query": "burger king whopper calories", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Burger King fries", "query": "whopper calories burger king", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Burger King fries", "query": "whopper calories", "type": "top", "value": "13", "extracted_value": 13.0}, {"source_keyword": "Burger King fries", "query": "burger king free fries", "type": "top", "value": "12", "extracted_value": 12.0}, {"source_keyword": "Burger King fries", "query": "mcdonald's", "type": "top", "value": "12", "extracted_value": 12.0}, {"source_keyword": "Burger King fries", "query": "mcdonald's fries", "type": "top", "value": "12", "extracted_value": 12.0}];
+    const geoRows = [{"location": "密西西比州", "keyword": "", "value": "100", "extracted_value": 100.0}, {"location": "亚拉巴马州", "keyword": "", "value": "97", "extracted_value": 97.0}, {"location": "特拉华", "keyword": "", "value": "96", "extracted_value": 96.0}, {"location": "肯塔基州", "keyword": "", "value": "91", "extracted_value": 91.0}, {"location": "西弗吉尼亚州", "keyword": "", "value": "89", "extracted_value": 89.0}, {"location": "路易斯安那州", "keyword": "", "value": "89", "extracted_value": 89.0}, {"location": "南卡罗来纳州", "keyword": "", "value": "88", "extracted_value": 88.0}, {"location": "宾夕法尼亚州", "keyword": "", "value": "87", "extracted_value": 87.0}, {"location": "内华达", "keyword": "", "value": "86", "extracted_value": 86.0}, {"location": "纽约州", "keyword": "", "value": "86", "extracted_value": 86.0}, {"location": "俄克拉何马", "keyword": "", "value": "85", "extracted_value": 85.0}, {"location": "伊利诺伊州", "keyword": "", "value": "85", "extracted_value": 85.0}, {"location": "乔治亚州", "keyword": "", "value": "84", "extracted_value": 84.0}, {"location": "阿肯色州", "keyword": "", "value": "84", "extracted_value": 84.0}, {"location": "北卡罗来纳州", "keyword": "", "value": "83", "extracted_value": 83.0}, {"location": "田纳西州", "keyword": "", "value": "82", "extracted_value": 82.0}, {"location": "密苏里州", "keyword": "", "value": "82", "extracted_value": 82.0}, {"location": "怀俄明州", "keyword": "", "value": "81", "extracted_value": 81.0}, {"location": "新泽西州", "keyword": "", "value": "81", "extracted_value": 81.0}, {"location": "德克萨斯州", "keyword": "", "value": "81", "extracted_value": 81.0}, {"location": "印第安纳州", "keyword": "", "value": "79", "extracted_value": 79.0}, {"location": "加利福尼亚州", "keyword": "", "value": "78", "extracted_value": 78.0}, {"location": "佛罗里达", "keyword": "", "value": "78", "extracted_value": 78.0}, {"location": "马里兰州", "keyword": "", "value": "77", "extracted_value": 77.0}, {"location": "弗吉尼亚州", "keyword": "", "value": "75", "extracted_value": 75.0}, {"location": "罗得岛州", "keyword": "", "value": "74", "extracted_value": 74.0}, {"location": "堪萨斯", "keyword": "", "value": "73", "extracted_value": 73.0}, {"location": "康涅狄格", "keyword": "", "value": "73", "extracted_value": 73.0}, {"location": "内布拉斯加州", "keyword": "", "value": "72", "extracted_value": 72.0}, {"location": "密歇根州", "keyword": "", "value": "72", "extracted_value": 72.0}, {"location": "佛蒙特州", "keyword": "", "value": "71", "extracted_value": 71.0}, {"location": "俄亥俄州", "keyword": "", "value": "70", "extracted_value": 70.0}, {"location": "威斯康星", "keyword": "", "value": "69", "extracted_value": 69.0}, {"location": "新罕布什尔州", "keyword": "", "value": "69", "extracted_value": 69.0}, {"location": "哥伦比亚区", "keyword": "", "value": "68", "extracted_value": 68.0}, {"location": "北达科他州", "keyword": "", "value": "68", "extracted_value": 68.0}, {"location": "爱荷华", "keyword": "", "value": "67", "extracted_value": 67.0}, {"location": "南达科他州", "keyword": "", "value": "67", "extracted_value": 67.0}, {"location": "亚利桑那州", "keyword": "", "value": "66", "extracted_value": 66.0}, {"location": "麻萨诸塞州", "keyword": "", "value": "66", "extracted_value": 66.0}, {"location": "明尼苏达州", "keyword": "", "value": "65", "extracted_value": 65.0}, {"location": "新墨西哥州", "keyword": "", "value": "65", "extracted_value": 65.0}, {"location": "犹他州", "keyword": "", "value": "63", "extracted_value": 63.0}, {"location": "阿拉斯加州", "keyword": "", "value": "62", "extracted_value": 62.0}, {"location": "爱达荷州", "keyword": "", "value": "60", "extracted_value": 60.0}, {"location": "科罗拉多州", "keyword": "", "value": "59", "extracted_value": 59.0}, {"location": "蒙大纳", "keyword": "", "value": "56", "extracted_value": 56.0}, {"location": "夏威夷", "keyword": "", "value": "56", "extracted_value": 56.0}, {"location": "缅因州", "keyword": "", "value": "55", "extracted_value": 55.0}, {"location": "华盛顿", "keyword": "", "value": "54", "extracted_value": 54.0}, {"location": "俄勒冈州", "keyword": "", "value": "53", "extracted_value": 53.0}];
+    const monthlyRows = [{"month": "2025-06", "keyword": "Burger King fries", "avg_value": 12.0, "max_value": 12.0, "points": 1}, {"month": "2025-06", "keyword": "Chicken Fries", "avg_value": 54.0, "max_value": 54.0, "points": 1}, {"month": "2025-07", "keyword": "Burger King fries", "avg_value": 14.25, "max_value": 16.0, "points": 4}, {"month": "2025-07", "keyword": "Chicken Fries", "avg_value": 65.0, "max_value": 66.0, "points": 4}, {"month": "2025-08", "keyword": "Burger King fries", "avg_value": 12.0, "max_value": 14.0, "points": 5}, {"month": "2025-08", "keyword": "Chicken Fries", "avg_value": 59.0, "max_value": 61.0, "points": 5}, {"month": "2025-09", "keyword": "Burger King fries", "avg_value": 11.75, "max_value": 13.0, "points": 4}, {"month": "2025-09", "keyword": "Chicken Fries", "avg_value": 61.0, "max_value": 69.0, "points": 4}, {"month": "2025-10", "keyword": "Burger King fries", "avg_value": 11.5, "max_value": 13.0, "points": 4}, {"month": "2025-10", "keyword": "Chicken Fries", "avg_value": 77.25, "max_value": 96.0, "points": 4}, {"month": "2025-11", "keyword": "Burger King fries", "avg_value": 12.2, "max_value": 15.0, "points": 5}, {"month": "2025-11", "keyword": "Chicken Fries", "avg_value": 59.6, "max_value": 64.0, "points": 5}, {"month": "2025-12", "keyword": "Burger King fries", "avg_value": 12.25, "max_value": 14.0, "points": 4}, {"month": "2025-12", "keyword": "Chicken Fries", "avg_value": 61.5, "max_value": 69.0, "points": 4}, {"month": "2026-01", "keyword": "Burger King fries", "avg_value": 11.75, "max_value": 12.0, "points": 4}, {"month": "2026-01", "keyword": "Chicken Fries", "avg_value": 69.25, "max_value": 72.0, "points": 4}, {"month": "2026-02", "keyword": "Burger King fries", "avg_value": 11.0, "max_value": 12.0, "points": 4}, {"month": "2026-02", "keyword": "Chicken Fries", "avg_value": 71.0, "max_value": 75.0, "points": 4}, {"month": "2026-03", "keyword": "Burger King fries", "avg_value": 15.8, "max_value": 18.0, "points": 5}, {"month": "2026-03", "keyword": "Chicken Fries", "avg_value": 74.6, "max_value": 79.0, "points": 5}, {"month": "2026-04", "keyword": "Burger King fries", "avg_value": 14.25, "max_value": 16.0, "points": 4}, {"month": "2026-04", "keyword": "Chicken Fries", "avg_value": 83.5, "max_value": 100.0, "points": 4}, {"month": "2026-05", "keyword": "Burger King fries", "avg_value": 15.6, "max_value": 17.0, "points": 5}, {"month": "2026-05", "keyword": "Chicken Fries", "avg_value": 80.4, "max_value": 82.0, "points": 5}, {"month": "2026-06", "keyword": "Burger King fries", "avg_value": 13.0, "max_value": 15.0, "points": 4}, {"month": "2026-06", "keyword": "Chicken Fries", "avg_value": 75.25, "max_value": 79.0, "points": 4}];
+    const colors = ["#4285F4", "#DB4437", "#F4B400", "#0F9D58", "#AB47BC"];
+
+    function grouped(rows, key) {
+      return rows.reduce((acc, row) => {
+        const k = row[key] || "";
+        if (!acc[k]) acc[k] = [];
+        acc[k].push(row);
+        return acc;
+      }, {});
+    }
+
+    function renderInterest() {
+      const byKeyword = grouped(interestRows, "keyword");
+      const traces = Object.entries(byKeyword).map(([keyword, rows], idx) => ({
+        x: rows.map(r => r.date || r.timestamp),
+        y: rows.map(r => r.value),
+        mode: "lines",
+        name: keyword,
+        line: { width: 3, color: colors[idx % colors.length] },
+        hovertemplate: "%{x}<br>" + keyword + ": %{y}<extra></extra>"
+      }));
+      Plotly.newPlot("interestChart", traces, {
+        margin: { l: 48, r: 20, t: 18, b: 42 },
+        yaxis: { range: [0, 100], title: "Search interest" },
+        xaxis: { title: "" },
+        legend: { orientation: "h" },
+        paper_bgcolor: "white",
+        plot_bgcolor: "white"
+      }, { responsive: true, displaylogo: false });
+    }
+
+    function renderMonthly() {
+      const byKeyword = grouped(monthlyRows, "keyword");
+      const traces = Object.entries(byKeyword).map(([keyword, rows], idx) => ({
+        x: rows.map(r => r.month),
+        y: rows.map(r => r.avg_value),
+        type: "bar",
+        name: keyword,
+        marker: { color: colors[idx % colors.length] },
+        hovertemplate: "%{x}<br>" + keyword + ": %{y}<extra></extra>"
+      }));
+      Plotly.newPlot("monthlyChart", traces, {
+        barmode: "group",
+        margin: { l: 48, r: 20, t: 18, b: 42 },
+        yaxis: { range: [0, 100], title: "Monthly avg" },
+        paper_bgcolor: "white",
+        plot_bgcolor: "white"
+      }, { responsive: true, displaylogo: false });
+    }
+
+    function renderRelated() {
+      const rows = relatedRows.filter(r => typeof r.extracted_value === "number").slice(0, 20);
+      const y = rows.map(r => r.query).reverse();
+      const x = rows.map(r => r.extracted_value).reverse();
+      const text = rows.map(r => r.source_keyword).reverse();
+      Plotly.newPlot("relatedChart", [{
+        x, y, text,
+        type: "bar",
+        orientation: "h",
+        marker: { color: "#4285F4" },
+        hovertemplate: "%{y}<br>Value: %{x}<br>%{text}<extra></extra>"
+      }], {
+        margin: { l: 180, r: 20, t: 18, b: 42 },
+        xaxis: { title: "Relative value / growth" },
+        paper_bgcolor: "white",
+        plot_bgcolor: "white"
+      }, { responsive: true, displaylogo: false });
+    }
+
+    function renderGeo() {
+      const rows = geoRows.filter(r => typeof r.extracted_value === "number").slice(0, 20);
+      Plotly.newPlot("geoChart", [{
+        x: rows.map(r => r.extracted_value),
+        y: rows.map(r => r.location).reverse(),
+        type: "bar",
+        orientation: "h",
+        marker: { color: "#0F9D58" },
+        hovertemplate: "%{y}<br>Value: %{x}<extra></extra>"
+      }], {
+        margin: { l: 160, r: 20, t: 18, b: 42 },
+        xaxis: { range: [0, 100], title: "Regional interest" },
+        paper_bgcolor: "white",
+        plot_bgcolor: "white"
+      }, { responsive: true, displaylogo: false });
+    }
+
+    if (interestRows.length) renderInterest(); else document.getElementById("interestChart").innerHTML = '<div class="empty">暂无热度随时间变化数据。</div>';
+    if (monthlyRows.length) renderMonthly(); else document.getElementById("monthlyChart").innerHTML = '<div class="empty">暂无月度趋势数据。</div>';
+    if (relatedRows.length) renderRelated(); else document.getElementById("relatedChart").innerHTML = '<div class="empty">暂无相关查询图表数据。</div>';
+    if (geoRows.length) renderGeo(); else document.getElementById("geoChart").innerHTML = '<div class="empty">暂无地域热度数据。</div>';
+  </script>
+</body>
+</html>

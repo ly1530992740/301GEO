@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "reason": "No module named 'playwright'",
+  "note": "未安装 Python Playwright 或浏览器时会跳过自动 PDF。可直接打开 trend_report.html 后使用浏览器打印为 PDF。"
+}

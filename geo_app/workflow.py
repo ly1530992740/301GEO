@@ -13,6 +13,7 @@ from .platform_matcher import PlatformMatcher
 from .qwen_client import QwenClient
 from .serpapi_client import SerpApiClient
 from .storage import Storage
+from .trend_report_renderer import render_trend_outputs
 from .trend_analyzer import (
     build_candidate_keywords,
     build_market_queries,
@@ -118,7 +119,7 @@ def run_trend_analysis(
 
     seed_keyword = task["keyword"]
     if progress:
-        progress("??? Qwen ?????????")
+        progress("正在用 Qwen 生成目标市场搜索词")
     query_plan = _safe_qwen_query_plan(
         qwen=qwen,
         city=city,
@@ -137,7 +138,7 @@ def run_trend_analysis(
     search_raw: list[dict[str, Any]] = []
     for idx, query in enumerate(queries, start=1):
         if progress:
-            progress(f"SerpApi Search {idx}/{len(queries)}?{query}")
+            progress(f"SerpApi Search {idx}/{len(queries)}：{query}")
         raw = serpapi.google_search(query=query, location="", num=10)
         search_raw.append({"query": query, "raw": raw})
         search_summaries.append(summarize_search_result(query, raw))
@@ -154,7 +155,7 @@ def run_trend_analysis(
         trend_keywords = [seed_keyword]
 
     if progress:
-        progress(f"Google Trends ?????{', '.join(trend_keywords)}")
+        progress(f"Google Trends 时间序列：{', '.join(trend_keywords)}")
     timeseries_raw = _safe_serpapi_call(
         lambda: serpapi.trends_timeseries(trend_keywords, date=trend_date),
         "timeseries",
@@ -166,7 +167,7 @@ def run_trend_analysis(
     related_queries: dict[str, Any] = {}
     for idx, keyword in enumerate(trend_keywords, start=1):
         if progress:
-            progress(f"Google Trends ????? {idx}/{len(trend_keywords)}?{keyword}")
+            progress(f"Google Trends 相关查询 {idx}/{len(trend_keywords)}：{keyword}")
         raw = _safe_serpapi_call(
             lambda keyword=keyword: serpapi.trends_related_queries(keyword, date=trend_date),
             f"related_queries:{keyword}",
@@ -174,7 +175,7 @@ def run_trend_analysis(
         related_queries[keyword] = raw if "error" in raw else extract_related_queries(raw)
 
     if progress:
-        progress(f"Google Trends ?????{seed_keyword}")
+        progress(f"Google Trends 地域热度：{seed_keyword}")
     geo_map_raw = _safe_serpapi_call(
         lambda: serpapi.trends_geo_map(seed_keyword, date=trend_date),
         "geo_map",
@@ -202,7 +203,7 @@ def run_trend_analysis(
     }
 
     if progress:
-        progress("????????????")
+        progress("正在生成客户趋势分析报告")
     report_md = qwen.generate_trend_report(
         city=city,
         industry=industry,
@@ -216,11 +217,22 @@ def run_trend_analysis(
     data_path = trend_dir / "trend_data.json"
     csv_path = trend_dir / "keyword_scores.csv"
     write_text(report_path, report_md)
+    full_data = {**analysis_data, "search_raw": search_raw, "timeseries_raw": timeseries_raw}
     write_text(
         data_path,
-        json.dumps({**analysis_data, "search_raw": search_raw, "timeseries_raw": timeseries_raw}, ensure_ascii=False, indent=2),
+        json.dumps(full_data, ensure_ascii=False, indent=2),
     )
     write_text(csv_path, _keyword_scores_csv(keyword_scores))
+    if progress:
+        progress("正在生成 Google Trends 可视化 HTML、CSV 和可选 PDF")
+    trend_outputs = render_trend_outputs(
+        trend_dir=trend_dir,
+        analysis_data=analysis_data,
+        timeseries_raw=timeseries_raw,
+        report_md=report_md,
+    )
+    full_data["trend_outputs"] = trend_outputs
+    write_text(data_path, json.dumps(full_data, ensure_ascii=False, indent=2))
     storage.add_trend_report(
         {
             "task_id": task["id"],
@@ -228,7 +240,7 @@ def run_trend_analysis(
             "industry": industry,
             "seed_keyword": seed_keyword,
             "report_md": report_md,
-            "raw_json": analysis_data,
+            "raw_json": full_data,
             "file_path": str(report_path),
         }
     )
@@ -239,6 +251,7 @@ def run_trend_analysis(
         "report_path": str(report_path),
         "data_path": str(data_path),
         "csv_path": str(csv_path),
+        **trend_outputs,
         "keyword_scores": keyword_scores,
         "report_md": report_md,
     }
