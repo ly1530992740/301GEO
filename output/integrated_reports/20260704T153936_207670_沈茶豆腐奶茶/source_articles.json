@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://www.taobao.com/item.htm?id=682134567890",
+    "domain": "taobao.com",
+    "trend_term": "bubble tea delivery",
+    "label": "茶颜悦色",
+    "source_type": "citation",
+    "text_excerpt": "淘宝网 - 淘！我喜欢\n淘宝网\n抱歉！页面无法访问……\n可能因为：\n网址有错误\n>\n请检查地址是否完整或存在多余字符\n网址已失效\n>\n可能页面已删除，活动已下线等\n或者逛逛：\n淘宝首页\n|\n我的淘宝\n|\n搜宝贝/店铺\n哎呀，页面走丢啦！\n去购物车看看加购的宝贝吧～\n去购物车\n（3s）\n反馈\n打开淘宝App\n大牌试用，每日爆款更多福利等你来\n现在打开\n下次再说",
+    "error": ""
+  },
+  {
+    "url": "https://detail.1688.com/offer/72134567890.html",
+    "domain": "detail.1688.com",
+    "trend_term": "bubble tea delivery",
+    "label": "西域皇后",
+    "source_type": "citation",
+    "text_excerpt": "",
+    "error": ""
+  },
+  {
+    "url": "https://detail.1688.com/offer/72134567891.html",
+    "domain": "detail.1688.com",
+    "trend_term": "bubble tea delivery",
+    "label": "白音杭盖",
+    "source_type": "citation",
+    "text_excerpt": "",
+    "error": ""
+  }
+]

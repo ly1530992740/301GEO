@@ -1,0 +1,611 @@
+{
+  "topics": [
+    {
+      "topic": "品类覆盖",
+      "count": 50
+    },
+    {
+      "topic": "适配/兼容",
+      "count": 37
+    },
+    {
+      "topic": "品质/OEM",
+      "count": 30
+    },
+    {
+      "topic": "物流/退换",
+      "count": 23
+    },
+    {
+      "topic": "信任/评价",
+      "count": 22
+    },
+    {
+      "topic": "价格/性价比",
+      "count": 11
+    },
+    {
+      "topic": "安装/DIY",
+      "count": 9
+    },
+    {
+      "topic": "综合推荐",
+      "count": 3
+    }
+  ],
+  "brand_topic_matrix": [
+    {
+      "brand": "A-Premium",
+      "topic": "品类覆盖",
+      "count": 10
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "品质/OEM",
+      "count": 9
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "物流/退换",
+      "count": 9
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "适配/兼容",
+      "count": 9
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "信任/评价",
+      "count": 6
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "安装/DIY",
+      "count": 6
+    },
+    {
+      "brand": "CarParts.com",
+      "topic": "品类覆盖",
+      "count": 4
+    },
+    {
+      "brand": "CarParts.com",
+      "topic": "适配/兼容",
+      "count": 4
+    },
+    {
+      "brand": "RockAuto",
+      "topic": "品类覆盖",
+      "count": 4
+    },
+    {
+      "brand": "RockAuto",
+      "topic": "适配/兼容",
+      "count": 4
+    },
+    {
+      "brand": "Amazon",
+      "topic": "品类覆盖",
+      "count": 3
+    },
+    {
+      "brand": "Amazon",
+      "topic": "价格/性价比",
+      "count": 2
+    },
+    {
+      "brand": "Amazon",
+      "topic": "适配/兼容",
+      "count": 2
+    },
+    {
+      "brand": "CarParts.com",
+      "topic": "品质/OEM",
+      "count": 2
+    },
+    {
+      "brand": "CarParts.com",
+      "topic": "物流/退换",
+      "count": 2
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "信任/评价",
+      "count": 2
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "品类覆盖",
+      "count": 2
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "适配/兼容",
+      "count": 2
+    },
+    {
+      "brand": "O'Reilly Auto Parts",
+      "topic": "品类覆盖",
+      "count": 2
+    },
+    {
+      "brand": "O'Reilly Auto Parts",
+      "topic": "物流/退换",
+      "count": 2
+    },
+    {
+      "brand": "Quantum Auto Parts",
+      "topic": "品类覆盖",
+      "count": 2
+    },
+    {
+      "brand": "Quantum Auto Parts",
+      "topic": "品质/OEM",
+      "count": 2
+    },
+    {
+      "brand": "RockAuto",
+      "topic": "信任/评价",
+      "count": 2
+    },
+    {
+      "brand": "A-Premium",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "Advance Auto Parts",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Advance Auto Parts",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "Amazon",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "Amazon",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "Amazon",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "AutoZone",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "AutoZone",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "AutoZone",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "Autodoc",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "Autodoc",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Autodoc",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "BuyAutoParts.com",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "BuyAutoParts.com",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "BuyBrakes.com",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "BuyBrakes.com",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "CARQUEST",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "CARQUEST",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "CARQUEST",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "CARQUEST",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "CARiD",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "CARiD",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "CarParts.com",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "Centric",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "Centric",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "Centric",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Centric",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "Detroit Axle",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Detroit Axle",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "Euro Car Parts",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Euro Car Parts",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "FCP Euro",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "FCP Euro",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "FCP Euro",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "FCP Euro",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "Fastrack Car Parts",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "Fastrack Car Parts",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "Fastrack Car Parts",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "KSP Performance",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "KSP Performance",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "KSP Performance",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "LKQ Euro Car Parts",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "LKQ Euro Car Parts",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "MOOG",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "MOOG",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "安装/DIY",
+      "count": 1
+    },
+    {
+      "brand": "NAPA Auto Parts",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "O'Reilly Auto Parts",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "O'Reilly Auto Parts",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "O'Reilly Auto Parts",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "PartsGeek",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "PartsGeek",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "PartsGeek",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "PartsGeek",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "PowerStop",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "PowerStop",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "Quantum Auto Parts",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "RockAuto",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "RockAuto",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "Summit Racing",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "Summit Racing",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "USAutoPartsCar.com",
+      "topic": "价格/性价比",
+      "count": 1
+    },
+    {
+      "brand": "USAutoPartsCar.com",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "USAutoPartsCar.com",
+      "topic": "品质/OEM",
+      "count": 1
+    },
+    {
+      "brand": "USAutoPartsCar.com",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "USAutoPartsCar.com",
+      "topic": "适配/兼容",
+      "count": 1
+    },
+    {
+      "brand": "eBay",
+      "topic": "信任/评价",
+      "count": 1
+    },
+    {
+      "brand": "eBay",
+      "topic": "品类覆盖",
+      "count": 1
+    },
+    {
+      "brand": "eBay",
+      "topic": "物流/退换",
+      "count": 1
+    },
+    {
+      "brand": "eBay",
+      "topic": "适配/兼容",
+      "count": 1
+    }
+  ],
+  "topic_rules": [
+    {
+      "topic": "价格/性价比",
+      "keywords": [
+        "price",
+        "cost",
+        "discount",
+        "affordable",
+        "value",
+        "cheap",
+        "deal",
+        "性价比",
+        "价格",
+        "折扣"
+      ]
+    },
+    {
+      "topic": "品质/OEM",
+      "keywords": [
+        "quality",
+        "oem",
+        "oe",
+        "reliable",
+        "durable",
+        "warranty",
+        "specification",
+        "品质",
+        "质保",
+        "耐用"
+      ]
+    },
+    {
+      "topic": "适配/兼容",
+      "keywords": [
+        "fit",
+        "compatibility",
+        "compatible",
+        "vin",
+        "vehicle-specific",
+        "replacement",
+        "适配",
+        "兼容",
+        "车型"
+      ]
+    },
+    {
+      "topic": "物流/退换",
+      "keywords": [
+        "shipping",
+        "delivery",
+        "return",
+        "warehouse",
+        "free shipping",
+        "物流",
+        "发货",
+        "退货"
+      ]
+    },
+    {
+      "topic": "安装/DIY",
+      "keywords": [
+        "install",
+        "installation",
+        "diy",
+        "guide",
+        "repair",
+        "mechanic",
+        "安装",
+        "维修",
+        "教程"
+      ]
+    },
+    {
+      "topic": "品类覆盖",
+      "keywords": [
+        "brake",
+        "battery",
+        "engine",
+        "suspension",
+        "rotor",
+        "spark plug",
+        "catalog",
+        "parts",
+        "品类",
+        "覆盖"
+      ]
+    },
+    {
+      "topic": "信任/评价",
+      "keywords": [
+        "review",
+        "rating",
+        "trusted",
+        "certified",
+        "support",
+        "service",
+        "评价",
+        "信任",
+        "认证",
+        "客服"
+      ]
+    }
+  ]
+}

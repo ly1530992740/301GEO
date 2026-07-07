@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://www.haixia.com",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.haixia.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fzhuamei.com",
+    "domain": "fzhuamei.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.fzhuamei.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fzmeilai.com",
+    "domain": "fzmeilai.com",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.fzmeilai.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.minghan.com",
+    "domain": "minghan.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.minghan.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fzmebeier.com",
+    "domain": "fzmebeier.com",
+    "label": "福州美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.fzmebeier.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fztjyy.com",
+    "domain": "fztjyy.com",
+    "label": "福州台江医院整形美容科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.fztjyy.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fzast.com",
+    "domain": "fzast.com",
+    "label": "福州爱思特医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.fzast.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.fzwdl.com",
+    "domain": "fzwdl.com",
+    "label": "福州维多利亚医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": ""
+  }
+]

@@ -1,0 +1,157 @@
+{
+  "strategy_version": "visibility_query_strategy_v1",
+  "metric_type": "all_web_result_count_if_available",
+  "geo_audience": "consumer_recommendation",
+  "base_queries": [
+    "福州本土奶茶品牌有哪些",
+    "福州特色新式茶饮推荐",
+    "福州必喝的本地奶茶店"
+  ],
+  "visibility_queries": [
+    {
+      "brand_name": "沈茶",
+      "brand_key": "沈茶",
+      "is_user_brand": true,
+      "source": "profile",
+      "query": "福州本土奶茶品牌有哪些 沈茶",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "霸王茶姬",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 霸王茶姬",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "茶百道",
+      "brand_key": "茶百道",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 茶百道",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "壶见",
+      "brand_key": "壶见",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 壶见",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "唐沫茶兮",
+      "brand_key": "唐沫茶兮",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 唐沫茶兮",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "KOI Thé",
+      "brand_key": "koith",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 KOI Thé",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "古茗",
+      "brand_key": "古茗",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 古茗",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "喜茶",
+      "brand_key": "喜茶",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 喜茶",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "蜜雪冰城",
+      "brand_key": "蜜雪冰城",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 蜜雪冰城",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "沪上阿姨",
+      "brand_key": "沪上阿姨",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 沪上阿姨",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "瑞幸咖啡",
+      "brand_key": "瑞幸咖啡",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 瑞幸咖啡",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "鲜芋仙",
+      "brand_key": "鲜芋仙",
+      "is_user_brand": false,
+      "source": "competitor_discovery",
+      "query": "福州本土奶茶品牌有哪些 鲜芋仙",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "红瓶茶楼",
+      "brand_key": "红瓶茶楼",
+      "is_user_brand": false,
+      "source": "ai_recommendation",
+      "query": "福州本土奶茶品牌有哪些 红瓶茶楼",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "茶满方庭",
+      "brand_key": "茶满方庭",
+      "is_user_brand": false,
+      "source": "ai_recommendation",
+      "query": "福州本土奶茶品牌有哪些 茶满方庭",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "快乐番薯",
+      "brand_key": "快乐番薯",
+      "is_user_brand": false,
+      "source": "ai_recommendation",
+      "query": "福州本土奶茶品牌有哪些 快乐番薯",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    },
+    {
+      "brand_name": "茶巢",
+      "brand_key": "茶巢",
+      "is_user_brand": false,
+      "source": "ai_recommendation",
+      "query": "福州本土奶茶品牌有哪些 茶巢",
+      "base_query": "福州本土奶茶品牌有哪些",
+      "metric_goal": "consumer_recommendation_visibility"
+    }
+  ],
+  "note": "Queries are built after AI recommendation ranking so search volume compares the actual competitor pool from GEO results."
+}

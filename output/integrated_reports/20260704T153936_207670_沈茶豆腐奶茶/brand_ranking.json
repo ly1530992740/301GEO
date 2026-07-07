@@ -1,0 +1,119 @@
+[
+  {
+    "brand_name": "沈茶",
+    "brand_key": "沈茶",
+    "recommendation_count": 7,
+    "avg_rank": 1.0,
+    "trend_term_count": 7,
+    "engine": "qwen",
+    "is_user_brand": true
+  },
+  {
+    "brand_name": "Shen Cha",
+    "brand_key": "shencha",
+    "recommendation_count": 2,
+    "avg_rank": 1.0,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Gong Cha",
+    "brand_key": "gongcha",
+    "recommendation_count": 2,
+    "avg_rank": 3.0,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Generic bubble tea brands",
+    "brand_key": "genericbubbleteabrands",
+    "recommendation_count": 2,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Chen Duoduo",
+    "brand_key": "chenduoduo",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "茶颜悦色",
+    "brand_key": "茶颜悦色",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "霸王茶姬",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "CoCo Fresh Tea & Juice",
+    "brand_key": "cocofreshteajuice",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "蜜雪冰城",
+    "brand_key": "蜜雪冰城",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Jompo",
+    "brand_key": "jompo",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "西域皇后",
+    "brand_key": "西域皇后",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Aloha Tea",
+    "brand_key": "alohatea",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "白音杭盖",
+    "brand_key": "白音杭盖",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  }
+]

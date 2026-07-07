@@ -1,0 +1,245 @@
+[
+  {
+    "brand_name": "A-Premium",
+    "brand_key": "apremium",
+    "recommendation_count": 10,
+    "avg_rank": 1.3,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": true
+  },
+  {
+    "brand_name": "RockAuto",
+    "brand_key": "rockauto",
+    "recommendation_count": 4,
+    "avg_rank": 2.25,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "CarParts.com",
+    "brand_key": "carpartscom",
+    "recommendation_count": 4,
+    "avg_rank": 4.25,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Amazon",
+    "brand_key": "amazon",
+    "recommendation_count": 3,
+    "avg_rank": 3.33,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "O'Reilly Auto Parts",
+    "brand_key": "oreillyautoparts",
+    "recommendation_count": 2,
+    "avg_rank": 3.5,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "NAPA Auto Parts",
+    "brand_key": "napaautoparts",
+    "recommendation_count": 2,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Quantum Auto Parts",
+    "brand_key": "quantumautoparts",
+    "recommendation_count": 2,
+    "avg_rank": 4.5,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Detroit Axle",
+    "brand_key": "detroitaxle",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "LKQ Euro Car Parts",
+    "brand_key": "lkqeurocarparts",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "PartsGeek",
+    "brand_key": "partsgeek",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "PowerStop",
+    "brand_key": "powerstop",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "eBay",
+    "brand_key": "ebay",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Centric",
+    "brand_key": "centric",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "FCP Euro",
+    "brand_key": "fcpeuro",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "MOOG",
+    "brand_key": "moog",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "USAutoPartsCar.com",
+    "brand_key": "usautopartscarcom",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "CARQUEST",
+    "brand_key": "carquest",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "CARiD",
+    "brand_key": "carid",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Fastrack Car Parts",
+    "brand_key": "fastrackcarparts",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "KSP Performance",
+    "brand_key": "kspperformance",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Summit Racing",
+    "brand_key": "summitracing",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Advance Auto Parts",
+    "brand_key": "advanceautoparts",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "AutoZone",
+    "brand_key": "autozone",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "BuyBrakes.com",
+    "brand_key": "buybrakescom",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "BuyAutoParts.com",
+    "brand_key": "buyautopartscom",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Euro Car Parts",
+    "brand_key": "eurocarparts",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Autodoc",
+    "brand_key": "autodoc",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "????福州?奶茶",
+    "question_meta": {
+      "question": "????福州?奶茶",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "????福州?奶茶",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "????福州?奶茶",
+          "question": "????福州?奶茶",
+          "rank": 1,
+          "brand_name": "霸王茶姬",
+          "reason": "ok",
+          "citation_urls": []
+        }
+      ],
+      "search_results": []
+    }
+  }
+]

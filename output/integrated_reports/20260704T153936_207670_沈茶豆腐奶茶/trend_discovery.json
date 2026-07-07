@@ -1,0 +1,460 @@
+{
+  "terms": [
+    {
+      "term": "bubble tea near me",
+      "source": "google_top_query",
+      "relevance_reason": "直接体现消费者寻找附近奶茶店的明确本地购买意图，与产品线下门店类别高度相关。"
+    },
+    {
+      "term": "boba tea",
+      "source": "google_top_query",
+      "relevance_reason": "珍珠奶茶的常见英文同义词，属于产品核心品类词，具有广泛的搜索量和品类认知。"
+    },
+    {
+      "term": "boba",
+      "source": "google_top_query",
+      "relevance_reason": "在英语语境中常作为珍珠奶茶或奶茶的简称，代表品类搜索，与产品类别直接相关。"
+    },
+    {
+      "term": "tofu bubble tea",
+      "source": "ai_fallback",
+      "relevance_reason": "直接对应产品核心主打特色“豆腐奶茶”，精准匹配产品的差异化竞争优势。"
+    },
+    {
+      "term": "tofu boba",
+      "source": "ai_fallback",
+      "relevance_reason": "“豆腐奶茶”的另一种常见英文口语表达，贴合海外年轻消费者的搜索与点单习惯。"
+    },
+    {
+      "term": "soy pudding milk tea",
+      "source": "ai_fallback",
+      "relevance_reason": "豆花/豆腐奶茶的准确英文成分描述，有助于捕捉寻找特定口感和特色配料的目标消费者。"
+    },
+    {
+      "term": "bubble tea shop near me",
+      "source": "ai_fallback",
+      "relevance_reason": "强化本地线下门店的搜索意图，符合品牌灵活选址（学校、社区、商圈）和线下引流的业务模式。"
+    },
+    {
+      "term": "bubble tea delivery",
+      "source": "ai_fallback",
+      "relevance_reason": "体现线上外卖购买意图，符合品牌以线上营销为主、年轻化引流的渠道策略。"
+    },
+    {
+      "term": "best bubble tea",
+      "source": "ai_fallback",
+      "relevance_reason": "消费者在尝试或比较奶茶品牌时的常见搜索词，有助于品牌口碑、评测和种草内容的曝光。"
+    },
+    {
+      "term": "milk tea",
+      "source": "ai_fallback",
+      "relevance_reason": "奶茶的基础品类大词，涵盖更广泛的泛茶饮受众，与品牌的茶饮定位完全契合。"
+    }
+  ],
+  "fallback_used": true,
+  "fallback_note": "原始Google Trends提供的热门查询词仅有3个，不足10个。因此补充了7个与“豆腐奶茶”核心特色、本地门店搜索、外卖意图及基础品类紧密相关的AI生成词，以完善趋势分析词库。",
+  "raw_top_queries": [
+    {
+      "query": "bubble tea near me",
+      "type": "top",
+      "value": "100",
+      "extracted_value": 100
+    },
+    {
+      "query": "boba tea",
+      "type": "top",
+      "value": "54",
+      "extracted_value": 54
+    },
+    {
+      "query": "boba",
+      "type": "top",
+      "value": "53",
+      "extracted_value": 53
+    }
+  ],
+  "raw_serpapi": {
+    "search_metadata": {
+      "id": "6a4929b92efef8a757c89987",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/q80vX-vUHdY-88s1MhhzWw/6a4929b92efef8a757c89987.json",
+      "created_at": "2026-07-04 15:41:45 UTC",
+      "processed_at": "2026-07-04 15:41:45 UTC",
+      "google_trends_url": "https://trends.google.com/trends/embed/explore/RELATED_QUERIES?hl=en&tz=420&req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22bubble+tea%22%2C%22geo%22%3A%22US%22%2C%22time%22%3A%22today+12-m%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D",
+      "raw_html_file": "https://serpapi.com/searches/q80vX-vUHdY-88s1MhhzWw/6a4929b92efef8a757c89987.html",
+      "prettify_html_file": "https://serpapi.com/searches/q80vX-vUHdY-88s1MhhzWw/6a4929b92efef8a757c89987.prettify",
+      "total_time_taken": 11.3
+    },
+    "search_parameters": {
+      "engine": "google_trends",
+      "q": "bubble tea",
+      "hl": "en",
+      "geo": "US",
+      "date": "today 12-m",
+      "tz": "420",
+      "data_type": "RELATED_QUERIES"
+    },
+    "related_queries": {
+      "rising": [
+        {
+          "query": "google doodle bubble tea 2",
+          "value": "+700%",
+          "extracted_value": 700,
+          "link": "https://trends.google.com/trends/explore?q=google+doodle+bubble+tea+2&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=google+doodle+bubble+tea+2&tz=420"
+        },
+        {
+          "query": "best bubble tea near me",
+          "value": "+200%",
+          "extracted_value": 200,
+          "link": "https://trends.google.com/trends/explore?q=best+bubble+tea+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=best+bubble+tea+near+me&tz=420"
+        },
+        {
+          "query": "instant bubble tea kit",
+          "value": "+160%",
+          "extracted_value": 160,
+          "link": "https://trends.google.com/trends/explore?q=instant+bubble+tea+kit&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=instant+bubble+tea+kit&tz=420"
+        },
+        {
+          "query": "bubble tea origin",
+          "value": "+150%",
+          "extracted_value": 150,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+origin&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+origin&tz=420"
+        },
+        {
+          "query": "heytea",
+          "value": "+140%",
+          "extracted_value": 140,
+          "link": "https://trends.google.com/trends/explore?q=heytea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=heytea&tz=420"
+        },
+        {
+          "query": "bubble tea google",
+          "value": "+100%",
+          "extracted_value": 100,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+google&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+google&tz=420"
+        },
+        {
+          "query": "bubble tea lab",
+          "value": "+70%",
+          "extracted_value": 70,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+lab&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+lab&tz=420"
+        },
+        {
+          "query": "real fruit bubble tea near me",
+          "value": "+60%",
+          "extracted_value": 60,
+          "link": "https://trends.google.com/trends/explore?q=real+fruit+bubble+tea+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=real+fruit+bubble+tea+near+me&tz=420"
+        },
+        {
+          "query": "matcha bubble tea",
+          "value": "+60%",
+          "extracted_value": 60,
+          "link": "https://trends.google.com/trends/explore?q=matcha+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=matcha+bubble+tea&tz=420"
+        },
+        {
+          "query": "google doodles",
+          "value": "+60%",
+          "extracted_value": 60,
+          "link": "https://trends.google.com/trends/explore?q=google+doodles&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=google+doodles&tz=420"
+        },
+        {
+          "query": "google doodles bubble tea",
+          "value": "+60%",
+          "extracted_value": 60,
+          "link": "https://trends.google.com/trends/explore?q=google+doodles+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=google+doodles+bubble+tea&tz=420"
+        },
+        {
+          "query": "bubble tea games",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+games&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+games&tz=420"
+        },
+        {
+          "query": "what is bubble tea",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=what+is+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=what+is+bubble+tea&tz=420"
+        },
+        {
+          "query": "strawberry bubble tea",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=strawberry+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=strawberry+bubble+tea&tz=420"
+        },
+        {
+          "query": "bubble tea game",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+game&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+game&tz=420"
+        },
+        {
+          "query": "google bubble tea game",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=google+bubble+tea+game&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=google+bubble+tea+game&tz=420"
+        },
+        {
+          "query": "bubble tea house",
+          "value": "+50%",
+          "extracted_value": 50,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+house&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+house&tz=420"
+        }
+      ],
+      "top": [
+        {
+          "query": "bubble tea near me",
+          "value": "100",
+          "extracted_value": 100,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+near+me&tz=420"
+        },
+        {
+          "query": "boba tea",
+          "value": "54",
+          "extracted_value": 54,
+          "link": "https://trends.google.com/trends/explore?q=boba+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=boba+tea&tz=420"
+        },
+        {
+          "query": "boba",
+          "value": "53",
+          "extracted_value": 53,
+          "link": "https://trends.google.com/trends/explore?q=boba&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=boba&tz=420"
+        },
+        {
+          "query": "boba bubble tea",
+          "value": "52",
+          "extracted_value": 52,
+          "link": "https://trends.google.com/trends/explore?q=boba+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=boba+bubble+tea&tz=420"
+        },
+        {
+          "query": "what is bubble tea",
+          "value": "35",
+          "extracted_value": 35,
+          "link": "https://trends.google.com/trends/explore?q=what+is+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=what+is+bubble+tea&tz=420"
+        },
+        {
+          "query": "bubble tea google",
+          "value": "28",
+          "extracted_value": 28,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+google&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+google&tz=420"
+        },
+        {
+          "query": "taichi bubble tea",
+          "value": "27",
+          "extracted_value": 27,
+          "link": "https://trends.google.com/trends/explore?q=taichi+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=taichi+bubble+tea&tz=420"
+        },
+        {
+          "query": "taichi",
+          "value": "26",
+          "extracted_value": 26,
+          "link": "https://trends.google.com/trends/explore?q=taichi&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=taichi&tz=420"
+        },
+        {
+          "query": "bubble milk tea",
+          "value": "26",
+          "extracted_value": 26,
+          "link": "https://trends.google.com/trends/explore?q=bubble+milk+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+milk+tea&tz=420"
+        },
+        {
+          "query": "bubble tea menu",
+          "value": "23",
+          "extracted_value": 23,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+menu&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+menu&tz=420"
+        },
+        {
+          "query": "bubble tea game",
+          "value": "18",
+          "extracted_value": 18,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+game&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+game&tz=420"
+        },
+        {
+          "query": "vivi bubble tea",
+          "value": "14",
+          "extracted_value": 14,
+          "link": "https://trends.google.com/trends/explore?q=vivi+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=vivi+bubble+tea&tz=420"
+        },
+        {
+          "query": "bubble tea house",
+          "value": "12",
+          "extracted_value": 12,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+house&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+house&tz=420"
+        },
+        {
+          "query": "bubble tea cafe",
+          "value": "11",
+          "extracted_value": 11,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+cafe&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+cafe&tz=420"
+        },
+        {
+          "query": "taro",
+          "value": "11",
+          "extracted_value": 11,
+          "link": "https://trends.google.com/trends/explore?q=taro&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=taro&tz=420"
+        },
+        {
+          "query": "taro bubble tea",
+          "value": "11",
+          "extracted_value": 11,
+          "link": "https://trends.google.com/trends/explore?q=taro+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=taro+bubble+tea&tz=420"
+        },
+        {
+          "query": "boba bubble tea near me",
+          "value": "10",
+          "extracted_value": 10,
+          "link": "https://trends.google.com/trends/explore?q=boba+bubble+tea+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=boba+bubble+tea+near+me&tz=420"
+        },
+        {
+          "query": "boba near me",
+          "value": "10",
+          "extracted_value": 10,
+          "link": "https://trends.google.com/trends/explore?q=boba+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=boba+near+me&tz=420"
+        },
+        {
+          "query": "google bubble tea game",
+          "value": "9",
+          "extracted_value": 9,
+          "link": "https://trends.google.com/trends/explore?q=google+bubble+tea+game&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=google+bubble+tea+game&tz=420"
+        },
+        {
+          "query": "bubble tea calories",
+          "value": "9",
+          "extracted_value": 9,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+calories&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+calories&tz=420"
+        },
+        {
+          "query": "best bubble tea near me",
+          "value": "9",
+          "extracted_value": 9,
+          "link": "https://trends.google.com/trends/explore?q=best+bubble+tea+near+me&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=best+bubble+tea+near+me&tz=420"
+        },
+        {
+          "query": "tai chi",
+          "value": "9",
+          "extracted_value": 9,
+          "link": "https://trends.google.com/trends/explore?q=tai+chi&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=tai+chi&tz=420"
+        },
+        {
+          "query": "tai chi bubble tea",
+          "value": "9",
+          "extracted_value": 9,
+          "link": "https://trends.google.com/trends/explore?q=tai+chi+bubble+tea&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=tai+chi+bubble+tea&tz=420"
+        },
+        {
+          "query": "bubble tea doodle",
+          "value": "8",
+          "extracted_value": 8,
+          "link": "https://trends.google.com/trends/explore?q=bubble+tea+doodle&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=bubble+tea+doodle&tz=420"
+        },
+        {
+          "query": "tapioca",
+          "value": "8",
+          "extracted_value": 8,
+          "link": "https://trends.google.com/trends/explore?q=tapioca&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=tapioca&tz=420"
+        }
+      ]
+    }
+  },
+  "probe_questions": [
+    {
+      "term": "bubble tea near me",
+      "question": "Where can I find a bubble tea shop near me that serves unique drinks like tofu pudding milk tea?",
+      "intent": "本地门店探索与特色产品寻找",
+      "reason": "用户带有明确的本地消费意图，同时希望寻找具有特色口味（如豆腐奶茶）的门店，符合品牌线下灵活选址和主打产品的特点。"
+    },
+    {
+      "term": "boba tea",
+      "question": "What are some affordable boba tea brands that are really popular with high school and college students right now?",
+      "intent": "品牌比较与高性价比产品探索",
+      "reason": "学生群体是核心目标受众，关注平价和品牌热度，问题自然引出品牌的高性价比和年轻化定位优势。"
+    },
+    {
+      "term": "boba",
+      "question": "I want to try something different today; is there a type of boba that uses tofu or soy pudding instead of regular tapioca pearls?",
+      "intent": "特色口味寻找与差异化体验",
+      "reason": "用户寻求打破传统的珍珠奶茶体验，精准匹配沈茶以“豆腐/豆花”为核心配料的差异化竞争优势。"
+    },
+    {
+      "term": "tofu bubble tea",
+      "question": "What does tofu bubble tea actually taste like, and is it a healthier option compared to regular milk tea?",
+      "intent": "产品口味了解与健康属性评估",
+      "reason": "消费者对创新产品“豆腐奶茶”的口感和健康属性（绿色制作工艺）感兴趣，属于典型的购前了解与评估意图。"
+    },
+    {
+      "term": "tofu boba",
+      "question": "Which bubble tea chains are known for having the best tofu boba on their menu?",
+      "intent": "品牌口碑查询与门店推荐",
+      "reason": "用户直接寻找提供豆腐奶茶的优质连锁品牌，契合沈茶作为全国连锁品牌的核心卖点和线下引流需求。"
+    },
+    {
+      "term": "soy pudding milk tea",
+      "question": "Can I get soy pudding milk tea delivered, and what other toppings or fruit teas pair well with it?",
+      "intent": "外卖购买意图与产品搭配建议",
+      "reason": "结合外卖意图与产品加料特色，符合品牌线上营销为主及提供多种延伸饮品（果茶、奶茶）的业务模式。"
+    },
+    {
+      "term": "bubble tea shop near me",
+      "question": "Are there any affordable bubble tea shops near me that are located near schools or busy commercial streets?",
+      "intent": "本地平价门店寻找与场景匹配",
+      "reason": "强调平价和特定选址（学校、商业街），精准匹配沈茶深耕下沉市场、选址灵活及受学生青睐的品牌定位。"
+    },
+    {
+      "term": "bubble tea delivery",
+      "question": "Where can I order bubble tea delivery that offers unique, non-traditional flavors without being too expensive?",
+      "intent": "外卖平台比价与特色产品寻找",
+      "reason": "用户在外卖场景下寻找高性价比且具差异化的产品，符合品牌平价策略和线上引流渠道特征。"
+    },
+    {
+      "term": "best bubble tea",
+      "question": "What is the best bubble tea to try if I'm tired of standard pearl milk tea and want a highly rated, unique flavor?",
+      "intent": "创新产品种草与高评价体验",
+      "reason": "用户寻求高评价的创新茶饮体验，为沈茶“豆腐奶茶”这一备受好评的主打产品提供了绝佳的推荐切入点。"
+    },
+    {
+      "term": "milk tea",
+      "question": "What are the most popular milk tea trends right now that offer high value for money for young consumers?",
+      "intent": "流行趋势追踪与高性价比消费",
+      "reason": "用户关注当前茶饮流行趋势及年轻消费者偏好，完美契合沈茶年轻化、平价及主打创新口味的市场定位。"
+    }
+  ]
+}

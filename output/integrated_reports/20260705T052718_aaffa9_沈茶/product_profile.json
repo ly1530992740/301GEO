@@ -1,0 +1,60 @@
+{
+  "product_name": "沈茶",
+  "brand_name": "沈茶",
+  "brand_aliases": [
+    "Shen Cha",
+    "沈茶奶茶",
+    "沈茶草本茶"
+  ],
+  "category_local": "奶茶",
+  "category_en": "bubble tea shop",
+  "source_language": "zh",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "primary_region": "福州",
+  "region_level": "city",
+  "business_type": "chain_store",
+  "geo_probe_subject": "福州奶茶品牌推荐",
+  "market_confidence": 0.9,
+  "market_reason": "源链接指向百度百科的'沈茶'词条。沈茶是发源于福建福州的新式茶饮连锁品牌，主打豆腐奶茶和草本茶。基于品牌常识，其目标受众为国内消费者，业务类型为连锁门店，主要区域为福州。竞争对手为该赛道其他知名茶饮品牌。",
+  "known_competitor_hints": [
+    "霸王茶姬",
+    "茶百道",
+    "古茗",
+    "喜茶",
+    "壶见"
+  ],
+  "summary": "沈茶是一个发源于福建福州的新式茶饮连锁品牌，以特色豆腐奶茶和草本茶饮为核心产品，主打健康、国风的茶饮体验，在福建地区具有较高的品牌知名度和密集的门店分布。",
+  "target_audience": [
+    "年轻消费者",
+    "学生群体",
+    "上班族",
+    "奶茶爱好者"
+  ],
+  "selling_points": [
+    "特色豆腐奶茶",
+    "草本健康茶饮",
+    "国风品牌视觉",
+    "高性价比"
+  ],
+  "evidence": [
+    "URL包含百度百科'沈茶'词条路径",
+    "基于'沈茶'作为国内新式茶饮连锁品牌的先验知识"
+  ],
+  "profile_md": "## 沈茶 (Shen Cha)\n\n**品牌定位**：新式茶饮连锁品牌\n**发源地**：福建福州\n\n### 核心特色\n沈茶以差异化的**豆腐奶茶**和**草本茶饮**切入新茶饮赛道，打破传统奶茶的同质化竞争。品牌视觉和产品设计融入了国风元素，强调健康与口感的平衡。\n\n### 市场表现\n作为区域强势品牌，沈茶在福州及福建其他城市拥有较高的门店密度和品牌认知度，并逐步向全国其他城市拓展。主要受众为追求新鲜口感和健康理念的年轻消费群体。\n\n### 竞争格局\n在竞争激烈的新茶饮市场中，沈茶凭借特色单品（如豆腐茶）建立护城河，与霸王茶姬、茶百道、古茗等全国性品牌以及壶见等区域性品牌形成竞争。",
+  "service_scope": "local_city",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "user_market_context": {
+    "service_scope": "local_city",
+    "service_scope_label": "本地/城市",
+    "service_region": "福州",
+    "category_local": "奶茶",
+    "geo_audience": "consumer_recommendation",
+    "geo_audience_label": "C端消费者",
+    "analysis_goal": "consumer_recommendation",
+    "analysis_goal_label": "C端消费者",
+    "market_language": "zh",
+    "target_market": "domestic"
+  }
+}

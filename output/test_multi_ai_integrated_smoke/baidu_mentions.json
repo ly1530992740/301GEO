@@ -1,0 +1,14 @@
+[
+  {
+    "brand_name": "霸王茶姬",
+    "mentioned_count": 1200,
+    "result_count": 2000,
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "沈茶",
+    "mentioned_count": 70,
+    "result_count": 100,
+    "is_user_brand": true
+  }
+]

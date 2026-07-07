@@ -1,0 +1,15 @@
+{
+  "benchmark_brand": "霸王茶姬",
+  "benchmark_mentioned_count": 2000,
+  "benchmark_metric_type": "multi_ai_estimated_count",
+  "user_brand_count": 100,
+  "content_asset_gap": 1900,
+  "planning_note": "建议发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。",
+  "target_articles": 300,
+  "currency": "CNY",
+  "matched_media_count": 0,
+  "min_unit_price": 0,
+  "avg_unit_price": 0,
+  "max_unit_price": 0,
+  "rows": []
+}

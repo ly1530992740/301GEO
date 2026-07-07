@@ -1,0 +1,326 @@
+[
+  {
+    "brand_name": "蜜雪冰城",
+    "brand_key": "蜜雪冰城",
+    "recommendation_count": 7,
+    "avg_rank": 1.57,
+    "trend_term_count": 7,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "益禾堂",
+    "brand_key": "益禾堂",
+    "recommendation_count": 7,
+    "avg_rank": 3.14,
+    "trend_term_count": 7,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "古茗",
+    "brand_key": "古茗",
+    "recommendation_count": 7,
+    "avg_rank": 4.57,
+    "trend_term_count": 7,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "沈茶",
+    "brand_key": "沈茶",
+    "recommendation_count": 7,
+    "avg_rank": 4.71,
+    "trend_term_count": 7,
+    "engine": "qwen",
+    "is_user_brand": true
+  },
+  {
+    "brand_name": "书亦烧仙草",
+    "brand_key": "书亦烧仙草",
+    "recommendation_count": 6,
+    "avg_rank": 4.83,
+    "trend_term_count": 6,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "壶见",
+    "brand_key": "壶见",
+    "recommendation_count": 5,
+    "avg_rank": 5.8,
+    "trend_term_count": 5,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "唐沫茶兮",
+    "brand_key": "唐沫茶兮",
+    "recommendation_count": 5,
+    "avg_rank": 6.0,
+    "trend_term_count": 5,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "甜啦啦",
+    "brand_key": "甜啦啦",
+    "recommendation_count": 3,
+    "avg_rank": 3.67,
+    "trend_term_count": 3,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "快乐番薯",
+    "brand_key": "快乐番薯",
+    "recommendation_count": 3,
+    "avg_rank": 4.67,
+    "trend_term_count": 3,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "壶舟",
+    "brand_key": "壶舟",
+    "recommendation_count": 2,
+    "avg_rank": 6.5,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "霸王茶姬",
+    "recommendation_count": 2,
+    "avg_rank": 7.5,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "鲜芋仙",
+    "brand_key": "鲜芋仙",
+    "recommendation_count": 2,
+    "avg_rank": 9.0,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "不象茶奶茶",
+    "brand_key": "不象茶奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "叭卟奶茶",
+    "brand_key": "叭卟奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "御前上茶",
+    "brand_key": "御前上茶",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "悸动",
+    "brand_key": "悸动",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "木森茶",
+    "brand_key": "木森茶",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "煲珠妹",
+    "brand_key": "煲珠妹",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "糖潮糖水铺",
+    "brand_key": "糖潮糖水铺",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "黄七姑烧仙草",
+    "brand_key": "黄七姑烧仙草",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "芝点甜",
+    "brand_key": "芝点甜",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "谷人说",
+    "brand_key": "谷人说",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "听茶",
+    "brand_key": "听茶",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "呔茶",
+    "brand_key": "呔茶",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "熹茗茶业",
+    "brand_key": "熹茗茶业",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "品甜Cake Design",
+    "brand_key": "品甜cakedesign",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "某有茶",
+    "brand_key": "某有茶",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "茶百道",
+    "brand_key": "茶百道",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "蜜逗鲜饮奶茶",
+    "brand_key": "蜜逗鲜饮奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "水当当奶茶",
+    "brand_key": "水当当奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "红瓶茶楼",
+    "brand_key": "红瓶茶楼",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "陈文鼎",
+    "brand_key": "陈文鼎",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "周小糖奶茶",
+    "brand_key": "周小糖奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "1点点",
+    "brand_key": "1点点",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "炅爸爸鲜奶茶",
+    "brand_key": "炅爸爸鲜奶茶",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "新时沏",
+    "brand_key": "新时沏",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  }
+]

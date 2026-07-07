@@ -1,0 +1,92 @@
+[
+  {
+    "url": "https://www.haixiazi.com",
+    "domain": "haixiazi.com",
+    "label": "海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.haixiazi.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://fuzhou.mylike.com",
+    "domain": "fuzhou.mylike.com",
+    "label": "美莱医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='fuzhou.mylike.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://fz.yestar.com",
+    "domain": "fz.yestar.com",
+    "label": "艺星医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='fz.yestar.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://fuzhou. huamei.com",
+    "domain": "fuzhou. huamei.com",
+    "label": "华美医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+  },
+  {
+    "url": "https://www.minghanmr.com",
+    "domain": "minghanmr.com",
+    "label": "名韩整形美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.minghanmr.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.aimeierfz.com",
+    "domain": "aimeierfz.com",
+    "label": "爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.aimeierfz.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.mebel.cn",
+    "domain": "mebel.cn",
+    "label": "美贝尔",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.mebel.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.weilin.cn",
+    "domain": "weilin.cn",
+    "label": "薇琳医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.weilin.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  },
+  {
+    "url": "https://www.meilifang.cn",
+    "domain": "meilifang.cn",
+    "label": "美立方医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "HTTPSConnectionPool(host='www.meilifang.cn', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1081)')))"
+  }
+]

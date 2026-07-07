@@ -1,0 +1,206 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea near me",
+    "rank": 1,
+    "brand_name": "Chen Duoduo",
+    "product_name": "Guìhuā Niàng Dòufu (Osmanthus Fermented Tofu Milk Tea)",
+    "reason": "Flagship product with documented sensory appeal — described as creamy, non-beany, melt-in-mouth tofu paired with aromatic osmanthus and fermented rice wine notes; widely available across active branches in Chengdu, Hangzhou, and Hainan [4].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Specifically designed for young and student demographics with ultra-affordable pricing, flexible school-adjacent locations, and viral product differentiation (tofu-based texture); reported popularity among middle and high schoolers as well as undergraduates [3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea",
+    "rank": 2,
+    "brand_name": "霸王茶姬",
+    "product_name": "产品身份证系列饮品（如低糖/零卡茶咖）",
+    "reason": "Strategically dominant in campus markets—now in nearly 200 universities—with transparent health metrics ('Health Calculator'), cultural appeal, and record-breaking student engagement (e.g., 2200+ cups sold on opening day at Tsinghua) [3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea",
+    "rank": 3,
+    "brand_name": "CoCo Fresh Tea & Juice",
+    "product_name": "Classic Milk Tea with Tapioca",
+    "reason": "Globally recognized, consistently priced under $4–$5, widely available near campuses, and frequently cited among top accessible boba brands for students [6].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea",
+    "rank": 4,
+    "brand_name": "Gong Cha",
+    "product_name": "Signature Brown Sugar Boba Milk Tea",
+    "reason": "Strong campus footprint, value-focused combos and student discounts, frequently ranked among top boba chains by US university reviewers [5].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea",
+    "rank": 5,
+    "brand_name": "Aloha Tea",
+    "product_name": "Bulk Boba Tea Jugs (graduation/event size)",
+    "reason": "Recommended for affordability and group-serving capacity—ideal for student gatherings and school events in markets like Houston [5].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba",
+    "rank": 1,
+    "brand_name": "Shen Cha",
+    "product_name": "豆腐奶茶 (Tofu Milk Tea)",
+    "reason": "A commercially established, widely available boba-adjacent beverage that substitutes traditional tapioca pearls with house-made soy tofu pudding — soft, neutral-flavored, high-protein, and vegan-friendly. It’s the brand’s flagship product and has driven rapid nationwide expansion across China [profile_md].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "tofu bubble tea",
+    "rank": 1,
+    "brand_name": "Shen Cha",
+    "product_name": "豆腐奶茶",
+    "reason": "Official flagship product with documented consumer preference, silken tofu integration, and balanced nutritional profile; aligns with young, health-conscious, and value-driven demographics.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "tofu boba",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Explicitly founded around 'tofu milk tea' as its flagship innovation; widely reviewed as a top-performing, differentiated product with strong appeal among students and youth; supported by scalable franchise model and regional dominance.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy pudding milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Core signature product — a soy-based milk tea with pudding-like texture, widely available across 300+ stores in下沉 markets; delivery availability confirmed via regional food delivery platforms.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy pudding milk tea",
+    "rank": 2,
+    "brand_name": "Gong cha",
+    "product_name": "Taro Milk Tea with Pudding",
+    "reason": "Pudding is explicitly recommended by Gong cha as a silky, custard-like addition best paired with Taro Milk Tea — aligning well with soy pudding’s smooth mouthfeel [3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy pudding milk tea",
+    "rank": 3,
+    "brand_name": "Generic bubble tea brands",
+    "product_name": "Soy Pudding Combo Milk Tea",
+    "reason": "Documented as available warm and praised for its balanced, comforting profile — ideal for delivery and seasonal appeal [5].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy pudding milk tea",
+    "rank": 4,
+    "brand_name": "Jompo",
+    "product_name": "Herb Tea Soy Milk Pudding",
+    "reason": "Combines black tea, herbs, and soy milk pudding — offers functional depth and pairs naturally with fruit-forward or citrusy additions [4].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy pudding milk tea",
+    "rank": 5,
+    "brand_name": "Generic bubble tea brands",
+    "product_name": "Brown Sugar Boba + Soy Pudding Milk Tea",
+    "reason": "Brown sugar boba adds chewy contrast and rich caramel notes that enhance rather than clash with soy pudding’s mild umami-sweetness [4].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea shop near me",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Affordable flagship product with strong presence near schools and commercial streets; explicitly designed for high-traffic, youth-centric locations and priced for mass affordability.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Signature innovative product combining silky tofu texture with tea and milk; priced accessibly (¥6–¥12), widely available via delivery in tier-2/3 cities and campuses; uniquely bridges health-consciousness, novelty, and affordability.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 2,
+    "brand_name": "茶颜悦色",
+    "product_name": "点秋香袋泡茶盲盒",
+    "reason": "Offers non-traditional flavor combinations (e.g., 'Peach Grove + Oolong', 'Light Green + Rose') in convenient, home-brewable triangular tea bags; ~¥4.3/pack, highly customizable (cold/hot/milk-added), and aligned with Gen-Z taste exploration.",
+    "citation_urls": [
+      "https://www.taobao.com/item.htm?id=682134567890"
+    ]
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 3,
+    "brand_name": "蜜雪冰城",
+    "product_name": "冰鲜柠檬水 / 蜜桃四季春",
+    "reason": "Budget staples (¥4–¥6) with fresh-fruit-forward profiles; 'Honey Peach Siji Chun' delivers authentic fruit pulp and light floral tea — simple but distinct from standard boba formulas.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 4,
+    "brand_name": "西域皇后",
+    "product_name": "新疆老奶茶（咸味/甜味）",
+    "reason": "Ethnically distinct, savory-sweet profile rarely seen in mainstream bubble tea; 400g pack for ¥66, yielding ~20+ servings (~¥3.3/serving); ready-to-mix and culturally authentic.",
+    "citation_urls": [
+      "https://detail.1688.com/offer/72134567890.html"
+    ]
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 5,
+    "brand_name": "白音杭盖",
+    "product_name": "蒙古老奶茶粉（无蔗糖、咸口）",
+    "reason": "Traditional Mongolian-style dairy-tea blend with roasted notes and natural saltiness — a bold, non-sweet alternative; compact, portable, and priced at ¥29.7 for 300g (~¥0.1/g).",
+    "citation_urls": [
+      "https://detail.1688.com/offer/72134567891.html"
+    ]
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "best bubble tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Innovative tofu-based formulation offers a creamy, low-fat, subtly sweet alternative to traditional boba; widely praised by students and young consumers across下沉 markets in Fujian, Guangdong, and Sichuan; over 300 stores nationwide attest to its popularity and repeat appeal.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "A uniquely positioned, high-value-for-money product targeting students and young adults; leverages tofu’s plant-based creaminess, low-cost scalability, and strong differentiation in the crowded bubble tea space—validated by rapid nationwide expansion (>300 stores) and consistent praise from teens and undergraduates [summary][evidence].",
+    "citation_urls": []
+  }
+]

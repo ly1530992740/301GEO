@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://www.haixia.com/",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.minghan.net/",
+    "domain": "minghan.net",
+    "label": "福州名韩整形医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mebel.cn/",
+    "domain": "mebel.cn",
+    "label": "美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.bihuali.com/",
+    "domain": "bihuali.com",
+    "label": "福州比华利美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.huamei.com/",
+    "domain": "huamei.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.aist.cn/",
+    "domain": "aist.cn",
+    "label": "福州爱思特医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.boshi.com/",
+    "domain": "boshi.com",
+    "label": "福州博士整形医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  }
+]

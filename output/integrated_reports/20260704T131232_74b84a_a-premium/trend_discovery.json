@@ -1,0 +1,97 @@
+{
+  "terms": [
+    {
+      "term": "advance auto parts",
+      "source": "google_top_query",
+      "relevance_reason": "美国知名汽车零配件零售商，搜索该词的用户具有明确的汽车零配件购买意图，属于直接竞品/渠道词，与A-Premium产品品类高度相关。"
+    },
+    {
+      "term": "auto parts online",
+      "source": "ai_fallback",
+      "relevance_reason": "在线购买汽车零配件的通用搜索意图词，直接对应A-Premium的电商销售模式，反映用户线上采购零配件的需求。"
+    },
+    {
+      "term": "aftermarket car parts",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车售后市场零配件的核心品类词，精准匹配A-Premium的品牌定位和产品类别。"
+    },
+    {
+      "term": "car replacement parts",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车替换零部件的通用搜索词，与A-Premium的核心业务（售后替换件）完全吻合，体现维修更换需求。"
+    },
+    {
+      "term": "car brake pads",
+      "source": "ai_fallback",
+      "relevance_reason": "刹车片是汽车售后市场中高频更换的核心零部件，属于A-Premium刹车系统产品线的重要组成部分，搜索量大且购买意图明确。"
+    },
+    {
+      "term": "car suspension parts",
+      "source": "ai_fallback",
+      "relevance_reason": "悬挂系统零部件是A-Premium的核心产品线之一，该搜索词反映了车主对悬挂件更换的维修需求。"
+    },
+    {
+      "term": "OEM auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "OEM原厂件搜索意图与A-Premium形成直接对比，A-Premium主打品质对标OEM但价格更优，该词用户是高价值潜在客户。"
+    },
+    {
+      "term": "cheap auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "追求性价比的汽车零配件搜索词，与A-Premium的高性价比卖点高度契合，反映价格敏感型买家的购买意图。"
+    },
+    {
+      "term": "car parts near me",
+      "source": "ai_fallback",
+      "relevance_reason": "本地化汽车零配件搜索意图词，反映用户急需零配件的即时购买需求，A-Premium的免费配送和快速发货可满足该需求。"
+    },
+    {
+      "term": "auto engine parts",
+      "source": "ai_fallback",
+      "relevance_reason": "发动机零部件是A-Premium核心产品线之一，该搜索词代表用户对发动机维修替换件的高需求购买意图。"
+    }
+  ],
+  "fallback_used": true,
+  "fallback_note": "Google Trends原始top查询仅有1条（advance auto parts），不足10条，因此补充了9条与汽车售后替换零部件品类高度相关的AI回退词，覆盖在线购买意图、核心产品线（刹车/悬挂/发动机）、性价比诉求、OEM对比和本地化需求等维度。",
+  "raw_top_queries": [
+    {
+      "query": "advance auto parts",
+      "type": "top",
+      "value": "100",
+      "extracted_value": 100
+    }
+  ],
+  "raw_serpapi": {
+    "search_metadata": {
+      "id": "6a4907248c8a7eb17028124f",
+      "status": "Success",
+      "json_endpoint": "https://serpapi.com/searches/yHkFQXZFbBrH1RyhpPWQ8A/6a4907248c8a7eb17028124f.json",
+      "created_at": "2026-07-04 13:14:12 UTC",
+      "processed_at": "2026-07-04 13:14:12 UTC",
+      "google_trends_url": "https://trends.google.com/trends/embed/explore/RELATED_QUERIES?hl=en&tz=420&req=%7B%22comparisonItem%22%3A%5B%7B%22keyword%22%3A%22auto+parts+%5Cu0026+accessories%22%2C%22geo%22%3A%22US%22%2C%22time%22%3A%22today+12-m%22%7D%5D%2C%22category%22%3A0%2C%22property%22%3A%22%22%7D",
+      "raw_html_file": "https://serpapi.com/searches/yHkFQXZFbBrH1RyhpPWQ8A/6a4907248c8a7eb17028124f.html",
+      "prettify_html_file": "https://serpapi.com/searches/yHkFQXZFbBrH1RyhpPWQ8A/6a4907248c8a7eb17028124f.prettify",
+      "total_time_taken": 2.07
+    },
+    "search_parameters": {
+      "engine": "google_trends",
+      "q": "auto parts & accessories",
+      "hl": "en",
+      "geo": "US",
+      "date": "today 12-m",
+      "tz": "420",
+      "data_type": "RELATED_QUERIES"
+    },
+    "related_queries": {
+      "top": [
+        {
+          "query": "advance auto parts",
+          "value": "100",
+          "extracted_value": 100,
+          "link": "https://trends.google.com/trends/explore?q=advance+auto+parts&date=today+12-m&geo=US",
+          "serpapi_link": "https://serpapi.com/search.json?data_type=RELATED_QUERIES&date=today+12-m&engine=google_trends&geo=US&hl=en&q=advance+auto+parts&tz=420"
+        }
+      ]
+    }
+  }
+}

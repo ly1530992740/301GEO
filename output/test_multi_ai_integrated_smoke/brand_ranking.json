@@ -1,0 +1,18 @@
+[
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "bwcj",
+    "recommendation_count": 4,
+    "avg_rank": 1.0,
+    "engine": "qwen,doubao,yuanbao,deepseek",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "沈茶",
+    "brand_key": "sc",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "engine": "qwen",
+    "is_user_brand": true
+  }
+]

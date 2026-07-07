@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from dataclasses import dataclass
 from typing import Any
 
@@ -29,6 +30,34 @@ class QwenClient:
             dashscope.base_http_api_url = api_host.rstrip("/")
 
     def _call(
+        self,
+        messages: list[dict[str, str]],
+        model: str,
+        enable_search: bool = False,
+        search_options: dict[str, Any] | None = None,
+        enable_thinking: bool | None = None,
+        stream: bool = False,
+    ) -> QwenResult:
+        attempts = 3
+        last_exc: Exception | None = None
+        for attempt in range(1, attempts + 1):
+            try:
+                return self._call_once(
+                    messages=messages,
+                    model=model,
+                    enable_search=enable_search,
+                    search_options=search_options,
+                    enable_thinking=enable_thinking,
+                    stream=stream,
+                )
+            except Exception as exc:
+                last_exc = exc
+                if attempt >= attempts or not self._is_retryable_error(exc):
+                    raise
+                time.sleep(1.2 * attempt)
+        raise last_exc or RuntimeError("Qwen call failed")
+
+    def _call_once(
         self,
         messages: list[dict[str, str]],
         model: str,
@@ -226,11 +255,18 @@ JSON schema:
   "reason": "one short sentence"
 }}
 """
-        result = self._call(
-            [{"role": "user", "content": prompt}],
-            model=self.config.analysis_model,
-            enable_search=False,
-        )
+        try:
+            result = self._call(
+                [{"role": "user", "content": prompt}],
+                model=self.config.analysis_model,
+                enable_search=False,
+            )
+        except Exception:
+            result = self._call(
+                [{"role": "user", "content": prompt}],
+                model=self.config.search_model,
+                enable_search=False,
+            )
         parsed = extract_json(result.content, fallback={})
         if not isinstance(parsed, dict):
             return {"search_queries": [], "trend_keywords": []}
@@ -271,15 +307,15 @@ Output requirements:
 3. Use Trends data to explain demand trends. Use Search data to explain competitor content actions.
 4. If the target market is English-speaking, keep search terms and suggested article titles in natural English. Do not translate them into awkward Chinese-English.
 5. Include these exact Markdown sections:
-   # GEO ?????????
-   ## 1. ????
-   ## 2. ??????
-   ## 3. ?????
-   ## 4. ??????
-   ## 5. ???????
-   ## 6. ?? GEO ????
-   ## 7. ???????
-6. Keyword opportunity scoring must be a Markdown table with: ???, ???, ????, ????, ???, ??.
+   # GEO 趋势与同行分析报告
+   ## 1. 结论摘要
+   ## 2. 用户需求趋势
+   ## 3. 同行内容观察
+   ## 4. 关键词机会评分
+   ## 5. 优先内容主题
+   ## 6. 对 GEO 文章生成的建议
+   ## 7. 下一步行动
+6. Keyword opportunity scoring must be a Markdown table with: 关键词, 趋势热度, 增长, 商业意图, 本地属性, 建议理由.
 7. Recommend 10-20 article topics suitable for automated GEO article generation.
 8. Do not mention that you are an AI.
 """
@@ -547,6 +583,500 @@ Requirements:
         )
         return result.content
 
+    def generate_product_profile(
+        self,
+        source_text: str,
+        preferred_product_name: str = "",
+        report_language: str = "zh",
+    ) -> dict[str, Any]:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        prompt = f"""
+You are a product and GEO category analyst. Analyze the product material below.
+
+Preferred product or brand name, if provided:
+{preferred_product_name or "not provided"}
+
+Product material:
+{source_text[:36000]}
+
+Return JSON only. Do not use Markdown outside JSON.
+
+JSON schema:
+{{
+  "product_name": "specific product or main product line",
+  "brand_name": "brand name",
+  "brand_aliases": ["brand spelling variants, parent brand, product line names"],
+  "category_local": "category name in {language_name}",
+  "category_en": "natural English category/query, e.g. baby care",
+  "source_language": "zh, en, or mixed",
+  "market_language": "zh or en; the language real target users would use when asking AI",
+  "target_market": "domestic, overseas, or mixed",
+  "primary_region": "city/province/country/service area if visible, e.g. 福州, 重庆, United States; empty if not local",
+  "region_level": "city, province, country, global, or unknown",
+  "business_type": "single_retail_product, aggregator_ecommerce, local_place, local_service, local_brand, chain_store, b2b_service, content_platform, or other",
+  "geo_probe_subject": "the concise object users should ask AI about, e.g. auto parts buying website, hair dryer, Chongqing hotpot",
+  "market_confidence": 0.0,
+  "market_reason": "why source_language, market_language, target_market, and business_type were chosen",
+  "known_competitor_hints": ["direct competitors or local/national brands found or strongly implied by the material"],
+  "summary": "short product analysis in {language_name}",
+  "target_audience": ["..."],
+  "selling_points": ["..."],
+  "evidence": ["specific evidence found in the source material"],
+  "profile_md": "a concise Markdown product profile in {language_name}"
+}}
+
+Hard rules:
+- If most product material is Chinese, default market_language to "zh" and target_market to "domestic".
+- If a city, local store network, restaurant, tea drink shop, regional franchise, or local service area appears, extract primary_region and region_level.
+- For beverage, restaurant, retail store, and local service brands, prefer local_brand, chain_store, local_place, or local_service over generic product categories.
+- known_competitor_hints should include obvious local or national competitors when the category is competitive, even if they are not mentioned directly, but mark uncertainty in market_reason.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            parsed = {}
+        if not parsed.get("profile_md"):
+            parsed["profile_md"] = result.content.strip()
+        parsed.setdefault("product_name", preferred_product_name)
+        parsed.setdefault("brand_name", preferred_product_name)
+        parsed.setdefault("brand_aliases", [])
+        parsed.setdefault("category_en", preferred_product_name)
+        parsed.setdefault("source_language", "en")
+        parsed.setdefault("market_language", "en")
+        parsed.setdefault("target_market", "overseas")
+        parsed.setdefault("primary_region", "")
+        parsed.setdefault("region_level", "unknown")
+        parsed.setdefault("business_type", "other")
+        parsed.setdefault("geo_probe_subject", parsed.get("category_en") or preferred_product_name)
+        parsed.setdefault("market_confidence", 0.0)
+        parsed.setdefault("market_reason", "")
+        parsed.setdefault("known_competitor_hints", [])
+        return parsed
+
+    def discover_competitors(self, product_profile: dict[str, Any], report_language: str = "zh") -> dict[str, Any]:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        prompt = f"""
+You are a GEO competitor calibration analyst. Identify realistic competitors before recommendation probing.
+
+Product profile:
+{json.dumps(product_profile, ensure_ascii=False, indent=2)}
+
+Task:
+1. Separate direct local competitors, national category competitors, and adjacent competitors.
+2. For domestic/local Chinese brands, include region-specific competitors when the region is known.
+3. Do not favor the tracked brand. This step is for calibration, not promotion.
+4. If competitor evidence is inferred from category knowledge rather than source evidence, say so in reason.
+5. Write reason fields in {language_name}.
+
+Return JSON only:
+{{
+  "direct_competitors": [
+    {{"brand_name": "...", "competitor_type": "local_direct or national_direct", "reason": "..."}}
+  ],
+  "local_competitors": [
+    {{"brand_name": "...", "region": "...", "reason": "..."}}
+  ],
+  "national_competitors": [
+    {{"brand_name": "...", "reason": "..."}}
+  ],
+  "adjacent_competitors": [
+    {{"brand_name": "...", "reason": "..."}}
+  ],
+  "calibration_note": "how to interpret AI ranking vs real market awareness"
+}}
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            parsed = {}
+        for key in ("direct_competitors", "local_competitors", "national_competitors", "adjacent_competitors"):
+            value = parsed.get(key)
+            parsed[key] = value if isinstance(value, list) else []
+        parsed.setdefault("calibration_note", "")
+        return parsed
+
+    def generate_analysis_strategy(
+        self,
+        product_profile: dict[str, Any],
+        competitor_discovery: dict[str, Any] | None = None,
+        count: int = 10,
+        report_language: str = "zh",
+    ) -> dict[str, Any]:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        prompt = f"""
+You are designing a universal GEO optimization strategy.
+The final business objective is always GEO optimization: help the tracked brand become more likely to appear in AI recommendations.
+The variable is the GEO target audience, meaning who is asking AI.
+
+Product profile:
+{json.dumps(product_profile, ensure_ascii=False, indent=2)}
+
+Competitor calibration:
+{json.dumps(competitor_discovery or {}, ensure_ascii=False, indent=2)}
+
+Return JSON only. Do not use Markdown outside JSON.
+
+Task:
+1. Decide how real target users would ask AI about this category, market, region, and GEO target audience.
+2. Separate AI probe questions from neutral web search queries.
+3. Neutral web search queries must NOT include the tracked brand/product name or aliases.
+4. For local/domestic Chinese projects, use natural Simplified Chinese and include the city/region when relevant.
+5. For overseas/global projects, use the target market language.
+6. Generate an industry-specific topic taxonomy for content analysis.
+7. Include compliance-sensitive topics when the category is health, legal, finance, medical, or franchise investment.
+
+Mainstream competition rules:
+- The report must rank mainstream category competition only.
+- Do NOT generate long-tail opportunity queries or niche differentiator queries.
+- Do NOT turn the tracked brand's unique selling point into a query.
+- For example, if the broad category is 奶茶 and the tracked product is 豆腐奶茶, use 福州奶茶推荐 / 福州奶茶品牌推荐 / 福州奶茶哪家好, not 豆腐奶茶推荐.
+- Avoid terms like 特色, 本土, 独家, 首创, 低卡, 草本, 差异化, 小料, 打卡 unless they are the confirmed broad category itself.
+
+Supported geo_audience values:
+- consumer_recommendation: C-side consumers who may buy/visit/order.
+- franchise: B-side franchise/investment prospects.
+- b2b_purchase: B-side purchasing or enterprise-service prospects.
+- brand_geo: brand visibility diagnosis.
+- mixed: mixed GEO audience.
+
+Return schema:
+{{
+  "strategy_version": "analysis_strategy_v1",
+  "market_language": "zh or en",
+  "target_market": "domestic, overseas, or mixed",
+  "service_scope": "local_city, regional, national, global, or unknown",
+  "service_region": "city/province/country/service area",
+  "business_type": "single_retail_product, aggregator_ecommerce, local_place, local_service, local_brand, chain_store, b2b_service, content_platform, or other",
+  "geo_audience": "consumer_recommendation, franchise, b2b_purchase, brand_geo, or mixed",
+  "analysis_goal": "same value as geo_audience for backward compatibility",
+  "category_local": "category in {language_name}",
+  "category_en": "English category",
+  "geo_probe_subject": "concise subject users ask about",
+  "mainstream_competition_only": true,
+  "search_intents": [
+    {{
+      "intent": "short intent label",
+      "neutral_queries": ["neutral search query for real web visibility, no tracked brand"],
+      "ai_probe_question": "natural question a user would ask an AI assistant",
+      "reason": "why this intent matters"
+    }}
+  ],
+  "competitor_types": ["direct/local/national/adjacent etc"],
+  "topic_taxonomy": ["industry-specific content topic"],
+  "validation_notes": ["warnings or assumptions"]
+}}
+
+Generate exactly {count} search_intents.
+Write intent, reason, validation_notes, and topic_taxonomy in {language_name}.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        return parsed if isinstance(parsed, dict) else {}
+
+    def answer_recommendation_probe(
+        self,
+        trend_term: str,
+        product_profile: dict[str, Any],
+        max_items: int = 10,
+        question: str = "",
+        competitor_discovery: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        question = (question or f"Recommend {trend_term}").strip()
+        prompt = f"""
+Act like a normal AI search assistant answering a buyer's question. Use web search.
+
+Question:
+{question}
+
+Tracked product profile:
+{json.dumps(product_profile, ensure_ascii=False, indent=2)}
+
+Competitor calibration data:
+{json.dumps(competitor_discovery or {}, ensure_ascii=False, indent=2)}
+
+Return JSON only:
+{{
+  "question": "{question}",
+  "answer": "the natural answer you would give",
+  "recommendations": [
+    {{
+      "rank": 1,
+      "brand_name": "brand to aggregate by",
+      "product_name": "specific product or SKU if available",
+      "reason": "why it is recommended",
+      "citation_urls": ["..."]
+    }}
+  ]
+}}
+
+Rules:
+- Return at most {max_items} recommendations.
+- Keep brand_name suitable for aggregation. For example, merge SKU variants under the same brand.
+- Do not invent citation URLs. If no citation URL is available for an item, use an empty array.
+- The tracked brand is being audited, not promoted. Do not rank it first unless public evidence and normal user intent genuinely justify it.
+- Consider local and national competitors from the calibration data. If they are better known or more relevant, rank them above the tracked brand.
+- For local/domestic questions, answer in the local market context and language. Do not switch to English/global brands unless the question asks for that.
+- The ranking should represent a natural AI answer to the user's question, not a sponsored placement.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.search_model,
+            enable_search=True,
+            search_options={
+                "forced_search": self.config.forced_search,
+                "enable_source": self.config.enable_source,
+                "enable_citation": self.config.enable_citation,
+                "search_strategy": self.config.search_strategy,
+            },
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            parsed = {"question": question, "answer": result.content, "recommendations": []}
+        recommendations = parsed.get("recommendations") if isinstance(parsed.get("recommendations"), list) else []
+        parsed["recommendations"] = recommendations[:max_items]
+        parsed["raw_content"] = result.content
+        parsed["search_results"] = result.search_results or []
+        return parsed
+
+    def generate_geo_probe_questions(
+        self,
+        product_profile: dict[str, Any],
+        count: int = 10,
+        report_language: str = "zh",
+    ) -> dict[str, Any]:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        prompt = f"""
+You are designing GEO / AI-search competitor analysis probes.
+
+Product profile:
+{json.dumps(product_profile, ensure_ascii=False, indent=2)}
+
+Task:
+1. Infer the real target market and language from the source material.
+   - If the source website/PDF is mainly English, market_language is usually "en" and target_market is usually "overseas".
+   - If the source website/PDF is mainly Chinese, market_language is usually "zh" and target_market is usually "domestic".
+   - If mixed, use address, currency, shipping/service area, phone, and product positioning.
+2. Classify business_type:
+   - single_retail_product: one main retail product, e.g. hair dryer.
+   - aggregator_ecommerce: a shopping/catalog site selling many products, e.g. auto parts website.
+   - local_place: a local destination/restaurant/store, e.g. Chongqing hotpot restaurant.
+   - local_service: a local service provider, e.g.装修公司, dental clinic.
+   - local_brand: a regional consumer brand with local identity, e.g. 福州茶饮品牌.
+   - chain_store: a chain store/franchise brand with many offline stores.
+   - b2b_service: a B2B or SaaS service.
+   - content_platform or other when appropriate.
+3. Generate exactly {count} realistic AI-search questions that high-intent users would ask.
+
+Question rules:
+- Questions must be in market_language, not necessarily report language.
+- If market_language is "zh", every question must be natural Simplified Chinese. Do not use English category words such as "bubble tea", "boba", "near me", "recommend".
+- If primary_region exists, at least 6 of {count} questions must include that region/city/province.
+- Do not mechanically use "Recommend ...".
+- For a single retail product: ask about product recommendation, best choice, use case, comparison, buying guide, and common pain points.
+- For an aggregator/ecommerce site: ask about buying website/channel/platform recommendation, reliability, compatibility, shipping/returns, and value.
+- For a local place/service/local brand/chain store: include the city/region and realistic local intent such as local recommendation, nearby, student budget, unique flavor, value, delivery, queue/popularity, and brand comparison.
+- Each question should naturally produce a list of competing brands/sites/places when asked to an AI assistant.
+- Avoid questions that are so tailored to the tracked brand that the tracked brand must be ranked first. Competitor analysis needs neutral user questions.
+
+Write intent, question_type, reason, business_type_reason, and market_reason in {language_name}.
+
+Return JSON only:
+{{
+  "source_language": "en",
+  "market_language": "en",
+  "target_market": "overseas",
+  "primary_region": "",
+  "region_level": "unknown",
+  "business_type": "aggregator_ecommerce",
+  "geo_probe_subject": "auto parts buying website",
+  "business_type_reason": "...",
+  "market_reason": "...",
+  "questions": [
+    {{
+      "term": "auto parts buying website",
+      "question": "Where can I buy reliable auto parts online?",
+      "intent": "buying channel recommendation",
+      "question_type": "recommendation",
+      "reason": "..."
+    }}
+  ]
+}}
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+        )
+        parsed = extract_json(result.content, fallback={})
+        if not isinstance(parsed, dict):
+            parsed = {}
+        questions = parsed.get("questions") if isinstance(parsed.get("questions"), list) else []
+        fallback_subject = product_profile.get("geo_probe_subject") or product_profile.get("category_en") or product_profile.get("product_name") or "product"
+        market_language = str(parsed.get("market_language") or product_profile.get("market_language") or "en").strip() or "en"
+        primary_region = str(parsed.get("primary_region") or product_profile.get("primary_region") or "").strip()
+        business_type = str(parsed.get("business_type") or product_profile.get("business_type") or "other").strip() or "other"
+        normalized = []
+        for idx, item in enumerate(questions[:count], start=1):
+            if not isinstance(item, dict):
+                continue
+            question = str(item.get("question", "")).strip()
+            if not question:
+                continue
+            if market_language.startswith("zh") and self._looks_like_english_question(question):
+                continue
+            normalized.append(
+                {
+                    "term": str(item.get("term") or fallback_subject).strip(),
+                    "question": question,
+                    "intent": str(item.get("intent") or "recommendation").strip(),
+                    "question_type": str(item.get("question_type") or "recommendation").strip(),
+                    "reason": str(item.get("reason") or "").strip(),
+                }
+            )
+        while len(normalized) < count:
+            subject = str(fallback_subject or product_profile.get("category_local") or product_profile.get("product_name") or "产品").strip()
+            if market_language.startswith("zh"):
+                question = self._fallback_geo_question(
+                    subject=subject,
+                    primary_region=primary_region,
+                    business_type=business_type,
+                    index=len(normalized),
+                    product_profile=product_profile,
+                )
+                intent = "推荐/购买决策"
+            else:
+                question = f"What is the best {subject} to choose?"
+                intent = "recommendation and purchase decision"
+            normalized.append(
+                {
+                    "term": subject,
+                    "question": question,
+                    "intent": intent,
+                    "question_type": "recommendation",
+                    "reason": "Fallback question generated from product profile.",
+                }
+            )
+        parsed["questions"] = normalized[:count]
+        parsed.setdefault("source_language", product_profile.get("source_language") or "en")
+        parsed.setdefault("market_language", market_language)
+        parsed.setdefault("target_market", product_profile.get("target_market") or "overseas")
+        parsed.setdefault("primary_region", primary_region)
+        parsed.setdefault("region_level", product_profile.get("region_level") or "unknown")
+        parsed.setdefault("business_type", business_type)
+        parsed.setdefault("geo_probe_subject", fallback_subject)
+        parsed.setdefault("business_type_reason", product_profile.get("market_reason") or "")
+        parsed.setdefault("market_reason", product_profile.get("market_reason") or "")
+        return parsed
+
+    def _looks_like_english_question(self, value: str) -> bool:
+        text = str(value or "").strip()
+        if not text:
+            return False
+        ascii_chars = sum(1 for ch in text if ord(ch) < 128 and ch.isalpha())
+        cjk_chars = sum(1 for ch in text if "\u4e00" <= ch <= "\u9fff")
+        english_markers = ("recommend", "best", "near me", "where", "which", "what", "boba", "bubble tea")
+        return cjk_chars == 0 or (ascii_chars > cjk_chars * 2 and any(marker in text.lower() for marker in english_markers))
+
+    def _fallback_geo_question(
+        self,
+        subject: str,
+        primary_region: str,
+        business_type: str,
+        index: int,
+        product_profile: dict[str, Any],
+    ) -> str:
+        region = primary_region or "本地"
+        category = product_profile.get("category_local") or subject or "产品"
+        brand = product_profile.get("brand_name") or product_profile.get("product_name") or ""
+        local_templates = [
+            f"{region}{category}推荐哪家比较好？",
+            f"{region}本地特色{category}品牌有哪些？",
+            f"{region}学生党平价{category}推荐",
+            f"{region}{category}哪家性价比高？",
+            f"{region}{category}外卖点哪家比较靠谱？",
+            f"{region}{category}热门品牌怎么选？",
+            f"{region}{brand}和其他{category}品牌哪个好？" if brand else f"{region}{category}品牌怎么对比？",
+            f"{region}有哪些值得尝试的{category}？",
+            f"{region}{category}适合年轻人的品牌有哪些？",
+            f"{region}{category}口碑比较好的店有哪些？",
+        ]
+        generic_templates = [
+            f"{category}推荐哪家靠谱？",
+            f"{category}哪个品牌性价比高？",
+            f"{category}新手怎么选？",
+            f"{category}有哪些值得买的品牌？",
+            f"{brand}和同类品牌怎么选？" if brand else f"{category}同类品牌怎么选？",
+        ]
+        templates = local_templates if business_type in {"local_place", "local_service", "local_brand", "chain_store"} or primary_region else generic_templates
+        return templates[index % len(templates)]
+
+    def generate_integrated_content_report(self, analysis_data: dict[str, Any], report_language: str = "zh") -> str:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are a GEO competitive content analyst. Write a report in {language_name}.
+
+Data:
+{payload}
+
+Requirements:
+1. Summarize the top recommended brands and what they emphasize.
+2. Extract common article structures, proof types, selling points, trust signals, and weak spots.
+3. Separate evidence from inference.
+4. Mention whether AI search probe questions were generated from fallback templates.
+5. Use Markdown.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
+    def generate_integrated_article_format(self, analysis_data: dict[str, Any], report_language: str = "zh") -> str:
+        language_name = "Simplified Chinese" if report_language == "zh" else "English"
+        payload = json.dumps(analysis_data, ensure_ascii=False, indent=2)
+        prompt = f"""
+You are designing a reusable article generation format for GEO publishing.
+
+Write the output in {language_name}.
+
+Data:
+{payload}
+
+Return a Markdown document named article_generation_format.md. Include:
+1. Product and brand positioning.
+2. Target category and AI search probe questions.
+3. Competitor content patterns to learn from.
+4. Differentiation rules for the user's brand.
+5. Required article structure.
+6. Title patterns.
+7. Evidence and citation rules.
+8. Prohibited claims and risk notes.
+"""
+        result = self._call(
+            [{"role": "user", "content": prompt}],
+            model=self.config.analysis_model,
+            enable_search=False,
+            enable_thinking=True,
+            stream=True,
+        )
+        return result.content
+
     def generate_article(
         self,
         keyword: str,
@@ -609,6 +1139,43 @@ Requirements:
                 "4. 如果控制台创建 Key 时提供了 API Host，请在左侧填写 Qwen API Host。"
             )
         return detail
+
+    def _is_retryable_error(self, exc: Exception) -> bool:
+        text = str(exc).lower()
+        non_retry_markers = (
+            "invalidapikey",
+            "invalid api key",
+            "unauthorized",
+            "forbidden",
+            "401",
+            "403",
+        )
+        if any(marker in text for marker in non_retry_markers):
+            return False
+        if isinstance(exc, (ConnectionError, TimeoutError, ConnectionResetError)):
+            return True
+        retry_markers = (
+            "connection aborted",
+            "connection reset",
+            "connectionreseterror",
+            "10054",
+            "remote host",
+            "远程主机",
+            "timeout",
+            "timed out",
+            "temporarily unavailable",
+            "unexpected_eof",
+            "eof occurred",
+            "ssl",
+            "too many requests",
+            "rate limit",
+            "429",
+            "500",
+            "502",
+            "503",
+            "504",
+        )
+        return any(marker in text for marker in retry_markers)
 
     def _parse_urls_from_text(self, text: str) -> list[dict[str, Any]]:
         urls = re.findall(r"https?://[^\s\]\)）>\"']+", text or "")

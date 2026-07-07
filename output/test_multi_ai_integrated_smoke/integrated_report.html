@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEO 一键分析报告</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #1f2937; background: #f8fafc; }
+    main { max-width: 1160px; margin: 0 auto; padding: 32px 20px 56px; }
+    section { margin: 24px 0; padding: 20px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
+    h1 { font-size: 30px; margin: 0 0 20px; }
+    h2 { font-size: 20px; margin: 0 0 14px; }
+    .chart { min-height: 360px; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .metric { padding: 14px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fbfdff; }
+    .metric strong { display: block; font-size: 24px; }
+    pre { white-space: pre-wrap; background: #111827; color: #e5e7eb; padding: 16px; border-radius: 8px; overflow: auto; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>GEO 一键分析报告</h1>
+  <p>Workflow version: integrated_geo_v5_multi_ai_consensus_20260707</p>
+  <section>
+    <h2>产品画像</h2>
+    <div class="grid">
+      <div class="metric">Product<strong>沈茶</strong></div>
+      <div class="metric">Brand<strong>沈茶</strong></div>
+      <div class="metric">Category<strong>奶茶</strong></div>
+      <div class="metric">Market<strong>domestic</strong></div>
+      <div class="metric">Region<strong>福州</strong></div>
+      <div class="metric">Business<strong>local_brand</strong></div>
+    </div>
+    <p></p>
+  </section>
+  <section><h2>分析策略</h2><table><tbody><tr><th>GEO target audience</th><td>consumer_recommendation</td></tr><tr><th>Probe subject</th><td>福州奶茶</td></tr><tr><th>Service scope</th><td>local_city</td></tr><tr><th>Service region</th><td>福州</td></tr><tr><th>Topic taxonomy</th><td>??/??</td></tr></tbody></table></section>
+  <section><h2>竞品校准</h2><table><thead><tr><th>品牌</th><th>类型</th><th>地区</th><th>原因</th></tr></thead><tbody><tr><td>霸王茶姬</td><td>直接竞品</td><td></td><td>multi ai</td></tr></tbody></table></section>
+  <section><h2>AI 搜索探测主题</h2><table><thead><tr><th>探测主题</th><th>来源</th><th>相关原因</th></tr></thead><tbody><tr><td>????福州?奶茶</td><td>multi_ai</td><td>mainstream</td></tr></tbody></table></section>
+  <section><h2>AI 搜索问题建议</h2><table><thead><tr><th>探测主题</th><th>建议问题</th><th>用户意图</th><th>原因</th></tr></thead><tbody><tr><td>????福州?奶茶</td><td>????福州?奶茶</td><td>mainstream</td><td></td></tr></tbody></table></section>
+  <section><h2>真实搜索中立查询</h2><table><thead><tr><th>查询词</th></tr></thead><tbody><tr><td>????福州?奶茶</td></tr></tbody></table></section>
+  <section><h2>搜索声量查询方案</h2><table><thead><tr><th>品牌</th><th>查询词</th><th>指标目标</th></tr></thead><tbody></tbody></table></section>
+  <section><h2>全网搜索声量估算</h2><div id="searchVolumeChart" class="chart"></div><table><thead><tr><th>品牌</th><th>排名</th><th>估算结果数</th><th>与客户差距</th><th>查询词</th><th>指标口径</th><th>说明</th></tr></thead><tbody><tr><td>霸王茶姬</td><td>1</td><td>2000</td><td>1900</td><td>x</td><td>multi_ai_estimated_count</td><td>AI estimated</td></tr><tr><td>沈茶</td><td>2</td><td>100</td><td>0</td><td>x</td><td>multi_ai_estimated_count</td><td>AI estimated</td></tr></tbody></table></section>
+  <section><h2>Top N 中立共现排名</h2><div id="searchVisibilityChart" class="chart"></div><table><thead><tr><th>品牌</th><th>声量排名</th><th>提及篇数</th><th>结果数</th><th>查询词</th></tr></thead><tbody><tr><td>霸王茶姬</td><td>1</td><td>1200</td><td>2000</td><td>x</td></tr><tr><td>沈茶</td><td>2</td><td>70</td><td>100</td><td>x</td></tr></tbody></table></section>
+  <section><h2>AI 推荐与搜索声量差距</h2><div id="gapChart" class="chart"></div><table><thead><tr><th>品牌</th><th>AI排名</th><th>搜索声量排名</th><th>提及篇数</th><th>解读</th></tr></thead><tbody><tr><td>沈茶</td><td>2</td><td>2</td><td>70</td><td>AI 推荐与搜索声量相对一致</td></tr><tr><td>霸王茶姬</td><td>1</td><td>1</td><td>1200</td><td>AI 推荐与搜索声量相对一致</td></tr></tbody></table></section>
+  <section><h2>AI 推荐品牌排名（AI 可推荐度，不等于市场知名度）</h2><div id="rankingChart" class="chart"></div><table><thead><tr><th>品牌</th><th>推荐次数</th><th>平均排名</th><th>AI 引擎</th></tr></thead><tbody><tr><td>霸王茶姬</td><td>4</td><td>1.0</td><td>qwen,doubao,yuanbao,deepseek</td></tr><tr><td>沈茶</td><td>1</td><td>8.0</td><td>qwen</td></tr></tbody></table></section>
+  <section><h2>百度 Top N 提及统计</h2><div id="baiduChart" class="chart"></div><table><thead><tr><th>品牌</th><th>提及篇数</th></tr></thead><tbody><tr><td>霸王茶姬</td><td>1200</td></tr><tr><td>沈茶</td><td>70</td></tr></tbody></table></section>
+  <section><h2>内容主题分析</h2><div id="topicChart" class="chart"></div><div id="topicMatrixChart" class="chart"></div><table><thead><tr><th>内容主题</th><th>出现次数</th></tr></thead><tbody><tr><td>??/??</td><td>1</td></tr></tbody></table></section>
+  <section><h2>媒介库成本测算</h2><div class="grid"><div class="metric">对标竞品<strong>霸王茶姬</strong></div><div class="metric">对标提及篇数<strong>2000</strong></div><div class="metric">客户当前声量<strong>100</strong></div><div class="metric">内容资产差距<strong>1900</strong></div><div class="metric">建议发布篇数<strong>300</strong></div><div class="metric">平均单篇成本<strong>0 CNY</strong></div></div><div id="costChart" class="chart"></div><table><thead><tr><th>Domain</th><th>媒介</th><th>price_1</th><th>price_2</th><th>price_3</th><th>建议篇数</th><th>预计总成本</th></tr></thead><tbody></tbody></table></section>
+  <section><h2>媒介库匹配</h2><div id="mediaChart" class="chart"></div><p style="color:#b45309;background:#fffbeb;border:1px solid #fde68a;padding:10px;border-radius:8px;">media resources refresh failed: &#x27;FakeStorage&#x27; object has no attribute &#x27;upsert_media_resources&#x27;</p><table><thead><tr><th>Domain</th><th>可匹配媒介</th><th>Resource</th><th>price_1</th><th>price_2</th><th>price_3</th></tr></thead><tbody></tbody></table></section>
+  <section><h2>Markdown</h2><pre># GEO 一键分析报告
+
+- Workflow version: integrated_geo_v5_multi_ai_consensus_20260707
+
+## 产品画像
+
+
+
+- Product: 沈茶
+- Brand: 沈茶
+- Category: 奶茶
+- Market language: zh
+- Target market: domestic
+- Primary region: 福州
+- Business type: local_brand
+
+## 分析策略
+
+- GEO target audience: consumer_recommendation
+- Probe subject: 福州奶茶
+- Service scope: local_city
+- Service region: 福州
+- Topic taxonomy: ??/??
+
+## 竞品校准
+
+| 品牌 | 类型 | 地区 | 原因 |
+|---|---|---|---|
+| 霸王茶姬 | 直接竞品 |  | multi ai |
+
+## AI 搜索探测主题
+
+| 探测主题 | 来源 | 相关原因 |
+|---|---|---|
+| ????福州?奶茶 | multi_ai | mainstream |
+
+## AI 搜索问题建议
+
+| 趋势词 | 建议问题 | 用户意图 |
+|---|---|---|
+| ????福州?奶茶 | ????福州?奶茶 | mainstream |
+
+## 真实搜索中立查询
+
+| 查询词 |
+|---|
+| ????福州?奶茶 |
+
+## 全网搜索声量估算
+
+| 品牌 | 排名 | 估算结果数 | 与客户差距 | 查询词 | 指标口径 | 说明 |
+|---|---:|---:|---:|---|---|---|
+| 霸王茶姬 | 1 | 2000 | 1900 | x | multi_ai_estimated_count | AI estimated |
+| 沈茶 | 2 | 100 | 0 | x | multi_ai_estimated_count | AI estimated |
+
+## Top N 中立共现排名
+
+| 品牌 | 搜索声量排名 | 提及篇数 | 查询词 |
+|---|---:|---:|---|
+| 霸王茶姬 | 1 | 1200 | x |
+| 沈茶 | 2 | 70 | x |
+
+## AI 推荐品牌排名（AI 可推荐度，不等于市场知名度）
+
+| 品牌 | 推荐次数 | 平均排名 | AI 引擎 |
+|---|---:|---:|---|
+| 霸王茶姬 | 4 | 1.0 | qwen,doubao,yuanbao,deepseek |
+| 沈茶 | 1 | 8.0 | qwen |
+
+## AI 推荐与搜索声量差距
+
+| 品牌 | AI排名 | 搜索声量排名 | 提及篇数 | 解读 |
+|---|---:|---:|---:|---|
+| 沈茶 | 2 | 2 | 70 | AI 推荐与搜索声量相对一致 |
+| 霸王茶姬 | 1 | 1 | 1200 | AI 推荐与搜索声量相对一致 |
+
+## 百度 Top N 提及统计
+
+| 品牌 | 提及篇数 |
+|---|---:|
+| 霸王茶姬 | 1200 |
+| 沈茶 | 70 |
+
+## 竞品内容特点
+
+# content
+
+## 内容主题分布
+
+| 主题 | 出现次数 |
+|---|---:|
+| ??/?? | 1 |
+
+## 媒介库成本测算
+
+- 对标竞品：霸王茶姬
+- 对标提及篇数：2000
+- 客户当前声量：100
+- 内容资产差距：1900
+- 建议至少发布篇数：300
+- 规划说明：建议发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。
+- 单篇报价区间：0 - 0 CNY
+
+| Domain | Resource | 单篇报价 | 建议篇数 | 预计总成本 |
+|---|---|---:|---:|---:|
+
+## 媒介库匹配
+
+| Domain | 可匹配媒介 | Resource | price_1 | price_2 | price_3 |
+|---|---|---|---:|---:|---:|
+
+## article_generation_format.md
+
+# format</pre></section>
+</main>
+<script>
+const chartData = {"ranking": {"x": ["霸王茶姬", "沈茶"], "y": [4, 1], "colors": ["#64748b", "#dc2626"]}, "baidu": {"x": ["霸王茶姬", "沈茶"], "y": [1200, 70]}, "searchVisibility": {"x": ["霸王茶姬", "沈茶"], "y": [1200, 70]}, "searchVolume": {"x": ["霸王茶姬", "沈茶"], "y": [2000, 100], "colors": ["#0891b2", "#dc2626"]}, "gap": {"x": ["沈茶", "霸王茶姬"], "y": [0, 0], "colors": ["#dc2626", "#7c3aed"]}, "media": {"x": [], "y": []}, "topics": {"labels": ["??/??"], "values": [1]}, "topicMatrix": {"x": [], "y": [], "z": []}, "cost": {"x": [], "y": []}};
+const commonLayout = { margin: { l: 50, r: 20, t: 20, b: 110 }, paper_bgcolor: "white", plot_bgcolor: "white" };
+if (chartData.ranking.x.length) {
+  Plotly.newPlot("rankingChart", [{ type: "bar", x: chartData.ranking.x, y: chartData.ranking.y, marker: { color: chartData.ranking.colors } }], { ...commonLayout, yaxis: { title: "推荐次数" } }, { responsive: true });
+}
+if (chartData.baidu.x.length) {
+  Plotly.newPlot("baiduChart", [{ type: "bar", x: chartData.baidu.x, y: chartData.baidu.y, marker: { color: "#2563eb" } }], { ...commonLayout, yaxis: { title: "提及篇数" } }, { responsive: true });
+}
+if (chartData.searchVisibility.x.length) {
+  Plotly.newPlot("searchVisibilityChart", [{ type: "bar", x: chartData.searchVisibility.x, y: chartData.searchVisibility.y, marker: { color: "#0f766e" } }], { ...commonLayout, yaxis: { title: "提及篇数" } }, { responsive: true });
+}
+if (chartData.searchVolume.x.length) {
+  Plotly.newPlot("searchVolumeChart", [{ type: "bar", x: chartData.searchVolume.x, y: chartData.searchVolume.y, marker: { color: chartData.searchVolume.colors } }], { ...commonLayout, yaxis: { title: "Estimated results" } }, { responsive: true });
+}
+if (chartData.gap.x.length) {
+  Plotly.newPlot("gapChart", [{ type: "bar", x: chartData.gap.x, y: chartData.gap.y, marker: { color: chartData.gap.colors } }], { ...commonLayout, yaxis: { title: "Gap score" } }, { responsive: true });
+}
+if (chartData.media.x.length) {
+  Plotly.newPlot("mediaChart", [{ type: "bar", x: chartData.media.x, y: chartData.media.y, marker: { color: "#059669" } }], { ...commonLayout, yaxis: { title: "Confidence" } }, { responsive: true });
+}
+if (chartData.topics.labels.length) {
+  Plotly.newPlot("topicChart", [{ type: "pie", labels: chartData.topics.labels, values: chartData.topics.values, hole: 0.35 }], { margin: { l: 20, r: 20, t: 20, b: 20 } }, { responsive: true });
+}
+if (chartData.topicMatrix.x.length) {
+  Plotly.newPlot("topicMatrixChart", [{ type: "heatmap", x: chartData.topicMatrix.x, y: chartData.topicMatrix.y, z: chartData.topicMatrix.z, colorscale: "Blues" }], { ...commonLayout }, { responsive: true });
+}
+if (chartData.cost.x.length) {
+  Plotly.newPlot("costChart", [{ type: "bar", x: chartData.cost.x, y: chartData.cost.y, marker: { color: "#d97706" } }], { ...commonLayout, yaxis: { title: "Estimated total cost" } }, { responsive: true });
+}
+</script>
+</body>
+</html>

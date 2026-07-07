@@ -1,0 +1,14 @@
+{
+  "recommendation_question": "????福州?奶茶",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "geo_probe_subject": "福州奶茶",
+  "service_scope": "local_city",
+  "service_region": "福州",
+  "topic_taxonomy": [
+    "??/??"
+  ],
+  "neutral_search_queries": [
+    "????福州?奶茶"
+  ]
+}

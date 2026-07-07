@@ -1,0 +1,236 @@
+[
+  {
+    "brand_name": "沈茶",
+    "brand_key": "沈茶",
+    "recommendation_count": 9,
+    "avg_rank": 1.33,
+    "trend_term_count": 9,
+    "engine": "qwen",
+    "is_user_brand": true
+  },
+  {
+    "brand_name": "Boba Bliss",
+    "brand_key": "bobabliss",
+    "recommendation_count": 3,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Generic boba shops",
+    "brand_key": "genericbobashops",
+    "recommendation_count": 3,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Meituan (美团)",
+    "brand_key": "meituan美团",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Ele.me (饿了么)",
+    "brand_key": "eleme饿了么",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Generic Vegan Boba Cafés",
+    "brand_key": "genericveganbobacafs",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Vita",
+    "brand_key": "vita",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "煲珠公",
+    "brand_key": "煲珠公",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "盒马鲜生",
+    "brand_key": "盒马鲜生",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Bangling",
+    "brand_key": "bangling",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Douyin Group Buying (抖音团购)",
+    "brand_key": "douyingroupbuying抖音团购",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Local/Independent Vegan Boba Shops",
+    "brand_key": "localindependentveganbobashops",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "农夫山泉",
+    "brand_key": "农夫山泉",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "香飘飘",
+    "brand_key": "香飘飘",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Dutch Kiwi",
+    "brand_key": "dutchkiwi",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "JD Daojia (京东到家)",
+    "brand_key": "jddaojia京东到家",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "东方树叶",
+    "brand_key": "东方树叶",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "花田萃",
+    "brand_key": "花田萃",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "BobaBoba",
+    "brand_key": "bobaboba",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Taobao Flash Buy (淘宝闪购)",
+    "brand_key": "taobaoflashbuy淘宝闪购",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "快乐柠檬",
+    "brand_key": "快乐柠檬",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "益禾堂",
+    "brand_key": "益禾堂",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "书亦烧仙草",
+    "brand_key": "书亦烧仙草",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "蜜雪冰城",
+    "brand_key": "蜜雪冰城",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "BE YOLO",
+    "brand_key": "beyolo",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "模式口·奶优说",
+    "brand_key": "模式口奶优说",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  }
+]

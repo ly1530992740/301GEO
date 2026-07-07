@@ -1,0 +1,28 @@
+[
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "bwcj",
+    "is_user_brand": false,
+    "estimated_result_count": 2000,
+    "traditional_search_count": 1200,
+    "new_media_count": 800,
+    "search_volume_rank": 1,
+    "gap_vs_user": 1900,
+    "query": "x",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI estimated"
+  },
+  {
+    "brand_name": "沈茶",
+    "brand_key": "sc",
+    "is_user_brand": true,
+    "estimated_result_count": 100,
+    "traditional_search_count": 70,
+    "new_media_count": 30,
+    "search_volume_rank": 2,
+    "gap_vs_user": 0,
+    "query": "x",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI estimated"
+  }
+]

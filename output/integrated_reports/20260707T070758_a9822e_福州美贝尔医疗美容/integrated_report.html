@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEO 一键分析报告</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body { margin: 0; font-family: Arial, "Microsoft YaHei", sans-serif; color: #1f2937; background: #f8fafc; }
+    main { max-width: 1160px; margin: 0 auto; padding: 32px 20px 56px; }
+    section { margin: 24px 0; padding: 20px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; }
+    h1 { font-size: 30px; margin: 0 0 20px; }
+    h2 { font-size: 20px; margin: 0 0 14px; }
+    .chart { min-height: 360px; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .metric { padding: 14px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fbfdff; }
+    .metric strong { display: block; font-size: 24px; }
+    pre { white-space: pre-wrap; background: #111827; color: #e5e7eb; padding: 16px; border-radius: 8px; overflow: auto; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>GEO 一键分析报告</h1>
+  <p>Workflow version: integrated_geo_v5_multi_ai_consensus_20260707</p>
+  <section>
+    <h2>产品画像</h2>
+    <div class="grid">
+      <div class="metric">Product<strong>整形美容与皮肤美容服务</strong></div>
+      <div class="metric">Brand<strong>美贝尔</strong></div>
+      <div class="metric">Category<strong>医美</strong></div>
+      <div class="metric">Market<strong>domestic</strong></div>
+      <div class="metric">Region<strong>福州</strong></div>
+      <div class="metric">Business<strong>local_service</strong></div>
+    </div>
+    <p>福州美贝尔医疗美容是美贝尔医美连锁品牌的福州分院，主营整形美容、无创美容及皮肤美容。品牌定位高端轻奢，依托资深医师团队提供个性化医美服务，具备正规医疗资质与十余年品牌沉淀。</p>
+  </section>
+  <section><h2>分析策略</h2><table><tbody><tr><th>GEO target audience</th><td>consumer_recommendation</td></tr><tr><th>Probe subject</th><td>福州医美</td></tr><tr><th>Service scope</th><td>local_city</td></tr><tr><th>Service region</th><td>福州</td></tr><tr><th>Topic taxonomy</th><td>资质/专业性, 案例/口碑, 服务范围, 价格/收费, 合规/风险, 响应速度</td></tr></tbody></table></section>
+  <section><h2>竞品校准</h2><table><thead><tr><th>品牌</th><th>类型</th><th>地区</th><th>原因</th></tr></thead><tbody><tr><td>福州海峡美容医院</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek, qwen, yuanbao</td></tr><tr><td>福州名韩整形医院</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek, qwen, yuanbao</td></tr><tr><td>福州比华利美容医院</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek, yuanbao</td></tr><tr><td>福州华美医疗美容</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek, yuanbao</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：qwen</td></tr><tr><td>福建省立医院整形外科</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：qwen</td></tr><tr><td>美贝尔医疗美容</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek</td></tr><tr><td>福州华美整形美容医院</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：qwen</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：qwen</td></tr><tr><td>福州台江整形美容医院</td><td>multi_ai_recommended</td><td></td><td>多 AI 主流推荐中出现；来源：deepseek</td></tr></tbody></table></section>
+  <section><h2>AI 搜索探测主题</h2><table><thead><tr><th>探测主题</th><th>来源</th><th>相关原因</th></tr></thead><tbody><tr><td>推荐一下福州的医美</td><td>multi_ai_unified_question</td><td>主流 GEO 推荐问题</td></tr></tbody></table></section>
+  <section><h2>AI 搜索问题建议</h2><table><thead><tr><th>探测主题</th><th>建议问题</th><th>用户意图</th><th>原因</th></tr></thead><tbody><tr><td>推荐一下福州的医美</td><td>推荐一下福州的医美</td><td>consumer_recommendation</td><td>Unified mainstream question used across Qwen, Doubao, Yuanbao, and DeepSeek.</td></tr></tbody></table></section>
+  <section><h2>真实搜索中立查询</h2><table><thead><tr><th>查询词</th></tr></thead><tbody><tr><td>推荐一下福州的医美</td></tr></tbody></table></section>
+  <section><h2>搜索声量查询方案</h2><table><thead><tr><th>品牌</th><th>查询词</th><th>指标目标</th></tr></thead><tbody><tr><td>福州海峡美容医院</td><td>福州海峡美容医院 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福州名韩整形医院</td><td>福州名韩整形医院 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福州比华利美容医院</td><td>福州比华利美容医院 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福州华美医疗美容</td><td>福州华美医疗美容 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>美贝尔</td><td>美贝尔 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>福建医科大学附属第一医院整形美容外科 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福建省立医院整形外科</td><td>福建省立医院整形外科 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>美贝尔医疗美容</td><td>美贝尔医疗美容 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福州华美整形美容医院</td><td>福州华美整形美容医院 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>福州爱美尔医疗美容门诊部 百度 搜狗 360 抖音 小红书 内容声量</td><td>AI estimated traditional search and new media content volume</td></tr></tbody></table></section>
+  <section><h2>全网搜索声量估算</h2><div id="searchVolumeChart" class="chart"></div><table><thead><tr><th>品牌</th><th>排名</th><th>估算结果数</th><th>与客户差距</th><th>查询词</th><th>指标口径</th><th>说明</th></tr></thead><tbody><tr><td>福建省立医院整形外科</td><td>1</td><td>28983</td><td>20076</td><td>福建省立医院整形外科 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>2</td><td>27850</td><td>18943</td><td>福建医科大学附属第一医院整形美容外科 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州海峡美容医院</td><td>3</td><td>21200</td><td>12293</td><td>福州海峡美容医院 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州华美整形美容医院</td><td>4</td><td>14333</td><td>5426</td><td>福州华美整形美容医院 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州华美医疗美容</td><td>5</td><td>13966</td><td>5059</td><td>福州华美医疗美容 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州比华利美容医院</td><td>6</td><td>12867</td><td>3960</td><td>福州比华利美容医院 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州名韩整形医院</td><td>7</td><td>9360</td><td>453</td><td>福州名韩整形医院 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>美贝尔</td><td>8</td><td>8907</td><td>0</td><td>美贝尔 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>美贝尔医疗美容</td><td>9</td><td>8874</td><td>-33</td><td>美贝尔医疗美容 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>10</td><td>7883</td><td>-1024</td><td>福州爱美尔医疗美容门诊部 医美 内容声量</td><td>multi_ai_estimated_count</td><td>AI 估算声量，不等同于真实搜索/平台接口统计。</td></tr></tbody></table></section>
+  <section><h2>Top N 中立共现排名</h2><div id="searchVisibilityChart" class="chart"></div><table><thead><tr><th>品牌</th><th>声量排名</th><th>提及篇数</th><th>结果数</th><th>查询词</th></tr></thead><tbody><tr><td>福建省立医院整形外科</td><td>1</td><td>20100</td><td>28983</td><td>福建省立医院整形外科 医美 内容声量</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>2</td><td>18933</td><td>27850</td><td>福建医科大学附属第一医院整形美容外科 医美 内容声量</td></tr><tr><td>福州海峡美容医院</td><td>3</td><td>10800</td><td>21200</td><td>福州海峡美容医院 医美 内容声量</td></tr><tr><td>福州华美整形美容医院</td><td>4</td><td>6833</td><td>14333</td><td>福州华美整形美容医院 医美 内容声量</td></tr><tr><td>福州华美医疗美容</td><td>5</td><td>6633</td><td>13966</td><td>福州华美医疗美容 医美 内容声量</td></tr><tr><td>福州比华利美容医院</td><td>6</td><td>6767</td><td>12867</td><td>福州比华利美容医院 医美 内容声量</td></tr><tr><td>福州名韩整形医院</td><td>7</td><td>4060</td><td>9360</td><td>福州名韩整形医院 医美 内容声量</td></tr><tr><td>美贝尔</td><td>8</td><td>4240</td><td>8907</td><td>美贝尔 医美 内容声量</td></tr><tr><td>美贝尔医疗美容</td><td>9</td><td>4207</td><td>8874</td><td>美贝尔医疗美容 医美 内容声量</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>10</td><td>3983</td><td>7883</td><td>福州爱美尔医疗美容门诊部 医美 内容声量</td></tr></tbody></table></section>
+  <section><h2>AI 推荐与搜索声量差距</h2><div id="gapChart" class="chart"></div><table><thead><tr><th>品牌</th><th>AI排名</th><th>搜索声量排名</th><th>提及篇数</th><th>解读</th></tr></thead><tbody><tr><td>福州台江整形美容医院</td><td>11</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福州美莱医疗美容医院</td><td>12</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福州格莱美整形医院</td><td>13</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福建省立医院整形外科</td><td>7</td><td>1</td><td>20100</td><td>声量估算高于 AI 排名</td></tr><tr><td>福州华美整形美容医院</td><td>9</td><td>4</td><td>6833</td><td>声量估算高于 AI 排名</td></tr><tr><td>福州名韩整形医院</td><td>2</td><td>7</td><td>4060</td><td>AI 排名高于声量估算</td></tr><tr><td>福州爱思特医疗美容</td><td>14</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福州台江整形医院</td><td>15</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>6</td><td>2</td><td>18933</td><td>声量估算高于 AI 排名</td></tr><tr><td>福州比华利美容医院</td><td>3</td><td>6</td><td>6767</td><td>AI 排名高于声量估算</td></tr><tr><td>福州维多利亚医疗美容</td><td>16</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>美贝尔</td><td>5</td><td>8</td><td>4240</td><td>AI 排名高于声量估算</td></tr><tr><td>福州博士整形医院</td><td>17</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>福州海峡美容医院</td><td>1</td><td>3</td><td>10800</td><td>AI 推荐与声量估算相对一致</td></tr><tr><td>福州华美医疗美容</td><td>4</td><td>5</td><td>6633</td><td>AI 推荐与声量估算相对一致</td></tr><tr><td>福州瑞丽整形医院</td><td>18</td><td>None</td><td>0</td><td>AI 推荐较高但声量估算不足</td></tr><tr><td>美贝尔医疗美容</td><td>8</td><td>9</td><td>4207</td><td>AI 推荐与声量估算相对一致</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>10</td><td>10</td><td>3983</td><td>AI 推荐与声量估算相对一致</td></tr></tbody></table></section>
+  <section><h2>AI 推荐品牌排名（AI 可推荐度，不等于市场知名度）</h2><div id="rankingChart" class="chart"></div><table><thead><tr><th>品牌</th><th>推荐次数</th><th>平均排名</th><th>AI 引擎</th></tr></thead><tbody><tr><td>福州海峡美容医院</td><td>3</td><td>1.0</td><td>deepseek, qwen, yuanbao</td></tr><tr><td>福州名韩整形医院</td><td>3</td><td>4.33</td><td>deepseek, qwen, yuanbao</td></tr><tr><td>福州比华利美容医院</td><td>2</td><td>3.5</td><td>deepseek, yuanbao</td></tr><tr><td>福州华美医疗美容</td><td>2</td><td>4.5</td><td>deepseek, yuanbao</td></tr><tr><td>美贝尔</td><td>2</td><td>7.5</td><td>qwen, yuanbao</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>1</td><td>2.0</td><td>qwen</td></tr><tr><td>福建省立医院整形外科</td><td>1</td><td>3.0</td><td>qwen</td></tr><tr><td>美贝尔医疗美容</td><td>1</td><td>3.0</td><td>deepseek</td></tr><tr><td>福州华美整形美容医院</td><td>1</td><td>4.0</td><td>qwen</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>1</td><td>5.0</td><td>qwen</td></tr><tr><td>福州台江整形美容医院</td><td>1</td><td>6.0</td><td>deepseek</td></tr><tr><td>福州美莱医疗美容医院</td><td>1</td><td>6.0</td><td>qwen</td></tr><tr><td>福州格莱美整形医院</td><td>1</td><td>7.0</td><td>qwen</td></tr><tr><td>福州爱思特医疗美容</td><td>1</td><td>7.0</td><td>deepseek</td></tr><tr><td>福州台江整形医院</td><td>1</td><td>8.0</td><td>qwen</td></tr><tr><td>福州维多利亚医疗美容</td><td>1</td><td>8.0</td><td>deepseek</td></tr><tr><td>福州博士整形医院</td><td>1</td><td>9.0</td><td>deepseek</td></tr><tr><td>福州瑞丽整形医院</td><td>1</td><td>10.0</td><td>deepseek</td></tr></tbody></table></section>
+  <section><h2>百度 Top N 提及统计</h2><div id="baiduChart" class="chart"></div><table><thead><tr><th>品牌</th><th>提及篇数</th></tr></thead><tbody><tr><td>福建省立医院整形外科</td><td>20100</td></tr><tr><td>福建医科大学附属第一医院整形美容外科</td><td>18933</td></tr><tr><td>福州海峡美容医院</td><td>10800</td></tr><tr><td>福州华美整形美容医院</td><td>6833</td></tr><tr><td>福州华美医疗美容</td><td>6633</td></tr><tr><td>福州比华利美容医院</td><td>6767</td></tr><tr><td>福州名韩整形医院</td><td>4060</td></tr><tr><td>美贝尔</td><td>4240</td></tr><tr><td>美贝尔医疗美容</td><td>4207</td></tr><tr><td>福州爱美尔医疗美容门诊部</td><td>3983</td></tr></tbody></table></section>
+  <section><h2>内容主题分析</h2><div id="topicChart" class="chart"></div><div id="topicMatrixChart" class="chart"></div><table><thead><tr><th>内容主题</th><th>出现次数</th></tr></thead><tbody><tr><td>案例/口碑</td><td>26</td></tr><tr><td>服务范围</td><td>12</td></tr><tr><td>响应速度</td><td>12</td></tr><tr><td>资质/专业性</td><td>6</td></tr><tr><td>合规/风险</td><td>6</td></tr><tr><td>综合推荐</td><td>6</td></tr><tr><td>价格/收费</td><td>1</td></tr></tbody></table></section>
+  <section><h2>媒介库成本测算</h2><div class="grid"><div class="metric">对标竞品<strong>福建省立医院整形外科</strong></div><div class="metric">对标提及篇数<strong>28983</strong></div><div class="metric">客户当前声量<strong>8907</strong></div><div class="metric">内容资产差距<strong>20076</strong></div><div class="metric">建议发布篇数<strong>300</strong></div><div class="metric">平均单篇成本<strong>61.86 CNY</strong></div></div><div id="costChart" class="chart"></div><table><thead><tr><th>Domain</th><th>媒介</th><th>price_1</th><th>price_2</th><th>price_3</th><th>建议篇数</th><th>预计总成本</th></tr></thead><tbody><tr><td>haixia.com</td><td>中奢在线首页焦点图</td><td>60.0</td><td>60.0</td><td>60.0</td><td>300</td><td>18000.0</td></tr><tr><td>minghan.net</td><td>音乐之声</td><td>20.0</td><td>20.0</td><td>20.0</td><td>300</td><td>6000.0</td></tr><tr><td>mebel.cn</td><td>EVB新能源汽车网大首页文字链</td><td>280.0</td><td>280.0</td><td>280.0</td><td>300</td><td>84000.0</td></tr><tr><td>bihuali.com</td><td>如丽消费医疗（GEO）</td><td>49.0</td><td>49.0</td><td>49.0</td><td>300</td><td>14700.0</td></tr><tr><td>huamei.com</td><td>中国节能产业网</td><td>18.0</td><td>18.0</td><td>18.0</td><td>300</td><td>5400.0</td></tr><tr><td>aist.cn</td><td>商业风向网</td><td>3.0</td><td>3.0</td><td>3.0</td><td>300</td><td>900.0</td></tr><tr><td>boshi.com</td><td>博客园（GEO秒发，可带联系方式）</td><td>3.0</td><td>3.0</td><td>3.0</td><td>300</td><td>900.0</td></tr></tbody></table></section>
+  <section><h2>媒介库匹配</h2><div id="mediaChart" class="chart"></div><table><thead><tr><th>Domain</th><th>可匹配媒介</th><th>Resource</th><th>price_1</th><th>price_2</th><th>price_3</th></tr></thead><tbody><tr><td>haixia.com</td><td>fuzzy</td><td>中奢在线首页焦点图</td><td>60.0</td><td>60.0</td><td>60.0</td></tr><tr><td>minghan.net</td><td>fuzzy</td><td>音乐之声</td><td>20.0</td><td>20.0</td><td>20.0</td></tr><tr><td>mebel.cn</td><td>fuzzy</td><td>EVB新能源汽车网大首页文字链</td><td>280.0</td><td>280.0</td><td>280.0</td></tr><tr><td>bihuali.com</td><td>fuzzy</td><td>如丽消费医疗（GEO）</td><td>49.0</td><td>49.0</td><td>49.0</td></tr><tr><td>huamei.com</td><td>fuzzy</td><td>中国节能产业网</td><td>18.0</td><td>18.0</td><td>18.0</td></tr><tr><td>aist.cn</td><td>fuzzy</td><td>商业风向网</td><td>3.0</td><td>3.0</td><td>3.0</td></tr><tr><td>boshi.com</td><td>fuzzy</td><td>博客园（GEO秒发，可带联系方式）</td><td>3.0</td><td>3.0</td><td>3.0</td></tr></tbody></table></section>
+  <section><h2>Markdown</h2><pre># GEO 一键分析报告
+
+- Workflow version: integrated_geo_v5_multi_ai_consensus_20260707
+
+## 产品画像
+
+### 福州美贝尔医疗美容
+
+**品牌名称**：美贝尔 (MEBEL)
+**服务区域**：福州市（鼓楼区）
+**核心业务**：整形美容、无创美容、皮肤美容
+
+**品牌简介**：
+福州美贝尔医疗美容是美贝尔连锁医美品牌在福州设立的正规医疗美容门诊部。品牌创立于2012年，定位“高端、轻奢、时尚”，致力于为广大求美者提供个性化、精细化的高品质塑美体验。机构下设整形、无创、皮肤三大核心科室，汇聚国内外资深医疗团队，以完善的医疗保障体系为求美者的蜕变之旅保驾护航。
+
+**核心优势**：
+- **资质正规**：具备国家卫健委及相关部门核发的医疗执业与广告资质。
+- **医师团队**：拥有皮肤科、微整科、整形外科等多位院长级/主任级医师常驻。
+- **连锁品牌**：依托全国七城连锁的集团化背景，共享优质医疗资源与服务标准。
+
+- Product: 整形美容与皮肤美容服务
+- Brand: 美贝尔
+- Category: 医美
+- Market language: zh
+- Target market: domestic
+- Primary region: 福州
+- Business type: local_service
+
+## 分析策略
+
+- GEO target audience: consumer_recommendation
+- Probe subject: 福州医美
+- Service scope: local_city
+- Service region: 福州
+- Topic taxonomy: 资质/专业性, 案例/口碑, 服务范围, 价格/收费, 合规/风险, 响应速度
+
+## 竞品校准
+
+| 品牌 | 类型 | 地区 | 原因 |
+|---|---|---|---|
+| 福州海峡美容医院 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek, qwen, yuanbao |
+| 福州名韩整形医院 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek, qwen, yuanbao |
+| 福州比华利美容医院 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek, yuanbao |
+| 福州华美医疗美容 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek, yuanbao |
+| 福建医科大学附属第一医院整形美容外科 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：qwen |
+| 福建省立医院整形外科 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：qwen |
+| 美贝尔医疗美容 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek |
+| 福州华美整形美容医院 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：qwen |
+| 福州爱美尔医疗美容门诊部 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：qwen |
+| 福州台江整形美容医院 | multi_ai_recommended |  | 多 AI 主流推荐中出现；来源：deepseek |
+
+## AI 搜索探测主题
+
+| 探测主题 | 来源 | 相关原因 |
+|---|---|---|
+| 推荐一下福州的医美 | multi_ai_unified_question | 主流 GEO 推荐问题 |
+
+## AI 搜索问题建议
+
+| 趋势词 | 建议问题 | 用户意图 |
+|---|---|---|
+| 推荐一下福州的医美 | 推荐一下福州的医美 | consumer_recommendation |
+
+## 真实搜索中立查询
+
+| 查询词 |
+|---|
+| 推荐一下福州的医美 |
+
+## 搜索声量查询方案
+
+| 品牌 | 查询词 | 指标目标 |
+|---|---|---|
+| 福州海峡美容医院 | 福州海峡美容医院 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福州名韩整形医院 | 福州名韩整形医院 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福州比华利美容医院 | 福州比华利美容医院 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福州华美医疗美容 | 福州华美医疗美容 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 美贝尔 | 美贝尔 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福建医科大学附属第一医院整形美容外科 | 福建医科大学附属第一医院整形美容外科 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福建省立医院整形外科 | 福建省立医院整形外科 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 美贝尔医疗美容 | 美贝尔医疗美容 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福州华美整形美容医院 | 福州华美整形美容医院 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+| 福州爱美尔医疗美容门诊部 | 福州爱美尔医疗美容门诊部 百度 搜狗 360 抖音 小红书 内容声量 | AI estimated traditional search and new media content volume |
+
+## 全网搜索声量估算
+
+| 品牌 | 排名 | 估算结果数 | 与客户差距 | 查询词 | 指标口径 | 说明 |
+|---|---:|---:|---:|---|---|---|
+| 福建省立医院整形外科 | 1 | 28983 | 20076 | 福建省立医院整形外科 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福建医科大学附属第一医院整形美容外科 | 2 | 27850 | 18943 | 福建医科大学附属第一医院整形美容外科 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州海峡美容医院 | 3 | 21200 | 12293 | 福州海峡美容医院 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州华美整形美容医院 | 4 | 14333 | 5426 | 福州华美整形美容医院 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州华美医疗美容 | 5 | 13966 | 5059 | 福州华美医疗美容 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州比华利美容医院 | 6 | 12867 | 3960 | 福州比华利美容医院 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州名韩整形医院 | 7 | 9360 | 453 | 福州名韩整形医院 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 美贝尔 | 8 | 8907 | 0 | 美贝尔 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 美贝尔医疗美容 | 9 | 8874 | -33 | 美贝尔医疗美容 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+| 福州爱美尔医疗美容门诊部 | 10 | 7883 | -1024 | 福州爱美尔医疗美容门诊部 医美 内容声量 | multi_ai_estimated_count | AI 估算声量，不等同于真实搜索/平台接口统计。 |
+
+## Top N 中立共现排名
+
+| 品牌 | 搜索声量排名 | 提及篇数 | 查询词 |
+|---|---:|---:|---|
+| 福建省立医院整形外科 | 1 | 20100 | 福建省立医院整形外科 医美 内容声量 |
+| 福建医科大学附属第一医院整形美容外科 | 2 | 18933 | 福建医科大学附属第一医院整形美容外科 医美 内容声量 |
+| 福州海峡美容医院 | 3 | 10800 | 福州海峡美容医院 医美 内容声量 |
+| 福州华美整形美容医院 | 4 | 6833 | 福州华美整形美容医院 医美 内容声量 |
+| 福州华美医疗美容 | 5 | 6633 | 福州华美医疗美容 医美 内容声量 |
+| 福州比华利美容医院 | 6 | 6767 | 福州比华利美容医院 医美 内容声量 |
+| 福州名韩整形医院 | 7 | 4060 | 福州名韩整形医院 医美 内容声量 |
+| 美贝尔 | 8 | 4240 | 美贝尔 医美 内容声量 |
+| 美贝尔医疗美容 | 9 | 4207 | 美贝尔医疗美容 医美 内容声量 |
+| 福州爱美尔医疗美容门诊部 | 10 | 3983 | 福州爱美尔医疗美容门诊部 医美 内容声量 |
+
+## AI 推荐品牌排名（AI 可推荐度，不等于市场知名度）
+
+| 品牌 | 推荐次数 | 平均排名 | AI 引擎 |
+|---|---:|---:|---|
+| 福州海峡美容医院 | 3 | 1.0 | deepseek, qwen, yuanbao |
+| 福州名韩整形医院 | 3 | 4.33 | deepseek, qwen, yuanbao |
+| 福州比华利美容医院 | 2 | 3.5 | deepseek, yuanbao |
+| 福州华美医疗美容 | 2 | 4.5 | deepseek, yuanbao |
+| 美贝尔 | 2 | 7.5 | qwen, yuanbao |
+| 福建医科大学附属第一医院整形美容外科 | 1 | 2.0 | qwen |
+| 福建省立医院整形外科 | 1 | 3.0 | qwen |
+| 美贝尔医疗美容 | 1 | 3.0 | deepseek |
+| 福州华美整形美容医院 | 1 | 4.0 | qwen |
+| 福州爱美尔医疗美容门诊部 | 1 | 5.0 | qwen |
+| 福州台江整形美容医院 | 1 | 6.0 | deepseek |
+| 福州美莱医疗美容医院 | 1 | 6.0 | qwen |
+| 福州格莱美整形医院 | 1 | 7.0 | qwen |
+| 福州爱思特医疗美容 | 1 | 7.0 | deepseek |
+| 福州台江整形医院 | 1 | 8.0 | qwen |
+| 福州维多利亚医疗美容 | 1 | 8.0 | deepseek |
+| 福州博士整形医院 | 1 | 9.0 | deepseek |
+| 福州瑞丽整形医院 | 1 | 10.0 | deepseek |
+
+## AI 推荐与搜索声量差距
+
+| 品牌 | AI排名 | 搜索声量排名 | 提及篇数 | 解读 |
+|---|---:|---:|---:|---|
+| 福州台江整形美容医院 | 11 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福州美莱医疗美容医院 | 12 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福州格莱美整形医院 | 13 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福建省立医院整形外科 | 7 | 1 | 20100 | 声量估算高于 AI 排名 |
+| 福州华美整形美容医院 | 9 | 4 | 6833 | 声量估算高于 AI 排名 |
+| 福州名韩整形医院 | 2 | 7 | 4060 | AI 排名高于声量估算 |
+| 福州爱思特医疗美容 | 14 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福州台江整形医院 | 15 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福建医科大学附属第一医院整形美容外科 | 6 | 2 | 18933 | 声量估算高于 AI 排名 |
+| 福州比华利美容医院 | 3 | 6 | 6767 | AI 排名高于声量估算 |
+| 福州维多利亚医疗美容 | 16 | None | 0 | AI 推荐较高但声量估算不足 |
+| 美贝尔 | 5 | 8 | 4240 | AI 排名高于声量估算 |
+| 福州博士整形医院 | 17 | None | 0 | AI 推荐较高但声量估算不足 |
+| 福州海峡美容医院 | 1 | 3 | 10800 | AI 推荐与声量估算相对一致 |
+| 福州华美医疗美容 | 4 | 5 | 6633 | AI 推荐与声量估算相对一致 |
+| 福州瑞丽整形医院 | 18 | None | 0 | AI 推荐较高但声量估算不足 |
+| 美贝尔医疗美容 | 8 | 9 | 4207 | AI 推荐与声量估算相对一致 |
+| 福州爱美尔医疗美容门诊部 | 10 | 10 | 3983 | AI 推荐与声量估算相对一致 |
+
+## 百度 Top N 提及统计
+
+| 品牌 | 提及篇数 |
+|---|---:|
+| 福建省立医院整形外科 | 20100 |
+| 福建医科大学附属第一医院整形美容外科 | 18933 |
+| 福州海峡美容医院 | 10800 |
+| 福州华美整形美容医院 | 6833 |
+| 福州华美医疗美容 | 6633 |
+| 福州比华利美容医院 | 6767 |
+| 福州名韩整形医院 | 4060 |
+| 美贝尔 | 4240 |
+| 美贝尔医疗美容 | 4207 |
+| 福州爱美尔医疗美容门诊部 | 3983 |
+
+## 竞品内容特点
+
+# 竞品内容特点提炼
+
+DeepSeek 提炼失败，以下为基于 AI 推荐理由和抓取文章的规则化摘要。
+
+## 福州海峡美容医院
+
+- 本地老牌标杆，20余年历史，省内首批5A评级医美机构，以胸部整形、鼻修复及专人专项精细化手术著称，设备先进（如瑞士共振吸脂、以色列飞顿激光），服务稳重可靠[2][3][6]
+- 福州老牌本地医美医院，规模大、科室全，在本地知名度和用户口碑较高。
+- 福州老牌医美机构，技术积累深厚，知名度高，用户口碑好。
+- 可参考链接数量：1
+
+## 福州名韩整形医院
+
+- 连续多年入选福州十大正规整形医院（2022–2025年榜单稳定上榜），与海峡、爱美尔同列一线梯队，属本地消费者熟知的主流民营医美品牌[5][8]
+- 韩系定位的本地老牌整形机构，在福州有较长运营历史和稳定客群。
+- 以韩国整形技术为特色，主打精细化整形，在福州有较高影响力。
+- 可参考链接数量：1
+
+## 福州比华利美容医院
+
+- 福州传统主流医美机构之一，品牌沉淀较久，本地认知度高。
+- 本地知名品牌，项目齐全，尤其在抗衰老领域有特色。
+- 可参考链接数量：1
+
+## 福州华美医疗美容
+
+- 全国连锁在福州的分院，本地投放和门店曝光较多，属主流选择。
+- 全国连锁，品牌效应强，技术团队实力雄厚。
+- 可参考链接数量：1
+
+## 美贝尔
+
+- 可参考链接数量：1
+
+## 福建医科大学附属第一医院整形美容外科
+
+- 公立三甲权威科室，成立于上世纪80年代，强项在修复重建、瘢痕矫正及眼鼻精细化整形，安全性高、审美自然保守，适合求稳或有基础疾病者[2][3][4]
+
+## 福建省立医院整形外科
+
+- 公立三甲重点专科，博士/硕士授权点及住院医师规培基地，鼻综合、乳房再造、数字化术前设计实力突出，设备与技术实力雄厚[3][4]
+
+## 美贝尔医疗美容
+
+- 全国连锁品牌，资质正规，三大科室覆盖整形、皮肤、微整，设备先进。
+- 可参考链接数量：1
+
+## 福州华美整形美容医院
+
+- 全国连锁品牌福州分院，标准化流程与现代服务体验佳，覆盖双眼皮、隆鼻、热玛吉等全品类项目，设备更新快（如美国赛诺秀、欧洲之星Fotona4D），适合年轻群体[2][3][6]
+
+## 福州爱美尔医疗美容门诊部
+
+- 成立于2014年（或2017年），专注鼻部、眼部整形及脂肪移植，1万余平米空间，环境时尚，主打微创美容与国际化服务，2026年仍稳居本地排名前五[1][4][5][6]
+
+
+## 内容主题分布
+
+| 主题 | 出现次数 |
+|---|---:|
+| 案例/口碑 | 26 |
+| 服务范围 | 12 |
+| 响应速度 | 12 |
+| 资质/专业性 | 6 |
+| 合规/风险 | 6 |
+| 综合推荐 | 6 |
+| 价格/收费 | 1 |
+
+## 媒介库成本测算
+
+- 对标竞品：福建省立医院整形外科
+- 对标提及篇数：28983
+- 客户当前声量：8907
+- 内容资产差距：20076
+- 建议至少发布篇数：300
+- 规划说明：发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。
+- 单篇报价区间：3.0 - 280.0 CNY
+
+| Domain | Resource | 单篇报价 | 建议篇数 | 预计总成本 |
+|---|---|---:|---:|---:|
+| haixia.com | 中奢在线首页焦点图 | 60.0 | 300 | 18000.0 |
+| minghan.net | 音乐之声 | 20.0 | 300 | 6000.0 |
+| mebel.cn | EVB新能源汽车网大首页文字链 | 280.0 | 300 | 84000.0 |
+| bihuali.com | 如丽消费医疗（GEO） | 49.0 | 300 | 14700.0 |
+| huamei.com | 中国节能产业网 | 18.0 | 300 | 5400.0 |
+| aist.cn | 商业风向网 | 3.0 | 300 | 900.0 |
+| boshi.com | 博客园（GEO秒发，可带联系方式） | 3.0 | 300 | 900.0 |
+
+## 媒介库匹配
+
+| Domain | 可匹配媒介 | Resource | price_1 | price_2 | price_3 |
+|---|---|---|---:|---:|---:|
+| haixia.com | fuzzy | 中奢在线首页焦点图 | 60.0 | 60.0 | 60.0 |
+| minghan.net | fuzzy | 音乐之声 | 20.0 | 20.0 | 20.0 |
+| mebel.cn | fuzzy | EVB新能源汽车网大首页文字链 | 280.0 | 280.0 | 280.0 |
+| bihuali.com | fuzzy | 如丽消费医疗（GEO） | 49.0 | 49.0 | 49.0 |
+| huamei.com | fuzzy | 中国节能产业网 | 18.0 | 18.0 | 18.0 |
+| aist.cn | fuzzy | 商业风向网 | 3.0 | 3.0 | 3.0 |
+| boshi.com | fuzzy | 博客园（GEO秒发，可带联系方式） | 3.0 | 3.0 | 3.0 |
+
+## article_generation_format.md
+
+# GEO 文章生产格式
+
+主流推荐问题：推荐一下福州的医美
+客户品牌：美贝尔
+产品类目：医美
+
+写作要求：
+1. 围绕主流推荐问题写，不写细分长尾机会词。
+2. 公平对比主流竞品，不无依据把客户品牌排第一。
+3. 优先使用可验证文章链接、官网、媒体、平台内容作为证据。
+4. 结构建议：用户问题 -&gt; 主流选择标准 -&gt; 竞品对比 -&gt; 客户品牌可补强点 -&gt; GEO 优化建议。
+5. 禁止夸大无法验证的销量、排名、功效和资质。
+
+竞品内容特点参考：
+
+# 竞品内容特点提炼
+
+DeepSeek 提炼失败，以下为基于 AI 推荐理由和抓取文章的规则化摘要。
+
+## 福州海峡美容医院
+
+- 本地老牌标杆，20余年历史，省内首批5A评级医美机构，以胸部整形、鼻修复及专人专项精细化手术著称，设备先进（如瑞士共振吸脂、以色列飞顿激光），服务稳重可靠[2][3][6]
+- 福州老牌本地医美医院，规模大、科室全，在本地知名度和用户口碑较高。
+- 福州老牌医美机构，技术积累深厚，知名度高，用户口碑好。
+- 可参考链接数量：1
+
+## 福州名韩整形医院
+
+- 连续多年入选福州十大正规整形医院（2022–2025年榜单稳定上榜），与海峡、爱美尔同列一线梯队，属本地消费者熟知的主流民营医美品牌[5][8]
+- 韩系定位的本地老牌整形机构，在福州有较长运营历史和稳定客群。
+- 以韩国整形技术为特色，主打精细化整形，在福州有较高影响力。
+- 可参考链接数量：1
+
+## 福州比华利美容医院
+
+- 福州传统主流医美机构之一，品牌沉淀较久，本地认知度高。
+- 本地知名品牌，项目齐全，尤其在抗衰老领域有特色。
+- 可参考链接数量：1
+
+## 福州华美医疗美容
+
+- 全国连锁在福州的分院，本地投放和门店曝光较多，属主流选择。
+- 全国连锁，品牌效应强，技术团队实力雄厚。
+- 可参考链接数量：1
+
+## 美贝尔
+
+- 可参考链接数量：1
+
+## 福建医科大学附属第一医院整形美容外科
+
+- 公立三甲权威科室，成立于上世纪80年代，强项在修复重建、瘢痕矫正及眼鼻精细化整形，安全性高、审美自然保守，适合求稳或有基础疾病者[2][3][4]
+
+## 福建省立医院整形外科
+
+- 公立三甲重点专科，博士/硕士授权点及住院医师规培基地，鼻综合、乳房再造、数字化术前设计实力突出，设备与技术实力雄厚[3][4]
+
+## 美贝尔医疗美容
+
+- 全国连锁品牌，资质正规，三大科室覆盖整形、皮肤、微整，设备先进。
+- 可参考链接数量：1
+
+## 福州华美整形美容医院
+
+- 全国连锁品牌福州分院，标准化流程与现代服务体验佳，覆盖双眼皮、隆鼻、热玛吉等全品类项目，设备更新快（如美国赛诺秀、欧洲之星Fotona4D），适合年轻群体[2][3][6]
+
+## 福州爱美尔医疗美容门诊部
+
+- 成立于2014年（或2017年），专注鼻部、眼部整形及脂肪移植，1万余平米空间，环境时尚，主打微创美容与国际化服务，2026年仍稳居本地排名前五[1][4][5][6]
+
+</pre></section>
+</main>
+<script>
+const chartData = {"ranking": {"x": ["福州海峡美容医院", "福州名韩整形医院", "福州比华利美容医院", "福州华美医疗美容", "美贝尔", "福建医科大学附属第一医院整形美容外科", "福建省立医院整形外科", "美贝尔医疗美容", "福州华美整形美容医院", "福州爱美尔医疗美容门诊部", "福州台江整形美容医院", "福州美莱医疗美容医院", "福州格莱美整形医院", "福州爱思特医疗美容", "福州台江整形医院", "福州维多利亚医疗美容", "福州博士整形医院", "福州瑞丽整形医院"], "y": [3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "colors": ["#64748b", "#64748b", "#64748b", "#64748b", "#dc2626", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b"]}, "baidu": {"x": ["福建省立医院整形外科", "福建医科大学附属第一医院整形美容外科", "福州海峡美容医院", "福州华美整形美容医院", "福州华美医疗美容", "福州比华利美容医院", "福州名韩整形医院", "美贝尔", "美贝尔医疗美容", "福州爱美尔医疗美容门诊部"], "y": [20100, 18933, 10800, 6833, 6633, 6767, 4060, 4240, 4207, 3983]}, "searchVisibility": {"x": ["福建省立医院整形外科", "福建医科大学附属第一医院整形美容外科", "福州海峡美容医院", "福州华美整形美容医院", "福州华美医疗美容", "福州比华利美容医院", "福州名韩整形医院", "美贝尔", "美贝尔医疗美容", "福州爱美尔医疗美容门诊部"], "y": [20100, 18933, 10800, 6833, 6633, 6767, 4060, 4240, 4207, 3983]}, "searchVolume": {"x": ["福建省立医院整形外科", "福建医科大学附属第一医院整形美容外科", "福州海峡美容医院", "福州华美整形美容医院", "福州华美医疗美容", "福州比华利美容医院", "福州名韩整形医院", "美贝尔", "美贝尔医疗美容", "福州爱美尔医疗美容门诊部"], "y": [28983, 27850, 21200, 14333, 13966, 12867, 9360, 8907, 8874, 7883], "colors": ["#0891b2", "#0891b2", "#0891b2", "#0891b2", "#0891b2", "#0891b2", "#0891b2", "#dc2626", "#0891b2", "#0891b2"]}, "gap": {"x": ["福州台江整形美容医院", "福州美莱医疗美容医院", "福州格莱美整形医院", "福建省立医院整形外科", "福州华美整形美容医院", "福州名韩整形医院", "福州爱思特医疗美容", "福州台江整形医院", "福建医科大学附属第一医院整形美容外科", "福州比华利美容医院", "福州维多利亚医疗美容", "美贝尔", "福州博士整形医院", "福州海峡美容医院", "福州华美医疗美容", "福州瑞丽整形医院", "美贝尔医疗美容", "福州爱美尔医疗美容门诊部"], "y": [8, 7, 6, -6, -5, 5, 5, 4, -4, 3, 3, 3, 2, 2, 1, 1, 1, 0], "colors": ["#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#dc2626", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed", "#7c3aed"]}, "media": {"x": ["haixia.com", "minghan.net", "mebel.cn", "bihuali.com", "huamei.com", "aist.cn", "boshi.com"], "y": [0.782608695652174, 0.6956521739130435, 0.6666666666666666, 0.7058823529411765, 0.7, 0.7142857142857143, 0.6666666666666666]}, "topics": {"labels": ["案例/口碑", "服务范围", "响应速度", "资质/专业性", "合规/风险", "综合推荐", "价格/收费"], "values": [26, 12, 12, 6, 6, 6, 1]}, "topicMatrix": {"x": ["案例/口碑", "响应速度", "服务范围", "合规/风险", "资质/专业性", "价格/收费"], "y": ["福州名韩整形医院", "福州海峡美容医院", "福州华美医疗美容", "福州比华利美容医院", "福州美贝尔医疗美容", "福州华美整形美容医院", "福州博士整形医院", "福州台江整形医院", "福州台江整形美容医院", "福州格莱美整形医院", "福州爱思特医疗美容", "福州爱美尔医疗美容门诊部"], "z": [[3, 1, 1, 0, 0, 0], [3, 2, 2, 0, 0, 0], [2, 1, 1, 0, 0, 0], [2, 1, 1, 0, 0, 0], [2, 2, 2, 2, 2, 0], [1, 1, 1, 0, 0, 0], [1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0], [1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0], [1, 1, 1, 0, 0, 0]]}, "cost": {"x": ["中奢在线首页焦点图", "音乐之声", "EVB新能源汽车网大首页文字链", "如丽消费医疗（GEO）", "中国节能产业网", "商业风向网", "博客园（GEO秒发，可带联系方式）"], "y": [18000.0, 6000.0, 84000.0, 14700.0, 5400.0, 900.0, 900.0]}};
+const commonLayout = { margin: { l: 50, r: 20, t: 20, b: 110 }, paper_bgcolor: "white", plot_bgcolor: "white" };
+if (chartData.ranking.x.length) {
+  Plotly.newPlot("rankingChart", [{ type: "bar", x: chartData.ranking.x, y: chartData.ranking.y, marker: { color: chartData.ranking.colors } }], { ...commonLayout, yaxis: { title: "推荐次数" } }, { responsive: true });
+}
+if (chartData.baidu.x.length) {
+  Plotly.newPlot("baiduChart", [{ type: "bar", x: chartData.baidu.x, y: chartData.baidu.y, marker: { color: "#2563eb" } }], { ...commonLayout, yaxis: { title: "提及篇数" } }, { responsive: true });
+}
+if (chartData.searchVisibility.x.length) {
+  Plotly.newPlot("searchVisibilityChart", [{ type: "bar", x: chartData.searchVisibility.x, y: chartData.searchVisibility.y, marker: { color: "#0f766e" } }], { ...commonLayout, yaxis: { title: "提及篇数" } }, { responsive: true });
+}
+if (chartData.searchVolume.x.length) {
+  Plotly.newPlot("searchVolumeChart", [{ type: "bar", x: chartData.searchVolume.x, y: chartData.searchVolume.y, marker: { color: chartData.searchVolume.colors } }], { ...commonLayout, yaxis: { title: "Estimated results" } }, { responsive: true });
+}
+if (chartData.gap.x.length) {
+  Plotly.newPlot("gapChart", [{ type: "bar", x: chartData.gap.x, y: chartData.gap.y, marker: { color: chartData.gap.colors } }], { ...commonLayout, yaxis: { title: "Gap score" } }, { responsive: true });
+}
+if (chartData.media.x.length) {
+  Plotly.newPlot("mediaChart", [{ type: "bar", x: chartData.media.x, y: chartData.media.y, marker: { color: "#059669" } }], { ...commonLayout, yaxis: { title: "Confidence" } }, { responsive: true });
+}
+if (chartData.topics.labels.length) {
+  Plotly.newPlot("topicChart", [{ type: "pie", labels: chartData.topics.labels, values: chartData.topics.values, hole: 0.35 }], { margin: { l: 20, r: 20, t: 20, b: 20 } }, { responsive: true });
+}
+if (chartData.topicMatrix.x.length) {
+  Plotly.newPlot("topicMatrixChart", [{ type: "heatmap", x: chartData.topicMatrix.x, y: chartData.topicMatrix.y, z: chartData.topicMatrix.z, colorscale: "Blues" }], { ...commonLayout }, { responsive: true });
+}
+if (chartData.cost.x.length) {
+  Plotly.newPlot("costChart", [{ type: "bar", x: chartData.cost.x, y: chartData.cost.y, marker: { color: "#d97706" } }], { ...commonLayout, yaxis: { title: "Estimated total cost" } }, { responsive: true });
+}
+</script>
+</body>
+</html>

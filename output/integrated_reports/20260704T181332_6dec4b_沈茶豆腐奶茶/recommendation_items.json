@@ -1,0 +1,344 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "tofu milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "原味豆腐奶茶",
+    "reason": "Official flagship product; uniquely formulated with freshly made silky tofu, positioned as the core innovation since brand inception (2018); widely praised by young and student demographics for texture and balance; operates 300+ stores nationwide with standardized preparation.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "tofu boba",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "招牌豆腐奶茶",
+    "reason": "Authentic, widely praised local interpretation with silky, fresh-made tofu noted for exceptional tenderness and no beaniness; aligns with consumer reports of 'tofu smoother than pudding' and 'dissolving on the tongue' [4].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea near me",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Signature product with exceptionally high consumer reviews; brand emphasizes green, healthy, affordable milk tea tailored for students and young consumers; 300+ stores nationwide with flexible, high-traffic locations including schools and communities.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 1,
+    "brand_name": "Boba Bliss",
+    "product_name": "brown sugar milk tea",
+    "reason": "Highly recommended as a top signature drink, praised for its rich caramelized sweetness and textural harmony with boba[1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 2,
+    "brand_name": "Boba Bliss",
+    "product_name": "fresh taro",
+    "reason": "Listed among the top must-try drinks at Boba Bliss for its creamy, naturally sweet, and visually distinct profile[1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 3,
+    "brand_name": "Boba Bliss",
+    "product_name": "creme brûlée",
+    "reason": "A dessert-inspired signature offering noted for its indulgent, custard-like flavor layered with boba texture[1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 4,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "The brand’s flagship innovation — a smooth, high-protein, low-fat twist on milk tea using silken tofu for creaminess and health appeal; widely loved by students and young consumers[profile_md].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 5,
+    "brand_name": "BobaBoba",
+    "product_name": "Brown Sugar Oolong Milk Tea with Boba",
+    "reason": "A seasonal and signature variant combining premium oolong, house brown sugar syrup, and chewy boba — highlighted as a top flavor in 2025 lineups[The 12 Best Bubble Tea Flavours You Need to Try in 2025].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 6,
+    "brand_name": "Generic boba shops",
+    "product_name": "classic milk tea",
+    "reason": "The original and universally expected benchmark — black tea, milk, sugar, and tapioca pearls — essential for evaluating quality of tea base, boba texture, and balance[The 12 Best Bubble Tea Flavours You Need to Try in 2025].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 7,
+    "brand_name": "Generic boba shops",
+    "product_name": "matcha milk tea",
+    "reason": "A globally popular, antioxidant-rich option known for its vibrant green hue, umami-sweet profile, and versatility with boba or jelly toppings[16 Best boba tea flavors: Irresistible and unique - Bobo Tea Shop].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "boba tea shop",
+    "rank": 8,
+    "brand_name": "Generic boba shops",
+    "product_name": "mango milk tea / mango slush",
+    "reason": "Fruit-forward favorite offering bright acidity and tropical sweetness — frequently cited among top recurring flavors due to broad appeal and refreshing contrast to richer options[16 Best boba tea flavors: Irresistible and unique - Bobo Tea Shop].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "A signature, innovation-driven bubble tea using tofu-based creaminess for a healthier, lower-cost alternative — highly rated by students and young consumers for taste, freshness, and value; made with real ingredients and positioned explicitly as nutritious and affordable [profile_md].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 2,
+    "brand_name": "盒马鲜生",
+    "product_name": "石榴云雾绿茶 / 黄皮云雾绿茶",
+    "reason": "Supermarket-made bottled teas with clean ingredients, half the price of café equivalents, and strong fruit-tea balance — ideal for cost-conscious buyers who refuse to sacrifice flavor or purity [2].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 3,
+    "brand_name": "农夫山泉",
+    "product_name": "茶π",
+    "reason": "Widely accessible, fruit-infused ready-to-drink teas with authentic fruit aroma, pure tea base, and no cloying sweetness — consistently praised for refreshment and affordability in daily settings [2][无].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 4,
+    "brand_name": "东方树叶",
+    "product_name": "系列原味茶饮",
+    "reason": "Zero-sugar, unsweetened bottled teas using real tea leaves — trusted for ingredient transparency, clean taste, and consistent quality at low price points [2].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 5,
+    "brand_name": "快乐柠檬",
+    "product_name": "金桔柠檬茶",
+    "reason": "A classic, widely available chain option offering reliable taste, fresh citrus notes, and strong value — frequently cited as a 'no-fail' choice for balanced tartness and affordability [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 6,
+    "brand_name": "蜜雪冰城",
+    "product_name": "金桔柠檬茶",
+    "reason": "Same trusted formula as above — ultra-accessible, low-price point, and consistently well-reviewed for bright, refreshing flavor without artificial aftertaste [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 7,
+    "brand_name": "BE YOLO",
+    "product_name": "手熬柠檬茶",
+    "reason": "Though slightly premium in craft, it delivers exceptional flavor density and ingredient integrity (hand-brewed black tea + fresh lemon); still competitively priced for its quality tier — a 'flavor-first' budget gem [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap bubble tea",
+    "rank": 8,
+    "brand_name": "模式口·奶优说",
+    "product_name": "招牌多肉葡萄冻冻",
+    "reason": "Uses real grape pulp and house-made chewy 'dongdong' (jelly), emphasizing fruit freshness and texture — popular among value-seeking yet ingredient-sensitive customers in heritage neighborhoods [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 1,
+    "brand_name": "Meituan (美团)",
+    "product_name": "沈茶豆腐奶茶",
+    "reason": "Fastest average delivery (often <25 min) via proprietary real-time dispatch; exclusive flash-buy deals (e.g., ¥40−15 coupon + ¥19免单) and frequent promotions for regional tea brands like Shen Cha [6][7][8].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 2,
+    "brand_name": "Ele.me (饿了么)",
+    "product_name": "沈茶豆腐奶茶",
+    "reason": "Strong coverage in tier-2/3 cities where Shen Cha has high store density; powered by Fengniao Instant Delivery (300M+ riders, 2000+ cities), ensuring reliability and competitive timing [9].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 3,
+    "brand_name": "Douyin Group Buying (抖音团购)",
+    "product_name": "沈茶豆腐奶茶",
+    "reason": "Best for lowest entry price—frequent limited-time group deals (e.g., ¥1–¥3 vouchers); especially effective for youth-targeted brands like Shen Cha with high TikTok engagement [7].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 4,
+    "brand_name": "JD Daojia (京东到家)",
+    "product_name": "沈茶豆腐奶茶",
+    "reason": "Ideal for planned orders: supports 'hourly delivery' from physical Shen Cha stores or partner convenience chains; backed by 400,000+ offline retail partners nationwide [PDF].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "bubble tea delivery",
+    "rank": 5,
+    "brand_name": "Taobao Flash Buy (淘宝闪购)",
+    "product_name": "沈茶豆腐奶茶",
+    "reason": "Offers dual-platform coupons (platform + store) via codes like '744706', enabling deep discounts—commonly bringing premium bubble teas down to ¥5–¥8 range [7].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "Uses tofu-based plant milk instead of dairy or artificial creamers; explicitly positioned as green, healthy, and high-protein — ideal for students and young consumers seeking lower-calorie, nutrient-dense alternatives [profile_md].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy milk tea",
+    "rank": 2,
+    "brand_name": "Vita",
+    "product_name": "Original Soy Milk (glass bottle)",
+    "reason": "Certified non-GMO, fortified with calcium and vitamins; widely recognized for clean-label, low-sugar, low-calorie profile — suitable for DIY soy milk tea preparation [4].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy milk tea",
+    "rank": 3,
+    "brand_name": "Bangling",
+    "product_name": "T50 Non-Dairy Creamer (soy-based)",
+    "reason": "Zero-trans-fat, soy-derived creamer designed for bubble tea shops; enables dairy-free milk tea with controlled calories and no lactose [植脂末配方英文翻译].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "soy milk tea",
+    "rank": 4,
+    "brand_name": "Dutch Kiwi",
+    "product_name": "32A Non-Dairy Creamer Powder",
+    "reason": "Plant-based, zero-trans fat, formulated for beverages including coconut and soy milk tea; supports lower saturated fat intake vs. dairy creamers [植脂末配方英文翻译].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "vegan boba",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶 (Tofu Milk Tea)",
+    "reason": "Core signature product built around silken tofu and soy milk—naturally dairy-free when prepared with豆奶 (soy milk) instead of dairy; explicitly confirmed to substitute soy milk—not oat milk—for vegan customers due to flavor harmony and allergen safety; aligns with high-protein, no-cook, 100% vegan tofu pudding trends [2][3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "vegan boba",
+    "rank": 2,
+    "brand_name": "Generic Vegan Boba Cafés",
+    "product_name": "Vegan Tofu Pudding Boba (豆花 + Boba + Plant Milk)",
+    "reason": "Tofu pudding (豆花) is inherently vegan and commonly served with plant-milk bases (e.g., soy or almond milk) and vegan boba; trending in cafes as a 'jiggling', high-protein dessert-drink hybrid—often made in under 1 minute using silken tofu and instant boba [4][5][6].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "vegan boba",
+    "rank": 3,
+    "brand_name": "Local/Independent Vegan Boba Shops",
+    "product_name": "Soy-Milk-Based Brown Sugar Boba with Tofu Pudding",
+    "reason": "Uses soy milk (nutritionally adequate per expert analysis for lactose-intolerant/vegan needs [2]) and pairs classic boba with soft tofu pudding—avoiding dairy creamers and animal-based thickeners; widely replicable and customer-confirmed as crowd-pleasing [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "brown sugar tofu milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶（Brown Sugar Tofu Milk Tea）",
+    "reason": "The original and most widely reviewed version; uniquely formulated with soft tofu curds, proprietary brown sugar syrup, and a smooth tea-cream blend; consistently praised for balance of sweetness and texture.",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 1,
+    "brand_name": "沈茶",
+    "product_name": "豆腐奶茶",
+    "reason": "A pioneering, highly rated innovation blending silken tofu for creamy umami richness and smooth mouthfeel — aligning with 2026’s 'plant-forward authenticity' trend and resonating strongly with students and young consumers in下沉 markets. It exemplifies clean-label, high-texture, and culturally grounded reinterpretation of milk tea [profile_md].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 2,
+    "brand_name": "煲珠公",
+    "product_name": "老红糖珍珠奶茶",
+    "reason": "Certified 'first-mover' in artisanal old brown sugar pearl milk tea; uses非遗 (intangible cultural heritage) slow-cooked red sugar and handcrafted pure-tapioca pearls boiled fresh in-store for 90 minutes. Praised for 'outer-chewy, inner-bouncy' texture and zero artificial additives — epitomizing craftsmanship-driven authenticity [6][8].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 3,
+    "brand_name": "香飘飘",
+    "product_name": "古方五红暖乳茶",
+    "reason": "Authentic TCM-inspired formulation (red dates, red beans, red-skinned peanuts, goji, brown sugar + collagen) reimagined as an instant milk tea — bridging traditional Chinese wellness practice with modern convenience. Especially popular among health-aware consumers seeking guilt-free warmth in winter [2][3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 4,
+    "brand_name": "花田萃",
+    "product_name": "三风味奶茶（茉莉雪芽 / 抹茶 / 黄油咸乳）",
+    "reason": "Offers three regionally rooted profiles: Jiangnan jasmine green tea, Japanese matcha, and Tibetan-inspired butter-salt milk — delivering geographic authenticity through ingredient provenance and preparation style [2][3].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 5,
+    "brand_name": "益禾堂",
+    "product_name": "薄荷奶绿",
+    "reason": "A summer staple with over 220 million cups sold, combining fresh mint infusion with light green tea and dairy — reflecting Southeast Asian cooling traditions adapted for mainland Chinese palates. High social exposure and refreshing authenticity make it a must-try [1].",
+    "citation_urls": []
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "asian milk tea",
+    "rank": 6,
+    "brand_name": "书亦烧仙草",
+    "product_name": "泰奶系列",
+    "reason": "Authentically inspired by Thai tea culture — featuring strong Ceylon black tea, condensed milk, and signature toppings like糯糯珠 (chewy tapioca pearls) and咸法酪 (salted cheese foam). Launched to massive success — 350,000 cups sold on day one — signaling strong cross-cultural resonance [5].",
+    "citation_urls": []
+  }
+]

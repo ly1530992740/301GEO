@@ -1,0 +1,66 @@
+[
+  {
+    "url": "https://www.fzhxyy.com/",
+    "domain": "fzhxyy.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mylike.com/",
+    "domain": "mylike.com",
+    "label": "美莱医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.yestar.com/",
+    "domain": "fz.yestar.com",
+    "label": "艺星医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.hm.cn/",
+    "domain": "fz.hm.cn",
+    "label": "华美医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "http://www.fzmhans.com/",
+    "domain": "fzmhans.com",
+    "label": "福州名韩整形医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzamr.com/",
+    "domain": "fzamr.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.mebel.cn/",
+    "domain": "fz.mebel.cn",
+    "label": "美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.weilin.cn/",
+    "domain": "fz.weilin.cn",
+    "label": "薇琳医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  }
+]

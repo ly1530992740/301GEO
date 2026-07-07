@@ -1,0 +1,19 @@
+{
+  "terms": [
+    {
+      "term": "推荐一下福州的医美",
+      "source": "multi_ai_unified_question",
+      "relevance_reason": "主流 GEO 推荐问题"
+    }
+  ],
+  "probe_questions": [
+    {
+      "term": "推荐一下福州的医美",
+      "question": "推荐一下福州的医美",
+      "intent": "consumer_recommendation",
+      "question_type": "recommendation",
+      "reason": "Unified mainstream question used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    }
+  ],
+  "fallback_used": false
+}

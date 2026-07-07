@@ -1,0 +1,16 @@
+{
+  "terms": [
+    {
+      "term": "????福州?奶茶",
+      "source": "multi_ai",
+      "relevance_reason": "mainstream"
+    }
+  ],
+  "probe_questions": [
+    {
+      "term": "????福州?奶茶",
+      "question": "????福州?奶茶",
+      "intent": "mainstream"
+    }
+  ]
+}

@@ -1,8 +1,12 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
+from datetime import datetime
+import html
 import json
+import re
 import sys
 from pathlib import Path
+from typing import Any
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -12,38 +16,48 @@ from geo_app.config import (
     BudgetConfig,
     MeijiekuConfig,
     QwenConfig,
-    SerpApiConfig,
     load_config,
     normalize_meijieku_base_url,
 )
+from geo_app.integrated_report_renderer import enrich_analysis_data, render_integrated_outputs
+from geo_app.integrated_workflow import create_product_profile_run, run_integrated_geo_analysis
+from geo_app.product_ingestion import UploadedPdf
 from geo_app.storage import Storage
-from geo_app.strategy_workflow import (
-    run_ai_visibility_diagnosis,
-    run_brand_strategy,
-    run_competitor_analysis,
-    run_geo_monitor,
-)
-from geo_app.workflow import (
-    create_task,
-    generate_articles_for_matches,
-    generate_platform_matches,
-    get_publishable_matches,
-    publish_articles,
-    refresh_media_resources,
-    run_search_and_analysis,
-    run_trend_analysis,
-    sync_pending_orders,
-)
 
 
-STATUS_LABELS = {
-    None: "未发布",
-    0: "待处理",
-    1: "已收稿",
-    2: "已发布",
-    4: "已退款/失败",
-    9: "售后中",
+SERVICE_SCOPE_OPTIONS = {
+    "本地/城市": "local_city",
+    "省内/区域": "regional",
+    "全国": "national",
+    "全球/海外": "global",
 }
+
+GEO_AUDIENCE_OPTIONS = {
+    "综合受众": "mixed",
+    "C端消费者": "consumer_recommendation",
+    "B端加盟/招商客户": "franchise",
+    "B端采购/企业客户": "b2b_purchase",
+    "品牌声量诊断": "brand_geo",
+}
+ANALYSIS_GOAL_OPTIONS = GEO_AUDIENCE_OPTIONS
+
+
+def code_last_modified_text() -> str:
+    files = [
+        Path(__file__),
+        Path("geo_app/integrated_workflow.py"),
+        Path("geo_app/multi_ai_geo_workflow.py"),
+        Path("geo_app/multi_ai_clients.py"),
+        Path("geo_app/qwen_client.py"),
+        Path("geo_app/integrated_report_renderer.py"),
+        Path("geo_app/topic_analysis.py"),
+        Path("geo_app/brand_normalizer.py"),
+    ]
+    existing = [path for path in files if path.exists()]
+    if not existing:
+        return "未知"
+    latest = max(path.stat().st_mtime for path in existing)
+    return datetime.fromtimestamp(latest).strftime("%Y-%m-%d %H:%M:%S")
 
 
 @st.cache_resource
@@ -53,39 +67,31 @@ def get_storage() -> Storage:
 
 def sidebar_config() -> AppConfig:
     base = load_config()
-    qwen_api_host_value = getattr(base.qwen, "api_host", "")
     with st.sidebar:
         st.header("配置")
-        st.caption("可先用 .env 配置，界面输入只对当前运行生效。")
+        st.caption("当前主入口为 GEO 一键分析；Google Trends 配置已从该流程移除。")
 
         qwen_api_key = st.text_input("Qwen API Key", value=base.qwen.api_key, type="password")
         qwen_api_host = st.text_input(
             "Qwen API Host（可选）",
-            value=qwen_api_host_value,
+            value=getattr(base.qwen, "api_host", ""),
             placeholder="例如 https://{WorkspaceId}.cn-beijing.maas.aliyuncs.com/api/v1",
         )
         search_model = st.text_input("搜索模型", value=base.qwen.search_model)
-        analysis_model = st.text_input("链接分析/网页抓取模型", value=base.qwen.analysis_model)
+        analysis_model = st.text_input("分析模型", value=base.qwen.analysis_model)
         writing_model = st.text_input("写作模型", value=base.qwen.writing_model)
-
-        st.divider()
-        serpapi_key = st.text_input("SerpApi API Key", value=base.serpapi.api_key, type="password")
-        serpapi_geo = st.text_input("Trends 默认地区 geo", value=base.serpapi.default_geo)
-        serpapi_hl = st.text_input("SerpApi 语言 hl", value=base.serpapi.default_hl)
-        serpapi_gl = st.text_input("Google 搜索地区 gl", value=base.serpapi.default_gl)
 
         st.divider()
         meijieku_base_url = st.text_input("媒介库 API 地址", value=base.meijieku.base_url)
         meijieku_mobile = st.text_input("媒介库手机号", value=base.meijieku.mobile)
         meijieku_password = st.text_input("媒介库密码", value=base.meijieku.password, type="password")
         meijieku_token = st.text_input("媒介库 Token（可选）", value=base.meijieku.token, type="password")
-        meijieku_mock_mode = st.checkbox("媒介库模拟模式（不请求真实接口）", value=base.meijieku.mock_mode)
+        meijieku_mock_mode = st.checkbox("媒介库模拟模式", value=base.meijieku.mock_mode)
         page_size = st.number_input("资源每页数量", min_value=20, max_value=200, value=base.meijieku.resource_page_size, step=10)
         max_pages = st.number_input("资源最大页数", min_value=1, max_value=200, value=base.meijieku.resource_max_pages, step=1)
 
         st.divider()
-        max_price = st.number_input("单平台最高价（0 不限制）", min_value=0.0, value=base.budget.max_price_per_platform, step=10.0)
-        max_total = st.number_input("单次总预算（0 不限制）", min_value=0.0, value=base.budget.max_total_budget, step=50.0)
+        st.caption("百度搜索 API 由后端客户端读取配置；本页不再要求 SerpApi。")
 
     return AppConfig(
         qwen=QwenConfig(
@@ -96,6 +102,9 @@ def sidebar_config() -> AppConfig:
             writing_model=writing_model.strip() or "qwen-plus",
             search_strategy=base.qwen.search_strategy,
             analysis_strategy=base.qwen.analysis_strategy,
+            forced_search=base.qwen.forced_search,
+            enable_source=base.qwen.enable_source,
+            enable_citation=base.qwen.enable_citation,
         ),
         meijieku=MeijiekuConfig(
             base_url=normalize_meijieku_base_url(meijieku_base_url),
@@ -106,16 +115,10 @@ def sidebar_config() -> AppConfig:
             resource_max_pages=int(max_pages),
             mock_mode=bool(meijieku_mock_mode),
         ),
-        serpapi=SerpApiConfig(
-            api_key=serpapi_key.strip(),
-            default_geo=serpapi_geo.strip() or "CN",
-            default_hl=serpapi_hl.strip() or "zh-CN",
-            default_gl=serpapi_gl.strip() or "cn",
-            timeout_seconds=base.serpapi.timeout_seconds,
-        ),
+        serpapi=base.serpapi,
         budget=BudgetConfig(
-            max_price_per_platform=float(max_price),
-            max_total_budget=float(max_total),
+            max_price_per_platform=base.budget.max_price_per_platform,
+            max_total_budget=base.budget.max_total_budget,
             require_fuzzy_confirmation=True,
         ),
     )
@@ -125,805 +128,1461 @@ def require_qwen(config: AppConfig) -> bool:
     if config.qwen.api_key:
         lowered = config.qwen.api_key.lower()
         if config.qwen.api_key in {"sk-your-qwen-key", "YOUR_API_KEY"} or "your-qwen-key" in lowered:
-            st.error("当前 Qwen API Key 还是示例占位值，请填写阿里云百炼控制台生成的完整明文 API Key。")
+            st.error("当前 Qwen API Key 还是示例值，请填写真实 API Key。")
             return False
         return True
     st.error("请先在左侧配置 Qwen API Key，或在 .env 中设置 DASHSCOPE_API_KEY。")
     return False
 
 
-def require_meijieku(config: AppConfig) -> bool:
-    if config.meijieku.mock_mode:
-        return True
-    if config.meijieku.token or (config.meijieku.mobile and config.meijieku.password):
-        return True
-    st.error("请先在左侧配置媒介库手机号/密码，或填写媒介库 Token。")
-    return False
+def add_log(message: str) -> None:
+    logs = st.session_state.setdefault("geo_console_logs", [])
+    logs.append(str(message))
+    st.session_state.geo_console_logs = logs[-160:]
 
 
-def require_serpapi(config: AppConfig) -> bool:
-    if config.serpapi.api_key:
-        return True
-    st.error("请先在左侧配置 SerpApi API Key，或在 .env 中设置 SERPAPI_API_KEY。")
-    return False
+def inject_styles() -> None:
+    st.markdown(
+        """
+<style>
+  .main .block-container { padding-top: 1.5rem; padding-right: 360px; }
+  .dev-console {
+    position: fixed;
+    top: 64px;
+    right: 18px;
+    z-index: 9999;
+    width: 330px;
+    max-height: 70vh;
+    padding: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.74);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+  }
+  .dev-console-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+  }
+  .dev-console pre {
+    margin: 0;
+    max-height: 62vh;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #111827;
+    background: transparent;
+  }
+  @media (max-width: 1100px) {
+    .main .block-container { padding-right: 1rem; }
+    .dev-console { position: static; width: auto; max-height: 260px; margin: 0 1rem 1rem; }
+  }
+</style>
+""",
+        unsafe_allow_html=True,
+    )
 
 
-def show_action_error(title: str, exc: Exception) -> None:
-    st.error(f"{title}失败：{exc}")
-    if "InvalidApiKey" in str(exc):
-        st.info(
-            "根据阿里云百炼文档，程序需要使用完整的百炼 API Key。请检查："
-            "不要填控制台列表里复制的脱敏 Key；Key 是否被重置、删除、禁用；"
-            "如果 Key 属于特定业务空间/地域，请把创建 Key 时显示的 API Host 填到左侧 Qwen API Host。"
-        )
-    if "api.meijieku.com" in str(exc) or "HTTP 404" in str(exc):
-        st.info(
-            "当前程序会使用 `https://api.meijieku.com`，并且接口路径不带 `/api` 前缀，"
-            "例如登录会请求 `POST https://api.meijieku.com/System/login_long_token`。"
-            "如果仍失败，请检查媒介库账号、Token、接口权限或服务端返回内容；也可以先开启“媒介库模拟模式”继续测试流程。"
-        )
+def render_console() -> None:
+    logs = st.session_state.get("geo_console_logs", [])
+    code_mtime = html.escape(code_last_modified_text())
+    content = "\n".join(f"{idx + 1}. {html.escape(str(line))}" for idx, line in enumerate(logs[-50:])) or "等待执行..."
+    st.markdown(
+        f"""
+<div class="dev-console">
+  <div class="dev-console-title">DEV CONSOLE</div>
+  <div class="dev-console-title">CODE UPDATED: {code_mtime}</div>
+  <pre>{content}</pre>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
 
-def render_file_downloads(paths: list[tuple[str, str, str]]) -> None:
-    existing = [(label, Path(path), mime) for label, path, mime in paths if path and Path(path).exists()]
-    if not existing:
+def render_input_panel(storage: Storage, config: AppConfig) -> None:
+    st.subheader("GEO 一键分析")
+    st.caption("输入官网 URL 或上传 PDF，先生成产品画像，再确认品牌信息并执行完整分析。")
+
+    with st.form("one_click_input"):
+        website_url = st.text_input("产品官网 URL", placeholder="https://example.com")
+        uploaded_files = st.file_uploader("产品介绍 PDF（可多选）", type=["pdf"], accept_multiple_files=True)
+        preferred_product_name = st.text_input("产品名 / 品牌名（可选，用于辅助识别）")
+        category_local_hint = st.text_input("产品类目（中文，建议必填）", placeholder="例如：奶茶、火锅、汽车零部件")
+        scope_label = st.selectbox("服务范围", list(SERVICE_SCOPE_OPTIONS.keys()), index=0)
+        service_region = st.text_input("服务地区", placeholder="例如：福州；全国/全球可留空")
+        geo_audience_label = st.selectbox("GEO 目标受众", list(GEO_AUDIENCE_OPTIONS.keys()), index=0)
+        report_language_label = st.radio("报告语言", ["中文", "English"], horizontal=True)
+        submitted = st.form_submit_button("生成产品画像", type="primary")
+
+    if not submitted:
         return
-    cols = st.columns(min(4, len(existing)))
-    for idx, (label, path, mime) in enumerate(existing):
-        cols[idx % len(cols)].download_button(
-            label,
-            data=path.read_bytes(),
-            file_name=path.name,
-            mime=mime,
-            key=f"download_{path}",
+    if not website_url.strip() and not uploaded_files:
+        st.error("官网 URL 和 PDF 至少提供一个。")
+        return
+    service_scope = SERVICE_SCOPE_OPTIONS[scope_label]
+    if service_scope in {"local_city", "regional"} and not service_region.strip():
+        st.error("选择本地/区域服务时，请填写服务地区，例如：福州。")
+        return
+    if not require_qwen(config):
+        return
+
+    st.session_state.pop("integrated_result", None)
+    st.session_state.pop("confirmed_profile", None)
+    st.session_state.geo_console_logs = []
+    report_language = "zh" if report_language_label == "中文" else "en"
+    user_market_context = {
+        "service_scope": service_scope,
+        "service_scope_label": scope_label,
+        "service_region": service_region.strip(),
+        "category_local": category_local_hint.strip(),
+        "geo_audience": GEO_AUDIENCE_OPTIONS[geo_audience_label],
+        "geo_audience_label": geo_audience_label,
+        "analysis_goal": GEO_AUDIENCE_OPTIONS[geo_audience_label],
+        "analysis_goal_label": geo_audience_label,
+        "market_language": "en" if service_scope == "global" and report_language == "en" else "zh",
+        "target_market": "overseas" if service_scope == "global" else "domestic",
+    }
+    uploaded_pdfs = [UploadedPdf(name=file.name, data=file.getvalue()) for file in uploaded_files]
+
+    with st.status("正在生成产品画像", expanded=True) as status:
+        try:
+            result = create_product_profile_run(
+                storage=storage,
+                config=config,
+                website_url=website_url.strip(),
+                uploaded_pdfs=uploaded_pdfs,
+                preferred_product_name=preferred_product_name.strip(),
+                user_market_context=user_market_context,
+                report_language=report_language,
+                progress=add_log,
+            )
+            st.session_state.profile_run = result
+            st.session_state.report_language = report_language
+            st.session_state.user_market_context = user_market_context
+            status.update(label="产品画像已生成，请确认品牌信息", state="complete")
+        except Exception as exc:
+            status.update(label="产品画像生成失败", state="error")
+            st.error(exc)
+            add_log(f"错误：产品画像生成失败：{exc}")
+
+
+def render_profile_confirmation(storage: Storage, config: AppConfig) -> None:
+    profile_run = st.session_state.get("profile_run")
+    if not profile_run or st.session_state.get("integrated_result"):
+        return
+
+    profile = profile_run.get("product_profile") or {}
+    market_context = st.session_state.get("user_market_context") or profile_run.get("user_market_context") or {}
+    is_domestic = (market_context.get("target_market") or profile.get("target_market")) != "overseas"
+    st.markdown("### 确认产品与品牌信息")
+    with st.form("confirm_profile"):
+        product_name = st.text_input("产品名", value=str(profile.get("product_name", "")))
+        brand_name = st.text_input("品牌名", value=str(profile.get("brand_name", "")))
+        aliases = st.text_area(
+            "品牌别名 / 产品线 / 母品牌（每行一个，用于合并统计）",
+            value="\n".join(str(item) for item in profile.get("brand_aliases") or []),
+            height=100,
         )
+        c1, c2 = st.columns(2)
+        category_local = c1.text_input(
+            "产品类目（中文）",
+            value=str(market_context.get("category_local") or profile.get("category_local", "")),
+        )
+        service_region = c2.text_input(
+            "服务地区",
+            value=str(market_context.get("service_region") or profile.get("primary_region", "")),
+        )
+        scope_labels = list(SERVICE_SCOPE_OPTIONS.keys())
+        current_scope = market_context.get("service_scope", "local_city")
+        current_scope_label = next((label for label, value in SERVICE_SCOPE_OPTIONS.items() if value == current_scope), "本地/城市")
+        service_scope_label = st.selectbox("服务范围", scope_labels, index=scope_labels.index(current_scope_label))
+        audience_labels = list(GEO_AUDIENCE_OPTIONS.keys())
+        current_audience = market_context.get("geo_audience") or market_context.get("analysis_goal", "mixed")
+        current_audience_label = next((label for label, value in GEO_AUDIENCE_OPTIONS.items() if value == current_audience), "综合受众")
+        geo_audience_label = st.selectbox("GEO 目标受众", audience_labels, index=audience_labels.index(current_audience_label))
+        if is_domestic:
+            category_en = profile.get("category_en", "")
+        else:
+            category_en = st.text_input("英文类目", value=str(profile.get("category_en", "")))
+        summary = st.text_area("产品简要分析", value=str(profile.get("summary", "")), height=120)
+        submitted = st.form_submit_button("确认并执行完整分析", type="primary")
+
+    with st.expander("查看 AI 生成的产品画像", expanded=False):
+        st.markdown(profile.get("profile_md", ""))
+
+    if not submitted:
+        return
+    if not product_name.strip() and not brand_name.strip():
+        st.error("产品名或品牌名至少填写一个。")
+        return
+    service_scope = SERVICE_SCOPE_OPTIONS[service_scope_label]
+    if service_scope in {"local_city", "regional"} and not service_region.strip():
+        st.error("选择本地/区域服务时，请填写服务地区，例如：福州。")
+        return
+    if is_domestic and not category_local.strip():
+        st.error("国内项目请填写中文产品类目，例如：奶茶。")
+        return
+    if not require_qwen(config):
+        return
+
+    final_market_context = {
+        **market_context,
+        "service_scope": service_scope,
+        "service_scope_label": service_scope_label,
+        "service_region": service_region.strip(),
+        "category_local": category_local.strip(),
+        "geo_audience": GEO_AUDIENCE_OPTIONS[geo_audience_label],
+        "geo_audience_label": geo_audience_label,
+        "analysis_goal": GEO_AUDIENCE_OPTIONS[geo_audience_label],
+        "analysis_goal_label": geo_audience_label,
+        "market_language": "en" if service_scope == "global" and not is_domestic else "zh",
+        "target_market": "overseas" if service_scope == "global" and not is_domestic else "domestic",
+    }
+    confirmed_profile = {
+        **profile,
+        "product_name": product_name.strip(),
+        "brand_name": brand_name.strip(),
+        "brand_aliases": [line.strip() for line in aliases.splitlines() if line.strip()],
+        "category_local": category_local.strip(),
+        "category_en": str(category_en or "").strip(),
+        "primary_region": service_region.strip(),
+        "region_level": "city" if service_scope == "local_city" else ("province" if service_scope == "regional" else ("country" if service_scope == "national" else "global")),
+        "service_scope": service_scope,
+        "geo_audience": final_market_context["geo_audience"],
+        "analysis_goal": final_market_context["analysis_goal"],
+        "market_language": final_market_context["market_language"],
+        "target_market": final_market_context["target_market"],
+        "geo_probe_subject": f"{service_region.strip()}{category_local.strip()}品牌推荐".strip() if service_region.strip() else f"{category_local.strip()}品牌推荐",
+        "summary": summary.strip(),
+        "user_market_context": final_market_context,
+    }
+    st.session_state.confirmed_profile = confirmed_profile
+    with st.status("正在执行 GEO 一键分析", expanded=True) as status:
+        try:
+            result = run_integrated_geo_analysis(
+                storage=storage,
+                config=config,
+                profile_run=profile_run,
+                confirmed_profile=confirmed_profile,
+                report_language=st.session_state.get("report_language", "zh"),
+                trend_count=10,
+                recommendations_per_term=10,
+                progress=add_log,
+            )
+            st.session_state.integrated_result = result
+            status.update(label="GEO 一键分析完成", state="complete")
+        except Exception as exc:
+            status.update(label="GEO 一键分析失败", state="error")
+            st.error(exc)
+            add_log(f"错误：GEO 一键分析失败：{exc}")
 
 
-def render_trend_visual_preview(report_path: str, report_md: str = "", html_path: str = "") -> None:
-    report_file = Path(report_path) if report_path else None
-    trend_dir = report_file.parent if report_file else None
-    visual_path = trend_dir / "visual_data.json" if trend_dir else None
-    if not visual_path or not visual_path.exists():
+def render_history(storage: Storage) -> None:
+    rows = storage.query(
+        """
+        select id, created_at, subject, customer_product, industry, file_path
+        from strategy_reports
+        where report_type='integrated_geo'
+        order by id desc
+        limit 30
+        """
+    )
+    with st.expander("历史查询", expanded=True):
+        if not rows:
+            st.info("暂无历史查询。完成一次 GEO 一键分析后会显示在这里。")
+            return
+        st.dataframe(
+            [
+                {
+                    "ID": item.get("id"),
+                    "时间": item.get("created_at"),
+                    "产品/品牌": item.get("subject") or item.get("customer_product"),
+                    "类目": item.get("industry"),
+                    "报告": item.get("file_path"),
+                }
+                for item in rows
+            ],
+            width="stretch",
+            hide_index=True,
+        )
+        options = {
+            f"#{item.get('id')} | {item.get('created_at')} | {item.get('subject') or item.get('customer_product') or '未命名'}": item.get("id")
+            for item in rows
+        }
+        selected_label = st.selectbox("选择历史查询", list(options.keys()), key="history_report_select")
+        if st.button("加载到当前看板", key="load_history_report"):
+            load_history_report(storage, int(options[selected_label]))
+
+
+def load_history_report(storage: Storage, report_id: int) -> None:
+    report = storage.get_one(
+        """
+        select id, raw_json, file_path
+        from strategy_reports
+        where id=? and report_type='integrated_geo'
+        """,
+        (report_id,),
+    )
+    if not report:
+        st.error("历史报告不存在。")
+        return
+    data = json.loads(report.get("raw_json") or "{}")
+    run_dir = Path(data.get("run_dir") or Path(report.get("file_path") or ".").parent)
+    data_path = run_dir / "integrated_data.json"
+    if data_path.exists():
+        try:
+            data = json.loads(data_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    md_path = Path(report.get("file_path") or run_dir / "integrated_report.md")
+    html_path = run_dir / "integrated_report.html"
+    data = enrich_analysis_data(data)
+    if run_dir.exists():
+        try:
+            outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+            md_path = Path(outputs["report_md_path"])
+            html_path = Path(outputs["report_html_path"])
+        except Exception:
+            pass
+    st.session_state.integrated_result = {
+        "report_id": report_id,
+        "report_md_path": str(md_path),
+        "report_html_path": str(html_path),
+        "data_path": str(data_path),
+        "report_md": md_path.read_text(encoding="utf-8") if md_path.exists() else "",
+        "analysis_data": data,
+    }
+    st.success("已加载历史查询到当前看板。")
+
+
+def render_result() -> None:
+    result = st.session_state.get("integrated_result")
+    if not result:
+        return
+    data = enrich_analysis_data(result.get("analysis_data") or {})
+    run_dir_value = data.get("run_dir")
+    if run_dir_value:
+        run_dir = Path(run_dir_value)
+        if run_dir.exists():
+            try:
+                outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+                result.update(
+                    {
+                        "report_md_path": outputs["report_md_path"],
+                        "report_html_path": outputs["report_html_path"],
+                        "data_path": outputs["data_path"],
+                        "report_md": outputs["report_md"],
+                        "analysis_data": enrich_analysis_data(data),
+                    }
+                )
+                st.session_state.integrated_result = result
+                data = result["analysis_data"]
+            except Exception as exc:
+                st.caption(f"报告已加载，但自动刷新 HTML/Markdown 失败：{exc}")
+    labels = _labels(data.get("report_language", "zh"))
+
+    st.markdown("### 分析结果")
+    render_downloads(result)
+
+    profile = data.get("product_profile") or {}
+    strategy = data.get("analysis_strategy") or {}
+    question_discovery = data.get("question_discovery") or data.get("trend_discovery") or {}
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric(labels["product"], profile.get("product_name", ""))
+    c2.metric(labels["brand"], profile.get("brand_name", ""))
+    c3.metric(labels["category"], profile.get("category_local") or profile.get("category_en", ""))
+    c4.metric("目标市场", question_discovery.get("target_market") or profile.get("target_market", ""))
+
+    c5, c6, c7, c8 = st.columns(4)
+    c5.metric("主要地区", question_discovery.get("primary_region") or profile.get("primary_region", ""))
+    c6.metric("市场语言", question_discovery.get("market_language") or profile.get("market_language", ""))
+    c7.metric("业务类型", question_discovery.get("business_type") or profile.get("business_type", ""))
+    c8.metric("GEO 目标受众", strategy.get("geo_audience") or profile.get("geo_audience") or strategy.get("analysis_goal") or profile.get("analysis_goal", ""))
+
+    tab_dashboard, tab_questions, tab_media, tab_report = st.tabs(["可视化看板", "AI 搜索问题", "媒介成本", "HTML/Markdown 报告"])
+    with tab_dashboard:
+        render_dashboard_charts_v2(data, labels)
+    with tab_questions:
+        questions = question_discovery.get("questions") or data.get("trend_discovery", {}).get("probe_questions") or []
+        st.dataframe(questions, width="stretch", hide_index=True)
+        neutral_queries = strategy.get("neutral_search_queries") or question_discovery.get("neutral_search_queries") or []
+        if neutral_queries:
+            st.markdown("#### 真实搜索使用的中立查询")
+            st.dataframe([{"query": item} for item in neutral_queries], width="stretch", hide_index=True)
+        visibility_queries = (data.get("visibility_query_strategy") or {}).get("visibility_queries") or []
+        if visibility_queries:
+            st.markdown("#### 全网声量查询方案")
+            st.dataframe(visibility_queries, width="stretch", hide_index=True)
+        if strategy:
+            st.markdown("#### 分析策略")
+            st.json(
+                {
+                    "geo_audience": strategy.get("geo_audience") or strategy.get("analysis_goal"),
+                    "geo_probe_subject": strategy.get("geo_probe_subject"),
+                    "service_scope": strategy.get("service_scope"),
+                    "service_region": strategy.get("service_region"),
+                    "topic_taxonomy": strategy.get("topic_taxonomy"),
+                    "validation_notes": strategy.get("validation_notes"),
+                },
+                expanded=False,
+            )
+        st.json(
+            {
+                "source_language": question_discovery.get("source_language"),
+                "market_language": question_discovery.get("market_language"),
+                "target_market": question_discovery.get("target_market"),
+                "primary_region": question_discovery.get("primary_region"),
+                "region_level": question_discovery.get("region_level"),
+                "business_type": question_discovery.get("business_type"),
+                "geo_probe_subject": question_discovery.get("geo_probe_subject"),
+                "market_reason": question_discovery.get("market_reason"),
+            },
+            expanded=False,
+        )
+        competitor_rows = _competitor_rows(data.get("competitor_discovery") or {})
+        if competitor_rows:
+            st.markdown("#### 竞品校准")
+            st.dataframe(competitor_rows, width="stretch", hide_index=True)
+    with tab_media:
+        render_media_cost(data)
+    with tab_report:
+        html_path = result.get("report_html_path", "")
+        md = result.get("report_md") or ""
         if html_path and Path(html_path).exists():
             components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
-        elif report_md:
-            st.markdown(report_md[:8000])
-        return
+        if md:
+            with st.expander("Markdown 原文", expanded=False):
+                st.markdown(md)
 
+
+def render_downloads(result: dict[str, Any]) -> None:
+    paths = [
+        ("下载 Markdown 报告", result.get("report_md_path", ""), "text/markdown"),
+        ("下载 HTML 报告", result.get("report_html_path", ""), "text/html"),
+        ("下载完整 JSON", result.get("data_path", ""), "application/json"),
+    ]
+    cols = st.columns(3)
+    for idx, (label, path, mime) in enumerate(paths):
+        file_path = Path(path) if path else None
+        if file_path and file_path.exists():
+            cols[idx].download_button(
+                label,
+                file_path.read_bytes(),
+                file_name=file_path.name,
+                mime=mime,
+                key=f"download_{file_path}",
+            )
+
+
+def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> None:
+    ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    search_volume = data.get("search_volume_ranking") or []
+    search_ranking = data.get("search_visibility_ranking") or []
+    gap_ranking = data.get("competitive_gap_ranking") or []
+    baidu = [
+        {
+            "brand_name": item.get("brand_name"),
+            "mentioned_count": item.get("mentioned_count", 0),
+            "result_count": item.get("result_count", 0),
+            "query": item.get("query"),
+            "error": item.get("error", ""),
+            "is_user_brand": item.get("is_user_brand", False),
+        }
+        for item in data.get("baidu_mentions") or []
+    ]
+    topics = (data.get("content_topic_analysis") or {}).get("topics") or []
+    matrix = (data.get("content_topic_analysis") or {}).get("brand_topic_matrix") or []
+    provider_status = data.get("multi_ai_provider_status") or _provider_status_from_available_data(data)
+    recommendation_source_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
+    source_articles = data.get("source_articles") or []
+
+    tab_step1, tab_step2, tab_step3 = st.tabs(["第一步：AI推荐排名", "第二步：五平台声量", "第三步：文章与定位分析"])
+    with tab_step1:
+        st.markdown("#### 综合 AI 推荐排名")
+        _render_bar(ranking, x="brand_name", y="recommendation_count", color="is_user_brand")
+
+        st.markdown("#### 分 AI 平台推荐来源")
+        if recommendation_source_rows:
+            _render_recommendation_source_charts(recommendation_source_rows)
+            with st.expander("查看完整 AI 推荐来源表", expanded=False):
+                st.caption("Qwen / 豆包 / 元宝 / DeepSeek 列中的数字是该平台给出的推荐名次；空白表示该平台未推荐该品牌或调用失败。")
+                st.dataframe(recommendation_source_rows, width="stretch", hide_index=True)
+                st.table(_compact_recommendation_source_rows(recommendation_source_rows[:20]))
+        else:
+            st.info("暂无 AI 推荐来源明细。")
+
+        st.markdown("#### 多 AI 平台调用状态")
+        if provider_status:
+            provider_rows = _provider_status_rows(provider_status)
+            metric_cols = st.columns(min(4, len(provider_rows)))
+            for idx, row in enumerate(provider_rows[:4]):
+                metric_cols[idx].metric(
+                    row["AI平台"],
+                    row["推荐排名"],
+                    f"推荐{row['推荐条数']} / 声量{row['声量品牌数']}",
+                )
+            _render_provider_status_chart(provider_rows)
+            with st.expander("查看 AI 平台调用明细", expanded=False):
+                st.table(provider_rows)
+        else:
+            st.info("暂无多 AI 平台状态数据。")
+
+    with tab_step2:
+        st.markdown("#### 综合五平台声量拆分")
+        _render_platform_breakdown_charts(search_volume)
+        st.markdown("#### 分 AI 平台五平台声量估算")
+        _render_provider_visibility_charts(data)
+        platform_rows = _visibility_platform_rows(search_volume)
+        with st.expander("查看全网声量平台拆分明细", expanded=False):
+            if platform_rows:
+                st.dataframe(platform_rows, width="stretch", hide_index=True)
+            else:
+                st.info("暂无平台拆分数据。")
+
+        st.markdown("#### 传统搜索声量合计")
+        _render_bar(search_ranking or baidu, x="brand_name", y="mentioned_count", color="is_user_brand")
+        st.markdown("#### AI 推荐与声量差距")
+        _render_bar(gap_ranking, x="brand_name", y="gap_score", color="is_user_brand")
+
+    with tab_step3:
+        st.markdown("#### 品牌调研与市场定位分析")
+        content_report = data.get("content_pattern_report") or ""
+        meta = data.get("content_analysis_meta") or _content_analysis_meta_from_articles(source_articles)
+        if meta:
+            c1, c2, c3 = st.columns(3)
+            c1.metric("分析模型", meta.get("analysis_provider", "qwen"))
+            c2.metric("成功抓取", meta.get("article_success_count", 0))
+            c3.metric("抓取失败", meta.get("article_failed_count", 0))
+        if content_report:
+            positioning = data.get("content_positioning_analysis") or _derive_content_positioning_analysis(data)
+            _render_content_positioning_charts(positioning, source_articles)
+            with st.expander("查看完整品牌调研与市场定位文字报告", expanded=False):
+                st.markdown(content_report)
+        else:
+            st.info("暂无文章分析报告。")
+
+        st.markdown("#### 内容主题分布")
+        _render_pie(topics, names="topic", values="count")
+        if matrix:
+            st.markdown("#### 品牌内容重点矩阵")
+            _render_heatmap(matrix)
+
+        st.markdown("#### 文章链接与抓取状态")
+        article_rows = _source_article_rows(source_articles)
+        if article_rows:
+            _render_article_status_charts(article_rows)
+            with st.expander("查看文章链接抓取明细", expanded=False):
+                st.dataframe(article_rows, width="stretch", hide_index=True)
+                st.caption("抓取失败通常表示目标站点 TLS、反爬、502 或连接中断；这只能说明本次自动抓取不可用，不代表该品牌没有内容资产。")
+        else:
+            st.info("暂无文章链接抓取数据。")
+
+
+def render_dashboard_charts(data: dict[str, Any], labels: dict[str, str]) -> None:
+    ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    search_volume = data.get("search_volume_ranking") or []
+    search_ranking = data.get("search_visibility_ranking") or []
+    gap_ranking = data.get("competitive_gap_ranking") or []
+    baidu = [
+        {
+            "brand_name": item.get("brand_name"),
+            "mentioned_count": item.get("mentioned_count", 0),
+            "result_count": item.get("result_count", 0),
+            "query": item.get("query"),
+            "error": item.get("error", ""),
+        }
+        for item in data.get("baidu_mentions") or []
+    ]
+    topics = (data.get("content_topic_analysis") or {}).get("topics") or []
+    matrix = (data.get("content_topic_analysis") or {}).get("brand_topic_matrix") or []
+
+    st.markdown("#### 全网搜索声量估算")
+    _render_bar(search_volume, x="brand_name", y="estimated_result_count", color="is_user_brand")
+    st.markdown("#### Top N 中立共现排名")
+    _render_bar(search_ranking or baidu, x="brand_name", y="mentioned_count", color="is_user_brand")
+    st.markdown(f"#### {labels['ranking']}（AI 可推荐度，不等于市场知名度）")
+    _render_bar(ranking, x="brand_name", y="recommendation_count", color="is_user_brand")
+    st.markdown("#### AI 推荐与搜索声量差距")
+    _render_bar(gap_ranking, x="brand_name", y="gap_score", color="is_user_brand")
+    st.markdown(f"#### {labels['baidu']}")
+    _render_bar(baidu, x="brand_name", y="mentioned_count")
+    st.markdown("#### 内容主题分布")
+    _render_pie(topics, names="topic", values="count")
+    if matrix:
+        st.markdown("#### 品牌内容重点矩阵")
+        _render_heatmap(matrix)
+
+
+def render_media_cost(data: dict[str, Any]) -> None:
+    cost = data.get("media_cost_analysis") or {}
+    c1, c2, c3, c4, c5 = st.columns(5)
+    c1.metric("对标竞品", cost.get("benchmark_brand", ""))
+    c2.metric("竞品声量", cost.get("benchmark_mentioned_count", 0))
+    c3.metric("客户声量", cost.get("user_brand_count", 0))
+    c4.metric("内容资产差距", cost.get("content_asset_gap", 0))
+    c5.metric("建议发布篇数", cost.get("target_articles", 0))
+    st.caption(cost.get("planning_note", ""))
+    st.metric("平均单篇成本", f"{cost.get('avg_unit_price', 0)} {cost.get('currency', 'CNY')}")
+    _render_bar(cost.get("rows") or [], x="resource_title", y="estimated_total_cost")
+
+    media_matches = (data.get("media_matches") or {}).get("matches") or []
+    st.markdown("#### 媒介库匹配明细")
+    st.dataframe(
+        [
+            {
+                "domain": item.get("source_domain"),
+                "match_type": item.get("match_type"),
+                "resource_title": item.get("resource_title"),
+                "confidence": item.get("confidence"),
+                "price_1": item.get("price_1", 0),
+                "price_2": item.get("price_2", 0),
+                "price_3": item.get("price_3", 0),
+                "warning": item.get("warning", ""),
+            }
+            for item in media_matches
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+
+def _recommendation_source_rows(items: list[dict[str, Any]], ranking: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rank_lookup = {str(item.get("brand_name") or ""): item for item in ranking}
+    grouped: dict[str, dict[str, Any]] = {}
+    for item in items:
+        brand = str(item.get("brand_name") or "").strip()
+        if not brand:
+            continue
+        row = grouped.setdefault(
+            brand,
+            {
+                "brand_name": brand,
+                "综合排名": (rank_lookup.get(brand) or {}).get("ai_recommendation_rank", ""),
+                "Qwen": "",
+                "豆包": "",
+                "元宝": "",
+                "DeepSeek": "",
+                "来源链接数": 0,
+                "主要推荐理由": "",
+                "_urls": [],
+            },
+        )
+        provider = str(item.get("engine") or "").lower()
+        label = {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}.get(provider)
+        if label:
+            current = row.get(label)
+            rank = item.get("rank", "")
+            row[label] = min([value for value in (current, rank) if isinstance(value, int)], default=rank) if current else rank
+        row["_urls"].extend(item.get("citation_urls") or [])
+        if not row["主要推荐理由"] and item.get("reason"):
+            row["主要推荐理由"] = str(item.get("reason"))[:260]
+    rows = []
+    for row in grouped.values():
+        row["来源链接数"] = len(list(dict.fromkeys(row.pop("_urls", []))))
+        rows.append(row)
+    return sorted(rows, key=lambda item: (int(item.get("综合排名") or 999), item.get("brand_name", "")))[:30]
+
+
+def _provider_status_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    labels = {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}
+    result = []
+    for item in rows:
+        provider = str(item.get("provider") or "")
+        recommendation_ok = bool(item.get("recommendation_ok"))
+        visibility_ok = bool(item.get("visibility_ok"))
+        error = item.get("recommendation_error") or item.get("visibility_error") or ""
+        result.append(
+            {
+                "AI平台": labels.get(provider.lower(), provider),
+                "推荐排名": "OK" if recommendation_ok else "FAIL",
+                "推荐条数": item.get("recommendation_count", 0),
+                "声量估算": "OK" if visibility_ok else "FAIL",
+                "声量品牌数": item.get("visibility_count", 0),
+                "模型": item.get("model") or "",
+                "接口": item.get("endpoint") or "",
+                "超时秒数": item.get("timeout") or "",
+                "错误信息": str(error)[:180],
+            }
+        )
+    return result
+
+
+def _provider_status_from_available_data(data: dict[str, Any]) -> list[dict[str, Any]]:
+    rec_results = data.get("multi_ai_recommendation_results") or []
+    vis_results = data.get("multi_ai_visibility_results") or []
+    names = list(dict.fromkeys([item.get("provider", "") for item in rec_results] + [item.get("provider", "") for item in vis_results]))
+    rows = []
+    for name in [item for item in names if item]:
+        rec = next((item for item in rec_results if item.get("provider") == name), {})
+        vis = next((item for item in vis_results if item.get("provider") == name), {})
+        rec_rows = ((rec.get("parsed") or {}).get("recommendations") or []) if isinstance(rec.get("parsed"), dict) else []
+        vis_rows = ((vis.get("parsed") or {}).get("brand_visibility") or []) if isinstance(vis.get("parsed"), dict) else []
+        rows.append(
+            {
+                "provider": name,
+                "recommendation_ok": bool(rec.get("ok")),
+                "visibility_ok": bool(vis.get("ok")),
+                "recommendation_error": rec.get("error", ""),
+                "visibility_error": vis.get("error", ""),
+                "recommendation_count": len(rec_rows),
+                "visibility_count": len(vis_rows),
+                "model": rec.get("model") or vis.get("model") or "",
+                "endpoint": rec.get("endpoint") or vis.get("endpoint") or "",
+                "timeout": rec.get("timeout") or vis.get("timeout") or "",
+            }
+        )
+    if rows:
+        return rows
+
+    by_provider: dict[str, int] = {}
+    for item in data.get("recommendation_items") or []:
+        provider = str(item.get("engine") or "").strip()
+        if provider:
+            by_provider[provider] = by_provider.get(provider, 0) + 1
+    return [
+        {
+            "provider": provider,
+            "recommendation_ok": count > 0,
+            "visibility_ok": False,
+            "recommendation_error": "",
+            "visibility_error": "历史数据缺少声量估算平台状态",
+            "recommendation_count": count,
+            "visibility_count": 0,
+            "model": "",
+            "endpoint": "",
+            "timeout": "",
+        }
+        for provider, count in by_provider.items()
+    ]
+
+
+def _compact_recommendation_source_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        source_parts = []
+        for label in ("Qwen", "豆包", "元宝", "DeepSeek"):
+            rank = item.get(label)
+            if rank not in ("", None):
+                source_parts.append(f"{label}#{rank}")
+        result.append(
+            {
+                "品牌": item.get("brand_name", ""),
+                "综合排名": item.get("综合排名", ""),
+                "推荐来源": "；".join(source_parts) or "无",
+                "来源链接数": item.get("来源链接数", 0),
+                "主要推荐理由": str(item.get("主要推荐理由") or "")[:180],
+            }
+        )
+    return result
+
+
+def _recommendation_chart_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows[:20]:
+        brand = item.get("brand_name", "")
+        for provider in ("Qwen", "豆包", "元宝", "DeepSeek"):
+            rank = item.get(provider)
+            if rank in ("", None):
+                continue
+            try:
+                rank_value = int(rank)
+            except Exception:
+                continue
+            result.append(
+                {
+                    "品牌": brand,
+                    "AI平台": provider,
+                    "推荐名次": rank_value,
+                    "推荐得分": max(1, 11 - rank_value),
+                    "综合排名": item.get("综合排名", ""),
+                }
+            )
+    return result
+
+
+def _visibility_platform_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        traditional = item.get("traditional_search") or {}
+        new_media = item.get("new_media") or {}
+        result.append(
+            {
+                "品牌": item.get("brand_name", ""),
+                "总声量估算": item.get("estimated_result_count", 0),
+                "百度": traditional.get("baidu", 0),
+                "搜狗": traditional.get("sogou", 0),
+                "360": traditional.get("so360", 0),
+                "抖音": new_media.get("douyin", 0),
+                "小红书": new_media.get("xiaohongshu", 0),
+                "参与AI数": item.get("provider_count", 0),
+                "消息来源/依据": _source_note(item),
+            }
+        )
+    return result
+
+
+def _source_note(item: dict[str, Any]) -> str:
+    urls = item.get("source_urls") or []
+    if urls:
+        return "；".join(str(url) for url in urls[:3])
+    notes = item.get("notes") or []
+    if notes:
+        return "；".join(str(note) for note in notes[:2])
+    return str(item.get("warning") or "")
+
+
+def _source_article_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows[:80]:
+        ok = bool(item.get("text_excerpt")) and not item.get("error")
+        result.append(
+            {
+                "品牌/来源": item.get("label", ""),
+                "域名": item.get("domain", ""),
+                "AI来源": item.get("engine", ""),
+                "抓取状态": "成功" if ok else "失败",
+                "正文长度": len(item.get("text_excerpt") or ""),
+                "链接/错误": item.get("url") if ok else item.get("error") or item.get("url"),
+            }
+        )
+    return result
+
+
+def _content_analysis_meta_from_articles(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    success = len([item for item in rows if item.get("text_excerpt") and not item.get("error")])
+    failed = len([item for item in rows if item.get("error") or not item.get("text_excerpt")])
+    return {
+        "analysis_provider": "qwen",
+        "article_total": len(rows),
+        "article_success_count": success,
+        "article_failed_count": failed,
+    }
+
+
+def _derive_content_positioning_analysis(data: dict[str, Any]) -> dict[str, Any]:
+    ranking = data.get("ai_recommendation_ranking") or []
+    items = data.get("recommendation_items") or []
+    articles = data.get("source_articles") or []
+    by_brand: dict[str, list[dict[str, Any]]] = {}
+    for item in items:
+        brand = str(item.get("brand_name") or "").strip()
+        if brand:
+            by_brand.setdefault(brand, []).append(item)
+    success_labels = {str(item.get("label") or "") for item in articles if item.get("text_excerpt") and not item.get("error")}
+    analysis = {
+        "category_boundary": [],
+        "price_bands": [],
+        "psychology_motives": [],
+        "decision_heuristics": [],
+        "personas": [],
+        "selling_points": [],
+        "digital_asset_scores": [],
+    }
+    for brand in ranking[:12]:
+        name = str(brand.get("brand_name") or "")
+        reasons = by_brand.get(name) or []
+        text = " ".join(str(item.get("reason") or "") for item in reasons)
+        analysis["category_boundary"].append(
+            {"brand_name": name, "boundary_type": _infer_boundary_type(text), "positioning": text[:80], "evidence": text[:120]}
+        )
+        analysis["price_bands"].append({"brand_name": name, "price_band": _infer_price_band(text), "estimated_unit_price": "", "evidence": text[:120] or "依据不足"})
+        for motive, score in _infer_motive_scores(text).items():
+            analysis["psychology_motives"].append({"brand_name": name, "motive": motive, "score": score, "evidence": text[:120]})
+        for heuristic, score in _infer_heuristic_scores(text).items():
+            analysis["decision_heuristics"].append({"brand_name": name, "heuristic": heuristic, "score": score, "evidence": text[:120]})
+        analysis["personas"].append(
+            {
+                "brand_name": name,
+                "age": "25-45 或依据不足",
+                "spending_power": _infer_price_band(text),
+                "scenario": "项目对比/安全背书/案例验证/价格咨询",
+                "concern": "安全、资质、医生、案例、价格",
+                "content_preference": "榜单推荐、案例对比、医生资质、项目科普",
+            }
+        )
+        for point in _selling_points_from_text(text)[:5]:
+            analysis["selling_points"].append({"brand_name": name, "selling_point": point, "source_type": "AI推荐理由", "evidence": text[:120]})
+        has_article = any(name in label or label in name for label in success_labels if label)
+        analysis["digital_asset_scores"].append(
+            {
+                "brand_name": name,
+                "search_asset_score": min(100, int(brand.get("recommendation_count") or 0) * 25),
+                "content_platform_score": min(100, len(reasons) * 20),
+                "website_access_score": 80 if has_article else 20,
+                "proof_asset_score": min(100, len(_selling_points_from_text(text)) * 20),
+                "gap": "补充可访问案例、价格带、资质、项目页和平台内容。",
+            }
+        )
+    return analysis
+
+
+def _render_content_positioning_charts(analysis: dict[str, Any], source_articles: list[dict[str, Any]]) -> None:
     try:
         import pandas as pd
         import plotly.express as px
-    except ModuleNotFoundError as exc:
-        st.warning(f"缺少图表依赖：{exc.name}。请运行 `python -m pip install -r requirements.txt`。")
-        if html_path and Path(html_path).exists():
-            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
-        return
 
-    visual_data = json.loads(visual_path.read_text(encoding="utf-8"))
-    cards = visual_data.get("comparison_cards") or []
-    if cards:
-        metric_cols = st.columns(min(5, len(cards)))
-        for idx, card in enumerate(cards[:5]):
-            metric_cols[idx].metric(
-                str(card.get("keyword", "")),
-                card.get("avg_heat", 0),
-                delta=f"峰值 {card.get('peak_heat', 0)} / 相关查询 {card.get('related_query_count', 0)}",
-            )
-
-    tab_trend, tab_related, tab_geo, tab_data, tab_html = st.tabs(
-        ["热度趋势", "常见搜索查询", "地域热度", "完整数据", "HTML报告"]
-    )
-
-    with tab_trend:
-        interest_df = pd.DataFrame(visual_data.get("interest_over_time") or [])
-        if interest_df.empty:
-            st.info("暂无热度随时间变化数据。")
-        else:
-            interest_df["date_axis"] = pd.to_datetime(interest_df.get("timestamp"), unit="s", errors="coerce")
-            if interest_df["date_axis"].isna().all():
-                interest_df["date_axis"] = interest_df["date"]
-            fig = px.line(
-                interest_df,
-                x="date_axis",
-                y="value",
-                color="keyword",
-                markers=True,
-                labels={"date_axis": "", "value": "Search interest", "keyword": "关键词"},
-                height=460,
-            )
-            fig.update_yaxes(range=[0, 100])
-            fig.update_layout(legend_orientation="h", margin=dict(l=40, r=20, t=20, b=40))
-            st.plotly_chart(fig, width="stretch")
-
-        monthly_df = pd.DataFrame(visual_data.get("monthly_interest") or [])
-        if not monthly_df.empty:
-            fig = px.bar(
-                monthly_df,
-                x="month",
-                y="avg_value",
-                color="keyword",
-                barmode="group",
-                labels={"month": "月份", "avg_value": "月均热度", "keyword": "关键词"},
-                height=360,
-            )
-            fig.update_yaxes(range=[0, 100])
-            fig.update_layout(legend_orientation="h", margin=dict(l=40, r=20, t=20, b=40))
-            st.plotly_chart(fig, width="stretch")
-
-    with tab_related:
-        related_df = pd.DataFrame(visual_data.get("related_queries") or [])
-        if related_df.empty:
-            st.info("暂无相关查询数据。")
-        else:
-            top_df = related_df[related_df["type"].eq("top")].head(20)
-            rising_df = related_df[related_df["type"].eq("rising")].head(20)
-            c1, c2 = st.columns(2)
-            c1.markdown("**重点常见搜索查询 Top queries**")
-            c1.dataframe(top_df, width="stretch", hide_index=True)
-            c2.markdown("**搜索用户还在增长搜索的 Rising queries**")
-            c2.dataframe(rising_df, width="stretch", hide_index=True)
-
-            chart_df = related_df.dropna(subset=["extracted_value"]).head(25)
-            if not chart_df.empty:
-                fig = px.bar(
-                    chart_df.sort_values("extracted_value"),
-                    x="extracted_value",
-                    y="query",
-                    color="type",
-                    orientation="h",
-                    hover_data=["source_keyword"],
-                    labels={"extracted_value": "热度/涨幅", "query": "查询"},
-                    height=560,
-                )
-                fig.update_layout(margin=dict(l=180, r=20, t=20, b=40))
+        c1, c2 = st.columns(2)
+        boundary = pd.DataFrame(analysis.get("category_boundary") or [])
+        with c1:
+            if not boundary.empty and "boundary_type" in boundary:
+                counts = boundary.groupby("boundary_type", as_index=False).size().rename(columns={"boundary_type": "品类边界", "size": "品牌数"})
+                fig = px.pie(counts, names="品类边界", values="品牌数", hole=0.35, title="品类边界分布", height=360)
+                fig.update_traces(textinfo="label+percent+value")
+                st.plotly_chart(fig, width="stretch")
+        motives = pd.DataFrame(analysis.get("psychology_motives") or [])
+        with c2:
+            if not motives.empty and "motive" in motives:
+                totals = motives.groupby("motive", as_index=False)["score"].sum().rename(columns={"motive": "消费动机", "score": "强度"})
+                fig = px.bar(totals, x="消费动机", y="强度", color="消费动机", title="消费心理动机", height=360)
+                fig.update_layout(showlegend=False)
                 st.plotly_chart(fig, width="stretch")
 
-    with tab_geo:
-        geo_df = pd.DataFrame(visual_data.get("geo_interest") or [])
-        if geo_df.empty:
-            st.info("暂无地域热度数据。")
-        else:
-            chart_df = geo_df.dropna(subset=["extracted_value"]).head(25)
-            if not chart_df.empty:
-                fig = px.bar(
-                    chart_df.sort_values("extracted_value"),
-                    x="extracted_value",
-                    y="location",
-                    color="keyword",
-                    orientation="h",
-                    labels={"extracted_value": "地域热度", "location": "地区"},
-                    height=520,
-                )
-                fig.update_xaxes(range=[0, 100])
-                fig.update_layout(margin=dict(l=160, r=20, t=20, b=40))
-                st.plotly_chart(fig, width="stretch")
-            st.dataframe(geo_df, width="stretch", hide_index=True)
-
-    with tab_data:
-        data_tabs = st.tabs(["热度时间序列", "相关查询", "月度趋势", "地域热度", "关键词评分"])
-        datasets = [
-            visual_data.get("interest_over_time") or [],
-            visual_data.get("related_queries") or [],
-            visual_data.get("monthly_interest") or [],
-            visual_data.get("geo_interest") or [],
-            visual_data.get("keyword_scores") or [],
-        ]
-        for data_tab, rows in zip(data_tabs, datasets):
-            with data_tab:
-                st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
-
-    with tab_html:
-        if html_path and Path(html_path).exists():
-            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
-        elif report_md:
-            st.markdown(report_md[:8000])
-
-
-def money(value: object) -> str:
-    try:
-        return f"{float(value or 0):.2f}"
-    except Exception:
-        return "0.00"
-
-
-def task_options(storage: Storage) -> list[dict]:
-    return storage.query("select * from tasks order by created_at desc")
-
-
-def render_dashboard(storage: Storage, config: AppConfig) -> None:
-    cols = st.columns(4)
-    task_count = storage.get_one("select count(*) as c from tasks")["c"]
-    article_count = storage.get_one("select count(*) as c from articles")["c"]
-    published_count = storage.get_one("select count(*) as c from articles where publish_status=2")["c"]
-    pending_count = storage.get_one(
-        "select count(*) as c from articles where order_id is not null and (publish_status is null or publish_status in (0,1,9))"
-    )["c"]
-    cols[0].metric("GEO任务", task_count)
-    cols[1].metric("生成文章", article_count)
-    cols[2].metric("已发布", published_count)
-    cols[3].metric("待跟进", pending_count)
-
-    if st.button("查询未完成订单状态", type="primary"):
-        if require_meijieku(config):
-            with st.status("正在查询媒介库订单状态", expanded=True) as status:
-                try:
-                    updated = sync_pending_orders(storage, config, progress=st.write)
-                    status.update(label=f"状态同步完成，更新 {updated} 条", state="complete")
-                except Exception as exc:
-                    status.update(label="状态同步失败", state="error")
-                    show_action_error("状态同步", exc)
-
-    tasks = task_options(storage)
-    st.subheader("任务列表")
-    if not tasks:
-        st.info("还没有 GEO 任务。去“新建任务”创建第一个。")
-        return
-    st.dataframe(
-        [
-            {
-                "任务ID": item["id"],
-                "推广词条": item["keyword"],
-                "客户产品": item["customer_product"],
-                "状态": item["status"],
-                "创建时间": item["created_at"],
-            }
-            for item in tasks
-        ],
-        width="stretch",
-        hide_index=True,
-    )
-
-
-def render_create_task(storage: Storage, config: AppConfig) -> None:
-    st.subheader("新建 GEO 任务")
-    with st.form("create_task"):
-        keyword = st.text_input("推广词条", value="推荐20岁成年人的复合维生素")
-        customer_product = st.text_input("客户产品/品牌", value="XX牌维生素")
-        c1, c2 = st.columns(2)
-        search_count = c1.number_input("搜索次数", min_value=1, max_value=10, value=3, step=1)
-        links_per_search = c2.number_input("每次取前 N 条链接", min_value=1, max_value=30, value=10, step=1)
-        query_templates = st.text_area(
-            "搜索问法模板（可选，每行一个，支持 {keyword}）",
-            value="{keyword}\n{keyword} 哪些值得推荐\n{keyword} 排行榜 评测 推荐",
-            height=110,
-        )
-        submitted = st.form_submit_button("创建任务并执行搜索分析", type="primary")
-
-    if submitted:
-        if not keyword.strip() or not customer_product.strip():
-            st.error("推广词条和客户产品都不能为空。")
-            return
-        if not require_qwen(config):
-            return
-        task = create_task(
-            storage,
-            keyword.strip(),
-            customer_product.strip(),
-            int(search_count),
-            int(links_per_search),
-            query_templates,
-        )
-        with st.status("正在创建 GEO 分析任务", expanded=True) as status:
-            try:
-                run_search_and_analysis(storage, config, task, progress=st.write)
-                status.update(label="搜索分析完成，已生成文章生成格式.md", state="complete")
-                st.success(f"任务已创建：{task['id']}")
-            except Exception as exc:
-                status.update(label="搜索分析失败", state="error")
-                show_action_error("搜索分析", exc)
-
-
-def render_trend_analysis(storage: Storage, config: AppConfig) -> None:
-    st.subheader("趋势与同行分析")
-    st.caption("用于 GEO 前置分析：先判断用户在搜什么、同行在做什么，再决定优先写哪些内容。")
-    with st.form("trend_analysis"):
-        c1, c2 = st.columns(2)
-        city = c1.text_input("城市", value="福州")
-        industry = c2.text_input("行业", value="家装公司")
-        seed_keyword = st.text_input("核心词", value="福州家装公司推荐")
-        customer_product = st.text_input("客户/品牌", value="XX家装公司")
-        competitors = st.text_area("同行名称（可选，每行一个）", value="", height=90)
+        heuristics = pd.DataFrame(analysis.get("decision_heuristics") or [])
+        selling_points = pd.DataFrame(analysis.get("selling_points") or [])
         c3, c4 = st.columns(2)
-        trend_date = c3.selectbox("趋势时间范围", ["today 12-m", "today 5-y", "now 7-d", "now 30-d", "all"], index=0)
-        max_search_queries = c4.number_input("SERP 搜索问题数", min_value=1, max_value=8, value=4, step=1)
-        submitted = st.form_submit_button("创建任务并生成趋势报告", type="primary")
+        with c3:
+            if not heuristics.empty and "heuristic" in heuristics:
+                totals = heuristics.groupby("heuristic", as_index=False)["score"].sum().rename(columns={"heuristic": "决策捷径", "score": "强度"})
+                fig = px.bar(totals.sort_values("强度", ascending=True), x="强度", y="决策捷径", orientation="h", title="决策捷径/心理启发式", height=420)
+                st.plotly_chart(fig, width="stretch")
+        with c4:
+            price = pd.DataFrame(analysis.get("price_bands") or [])
+            if not price.empty and "price_band" in price:
+                counts = price.groupby("price_band", as_index=False).size().rename(columns={"price_band": "价格带", "size": "品牌数"})
+                fig = px.pie(counts, names="价格带", values="品牌数", hole=0.35, title="价格带/客单价定位", height=420)
+                fig.update_traces(textinfo="label+percent+value")
+                st.plotly_chart(fig, width="stretch")
 
-    if submitted:
-        if not city.strip() or not industry.strip() or not seed_keyword.strip() or not customer_product.strip():
-            st.error("城市、行业、核心词、客户/品牌都不能为空。")
-            return
-        if not require_serpapi(config) or not require_qwen(config):
-            return
-        task = create_task(
-            storage,
-            seed_keyword.strip(),
-            customer_product.strip(),
-            search_count=3,
-            links_per_search=10,
-            query_templates="",
-        )
-        with st.status("正在生成趋势与同行分析报告", expanded=True) as status:
-            try:
-                result = run_trend_analysis(
-                    storage=storage,
-                    config=config,
-                    task=task,
-                    city=city.strip(),
-                    industry=industry.strip(),
-                    competitors=competitors.strip(),
-                    trend_date=trend_date,
-                    max_search_queries=int(max_search_queries),
-                    progress=st.write,
-                )
-                status.update(label="趋势报告生成完成", state="complete")
-                st.success(f"Markdown 报告：{result['report_path']}")
-                st.success(f"HTML 可视化报告：{result.get('report_html_path', '')}")
-                st.caption(f"热度 CSV：{result.get('interest_csv_path', '')}")
-                st.caption(f"相关查询 CSV：{result.get('related_csv_path', '')}")
-                st.caption(f"月度趋势 CSV：{result.get('monthly_csv_path', '')}")
-                if result.get("pdf_path"):
-                    st.caption(f"PDF 报告：{result['pdf_path']}")
-                else:
-                    st.caption("PDF 未自动导出；可打开 HTML 报告后使用浏览器打印为 PDF。")
-                if result.get("screenshot_path"):
-                    st.caption(f"报告截图：{result['screenshot_path']}")
-                render_file_downloads(
-                    [
-                        ("下载 HTML 报告", result.get("report_html_path", ""), "text/html"),
-                        ("下载 PDF 报告", result.get("pdf_path", ""), "application/pdf"),
-                        ("下载热度 CSV", result.get("interest_csv_path", ""), "text/csv"),
-                        ("下载相关查询 CSV", result.get("related_csv_path", ""), "text/csv"),
-                        ("下载完整 JSON", str(Path(result["report_path"]).with_name("trend_data.json")), "application/json"),
-                    ]
-                )
-                render_trend_visual_preview(
-                    result["report_path"],
-                    report_md=result["report_md"],
-                    html_path=result.get("report_html_path", ""),
-                )
-            except Exception as exc:
-                status.update(label="趋势报告生成失败", state="error")
-                show_action_error("趋势分析", exc)
+        c5, c6 = st.columns(2)
+        with c5:
+            personas = pd.DataFrame(analysis.get("personas") or [])
+            if not personas.empty and "spending_power" in personas:
+                counts = personas.groupby("spending_power", as_index=False).size().rename(columns={"spending_power": "用户消费能力", "size": "品牌数"})
+                fig = px.bar(counts, x="用户消费能力", y="品牌数", color="用户消费能力", title="用户画像：消费能力分布", height=360)
+                fig.update_layout(showlegend=False)
+                st.plotly_chart(fig, width="stretch")
+        with c6:
+            if not selling_points.empty:
+                counts = selling_points.groupby("brand_name", as_index=False).size().rename(columns={"brand_name": "品牌", "size": "卖点数量"})
+                fig = px.bar(counts.sort_values("卖点数量", ascending=True).tail(12), x="卖点数量", y="品牌", orientation="h", title="各品牌卖点数量", height=420)
+                st.plotly_chart(fig, width="stretch")
 
-    reports = storage.query("select * from trend_reports order by created_at desc limit 10")
-    if reports:
-        st.markdown("**最近趋势报告**")
-        st.dataframe(
-            [
-                {
-                    "报告ID": item["id"],
-                    "任务ID": item["task_id"],
-                    "城市": item["city"],
-                    "行业": item["industry"],
-                    "核心词": item["seed_keyword"],
-                    "Markdown": item["file_path"],
-                    "HTML": str(Path(item["file_path"]).with_name("trend_report.html")),
-                    "生成时间": item["created_at"],
+        scores = pd.DataFrame(analysis.get("digital_asset_scores") or [])
+        if not scores.empty:
+            score_cols = ["search_asset_score", "content_platform_score", "website_access_score", "proof_asset_score"]
+            score_df = scores[["brand_name", *[col for col in score_cols if col in scores.columns]]].rename(
+                columns={
+                    "brand_name": "品牌",
+                    "search_asset_score": "搜索资产",
+                    "content_platform_score": "内容平台资产",
+                    "website_access_score": "官网可访问性",
+                    "proof_asset_score": "信任证明资产",
                 }
-                for item in reports
-            ],
-            width="stretch",
-            hide_index=True,
+            )
+            melted = score_df.melt(id_vars=["品牌"], var_name="资产类型", value_name="评分")
+            fig = px.bar(melted, x="品牌", y="评分", color="资产类型", barmode="group", title="数字资产评分", height=460)
+            fig.update_layout(margin=dict(l=20, r=20, t=50, b=100))
+            st.plotly_chart(fig, width="stretch")
+
+    except Exception:
+        st.info("文章定位图表生成失败，已保留文字报告。")
+
+
+def _platform_breakdown_chart_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows[:20]:
+        traditional, new_media = _platform_values_from_volume_item(item)
+        brand = item.get("brand_name", "")
+        values = {
+            "百度": traditional.get("baidu", 0),
+            "搜狗": traditional.get("sogou", 0),
+            "360搜索": traditional.get("so360", 0),
+            "抖音": new_media.get("douyin", 0),
+            "小红书": new_media.get("xiaohongshu", 0),
+        }
+        for platform, count in values.items():
+            result.append(
+                {
+                    "品牌": brand,
+                    "平台": platform,
+                    "内容数量估算": _safe_int(count),
+                    "品牌类型": "客户品牌" if item.get("is_user_brand") else "竞品",
+                }
+            )
+    return result
+
+
+def _platform_values_from_volume_item(item: dict[str, Any]) -> tuple[dict[str, int], dict[str, int]]:
+    traditional = {key: _safe_int(value) for key, value in (item.get("traditional_search") or {}).items()}
+    new_media = {key: _safe_int(value) for key, value in (item.get("new_media") or {}).items()}
+    if any(traditional.values()) or any(new_media.values()):
+        return traditional, new_media
+
+    estimates = [estimate for estimate in item.get("provider_estimates") or [] if isinstance(estimate, dict)]
+    if not estimates:
+        return traditional, new_media
+    traditional_totals = {"baidu": 0, "sogou": 0, "so360": 0}
+    new_media_totals = {"douyin": 0, "xiaohongshu": 0}
+    for estimate in estimates:
+        for key in traditional_totals:
+            traditional_totals[key] += _safe_int((estimate.get("traditional_search") or {}).get(key, 0))
+        for key in new_media_totals:
+            new_media_totals[key] += _safe_int((estimate.get("new_media") or {}).get(key, 0))
+    provider_count = max(len(estimates), 1)
+    return (
+        {key: round(value / provider_count) for key, value in traditional_totals.items()},
+        {key: round(value / provider_count) for key, value in new_media_totals.items()},
+    )
+
+
+def _render_platform_breakdown_charts(rows: list[dict[str, Any]]) -> None:
+    chart_rows = _platform_breakdown_chart_rows(rows)
+    if not chart_rows:
+        st.info("暂无五平台拆分数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(chart_rows)
+        total = df.groupby("平台", as_index=False)["内容数量估算"].sum()
+        fig = px.pie(total, names="平台", values="内容数量估算", hole=0.35, height=460, title="五平台总占比")
+        fig.update_traces(textinfo="label+percent+value")
+        fig.update_layout(margin=dict(l=20, r=20, t=50, b=20), legend_title_text="平台")
+        st.plotly_chart(fig, width="stretch")
+
+        total_sorted = total.sort_values("内容数量估算", ascending=True)
+        fig_bar = px.bar(total_sorted, x="内容数量估算", y="平台", orientation="h", color="平台", height=360, title="五平台内容数量对比")
+        fig_bar.update_layout(margin=dict(l=80, r=20, t=50, b=50), showlegend=False)
+        fig_bar.update_xaxes(title_text="内容数量估算")
+        fig_bar.update_yaxes(title_text="平台")
+        st.plotly_chart(fig_bar, width="stretch")
+
+        top_brands = (
+            df.groupby("品牌", as_index=False)["内容数量估算"].sum()
+            .sort_values("内容数量估算", ascending=False)
+            .head(10)["品牌"]
+            .tolist()
         )
-        with st.expander("预览最新趋势报告"):
-            html_path = Path(reports[0]["file_path"]).with_name("trend_report.html")
-            render_file_downloads(
-                [
-                    ("下载 HTML 报告", str(html_path), "text/html"),
-                    ("下载 PDF 报告", str(Path(reports[0]["file_path"]).with_name("trend_report.pdf")), "application/pdf"),
-                    ("下载热度 CSV", str(Path(reports[0]["file_path"]).with_name("interest_over_time.csv")), "text/csv"),
-                    ("下载相关查询 CSV", str(Path(reports[0]["file_path"]).with_name("related_queries.csv")), "text/csv"),
-                    ("下载完整 JSON", str(Path(reports[0]["file_path"]).with_name("trend_data.json")), "application/json"),
-                ]
-            )
-            render_trend_visual_preview(
-                reports[0]["file_path"],
-                report_md=reports[0]["report_md"],
-                html_path=str(html_path),
-            )
+        brand_df = df[df["品牌"].isin(top_brands)]
+        fig2 = px.bar(brand_df, x="品牌", y="内容数量估算", color="平台", height=460, title="各品牌五平台拆分")
+        fig2.update_layout(barmode="stack", margin=dict(l=20, r=20, t=50, b=100), legend_title_text="平台")
+        fig2.update_xaxes(title_text="品牌")
+        fig2.update_yaxes(title_text="内容数量估算")
+        st.plotly_chart(fig2, width="stretch")
+    except Exception:
+        st.dataframe(chart_rows, width="stretch", hide_index=True)
 
 
-def render_strategy_tools(storage: Storage, config: AppConfig) -> None:
-    st.subheader("GEO 策略工具")
-    st.caption("第一版：竞品分析、AI 可见度诊断、品牌定位策略、手动 GEO 监控，全部输出 Markdown。")
-
-    tool_tabs = st.tabs(["竞品分析", "AI可见度诊断", "品牌定位策略", "手动监控", "历史报告"])
-
-    with tool_tabs[0]:
-        with st.form("competitor_analysis"):
-            c1, c2 = st.columns(2)
-            city = c1.text_input("城市/市场", value="Los Angeles", key="ca_city")
-            industry = c2.text_input("行业", value="LED Sign", key="ca_industry")
-            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="ca_customer")
-            seed_keyword = st.text_input("核心词/商品名", value="Led Sign Company recommend", key="ca_seed")
-            competitors = st.text_area("竞品名称/商品名（可选，每行一个）", height=90, key="ca_competitors")
-            competitor_urls = st.text_area("竞品官网 URL（可选，每行一个）", height=90, key="ca_urls")
-            pdf_paths = st.text_area("竞品 PDF 路径（可选，每行一个）", height=90, key="ca_pdfs")
-            submitted = st.form_submit_button("生成竞品分析报告", type="primary")
-        if submitted:
-            if not require_qwen(config) or not require_serpapi(config):
-                return
-            with st.status("正在生成竞品分析报告", expanded=True) as status:
-                try:
-                    result = run_competitor_analysis(
-                        storage,
-                        config,
-                        city.strip(),
-                        industry.strip(),
-                        customer_product.strip(),
-                        seed_keyword.strip(),
-                        competitors.strip(),
-                        competitor_urls.strip(),
-                        pdf_paths.strip(),
-                        progress=st.write,
-                    )
-                    status.update(label="竞品分析报告已生成", state="complete")
-                    st.success(result["report_path"])
-                    st.markdown(result["report_md"])
-                except Exception as exc:
-                    status.update(label="竞品分析失败", state="error")
-                    show_action_error("竞品分析", exc)
-
-    with tool_tabs[1]:
-        with st.form("visibility_diagnosis"):
-            c1, c2 = st.columns(2)
-            city = c1.text_input("城市/市场", value="Los Angeles", key="vd_city")
-            industry = c2.text_input("行业", value="LED Sign", key="vd_industry")
-            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="vd_customer")
-            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="vd_seed")
-            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="vd_competitors")
-            question_count = st.number_input("测试问题数", min_value=3, max_value=20, value=8, step=1, key="vd_count")
-            submitted = st.form_submit_button("执行 AI 可见度诊断", type="primary")
-        if submitted:
-            if not require_qwen(config):
-                return
-            with st.status("正在执行 AI 可见度诊断", expanded=True) as status:
-                try:
-                    result = run_ai_visibility_diagnosis(
-                        storage,
-                        config,
-                        city.strip(),
-                        industry.strip(),
-                        customer_product.strip(),
-                        seed_keyword.strip(),
-                        competitors.strip(),
-                        int(question_count),
-                        progress=st.write,
-                    )
-                    status.update(label="AI 可见度诊断完成", state="complete")
-                    st.success(result["report_path"])
-                    st.markdown(result["report_md"])
-                except Exception as exc:
-                    status.update(label="AI 可见度诊断失败", state="error")
-                    show_action_error("AI 可见度诊断", exc)
-
-    with tool_tabs[2]:
-        with st.form("brand_strategy"):
-            c1, c2 = st.columns(2)
-            city = c1.text_input("城市/市场", value="Los Angeles", key="bs_city")
-            industry = c2.text_input("行业", value="LED Sign", key="bs_industry")
-            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="bs_customer")
-            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="bs_seed")
-            customer_advantages = st.text_area("客户优势/已有资料（可不完整）", height=120, key="bs_advantages")
-            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="bs_competitors")
-            website_url = st.text_input("客户官网 URL（可选）", key="bs_website")
-            pdf_paths = st.text_area("客户/竞品资料 PDF 路径（可选，每行一个）", height=90, key="bs_pdfs")
-            submitted = st.form_submit_button("生成品牌定位与内容策略报告", type="primary")
-        if submitted:
-            if not require_qwen(config) or not require_serpapi(config):
-                return
-            with st.status("正在生成品牌定位与内容策略报告", expanded=True) as status:
-                try:
-                    result = run_brand_strategy(
-                        storage,
-                        config,
-                        city.strip(),
-                        industry.strip(),
-                        customer_product.strip(),
-                        seed_keyword.strip(),
-                        customer_advantages.strip(),
-                        competitors.strip(),
-                        website_url.strip(),
-                        pdf_paths.strip(),
-                        progress=st.write,
-                    )
-                    status.update(label="品牌策略报告已生成", state="complete")
-                    st.success(result["report_path"])
-                    st.markdown(result["report_md"])
-                except Exception as exc:
-                    status.update(label="品牌策略生成失败", state="error")
-                    show_action_error("品牌策略", exc)
-
-    with tool_tabs[3]:
-        with st.form("geo_monitor"):
-            monitor_name = st.text_input("监控名称", value="LED Sign LA 手动监控", key="gm_name")
-            c1, c2 = st.columns(2)
-            city = c1.text_input("城市/市场", value="Los Angeles", key="gm_city")
-            industry = c2.text_input("行业", value="LED Sign", key="gm_industry")
-            customer_product = st.text_input("客户/品牌", value="LED Sign Company", key="gm_customer")
-            seed_keyword = st.text_input("核心词/商品名", value="LED sign company", key="gm_seed")
-            competitors = st.text_area("竞品名称（可选，每行一个）", height=90, key="gm_competitors")
-            question_count = st.number_input("监控问题数", min_value=3, max_value=20, value=8, step=1, key="gm_count")
-            submitted = st.form_submit_button("立即执行一次手动监控", type="primary")
-        if submitted:
-            if not require_qwen(config):
-                return
-            with st.status("正在执行 GEO 手动监控", expanded=True) as status:
-                try:
-                    result = run_geo_monitor(
-                        storage,
-                        config,
-                        monitor_name.strip(),
-                        city.strip(),
-                        industry.strip(),
-                        customer_product.strip(),
-                        seed_keyword.strip(),
-                        competitors.strip(),
-                        int(question_count),
-                        progress=st.write,
-                    )
-                    status.update(label="GEO 手动监控完成", state="complete")
-                    st.success(result["report_path"])
-                    st.markdown(result["report_md"])
-                except Exception as exc:
-                    status.update(label="GEO 手动监控失败", state="error")
-                    show_action_error("GEO 手动监控", exc)
-
-    with tool_tabs[4]:
-        reports = storage.query("select * from strategy_reports order by created_at desc limit 50")
-        if not reports:
-            st.info("还没有策略报告。")
-        else:
-            st.dataframe(
-                [
+def _provider_visibility_chart_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for item in data.get("search_volume_ranking") or []:
+        brand = item.get("brand_name", "")
+        for estimate in item.get("provider_estimates") or []:
+            provider = _provider_label(estimate.get("provider", ""))
+            traditional = estimate.get("traditional_search") or {}
+            new_media = estimate.get("new_media") or {}
+            values = {
+                "百度": traditional.get("baidu", 0),
+                "搜狗": traditional.get("sogou", 0),
+                "360搜索": traditional.get("so360", 0),
+                "抖音": new_media.get("douyin", 0),
+                "小红书": new_media.get("xiaohongshu", 0),
+            }
+            for platform, count in values.items():
+                result.append(
                     {
-                        "ID": item["id"],
-                        "类型": item["report_type"],
-                        "主题": item["subject"],
-                        "客户": item["customer_product"],
-                        "城市": item["city"],
-                        "行业": item["industry"],
-                        "文件": item["file_path"],
-                        "时间": item["created_at"],
+                        "AI平台": provider,
+                        "品牌": brand,
+                        "平台": platform,
+                        "内容数量估算": _safe_int(count),
                     }
-                    for item in reports
-                ],
-                width="stretch",
-                hide_index=True,
-            )
-            with st.expander("预览最新策略报告"):
-                st.markdown(reports[0]["report_md"][:8000])
+                )
+    return result
 
 
-def render_publish(storage: Storage, config: AppConfig) -> None:
-    st.subheader("平台匹配与发布")
-    tasks = task_options(storage)
-    if not tasks:
-        st.info("请先创建任务。")
-        return
-    labels = {f"{item['keyword']} | {item['customer_product']} | {item['id']}": item["id"] for item in tasks}
-    selected_label = st.selectbox("选择任务", list(labels.keys()))
-    task_id = labels[selected_label]
-    task = storage.get_one("select * from tasks where id=?", (task_id,))
-    if not task:
-        return
-
-    c1, c2, c3 = st.columns(3)
-    if c1.button("刷新媒介库资源"):
-        if require_meijieku(config):
-            with st.status("正在同步媒介库网站媒体和自媒体", expanded=True) as status:
-                try:
-                    counts = refresh_media_resources(storage, config, progress=st.write)
-                    status.update(label=f"资源同步完成：网站 {counts.get('website', 0)}，自媒体 {counts.get('wemedia', 0)}", state="complete")
-                except Exception as exc:
-                    status.update(label="资源同步失败", state="error")
-                    show_action_error("媒介库资源同步", exc)
-    if c2.button("生成/刷新平台匹配"):
-        if require_qwen(config):
-            with st.status("正在匹配来源平台和媒介库资源", expanded=True) as status:
-                try:
-                    matches = generate_platform_matches(storage, config, task_id, use_ai_fuzzy=True)
-                    status.update(label=f"平台匹配完成，共 {len(matches)} 条", state="complete")
-                except Exception as exc:
-                    status.update(label="平台匹配失败", state="error")
-                    show_action_error("平台匹配", exc)
-    if c3.button("批量确认所有模糊匹配"):
-        fuzzy = storage.query("select id from platform_matches where task_id=? and match_type='fuzzy'", (task_id,))
-        storage.update_match_confirmation([item["id"] for item in fuzzy], True)
-        st.success(f"已确认 {len(fuzzy)} 条模糊匹配。")
-
-    matches = storage.query("select * from platform_matches where task_id=? order by link_count desc, confidence desc", (task_id,))
-    if matches:
-        st.markdown("**匹配结果**")
-        st.dataframe(
-            [
-                {
-                    "ID": item["id"],
-                    "来源平台": item["source_site_name"],
-                    "域名": item["source_domain"],
-                    "链接次数": item["link_count"],
-                    "媒介库类型": item["resource_type"],
-                    "媒介库资源": item["resource_title"],
-                    "匹配": item["match_type"],
-                    "确认": "是" if item["confirmed"] else "否",
-                    "price_1": money(item["price_1"]),
-                    "price_2": money(item["price_2"]),
-                    "price_3": money(item["price_3"]),
-                    "提示": item["warning"],
-                }
-                for item in matches
-            ],
-            width="stretch",
-            hide_index=True,
-        )
-    else:
-        st.info("还没有平台匹配结果。请先刷新媒介库资源，再生成平台匹配。")
-        return
-
-    publishable = get_publishable_matches(storage, task_id)
-    st.markdown("**生成本批文章**")
-    if not publishable:
-        st.warning("没有已确认且可发布的平台。完全匹配会自动确认，模糊匹配需要批量确认后才能发布。")
-        return
-
-    default_count = min(10, len(publishable))
-    batch_count = st.number_input("本批默认选择前 N 个平台", min_value=1, max_value=len(publishable), value=default_count, step=1)
-    option_labels = {
-        f"{item['id']} | {item['resource_title']} | {item['resource_type']} | price_1={money(item['price_1'])} | {item['match_type']}": item["id"]
-        for item in publishable
-    }
-    defaults = list(option_labels.keys())[: int(batch_count)]
-    selected = st.multiselect("选择本批平台", list(option_labels.keys()), default=defaults)
-    selected_ids = [option_labels[label] for label in selected]
-    selected_matches = [item for item in publishable if item["id"] in selected_ids]
-    total_price = sum(float(item.get("price_1") or 0) for item in selected_matches)
-    over_single = [
-        item for item in selected_matches if config.budget.max_price_per_platform and float(item.get("price_1") or 0) > config.budget.max_price_per_platform
-    ]
-    over_total = bool(config.budget.max_total_budget and total_price > config.budget.max_total_budget)
-    st.caption(f"本批预计 price_1 合计：{money(total_price)}")
-    if over_single:
-        st.error("有平台超过单个平台最高价，请调整选择或预算。")
-    if over_total:
-        st.error("本批预计费用超过单次总预算，请调整选择或预算。")
-    can_generate = bool(selected_ids) and not over_single and not over_total
-    if st.button("为所选平台生成不同文章", type="primary", disabled=not can_generate):
-        if require_qwen(config):
-            with st.status("正在按平台生成不同文章", expanded=True) as status:
-                try:
-                    articles = generate_articles_for_matches(storage, config, task_id, selected_ids, progress=st.write)
-                    status.update(label=f"文章生成完成，共 {len(articles)} 篇", state="complete")
-                except Exception as exc:
-                    status.update(label="文章生成失败", state="error")
-                    show_action_error("文章生成", exc)
-
-    unpublished = storage.query(
-        """
-        select * from articles
-        where task_id=? and order_id is null
-        order by created_at desc
-        """,
-        (task_id,),
-    )
-    st.markdown("**待发布文章**")
-    if not unpublished:
-        st.info("当前没有待发布文章。")
-        return
-    st.dataframe(
-        [
-            {
-                "文章ID": item["id"],
-                "平台": item["resource_title"],
-                "类型": item["resource_type"],
-                "标题": item["title"],
-                "原稿": item["file_path"],
-            }
-            for item in unpublished
-        ],
-        width="stretch",
-        hide_index=True,
-    )
-    with st.expander("预览最新一篇原稿"):
-        st.markdown(unpublished[0]["content_md"][:4000])
-    confirm = st.checkbox("我确认将以上待发布文章提交到媒介库，提交后会按媒介库规则扣费。")
-    if st.button("确认发布待发布文章", type="primary", disabled=not confirm):
-        if require_meijieku(config):
-            with st.status("正在提交媒介库发布", expanded=True) as status:
-                try:
-                    article_ids = [item["id"] for item in unpublished]
-                    published = publish_articles(storage, config, article_ids, progress=st.write)
-                    status.update(label=f"已提交 {len(published)} 篇文章", state="complete")
-                except Exception as exc:
-                    status.update(label="提交发布失败", state="error")
-                    show_action_error("媒介库发布", exc)
-
-
-def render_status(storage: Storage, config: AppConfig) -> None:
-    st.subheader("文章与订单状态")
-    if st.button("刷新未完成订单"):
-        if require_meijieku(config):
-            with st.status("正在刷新订单状态", expanded=True) as status:
-                try:
-                    updated = sync_pending_orders(storage, config, progress=st.write)
-                    status.update(label=f"刷新完成，更新 {updated} 条", state="complete")
-                except Exception as exc:
-                    status.update(label="刷新失败", state="error")
-                    show_action_error("订单状态刷新", exc)
-    rows = storage.query("select * from articles order by created_at desc")
+def _render_provider_visibility_charts(data: dict[str, Any]) -> None:
+    rows = _provider_visibility_chart_rows(data)
     if not rows:
-        st.info("还没有生成文章。")
+        st.info("暂无分 AI 平台声量估算数据。")
         return
-    st.dataframe(
-        [
-            {
-                "文章ID": item["id"],
-                "任务ID": item["task_id"],
-                "平台": item["resource_title"],
-                "标题": item["title"],
-                "订单号": item["order_id"],
-                "状态": STATUS_LABELS.get(item["publish_status"], item["publish_status"]),
-                "发布链接": item["link"],
-                "失败/退款原因": item["refund_info"] or item["rejection_info"],
-                "原稿": item["file_path"],
-            }
-            for item in rows
-        ],
-        width="stretch",
-        hide_index=True,
-    )
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        provider_platform = df.groupby(["AI平台", "平台"], as_index=False)["内容数量估算"].sum()
+        fig = px.bar(
+            provider_platform,
+            x="AI平台",
+            y="内容数量估算",
+            color="平台",
+            height=420,
+            title="各 AI 平台对五平台声量的估算",
+        )
+        fig.update_layout(barmode="stack", margin=dict(l=20, r=20, t=50, b=70), legend_title_text="平台")
+        fig.update_xaxes(title_text="AI平台")
+        fig.update_yaxes(title_text="内容数量估算")
+        st.plotly_chart(fig, width="stretch")
+
+        provider_brand = df.groupby(["AI平台", "品牌"], as_index=False)["内容数量估算"].sum()
+        top_brands = (
+            provider_brand.groupby("品牌", as_index=False)["内容数量估算"].sum()
+            .sort_values("内容数量估算", ascending=False)
+            .head(10)["品牌"]
+            .tolist()
+        )
+        fig2 = px.bar(
+            provider_brand[provider_brand["品牌"].isin(top_brands)],
+            x="品牌",
+            y="内容数量估算",
+            color="AI平台",
+            barmode="group",
+            height=440,
+            title="各 AI 平台给出的品牌声量 Top 对比",
+        )
+        fig2.update_layout(margin=dict(l=20, r=20, t=50, b=100), legend_title_text="AI平台")
+        fig2.update_xaxes(title_text="品牌")
+        fig2.update_yaxes(title_text="内容数量估算")
+        st.plotly_chart(fig2, width="stretch")
+
+        with st.expander("查看分 AI 平台声量估算明细", expanded=False):
+            st.dataframe(df, width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
 
 
-def render_help() -> None:
-    st.subheader("第一版使用顺序")
-    st.markdown(
-        """
-1. 在左侧配置 Qwen API Key、媒介库账号和预算。
-2. 可先在“趋势与同行分析”输入城市、行业、核心词，生成客户前置分析报告。
-3. 在“GEO 策略工具”生成竞品分析、AI 可见度诊断、品牌定位策略和手动监控报告。
-4. 在“新建任务”输入推广词条和客户产品，执行搜索分析。
-5. 在“平台匹配与发布”刷新媒介库资源，生成平台匹配。
-6. 模糊匹配需要批量确认，确认后选择本批平台生成文章。
-7. 预览待发布文章，勾选扣费确认，再提交媒介库。
-8. 下次启动或进入“文章与订单状态”刷新未完成订单。
+def _render_provider_status_chart(rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
 
-如果真实媒介库 API 地址暂时不可用，可先在左侧开启“媒介库模拟模式”测试匹配和文章生成流程。
-"""
-    )
-    st.code("python -m streamlit run app.py --server.headless true --server.port 8501", language="bash")
-    st.caption("建议把 DASHSCOPE_API_KEY、SERPAPI_API_KEY、MEIJIEKU_MOBILE、MEIJIEKU_PASSWORD 写入 .env。")
+        chart_rows = []
+        for item in rows:
+            chart_rows.append({"AI平台": item["AI平台"], "任务": "推荐排名", "状态": item["推荐排名"], "返回数量": item["推荐条数"]})
+            chart_rows.append({"AI平台": item["AI平台"], "任务": "声量估算", "状态": item["声量估算"], "返回数量": item["声量品牌数"]})
+        df = pd.DataFrame(chart_rows)
+        fig = px.bar(df, x="AI平台", y="返回数量", color="任务", pattern_shape="状态", height=360)
+        fig.update_layout(margin=dict(l=20, r=20, t=20, b=60), legend_title_text="任务")
+        fig.update_xaxes(title_text="AI平台")
+        fig.update_yaxes(title_text="返回数量")
+        st.plotly_chart(fig, width="stretch")
+    except Exception:
+        pass
+
+
+def _render_recommendation_source_charts(rows: list[dict[str, Any]]) -> None:
+    chart_rows = _recommendation_chart_rows(rows)
+    if not chart_rows:
+        st.info("暂无可绘制的 AI 推荐来源数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(chart_rows)
+        provider_share = df.groupby("AI平台", as_index=False).agg(推荐品牌数=("品牌", "nunique"), 推荐热度=("推荐得分", "sum"))
+        fig = px.pie(
+            provider_share,
+            names="AI平台",
+            values="推荐品牌数",
+            hole=0.35,
+            height=430,
+            title="AI 推荐来源占比",
+        )
+        fig.update_traces(textinfo="label+percent+value")
+        fig.update_layout(margin=dict(l=20, r=20, t=50, b=20), legend_title_text="AI平台")
+        st.plotly_chart(fig, width="stretch")
+
+        heatmap_df = df.copy()
+        heatmap_df["名次热度"] = heatmap_df["推荐名次"].map(lambda value: max(1, 11 - int(value)))
+        pivot = heatmap_df.pivot_table(index="品牌", columns="AI平台", values="名次热度", aggfunc="max", fill_value=0)
+        fig2 = px.imshow(
+            pivot.head(20),
+            aspect="auto",
+            height=460,
+            color_continuous_scale="YlGnBu",
+            labels=dict(x="AI平台", y="品牌", color="推荐热度"),
+        )
+        fig2.update_layout(margin=dict(l=140, r=20, t=20, b=80))
+        st.plotly_chart(fig2, width="stretch")
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _render_article_status_charts(rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        st.info("暂无数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        status = df.groupby("抓取状态", as_index=False).size().rename(columns={"size": "链接数量"})
+        c1, c2 = st.columns(2)
+        with c1:
+            fig = px.pie(status, names="抓取状态", values="链接数量", hole=0.35, height=360)
+            fig.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+            st.plotly_chart(fig, width="stretch")
+        with c2:
+            by_engine = df.groupby(["AI来源", "抓取状态"], as_index=False).size().rename(columns={"size": "链接数量"})
+            fig2 = px.bar(by_engine, x="AI来源", y="链接数量", color="抓取状态", height=360)
+            fig2.update_layout(margin=dict(l=20, r=20, t=20, b=60), legend_title_text="抓取状态")
+            fig2.update_xaxes(title_text="AI来源")
+            fig2.update_yaxes(title_text="链接数量")
+            st.plotly_chart(fig2, width="stretch")
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _chart_label(name: str) -> str:
+    return {
+        "brand_name": "品牌",
+        "mentioned_count": "传统搜索声量",
+        "result_count": "全网声量估算",
+        "estimated_result_count": "全网声量估算",
+        "recommendation_count": "AI推荐次数",
+        "gap_score": "排名差距",
+        "is_user_brand": "品牌类型",
+        "topic": "内容主题",
+        "count": "次数",
+        "resource_title": "媒介资源",
+        "estimated_total_cost": "预估成本",
+    }.get(name, name)
+
+
+def _safe_int(value: Any) -> int:
+    try:
+        return max(int(float(str(value or 0).replace(",", "").strip() or 0)), 0)
+    except Exception:
+        return 0
+
+
+def _provider_label(value: Any) -> str:
+    key = str(value or "").strip().lower()
+    return {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}.get(key, str(value or ""))
+
+
+def _infer_boundary_type(text: str) -> str:
+    if any(word in text for word in ("三甲", "医院", "医美", "整形", "皮肤", "医生", "科室")):
+        return "卖服务"
+    if any(word in text for word in ("场景", "体验", "空间", "生活方式")):
+        return "卖场景"
+    if any(word in text for word in ("解决方案", "一站式", "综合")):
+        return "卖解决方案"
+    if any(word in text for word in ("产品", "配件", "设备")):
+        return "卖产品"
+    return "混合/依据不足"
+
+
+def _infer_price_band(text: str) -> str:
+    if any(word in text for word in ("高端", "轻奢", "高价", "私享", "定制")):
+        return "高"
+    if any(word in text for word in ("收费合理", "性价比", "亲民", "低价")):
+        return "中低"
+    if any(word in text for word in ("连锁", "大型", "综合", "主流")):
+        return "中"
+    return "未知"
+
+
+def _infer_motive_scores(text: str) -> dict[str, int]:
+    result = {"功能价值": 1}
+    if any(word in text for word in ("安全", "资质", "医生", "设备", "技术", "效果", "正规")):
+        result["功能价值"] = 3
+    if any(word in text for word in ("安心", "服务", "体验", "口碑", "信任", "环境")):
+        result["情感价值"] = 2
+    if any(word in text for word in ("高端", "轻奢", "审美", "定制", "身份")):
+        result["自我实现"] = 2
+    return result
+
+
+def _infer_heuristic_scores(text: str) -> dict[str, int]:
+    result: dict[str, int] = {}
+    if any(word in text for word in ("排名", "前十", "知名", "主流", "老牌", "用户基数")):
+        result["从众效应"] = 2
+    if any(word in text for word in ("三甲", "资质", "专家", "博士", "医生", "权威")):
+        result["权威背书"] = 3
+    if any(word in text for word in ("案例", "对比", "口碑", "评价")):
+        result["社会认同"] = 2
+    if any(word in text for word in ("价格", "收费", "套餐")):
+        result["锚定效应"] = 1
+    return result or {"依据不足": 1}
+
+
+def _selling_points_from_text(text: str) -> list[str]:
+    parts = []
+    for token in re.split(r"[，,。；;\n、]", str(text or "")):
+        token = token.strip()
+        if 4 <= len(token) <= 40:
+            parts.append(token)
+    return list(dict.fromkeys(parts))[:5] or ["资质背书", "服务项目覆盖", "医生/技术能力", "案例或口碑", "本地可达性"]
+
+
+def _render_stacked_visibility(rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        st.info("暂无数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        source = []
+        for item in rows[:20]:
+            source.append({"品牌": item.get("brand_name", ""), "平台类型": "传统搜索", "声量估算": item.get("traditional_search_count", 0)})
+            source.append({"品牌": item.get("brand_name", ""), "平台类型": "新媒体", "声量估算": item.get("new_media_count", 0)})
+        df = pd.DataFrame(source)
+        fig = px.bar(df, x="品牌", y="声量估算", color="平台类型", height=440)
+        fig.update_layout(barmode="stack", margin=dict(l=20, r=20, t=20, b=100), legend_title_text="平台类型")
+        fig.update_xaxes(title_text="品牌")
+        fig.update_yaxes(title_text="声量估算")
+        st.plotly_chart(fig, width="stretch")
+        with st.expander("查看声量估算原始数据", expanded=False):
+            st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _render_bar(rows: list[dict[str, Any]], x: str, y: str, color: str | None = None) -> None:
+    if not rows:
+        st.info("暂无数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        chart_df = df.head(20).copy()
+        chart_x = _chart_label(x)
+        chart_y = _chart_label(y)
+        chart_color = None
+        if color and color in chart_df.columns:
+            chart_color = _chart_label(color)
+            if color == "is_user_brand":
+                chart_df[chart_color] = chart_df[color].map(lambda value: "客户品牌" if bool(value) else "竞品")
+            else:
+                chart_df[chart_color] = chart_df[color]
+        if x in chart_df.columns:
+            chart_df[chart_x] = chart_df[x]
+        if y in chart_df.columns:
+            chart_df[chart_y] = chart_df[y]
+        fig = px.bar(chart_df, x=chart_x, y=chart_y, color=chart_color, height=420)
+        fig.update_layout(margin=dict(l=20, r=20, t=20, b=90), legend_title_text=chart_color or "")
+        fig.update_xaxes(title_text=chart_x)
+        fig.update_yaxes(title_text=chart_y)
+        st.plotly_chart(fig, width="stretch")
+        with st.expander("查看详细数据", expanded=False):
+            st.dataframe(df, width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _render_pie(rows: list[dict[str, Any]], names: str, values: str) -> None:
+    if not rows:
+        st.info("暂无数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        chart_names = _chart_label(names)
+        chart_values = _chart_label(values)
+        chart_df = df.head(12).copy()
+        chart_df[chart_names] = chart_df[names]
+        chart_df[chart_values] = chart_df[values]
+        fig = px.pie(chart_df, names=chart_names, values=chart_values, hole=0.35, height=420)
+        fig.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+        st.plotly_chart(fig, width="stretch")
+        with st.expander("查看详细数据", expanded=False):
+            st.dataframe(df, width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _render_heatmap(rows: list[dict[str, Any]]) -> None:
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        pivot = df.pivot_table(index="brand", columns="topic", values="count", aggfunc="sum", fill_value=0)
+        fig = px.imshow(pivot.head(12), aspect="auto", height=520, labels=dict(x="内容主题", y="品牌", color="次数"))
+        fig.update_layout(margin=dict(l=120, r=20, t=20, b=80))
+        st.plotly_chart(fig, width="stretch")
+        with st.expander("查看详细数据", expanded=False):
+            st.dataframe(df, width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _competitor_rows(competitor_discovery: dict[str, Any]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    group_labels = {
+        "direct_competitors": "直接竞品",
+        "local_competitors": "本地竞品",
+        "national_competitors": "全国竞品",
+        "adjacent_competitors": "相邻竞品",
+    }
+    for key, label in group_labels.items():
+        for item in competitor_discovery.get(key) or []:
+            if isinstance(item, str):
+                rows.append({"brand_name": item, "type": label, "region": "", "reason": ""})
+            elif isinstance(item, dict) and item.get("brand_name"):
+                rows.append(
+                    {
+                        "brand_name": item.get("brand_name", ""),
+                        "type": item.get("competitor_type") or label,
+                        "region": item.get("region", ""),
+                        "reason": item.get("reason", ""),
+                    }
+                )
+    seen = set()
+    deduped = []
+    for item in rows:
+        key = str(item.get("brand_name") or "").lower()
+        if key and key not in seen:
+            seen.add(key)
+            deduped.append(item)
+    return deduped
+
+
+def _labels(language: str) -> dict[str, str]:
+    if language == "en":
+        return {
+            "product": "Product",
+            "brand": "Brand",
+            "category": "Category",
+            "ranking": "AI Recommendation Ranking",
+            "baidu": "Baidu Mention Stats",
+        }
+    return {
+        "product": "产品",
+        "brand": "品牌",
+        "category": "类目",
+        "ranking": "AI 推荐排名",
+        "baidu": "百度提及统计",
+    }
 
 
 def main() -> None:
-    st.set_page_config(page_title="GEO 文章生成与媒介库发布", layout="wide")
-    st.title("GEO 文章生成与媒介库发布")
+    st.set_page_config(page_title="GEO 一键分析", layout="wide")
+    inject_styles()
+    st.title("GEO 一键分析")
     storage = get_storage()
     config = sidebar_config()
-
-    if "startup_sync_done" not in st.session_state:
-        st.session_state.startup_sync_done = True
-        if not config.meijieku.mock_mode and (config.meijieku.token or (config.meijieku.mobile and config.meijieku.password)):
-            try:
-                updated = sync_pending_orders(storage, config)
-                if updated:
-                    st.toast(f"启动时已同步 {updated} 条未完成订单")
-            except Exception as exc:
-                st.toast(f"启动状态同步失败：{exc}")
-
-    tabs = st.tabs(["任务看板", "趋势与同行分析", "GEO 策略工具", "新建任务", "平台匹配与发布", "文章与订单状态", "说明"])
-    with tabs[0]:
-        render_dashboard(storage, config)
-    with tabs[1]:
-        render_trend_analysis(storage, config)
-    with tabs[2]:
-        render_strategy_tools(storage, config)
-    with tabs[3]:
-        render_create_task(storage, config)
-    with tabs[4]:
-        render_publish(storage, config)
-    with tabs[5]:
-        render_status(storage, config)
-    with tabs[6]:
-        render_help()
+    render_console()
+    render_history(storage)
+    render_input_panel(storage, config)
+    render_profile_confirmation(storage, config)
+    render_result()
 
 
 if __name__ == "__main__":
@@ -933,5 +1592,3 @@ if __name__ == "__main__":
         if exc.name == "streamlit":
             print("缺少 Streamlit，请先运行：python -m pip install -r requirements.txt", file=sys.stderr)
         raise
-
-

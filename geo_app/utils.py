@@ -22,7 +22,10 @@ def safe_filename(value: str, max_length: int = 90) -> str:
 def domain_from_url(url: str) -> str:
     if not url:
         return ""
-    parsed = urlparse(url if "://" in url else f"https://{url}")
+    try:
+        parsed = urlparse(url if "://" in url else f"https://{url}")
+    except ValueError:
+        return ""
     netloc = parsed.netloc.lower()
     if netloc.startswith("www."):
         netloc = netloc[4:]
@@ -93,4 +96,3 @@ def markdown_to_html(markdown_text: str) -> str:
 def write_text(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
-

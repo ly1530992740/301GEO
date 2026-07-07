@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://www.haixiazi.com",
+    "domain": "haixiazi.com",
+    "label": "海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fuzhou.mylike.com",
+    "domain": "fuzhou.mylike.com",
+    "label": "美莱医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.yestar.com",
+    "domain": "fz.yestar.com",
+    "label": "艺星医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fuzhou. huamei.com",
+    "domain": "fuzhou. huamei.com",
+    "label": "华美医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.minghanmr.com",
+    "domain": "minghanmr.com",
+    "label": "名韩整形美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.aimeierfz.com",
+    "domain": "aimeierfz.com",
+    "label": "爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mebel.cn",
+    "domain": "mebel.cn",
+    "label": "美贝尔",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.weilin.cn",
+    "domain": "weilin.cn",
+    "label": "薇琳医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.meilifang.cn",
+    "domain": "meilifang.cn",
+    "label": "美立方医美",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  }
+]

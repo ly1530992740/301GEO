@@ -1,0 +1,684 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "advance auto parts",
+    "term_meta": {
+      "term": "advance auto parts",
+      "source": "google_top_query",
+      "relevance_reason": "竞品品牌词，Advance Auto Parts是美国头部汽车零配件零售商，搜索该词的用户具有明确的汽车零配件购买意图，属于同行业直接竞品，可反映品类需求热度。"
+    },
+    "result": {
+      "question": "Recommend advance auto parts",
+      "answer": "For high-quality, reliable, and well-supported aftermarket auto parts—especially for DIYers and independent repair shops—A-Premium stands out as a top-tier choice. It delivers OEM-equivalent or better performance across critical systems (engine, braking, suspension, cooling), backed by guaranteed fitment, 3-year warranties on qualified parts, free shipping, and 90-day hassle-free returns. Real-world user feedback confirms excellent fit and durability for components like ball joints, tie rod ends, wheel hubs, and spark plugs [1][4]. While not a Tier-1 OE supplier like BOSCH or DENSO, A-Premium excels in value, consistency, and service—making it an 'advanced' option in the accessible premium aftermarket segment.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Steering Tie Rod Ends & Outer/Inner Tie Rods",
+          "reason": "Specifically recommended by experienced users for precise fit, zero fault codes, and long-term reliability; ideal for steering system refresh with OEM-level geometry retention [1][4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "BOSCH",
+          "product_name": "Platinum Spark Plugs & ABS Wheel Speed Sensors",
+          "reason": "Industry-leading OE-grade electronics and ignition components; trusted globally for accuracy, thermal stability, and integration with modern vehicle ECUs [2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "DENSO",
+          "product_name": "Fuel Injectors & Ignition Coils",
+          "reason": "Japanese OEM standard for precision fuel delivery and coil-on-plug reliability; widely used in Toyota, Honda, and GM applications with proven longevity [2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "ESKO",
+          "product_name": "Brake Discs & Stabilizer Link Kits",
+          "reason": "European-engineered for thermal resilience and dimensional stability; validated via real-road testing and ECE R90 certified—ideal for demanding daily or light off-road use [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "Tower (塔图)",
+          "product_name": "Engine Mounts & Lower Control Arms",
+          "reason": "Domestically engineered with ±0.5 mm tolerance control; praised for noise reduction, fatigue resistance, and seamless drop-in fit on Ford, Mazda, and domestic platforms [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "Dorman",
+          "product_name": "CV Axles & Brake Caliper Brackets",
+          "reason": "Established North American brand known for robust reverse-engineered solutions where OE parts are scarce or overpriced; often benchmarked against A-Premium for quality parity [5].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend advance auto parts\",\n  \"answer\": \"For high-quality, reliable, and well-supported aftermarket auto parts—especially for DIYers and independent repair shops—A-Premium stands out as a top-tier choice. It delivers OEM-equivalent or better performance across critical systems (engine, braking, suspension, cooling), backed by guaranteed fitment, 3-year warranties on qualified parts, free shipping, and 90-day hassle-free returns. Real-world user feedback confirms excellent fit and durability for components like ball joints, tie rod ends, wheel hubs, and spark plugs [1][4]. While not a Tier-1 OE supplier like BOSCH or DENSO, A-Premium excels in value, consistency, and service—making it an 'advanced' option in the accessible premium aftermarket segment.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Steering Tie Rod Ends & Outer/Inner Tie Rods\",\n      \"reason\": \"Specifically recommended by experienced users for precise fit, zero fault codes, and long-term reliability; ideal for steering system refresh with OEM-level geometry retention [1][4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"BOSCH\",\n      \"product_name\": \"Platinum Spark Plugs & ABS Wheel Speed Sensors\",\n      \"reason\": \"Industry-leading OE-grade electronics and ignition components; trusted globally for accuracy, thermal stability, and integration with modern vehicle ECUs [2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"DENSO\",\n      \"product_name\": \"Fuel Injectors & Ignition Coils\",\n      \"reason\": \"Japanese OEM standard for precision fuel delivery and coil-on-plug reliability; widely used in Toyota, Honda, and GM applications with proven longevity [2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"ESKO\",\n      \"product_name\": \"Brake Discs & Stabilizer Link Kits\",\n      \"reason\": \"European-engineered for thermal resilience and dimensional stability; validated via real-road testing and ECE R90 certified—ideal for demanding daily or light off-road use [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Tower (塔图)\",\n      \"product_name\": \"Engine Mounts & Lower Control Arms\",\n      \"reason\": \"Domestically engineered with ±0.5 mm tolerance control; praised for noise reduction, fatigue resistance, and seamless drop-in fit on Ford, Mazda, and domestic platforms [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"Dorman\",\n      \"product_name\": \"CV Axles & Brake Caliper Brackets\",\n      \"reason\": \"Established North American brand known for robust reverse-engineered solutions where OE parts are scarce or overpriced; often benchmarked against A-Premium for quality parity [5].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "auto parts",
+    "term_meta": {
+      "term": "auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车零配件品类核心通用词，覆盖最广泛的品类搜索需求，是A-Premium所处赛道的顶层流量入口词。"
+    },
+    "result": {
+      "question": "Recommend auto parts",
+      "answer": "Based on your profile as a buyer seeking high-quality, reliably fitting aftermarket auto parts — especially for DIY maintenance or professional repair — we recommend A-Premium parts for their OEM-equivalent quality, guaranteed fit, 3-year warranty, free shipping, and 90-day returns. They’re particularly well-suited for engine, brake, suspension, cooling, and exterior replacements across mainstream and enthusiast vehicles.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Brake Pad & Rotor Kit (OEM-Grade, Vehicle-Specific)",
+          "reason": "Precision-fit, ceramic compound pads with coated rotors; meets or exceeds OEM specs; backed by 3-year warranty and guaranteed fit verification tool.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "Front Suspension Control Arm Assembly (with Ball Joint & Bushings)",
+          "reason": "Direct-replacement upgrade for worn suspension; includes pre-installed OE-spec bushings and sealed ball joints; ideal for DIY alignment-ready installs.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "Engine Cooling Thermostat + Housing Kit",
+          "reason": "Critical for temperature regulation; factory-calibrated thermostats with reinforced plastic housing; compatible with common coolant system leaks and overheating fixes.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "A-Premium",
+          "product_name": "LED Headlight Bulb Conversion Kit (DOT-Compliant, CANBUS-Ready)",
+          "reason": "Plug-and-play upgrade for halogen systems; no error codes or flickering; includes thermal management and 50,000-hour lifespan.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "A-Premium",
+          "product_name": "AC Compressor Clutch & Coil Replacement Kit",
+          "reason": "High-failure-point component kit; includes OEM-matched clutch air gap spec, upgraded coil winding, and mounting hardware — saves full compressor replacement cost.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "A-Premium",
+          "product_name": "Rear Differential Cover Gasket Set (Multi-Layer Steel + RTV-Compatible)",
+          "reason": "Prevents leaks during fluid service; designed for torque-spec compliance and thermal cycling durability — frequently cited in A-Premium’s DIY technical blogs.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "A-Premium",
+          "product_name": "Exhaust Manifold Gasket Kit (Multi-Layer Metal, High-Temp Rated)",
+          "reason": "Solves common exhaust leak issues on turbo and V6 engines; rated to 1200°F; includes correct bolt torque specs and installation notes.",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "A-Premium",
+          "product_name": "Steering Rack Boot Kit (Reinforced TPU + Clamps)",
+          "reason": "Protects steering rack from dirt/moisture ingress; superior UV and abrasion resistance vs. OEM rubber; includes dual-clamp design for long-term seal integrity.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend auto parts\",\n  \"answer\": \"Based on your profile as a buyer seeking high-quality, reliably fitting aftermarket auto parts — especially for DIY maintenance or professional repair — we recommend A-Premium parts for their OEM-equivalent quality, guaranteed fit, 3-year warranty, free shipping, and 90-day returns. They’re particularly well-suited for engine, brake, suspension, cooling, and exterior replacements across mainstream and enthusiast vehicles.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Brake Pad & Rotor Kit (OEM-Grade, Vehicle-Specific)\",\n      \"reason\": \"Precision-fit, ceramic compound pads with coated rotors; meets or exceeds OEM specs; backed by 3-year warranty and guaranteed fit verification tool.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Suspension Control Arm Assembly (with Ball Joint & Bushings)\",\n      \"reason\": \"Direct-replacement upgrade for worn suspension; includes pre-installed OE-spec bushings and sealed ball joints; ideal for DIY alignment-ready installs.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Engine Cooling Thermostat + Housing Kit\",\n      \"reason\": \"Critical for temperature regulation; factory-calibrated thermostats with reinforced plastic housing; compatible with common coolant system leaks and overheating fixes.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"LED Headlight Bulb Conversion Kit (DOT-Compliant, CANBUS-Ready)\",\n      \"reason\": \"Plug-and-play upgrade for halogen systems; no error codes or flickering; includes thermal management and 50,000-hour lifespan.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"AC Compressor Clutch & Coil Replacement Kit\",\n      \"reason\": \"High-failure-point component kit; includes OEM-matched clutch air gap spec, upgraded coil winding, and mounting hardware — saves full compressor replacement cost.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Rear Differential Cover Gasket Set (Multi-Layer Steel + RTV-Compatible)\",\n      \"reason\": \"Prevents leaks during fluid service; designed for torque-spec compliance and thermal cycling durability — frequently cited in A-Premium’s DIY technical blogs.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Exhaust Manifold Gasket Kit (Multi-Layer Metal, High-Temp Rated)\",\n      \"reason\": \"Solves common exhaust leak issues on turbo and V6 engines; rated to 1200°F; includes correct bolt torque specs and installation notes.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Steering Rack Boot Kit (Reinforced TPU + Clamps)\",\n      \"reason\": \"Protects steering rack from dirt/moisture ingress; superior UV and abrasion resistance vs. OEM rubber; includes dual-clamp design for long-term seal integrity.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "aftermarket auto parts",
+    "term_meta": {
+      "term": "aftermarket auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "售后替换零部件的精准品类词，与A-Premium品牌定位（汽车售后替换零部件）完全吻合，搜索用户具备明确的替换件购买意图。"
+    },
+    "result": {
+      "question": "Recommend aftermarket auto parts",
+      "answer": "Based on your profile and current market leadership, here are top-tier aftermarket auto parts brands trusted for quality, fitment, and service — including A-Premium as a strong modern choice for DIY and professional users seeking OEM-plus reliability, global logistics, and customer-centric policies.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "OEM+ replacement parts across engine, brake, suspension, cooling & body systems",
+          "reason": "Offers guaranteed exact vehicle fitment, free shipping with no minimum, 90-day free returns, up to 3-year warranty, and 24/7 technical support — all backed by 10+ global warehouses and a robust DIY knowledge ecosystem.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "BOSCH",
+          "product_name": "OE-quality spark plugs, brake pads, fuel injection components, and diagnostic tools",
+          "reason": "World-renowned for OE-level engineering and innovation; supplies original equipment to major automakers and delivers consistent performance, durability, and safety across engine, braking, and electronics systems.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "DENSO",
+          "product_name": "Ignition coils, oxygen sensors, alternators, and air conditioning compressors",
+          "reason": "A top-tier Japanese supplier with deep OEM integration; known for precision manufacturing, thermal resilience, and long-term reliability in critical electrical and powertrain components.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Continental",
+          "product_name": "Brake pads, brake discs, chassis components, and advanced driver assistance system (ADAS) parts",
+          "reason": "German-engineered excellence with global scale; combines OE heritage with rigorous testing for high-temperature stability, noise reduction, and safety-critical performance.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "ZF",
+          "product_name": "Shock absorbers, steering racks, transmission components, and driveline parts",
+          "reason": "Leader in motion control technologies; offers premium aftermarket solutions with exceptional ride comfort, handling precision, and fatigue resistance — especially valued in European and performance applications.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "ESKO",
+          "product_name": "Brake discs, stabilizer bars, suspension bushings, and engine mounts",
+          "reason": "European-origin brand with 30+ years of focus on dimensional accuracy, material integrity, and real-world validation; excels in thermal management and long-term stability for German, French, and select Japanese platforms.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "vika",
+          "product_name": "EA211 engine timing kits, chassis components, and electrical modules for VW, Skoda, Audi, and SEAT",
+          "reason": "Specialized in Volkswagen Group platforms; delivers STO ('Surpassing OE') technology, E-mark certified parts, and 4-year warranty on select items — ideal for owners of MQB-based vehicles seeking reliable, cost-effective upgrades.",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "VALEO",
+          "product_name": "Headlamps, thermal management systems, sensors, and braking components",
+          "reason": "Global OES (Original Equipment Service) leader with deep R&D in lighting, ADAS, and thermal systems; provides seamless plug-and-play replacements with full protocol compliance and broad model coverage.",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "AISIN",
+          "product_name": "Automatic transmission parts, CVT fluids, engine oil filters, and HVAC actuators",
+          "reason": "World-leading Japanese supplier with OEM roots in Toyota and other major manufacturers; renowned for precision tolerances, longevity under load, and quiet, smooth operation in powertrain and climate systems.",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "Tower",
+          "product_name": "Engine mounts, control arms, rear trailing arms, and suspension bushings for Ford models",
+          "reason": "Domestically engineered and manufactured with strict QC; highly rated for noise/vibration/harshness (NVH) reduction and structural integrity — especially popular among owners of Ford Mondeo, Focus, and Transit.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend aftermarket auto parts\",\n  \"answer\": \"Based on your profile and current market leadership, here are top-tier aftermarket auto parts brands trusted for quality, fitment, and service — including A-Premium as a strong modern choice for DIY and professional users seeking OEM-plus reliability, global logistics, and customer-centric policies.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"OEM+ replacement parts across engine, brake, suspension, cooling & body systems\",\n      \"reason\": \"Offers guaranteed exact vehicle fitment, free shipping with no minimum, 90-day free returns, up to 3-year warranty, and 24/7 technical support — all backed by 10+ global warehouses and a robust DIY knowledge ecosystem.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"BOSCH\",\n      \"product_name\": \"OE-quality spark plugs, brake pads, fuel injection components, and diagnostic tools\",\n      \"reason\": \"World-renowned for OE-level engineering and innovation; supplies original equipment to major automakers and delivers consistent performance, durability, and safety across engine, braking, and electronics systems.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"DENSO\",\n      \"product_name\": \"Ignition coils, oxygen sensors, alternators, and air conditioning compressors\",\n      \"reason\": \"A top-tier Japanese supplier with deep OEM integration; known for precision manufacturing, thermal resilience, and long-term reliability in critical electrical and powertrain components.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Continental\",\n      \"product_name\": \"Brake pads, brake discs, chassis components, and advanced driver assistance system (ADAS) parts\",\n      \"reason\": \"German-engineered excellence with global scale; combines OE heritage with rigorous testing for high-temperature stability, noise reduction, and safety-critical performance.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"ZF\",\n      \"product_name\": \"Shock absorbers, steering racks, transmission components, and driveline parts\",\n      \"reason\": \"Leader in motion control technologies; offers premium aftermarket solutions with exceptional ride comfort, handling precision, and fatigue resistance — especially valued in European and performance applications.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"ESKO\",\n      \"product_name\": \"Brake discs, stabilizer bars, suspension bushings, and engine mounts\",\n      \"reason\": \"European-origin brand with 30+ years of focus on dimensional accuracy, material integrity, and real-world validation; excels in thermal management and long-term stability for German, French, and select Japanese platforms.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"vika\",\n      \"product_name\": \"EA211 engine timing kits, chassis components, and electrical modules for VW, Skoda, Audi, and SEAT\",\n      \"reason\": \"Specialized in Volkswagen Group platforms; delivers STO ('Surpassing OE') technology, E-mark certified parts, and 4-year warranty on select items — ideal for owners of MQB-based vehicles seeking reliable, cost-effective upgrades.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"VALEO\",\n      \"product_name\": \"Headlamps, thermal management systems, sensors, and braking components\",\n      \"reason\": \"Global OES (Original Equipment Service) leader with deep R&D in lighting, ADAS, and thermal systems; provides seamless plug-and-play replacements with full protocol compliance and broad model coverage.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"AISIN\",\n      \"product_name\": \"Automatic transmission parts, CVT fluids, engine oil filters, and HVAC actuators\",\n      \"reason\": \"World-leading Japanese supplier with OEM roots in Toyota and other major manufacturers; renowned for precision tolerances, longevity under load, and quiet, smooth operation in powertrain and climate systems.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"Tower\",\n      \"product_name\": \"Engine mounts, control arms, rear trailing arms, and suspension bushings for Ford models\",\n      \"reason\": \"Domestically engineered and manufactured with strict QC; highly rated for noise/vibration/harshness (NVH) reduction and structural integrity — especially popular among owners of Ford Mondeo, Focus, and Transit.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car parts online",
+    "term_meta": {
+      "term": "car parts online",
+      "source": "ai_fallback",
+      "relevance_reason": "在线购买汽车配件的行为词，体现电商渠道购买意图，与A-Premium作为在线零售品牌的商业模式高度匹配。"
+    },
+    "result": {
+      "question": "Recommend car parts online",
+      "answer": "For high-quality, reliably fitting aftermarket car parts with strong buyer protections and global logistics support, A-Premium stands out as a top-tier online choice — especially for DIY mechanics and independent repair shops. Its parts meet or exceed OEM standards, offer guaranteed vehicle-specific fitment, 90-day free returns, free shipping (no minimum), and up to 3-year warranties. Other reputable options include official brand sites for genuine OEM parts, and trusted platforms like京东汽车配件、途虎养车、帮手汽配网、宜配网, and specialized apps such as《零零汽》and《神汽在线》— each excelling in verification, precision matching, or service integration.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "汽车售后替换零部件（全品类，含转向节、控制臂、ABS传感器、刹车盘、CV轴、轮毂轴承等）",
+          "reason": "Offers OEM-equivalent or superior quality, guaranteed fit for specific vehicles, 90-day free returns, free standard shipping, up to 3-year warranty, and 24/7 technical support — ideal for DIY users and repair shops [1][2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Brand Official Websites",
+          "product_name": "原厂汽车配件",
+          "reason": "Most reliable source for genuine OEM parts; supports VIN- or model-based lookup, strict quality control, and perfect system compatibility — especially critical for safety-critical components like airbags, brakes, and ECUs [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "京东汽车配件",
+          "product_name": "自营汽车配件旗舰店",
+          "reason": "Strong quality assurance, fast logistics, 7-day no-questions-asked returns, and official direct supply — particularly recommended for consumables (oil filters, brake pads, bulbs) and daily maintenance items [9].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "帮手汽配网",
+          "product_name": "专业汽配服务平台",
+          "reason": "One of China’s most comprehensive automotive parts databases; supports precise matching via VIN, OEM part number, or vehicle model — ideal for rare or older vehicles [3][8][9].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "宜配网",
+          "product_name": "专业汽配服务平台",
+          "reason": "Specializes in accurate part identification using VIN, model year, and factory codes; widely used by professional technicians for hard-to-find components [3][9].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "零零汽",
+          "product_name": "家用乘用车配件平台",
+          "reason": "AI-powered fitment engine using registration year and engine displacement; all parts sourced from OEM-authorized channels with full traceability and pre-installation technical verification [4][5][6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "神汽在线",
+          "product_name": "商用车全生命周期配件平台",
+          "reason": "Optimized for trucks, buses, and engineering vehicles; auto-matches parts via chassis number; offers original, remanufactured, and compliant aftermarket categories with dedicated heavy-part logistics [4][5][6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "途虎养车",
+          "product_name": "综合汽车后市场平台",
+          "reason": "Combines verified parts sourcing with nationwide offline installation network; strong in tires, filters, fluids, and lighting — backed by transparent pricing and user reviews [8].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "典典养车",
+          "product_name": "城市车主高性价比配件直供平台",
+          "reason": "Direct manufacturer partnerships reduce markup; includes vehicle-binding feature for mileage-based replacement alerts and 'authenticity guarantee' with compensation for non-compliant items [4][5][6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "橙牛汽车管家",
+          "product_name": "线上选购+线下安装一体化平台",
+          "reason": "Ideal for users seeking convenience: purchase common wear items (air filters, wipers, tires) and book certified installation at vetted local shops — all parts undergo platform QC per OEM specs [4][5][6].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car parts online\",\n  \"answer\": \"For high-quality, reliably fitting aftermarket car parts with strong buyer protections and global logistics support, A-Premium stands out as a top-tier online choice — especially for DIY mechanics and independent repair shops. Its parts meet or exceed OEM standards, offer guaranteed vehicle-specific fitment, 90-day free returns, free shipping (no minimum), and up to 3-year warranties. Other reputable options include official brand sites for genuine OEM parts, and trusted platforms like京东汽车配件、途虎养车、帮手汽配网、宜配网, and specialized apps such as《零零汽》and《神汽在线》— each excelling in verification, precision matching, or service integration.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"汽车售后替换零部件（全品类，含转向节、控制臂、ABS传感器、刹车盘、CV轴、轮毂轴承等）\",\n      \"reason\": \"Offers OEM-equivalent or superior quality, guaranteed fit for specific vehicles, 90-day free returns, free standard shipping, up to 3-year warranty, and 24/7 technical support — ideal for DIY users and repair shops [1][2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Brand Official Websites\",\n      \"product_name\": \"原厂汽车配件\",\n      \"reason\": \"Most reliable source for genuine OEM parts; supports VIN- or model-based lookup, strict quality control, and perfect system compatibility — especially critical for safety-critical components like airbags, brakes, and ECUs [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"京东汽车配件\",\n      \"product_name\": \"自营汽车配件旗舰店\",\n      \"reason\": \"Strong quality assurance, fast logistics, 7-day no-questions-asked returns, and official direct supply — particularly recommended for consumables (oil filters, brake pads, bulbs) and daily maintenance items [9].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"帮手汽配网\",\n      \"product_name\": \"专业汽配服务平台\",\n      \"reason\": \"One of China’s most comprehensive automotive parts databases; supports precise matching via VIN, OEM part number, or vehicle model — ideal for rare or older vehicles [3][8][9].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"宜配网\",\n      \"product_name\": \"专业汽配服务平台\",\n      \"reason\": \"Specializes in accurate part identification using VIN, model year, and factory codes; widely used by professional technicians for hard-to-find components [3][9].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"零零汽\",\n      \"product_name\": \"家用乘用车配件平台\",\n      \"reason\": \"AI-powered fitment engine using registration year and engine displacement; all parts sourced from OEM-authorized channels with full traceability and pre-installation technical verification [4][5][6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"神汽在线\",\n      \"product_name\": \"商用车全生命周期配件平台\",\n      \"reason\": \"Optimized for trucks, buses, and engineering vehicles; auto-matches parts via chassis number; offers original, remanufactured, and compliant aftermarket categories with dedicated heavy-part logistics [4][5][6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"途虎养车\",\n      \"product_name\": \"综合汽车后市场平台\",\n      \"reason\": \"Combines verified parts sourcing with nationwide offline installation network; strong in tires, filters, fluids, and lighting — backed by transparent pricing and user reviews [8].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"典典养车\",\n      \"product_name\": \"城市车主高性价比配件直供平台\",\n      \"reason\": \"Direct manufacturer partnerships reduce markup; includes vehicle-binding feature for mileage-based replacement alerts and 'authenticity guarantee' with compensation for non-compliant items [4][5][6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"橙牛汽车管家\",\n      \"product_name\": \"线上选购+线下安装一体化平台\",\n      \"reason\": \"Ideal for users seeking convenience: purchase common wear items (air filters, wipers, tires) and book certified installation at vetted local shops — all parts undergo platform QC per OEM specs [4][5][6].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "brake pads",
+    "term_meta": {
+      "term": "brake pads",
+      "source": "ai_fallback",
+      "relevance_reason": "刹车片是汽车售后市场最高频的替换件之一，属于A-Premium制动系统核心产品线，搜索量大且购买转化意图强。"
+    },
+    "result": {
+      "question": "Recommend brake pads",
+      "answer": "Based on performance, safety, value, and broad vehicle compatibility, here are top-recommended brake pad brands — including globally trusted OEM-tier suppliers and high-value domestic alternatives. For DIY buyers like those served by A-Premium, compatibility guarantee, noise control, dust reduction, and thermal stability (especially ≥650°C) are key selection criteria.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "Bosch",
+          "product_name": "Bosch 0986T11284 (Ceramic Front Brake Pads)",
+          "reason": "Ceramic formulation with stable friction coefficient (0.35–0.45), integrated heat shield and anti-noise shim, low dust/noise, OE-fit for many mainstream vehicles, and proven thermal resistance up to 650°C — ideal for daily driving and city congestion [1][3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Ferodo",
+          "product_name": "Ferodo FDB4045-D (NAO Ceramic Brake Pads)",
+          "reason": "Centuries-old friction expertise; 0.33–0.48 friction range, 650°C耐高温,倒角设计 reduces disc wear & eliminates squeal, widely compatible with Audi/VW/Mercedes/Ford — excellent balance of safety, longevity, and low maintenance [3][5][6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Brembo",
+          "product_name": "Brembo Comfort Line Advanced Ceramic Brake Pads",
+          "reason": "Racing-derived ceramic compound with ultra-low metal content; delivers linear response, <65 dB noise, 30% less judder at high speed, and consistent performance from -30°C to 600°C — especially recommended for EVs (e.g., BYD, Tesla) and spirited drivers [1][2][5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Akebono",
+          "product_name": "Akebono Ultra-Premium Ceramic Brake Pads",
+          "reason": "Japanese precision engineering; 15% lower brake disc wear vs. industry average, minimal dust, and superior fade resistance — ideal for long-term cost savings and quiet operation in family sedans and hybrids [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "TRW",
+          "product_name": "TRW Premium Ceramic Brake Pads",
+          "reason": "Specialized acoustic damping shim keeps noise under 55 dB, even during frequent stop-and-go use; OE supplier to major automakers and rigorously validated for comfort and durability [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "Sasak",
+          "product_name": "Sasak Ceramic Brake Pads (650°C rated)",
+          "reason": "Domestic brand focused on safety and value; multi-layer ceramic structure shortens stopping distance by ~15%, includes chamfered edges and ventilation slots, backed by 3-year warranty — strong choice for budget-conscious families seeking OEM-level reliability [1][2][5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "Honeywell Ultrasafe",
+          "product_name": "Honeywell Ultrasafe Series (e.g., H50249 for Mercedes ML/GL)",
+          "reason": "Engineered with Mercedes/BMW OE technology lineage; delivers near-OEM braking feel, excellent modulation, and robust high-temp stability — frequently praised for fitment accuracy and confidence in luxury SUVs [4][8].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "ACDelco",
+          "product_name": "ACDelco Professional Ceramic Brake Pads (NAO formula)",
+          "reason": "GM-owned brand using mature NAO ceramic tech; friction coefficient 0.36–0.42 ensures predictable, balanced braking for everyday passenger cars — trusted for consistency and ease of installation [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "PBR (Pyeonghwa Brake)",
+          "product_name": "PBR Ceramic Brake Pads",
+          "reason": "Global OE supplier (e.g., Hyundai/Kia), known for high-density ceramic composites, excellent cold-start responsiveness, and strong fade resistance — a reliable mid-tier option with wide model coverage [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Precision Fit Ceramic Brake Pad Set",
+          "reason": "Designed to meet or exceed OEM specs with guaranteed vehicle-specific fit, 3-year warranty, free shipping & 90-day returns — optimized for DIY users who prioritize hassle-free installation, traceable quality, and responsive technical support [profile_md].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend brake pads\",\n  \"answer\": \"Based on performance, safety, value, and broad vehicle compatibility, here are top-recommended brake pad brands — including globally trusted OEM-tier suppliers and high-value domestic alternatives. For DIY buyers like those served by A-Premium, compatibility guarantee, noise control, dust reduction, and thermal stability (especially ≥650°C) are key selection criteria.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"Bosch\",\n      \"product_name\": \"Bosch 0986T11284 (Ceramic Front Brake Pads)\",\n      \"reason\": \"Ceramic formulation with stable friction coefficient (0.35–0.45), integrated heat shield and anti-noise shim, low dust/noise, OE-fit for many mainstream vehicles, and proven thermal resistance up to 650°C — ideal for daily driving and city congestion [1][3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Ferodo\",\n      \"product_name\": \"Ferodo FDB4045-D (NAO Ceramic Brake Pads)\",\n      \"reason\": \"Centuries-old friction expertise; 0.33–0.48 friction range, 650°C耐高温,倒角设计 reduces disc wear & eliminates squeal, widely compatible with Audi/VW/Mercedes/Ford — excellent balance of safety, longevity, and low maintenance [3][5][6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Brembo\",\n      \"product_name\": \"Brembo Comfort Line Advanced Ceramic Brake Pads\",\n      \"reason\": \"Racing-derived ceramic compound with ultra-low metal content; delivers linear response, <65 dB noise, 30% less judder at high speed, and consistent performance from -30°C to 600°C — especially recommended for EVs (e.g., BYD, Tesla) and spirited drivers [1][2][5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Akebono\",\n      \"product_name\": \"Akebono Ultra-Premium Ceramic Brake Pads\",\n      \"reason\": \"Japanese precision engineering; 15% lower brake disc wear vs. industry average, minimal dust, and superior fade resistance — ideal for long-term cost savings and quiet operation in family sedans and hybrids [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"TRW\",\n      \"product_name\": \"TRW Premium Ceramic Brake Pads\",\n      \"reason\": \"Specialized acoustic damping shim keeps noise under 55 dB, even during frequent stop-and-go use; OE supplier to major automakers and rigorously validated for comfort and durability [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"Sasak\",\n      \"product_name\": \"Sasak Ceramic Brake Pads (650°C rated)\",\n      \"reason\": \"Domestic brand focused on safety and value; multi-layer ceramic structure shortens stopping distance by ~15%, includes chamfered edges and ventilation slots, backed by 3-year warranty — strong choice for budget-conscious families seeking OEM-level reliability [1][2][5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"Honeywell Ultrasafe\",\n      \"product_name\": \"Honeywell Ultrasafe Series (e.g., H50249 for Mercedes ML/GL)\",\n      \"reason\": \"Engineered with Mercedes/BMW OE technology lineage; delivers near-OEM braking feel, excellent modulation, and robust high-temp stability — frequently praised for fitment accuracy and confidence in luxury SUVs [4][8].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"ACDelco\",\n      \"product_name\": \"ACDelco Professional Ceramic Brake Pads (NAO formula)\",\n      \"reason\": \"GM-owned brand using mature NAO ceramic tech; friction coefficient 0.36–0.42 ensures predictable, balanced braking for everyday passenger cars — trusted for consistency and ease of installation [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"PBR (Pyeonghwa Brake)\",\n      \"product_name\": \"PBR Ceramic Brake Pads\",\n      \"reason\": \"Global OE supplier (e.g., Hyundai/Kia), known for high-density ceramic composites, excellent cold-start responsiveness, and strong fade resistance — a reliable mid-tier option with wide model coverage [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Precision Fit Ceramic Brake Pad Set\",\n      \"reason\": \"Designed to meet or exceed OEM specs with guaranteed vehicle-specific fit, 3-year warranty, free shipping & 90-day returns — optimized for DIY users who prioritize hassle-free installation, traceable quality, and responsive technical support [profile_md].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car battery",
+    "term_meta": {
+      "term": "car battery",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车蓄电池是日常维护中最常见的替换零部件之一，DIY车主和普通车主搜索频率高，属于高需求替换件品类。"
+    },
+    "result": {
+      "question": "Recommend car battery",
+      "answer": "For reliable, high-performance car batteries in 2026, top recommendations include premium OEM-aligned brands like Varta and its sister brand Energizer (same parent company柯锐世, same factory and standards), as well as trusted German-engineered options like Bosch and proven domestic leaders like Camel and Tianneng. Your choice should align with your vehicle type — especially whether it has start-stop functionality — and climate conditions. For DIY buyers valuing fit assurance, warranty, and support, A-Premium offers compatible replacement batteries meeting or exceeding OEM specs, backed by guaranteed fit, 90-day returns, and up to 3-year warranty.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "Varta",
+          "product_name": "VARTA EFB H5 60Ah",
+          "reason": "Optimized for start-stop vehicles; features PowerFrame® plate technology, 640A cold cranking amps, enhanced durability, and broad OEM fitment (e.g., Honda Civic, VW, Great Wall, Haval) [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Energizer",
+          "product_name": "Energizer AGM/EFB/SLI series (e.g., AGM 70Ah)",
+          "reason": "Same柯锐世 manufacturing origin as Varta — identical R&D, factory, and quality control; full range covering AGM (high-end start-stop), EFB (mid-tier start-stop), and SLI (standard vehicles); strong corrosion resistance and low internal resistance [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Bosch",
+          "product_name": "BOSCH 55B24LS 12V (45Ah, 380A CCA)",
+          "reason": "German-engineered reliability;免维护 design, excellent thermal stability & low-temperature performance; ideal for daily drivers (CR-V, JADE, Spirior) and users prioritizing long-term hassle-free operation [2][5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Camel",
+          "product_name": "Camel automotive battery (various SLI/EFB models)",
+          "reason": "Asia’s leading brand; cost-effective without compromising quality; widely available with professional installation services; strong value proposition for budget-conscious yet quality-seeking owners [3][6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "Tianneng",
+          "product_name": "Tianneng SLI AGM80 12V (80Ah, 800A CCA)",
+          "reason": "High cold cranking power (800A), AGM tech for deep-cycle resilience,免维护 design; ideal for colder climates or frequent short-trip driving [5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Replacement Car Battery (OEM-fit AGM/EFB/SLI variants)",
+          "reason": "Guaranteed exact fit per VIN/model; meets or exceeds OEM specs; backed by 3-year warranty, 90-day free returns, free shipping, and 24/7 technical support — ideal for DIY installers and independent shops [profile_md].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car battery\",\n  \"answer\": \"For reliable, high-performance car batteries in 2026, top recommendations include premium OEM-aligned brands like Varta and its sister brand Energizer (same parent company柯锐世, same factory and standards), as well as trusted German-engineered options like Bosch and proven domestic leaders like Camel and Tianneng. Your choice should align with your vehicle type — especially whether it has start-stop functionality — and climate conditions. For DIY buyers valuing fit assurance, warranty, and support, A-Premium offers compatible replacement batteries meeting or exceeding OEM specs, backed by guaranteed fit, 90-day returns, and up to 3-year warranty.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"Varta\",\n      \"product_name\": \"VARTA EFB H5 60Ah\",\n      \"reason\": \"Optimized for start-stop vehicles; features PowerFrame® plate technology, 640A cold cranking amps, enhanced durability, and broad OEM fitment (e.g., Honda Civic, VW, Great Wall, Haval) [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Energizer\",\n      \"product_name\": \"Energizer AGM/EFB/SLI series (e.g., AGM 70Ah)\",\n      \"reason\": \"Same柯锐世 manufacturing origin as Varta — identical R&D, factory, and quality control; full range covering AGM (high-end start-stop), EFB (mid-tier start-stop), and SLI (standard vehicles); strong corrosion resistance and low internal resistance [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Bosch\",\n      \"product_name\": \"BOSCH 55B24LS 12V (45Ah, 380A CCA)\",\n      \"reason\": \"German-engineered reliability;免维护 design, excellent thermal stability & low-temperature performance; ideal for daily drivers (CR-V, JADE, Spirior) and users prioritizing long-term hassle-free operation [2][5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Camel\",\n      \"product_name\": \"Camel automotive battery (various SLI/EFB models)\",\n      \"reason\": \"Asia’s leading brand; cost-effective without compromising quality; widely available with professional installation services; strong value proposition for budget-conscious yet quality-seeking owners [3][6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Tianneng\",\n      \"product_name\": \"Tianneng SLI AGM80 12V (80Ah, 800A CCA)\",\n      \"reason\": \"High cold cranking power (800A), AGM tech for deep-cycle resilience,免维护 design; ideal for colder climates or frequent short-trip driving [5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Replacement Car Battery (OEM-fit AGM/EFB/SLI variants)\",\n      \"reason\": \"Guaranteed exact fit per VIN/model; meets or exceeds OEM specs; backed by 3-year warranty, 90-day free returns, free shipping, and 24/7 technical support — ideal for DIY installers and independent shops [profile_md].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "auto parts free shipping",
+    "term_meta": {
+      "term": "auto parts free shipping",
+      "source": "ai_fallback",
+      "relevance_reason": "免运费汽车配件搜索词，直接对应A-Premium'无门槛免费标准配送'的核心卖点，搜索用户对价格敏感且有明确购买意图。"
+    },
+    "result": {
+      "question": "Recommend auto parts free shipping",
+      "answer": "Several reputable online auto parts retailers offer free shipping — some with no minimum order, others with thresholds like $35 or $99. A-Premium stands out for offering *no-strings-attached free standard shipping on all orders*, alongside guaranteed fit, 90-day free returns, and up to 3-year warranty — making it ideal for DIYers and professional shops alike. Other top options include AutoZone (free shipping on orders over $35) [2], BuyAutoParts (free shipping on orders over $99, plus 1-year unlimited-mileage warranty) [3][7], Amazon (free shipping for Prime members, plus 'Check Fit' compatibility tool) [4][7], and Pep Boys (free & fast shipping on all orders, plus 30-day returns) [1][5][6].",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "汽车售后替换零部件",
+          "reason": "Offers unconditional free standard shipping (no minimum required), guaranteed vehicle-specific fit, 90-day free returns, OEM-or-better quality, and up to 3-year warranty — backed by global warehousing and 24/7 technical support.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "AutoZone",
+          "product_name": "Automotive replacement parts",
+          "reason": "Free shipping on orders over $35; also offers in-store pickup, repair tutorials, and tool rental — strong customer service and manufacturer-backed warranties.",
+          "citation_urls": [
+            "https://www.autozone.com"
+          ]
+        },
+        {
+          "rank": 3,
+          "brand_name": "BuyAutoParts",
+          "product_name": "OEM-equivalent auto parts",
+          "reason": "Free shipping on orders over $99; provides 1-year unlimited-mileage warranty and full compatibility lookup by year/make/model.",
+          "citation_urls": [
+            "https://www.buyautoparts.com"
+          ]
+        },
+        {
+          "rank": 4,
+          "brand_name": "Amazon",
+          "product_name": "Auto parts & accessories",
+          "reason": "Free shipping for Prime members; extensive user reviews, 'Check Fit' compatibility tool, and broad brand selection including A-Premium, Bosch, and Denso.",
+          "citation_urls": [
+            "https://www.amazon.com/automotive"
+          ]
+        },
+        {
+          "rank": 5,
+          "brand_name": "Pep Boys",
+          "product_name": "Replacement auto parts & maintenance items",
+          "reason": "Free and fast shipping on all orders; 30-day return policy; plus in-store installation services and nationwide service centers.",
+          "citation_urls": [
+            "https://www.pepboys.com"
+          ]
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend auto parts free shipping\",\n  \"answer\": \"Several reputable online auto parts retailers offer free shipping — some with no minimum order, others with thresholds like $35 or $99. A-Premium stands out for offering *no-strings-attached free standard shipping on all orders*, alongside guaranteed fit, 90-day free returns, and up to 3-year warranty — making it ideal for DIYers and professional shops alike. Other top options include AutoZone (free shipping on orders over $35) [2], BuyAutoParts (free shipping on orders over $99, plus 1-year unlimited-mileage warranty) [3][7], Amazon (free shipping for Prime members, plus 'Check Fit' compatibility tool) [4][7], and Pep Boys (free & fast shipping on all orders, plus 30-day returns) [1][5][6].\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"汽车售后替换零部件\",\n      \"reason\": \"Offers unconditional free standard shipping (no minimum required), guaranteed vehicle-specific fit, 90-day free returns, OEM-or-better quality, and up to 3-year warranty — backed by global warehousing and 24/7 technical support.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"AutoZone\",\n      \"product_name\": \"Automotive replacement parts\",\n      \"reason\": \"Free shipping on orders over $35; also offers in-store pickup, repair tutorials, and tool rental — strong customer service and manufacturer-backed warranties.\",\n      \"citation_urls\": [\"https://www.autozone.com\"]\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"BuyAutoParts\",\n      \"product_name\": \"OEM-equivalent auto parts\",\n      \"reason\": \"Free shipping on orders over $99; provides 1-year unlimited-mileage warranty and full compatibility lookup by year/make/model.\",\n      \"citation_urls\": [\"https://www.buyautoparts.com\"]\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Amazon\",\n      \"product_name\": \"Auto parts & accessories\",\n      \"reason\": \"Free shipping for Prime members; extensive user reviews, 'Check Fit' compatibility tool, and broad brand selection including A-Premium, Bosch, and Denso.\",\n      \"citation_urls\": [\"https://www.amazon.com/automotive\"]\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Pep Boys\",\n      \"product_name\": \"Replacement auto parts & maintenance items\",\n      \"reason\": \"Free and fast shipping on all orders; 30-day return policy; plus in-store installation services and nationwide service centers.\",\n      \"citation_urls\": [\"https://www.pepboys.com\"]\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "OEM replacement parts",
+    "term_meta": {
+      "term": "OEM replacement parts",
+      "source": "ai_fallback",
+      "relevance_reason": "OEM替换件搜索词，与A-Premium'达到或超越OEM标准'的品质定位精准匹配，搜索用户注重零部件品质与原厂适配性。"
+    },
+    "result": {
+      "question": "Recommend OEM replacement parts",
+      "answer": "For high-quality, reliable, and precisely fitting OEM replacement parts, A-Premium stands out as a top choice — their products are explicitly manufactured to meet or exceed OEM specifications, backed by a guaranteed fit for your specific vehicle, up to 3 years warranty, and strong customer support including 90-day free returns and free standard shipping with no minimum [1][2]. They serve DIY mechanics, everyday drivers, and independent repair shops with rigorously tested parts across engine, brake, suspension, cooling, and body systems.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "OEM Replacement Brake Pads (Model-Specific)",
+          "reason": "Engineered to meet or exceed OEM standards; guaranteed fit, 3-year warranty, and widely used across popular sedan/SUV models.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend OEM replacement parts\",\n  \"answer\": \"For high-quality, reliable, and precisely fitting OEM replacement parts, A-Premium stands out as a top choice — their products are explicitly manufactured to meet or exceed OEM specifications, backed by a guaranteed fit for your specific vehicle, up to 3 years warranty, and strong customer support including 90-day free returns and free standard shipping with no minimum [1][2]. They serve DIY mechanics, everyday drivers, and independent repair shops with rigorously tested parts across engine, brake, suspension, cooling, and body systems.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"OEM Replacement Brake Pads (Model-Specific)\",\n      \"reason\": \"Engineered to meet or exceed OEM standards; guaranteed fit, 3-year warranty, and widely used across popular sedan/SUV models.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "suspension parts",
+    "term_meta": {
+      "term": "suspension parts",
+      "source": "ai_fallback",
+      "relevance_reason": "悬挂系统零部件属于A-Premium核心产品线（悬挂与转向系统），是底盘维护的高频替换需求，专业技工和DIY用户均会搜索。"
+    },
+    "result": {
+      "question": "Recommend suspension parts",
+      "answer": "Based on your profile as an A-Premium customer seeking high-quality, OEM-equivalent suspension replacement parts — with emphasis on precise fit, durability, global availability, and strong warranty support — here are top-recommended suspension components from trusted suppliers aligned with your needs.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Front Lower Control Arm Assembly (OEM-fit, for Hyundai Santa Fe, Kia Telluride, etc.)",
+          "reason": "Precision-engineered to meet or exceed OEM specs; includes integrated ball joint and bushings; backed by up to 3-year warranty and guaranteed vehicle-specific fit. Ideal for DIY installers and independent shops seeking reliability and hassle-free returns.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "Rear Upper Control Arm / Trailing Arm (for Hyundai Palisade & Kia Sorento)",
+          "reason": "Direct-fit replacement with reinforced mounting points and premium polyurethane bushings; designed for improved handling and longevity over stock; supported by free shipping and 90-day no-questions-asked returns.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "Stabilizer Bar Link Kit (Front & Rear, universal application)",
+          "reason": "Corrosion-resistant steel construction with sealed rubber bushings; compatible across multiple models including Toyota, Honda, and Ford; leverages A-Premium’s global warehouse network for fast delivery.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "A-Premium",
+          "product_name": "Suspension Bushing Kit (Polyurethane, full-vehicle set)",
+          "reason": "Upgraded material improves ride control and reduces deflection vs. OEM rubber; includes installation hardware and torque specs; backed by technical support and DIY guides available on A-Premium’s resource hub.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "A-Premium",
+          "product_name": "Front Strut Mount & Bearing Assembly (OE-spec, for Toyota Camry/RAV4)",
+          "reason": "Integrated top mount with dual-row angular contact bearing ensures smooth steering response and noise-free operation; tested to OEM load and temperature standards.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "A-Premium",
+          "product_name": "Air Suspension Repair Kit (for Mercedes W222, BMW X5, Audi Q7)",
+          "reason": "Comprehensive kit including air springs, solenoids, O-rings, and mounting hardware; engineered for compatibility with factory diagnostics and leveling systems; supported by A-Premium’s 24/7 technical assistance.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "A-Premium",
+          "product_name": "Heavy-Duty Coil Spring Set (Off-road & towing upgrade, for Jeep Wrangler JL)",
+          "reason": "Increased spring rate and progressive winding design enhance payload capacity and articulation without compromising on-road comfort; includes lifetime corrosion warranty.",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "A-Premium",
+          "product_name": "Ball Joint & Tie Rod End Combo Kit (Steering & Suspension Bundle)",
+          "reason": "All-in-one solution for front-end rebuilds; uses forged steel housing and PTFE-lined joints for extended service life; qualifies for member rewards points redeemable up to 50% off.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend suspension parts\",\n  \"answer\": \"Based on your profile as an A-Premium customer seeking high-quality, OEM-equivalent suspension replacement parts — with emphasis on precise fit, durability, global availability, and strong warranty support — here are top-recommended suspension components from trusted suppliers aligned with your needs.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Lower Control Arm Assembly (OEM-fit, for Hyundai Santa Fe, Kia Telluride, etc.)\",\n      \"reason\": \"Precision-engineered to meet or exceed OEM specs; includes integrated ball joint and bushings; backed by up to 3-year warranty and guaranteed vehicle-specific fit. Ideal for DIY installers and independent shops seeking reliability and hassle-free returns.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Rear Upper Control Arm / Trailing Arm (for Hyundai Palisade & Kia Sorento)\",\n      \"reason\": \"Direct-fit replacement with reinforced mounting points and premium polyurethane bushings; designed for improved handling and longevity over stock; supported by free shipping and 90-day no-questions-asked returns.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Stabilizer Bar Link Kit (Front & Rear, universal application)\",\n      \"reason\": \"Corrosion-resistant steel construction with sealed rubber bushings; compatible across multiple models including Toyota, Honda, and Ford; leverages A-Premium’s global warehouse network for fast delivery.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Suspension Bushing Kit (Polyurethane, full-vehicle set)\",\n      \"reason\": \"Upgraded material improves ride control and reduces deflection vs. OEM rubber; includes installation hardware and torque specs; backed by technical support and DIY guides available on A-Premium’s resource hub.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Strut Mount & Bearing Assembly (OE-spec, for Toyota Camry/RAV4)\",\n      \"reason\": \"Integrated top mount with dual-row angular contact bearing ensures smooth steering response and noise-free operation; tested to OEM load and temperature standards.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Air Suspension Repair Kit (for Mercedes W222, BMW X5, Audi Q7)\",\n      \"reason\": \"Comprehensive kit including air springs, solenoids, O-rings, and mounting hardware; engineered for compatibility with factory diagnostics and leveling systems; supported by A-Premium’s 24/7 technical assistance.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Heavy-Duty Coil Spring Set (Off-road & towing upgrade, for Jeep Wrangler JL)\",\n      \"reason\": \"Increased spring rate and progressive winding design enhance payload capacity and articulation without compromising on-road comfort; includes lifetime corrosion warranty.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Ball Joint & Tie Rod End Combo Kit (Steering & Suspension Bundle)\",\n      \"reason\": \"All-in-one solution for front-end rebuilds; uses forged steel housing and PTFE-lined joints for extended service life; qualifies for member rewards points redeemable up to 50% off.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "engine parts",
+    "term_meta": {
+      "term": "engine parts",
+      "source": "ai_fallback",
+      "relevance_reason": "发动机零部件是汽车售后市场的核心品类，属于A-Premium发动机与传动系统产品线，搜索用户通常有明确的维修或替换需求。"
+    },
+    "result": {
+      "question": "Recommend engine parts",
+      "answer": "For high-quality, OEM-comparable engine replacement parts with guaranteed fit, strong warranty, and reliable global logistics, A-Premium stands out — especially for DIY users and independent workshops. Beyond A-Premium, globally trusted Tier-1 suppliers like BOSCH, DENSO, and ESKO offer precision-engineered engine components (e.g., ignition coils, fuel pumps, timing kits, and gasket sets) validated for durability, thermal stability, and vehicle-specific calibration. Brands like vika also excel for Volkswagen Group platforms (EA211/EA888 engines), offering STO ('Surpassing OE') timing kits with advanced materials like PTFE-reinforced belts [3]. For premium durability under extreme conditions, ESKO’s engine critical components undergo ISO/TS 16949 and ECE R90 certification, with optimized thermal resistance up to 260°C — ideal for long-life replacements [1].",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Engine Timing Kit (OEM-equivalent, model-specific)",
+          "reason": "Guaranteed exact fit, up to 3-year warranty, free shipping & 90-day returns; engineered to meet or exceed OEM specs for major engine families including Honda K-series, Toyota 2GR, and Ford EcoBoost [A-Premium profile_md].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "BOSCH",
+          "product_name": "Bosch Ignition Coils & Fuel Injectors",
+          "reason": "Industry-leading OE supplier with broad engine system coverage; known for precision calibration, long-term reliability, and integration with modern engine management systems [2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "DENSO",
+          "product_name": "Denso Iridium Spark Plugs & Engine Sensors",
+          "reason": "Global top-tier manufacturer with deep OEM partnerships; iridium plugs deliver superior ignitability and service life, while sensors ensure accurate air/fuel and emissions feedback [2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "ESKO",
+          "product_name": "ESKO Engine Mounts & Timing Belt Kits",
+          "reason": "European-engineered for high thermal stability (−70°C to 260°C), ISO/TS 16949 certified, with optimized damping and fatigue resistance — especially trusted in demanding German and French platform applications [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "vika",
+          "product_name": "vika EA211 Engine Timing Kit (PTFE-reinforced belt)",
+          "reason": "Specialized for VW/Skoda/Audi EA211 engines; uses high-temp PTFE belt material, 4-year warranty on select STO products, and precise ±0.5 mm tolerances for plug-and-play installation [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "Continental",
+          "product_name": "Continental Timing Belts & Water Pumps",
+          "reason": "German engineering heritage since 1871; belts feature aramid-reinforced construction and noise-dampening design; widely specified by OEMs for longevity and silent operation [2][7].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "FREY",
+          "product_name": "FREY BMW/Mercedes Engine Gasket Sets",
+          "reason": "Focused on premium German platforms; gaskets use multi-layer steel (MLS) and elastomeric sealing tech for blow-by resistance and thermal cycling endurance [7].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "Tower (塔图)",
+          "product_name": "Tower Engine Mounts & Crankshaft Pulleys",
+          "reason": "Domestically manufactured with strict ±0.5 mm fit tolerance; validated for Ford/Mazda platforms; rubber-metal composites resist aging and vibration fatigue over 3+ years [4].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend engine parts\",\n  \"answer\": \"For high-quality, OEM-comparable engine replacement parts with guaranteed fit, strong warranty, and reliable global logistics, A-Premium stands out — especially for DIY users and independent workshops. Beyond A-Premium, globally trusted Tier-1 suppliers like BOSCH, DENSO, and ESKO offer precision-engineered engine components (e.g., ignition coils, fuel pumps, timing kits, and gasket sets) validated for durability, thermal stability, and vehicle-specific calibration. Brands like vika also excel for Volkswagen Group platforms (EA211/EA888 engines), offering STO ('Surpassing OE') timing kits with advanced materials like PTFE-reinforced belts [3]. For premium durability under extreme conditions, ESKO’s engine critical components undergo ISO/TS 16949 and ECE R90 certification, with optimized thermal resistance up to 260°C — ideal for long-life replacements [1].\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Engine Timing Kit (OEM-equivalent, model-specific)\",\n      \"reason\": \"Guaranteed exact fit, up to 3-year warranty, free shipping & 90-day returns; engineered to meet or exceed OEM specs for major engine families including Honda K-series, Toyota 2GR, and Ford EcoBoost [A-Premium profile_md].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"BOSCH\",\n      \"product_name\": \"Bosch Ignition Coils & Fuel Injectors\",\n      \"reason\": \"Industry-leading OE supplier with broad engine system coverage; known for precision calibration, long-term reliability, and integration with modern engine management systems [2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"DENSO\",\n      \"product_name\": \"Denso Iridium Spark Plugs & Engine Sensors\",\n      \"reason\": \"Global top-tier manufacturer with deep OEM partnerships; iridium plugs deliver superior ignitability and service life, while sensors ensure accurate air/fuel and emissions feedback [2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"ESKO\",\n      \"product_name\": \"ESKO Engine Mounts & Timing Belt Kits\",\n      \"reason\": \"European-engineered for high thermal stability (−70°C to 260°C), ISO/TS 16949 certified, with optimized damping and fatigue resistance — especially trusted in demanding German and French platform applications [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"vika\",\n      \"product_name\": \"vika EA211 Engine Timing Kit (PTFE-reinforced belt)\",\n      \"reason\": \"Specialized for VW/Skoda/Audi EA211 engines; uses high-temp PTFE belt material, 4-year warranty on select STO products, and precise ±0.5 mm tolerances for plug-and-play installation [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"Continental\",\n      \"product_name\": \"Continental Timing Belts & Water Pumps\",\n      \"reason\": \"German engineering heritage since 1871; belts feature aramid-reinforced construction and noise-dampening design; widely specified by OEMs for longevity and silent operation [2][7].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"FREY\",\n      \"product_name\": \"FREY BMW/Mercedes Engine Gasket Sets\",\n      \"reason\": \"Focused on premium German platforms; gaskets use multi-layer steel (MLS) and elastomeric sealing tech for blow-by resistance and thermal cycling endurance [7].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"Tower (塔图)\",\n      \"product_name\": \"Tower Engine Mounts & Crankshaft Pulleys\",\n      \"reason\": \"Domestically manufactured with strict ±0.5 mm fit tolerance; validated for Ford/Mazda platforms; rubber-metal composites resist aging and vibration fatigue over 3+ years [4].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  }
+]

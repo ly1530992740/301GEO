@@ -1,0 +1,64 @@
+{
+  "product_name": "整形美容与皮肤美容服务",
+  "brand_name": "美贝尔",
+  "brand_aliases": [
+    "福州美贝尔",
+    "MEBEL",
+    "美贝尔整形",
+    "福州鼓楼美贝尔医疗美容门诊部"
+  ],
+  "category_local": "医美",
+  "category_en": "medical aesthetics",
+  "source_language": "zh",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "primary_region": "福州",
+  "region_level": "city",
+  "business_type": "local_service",
+  "geo_probe_subject": "福州医美品牌推荐",
+  "market_confidence": 0.95,
+  "market_reason": "材料全为中文，主要面向国内尤其是福州及周边地区的求美者。业务类型为线下医疗美容门诊部，属于本地生活服务。虽然提及全国连锁，但当前主体和网站明确指向福州本地门店。",
+  "known_competitor_hints": [
+    "福州海峡美容医院",
+    "福州爱美尔",
+    "福州名韩",
+    "美莱医美",
+    "艺星医美"
+  ],
+  "summary": "福州美贝尔医美（MEBEL）是一家全国连锁的医疗美容机构，福州院位于鼓楼区。机构下设整形美容、无创美容、皮肤美容三大科室，定位高端轻奢，拥有资深医师团队，为求美者提供个性化的专业塑美服务。",
+  "target_audience": [
+    "有五官整形及形体雕塑需求的求美者",
+    "关注皮肤管理与抗衰老的人群",
+    "追求高端轻奢医美体验的消费者"
+  ],
+  "selling_points": [
+    "10余年连锁品牌品质保障",
+    "高端、轻奢、时尚的品牌定位",
+    "资深医疗团队常驻与大咖支持",
+    "涵盖整形、无创、皮肤三大科室上百项项目",
+    "完善的医疗保障体系与个性化服务"
+  ],
+  "evidence": [
+    "品牌源于2012年，已成长为中国专业医美连锁品牌",
+    "迄今已在福州，苏州，南京、常州，扬州，常熟，贵阳形成魅力七连城美丽版图",
+    "以“高端、轻奢、时尚”为品牌定位",
+    "下设整形美容、无创美容、皮肤美容三大科室",
+    "福州鼓楼美贝尔医疗美容门诊部 (鼓)医广【2025】第12-29-87号"
+  ],
+  "profile_md": "### 福州美贝尔医美 (MEBEL)\n\n**品牌定位**：高端、轻奢、时尚的连锁医疗美容品牌\n\n**机构简介**：\n福州美贝尔医美成立于2012年，是全国连锁的专业医美品牌。福州院位于福州市鼓楼区，下设整形美容、无创美容、皮肤美容三大核心科室，提供上百项变美项目。\n\n**核心优势**：\n- **连锁背书**：全国七城连锁，10余年品质保障。\n- **专业团队**：汇聚国内外资深医疗团队，涵盖皮肤科、微整科、整外科院长及主治医师。\n- **服务体验**：坚持个性化、综合化、精细化的高品质塑美体验，拥有完善的医疗保障体系。\n\n**资质认证**：\n- 医疗机构执业许可证：福州鼓楼美贝尔医疗美容门诊部\n- 医广审查证明：(鼓)医广【2025】第12-29-87号",
+  "service_scope": "local_city",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "user_market_context": {
+    "service_scope": "local_city",
+    "service_scope_label": "本地/城市",
+    "service_region": "福州",
+    "category_local": "医美",
+    "geo_audience": "consumer_recommendation",
+    "geo_audience_label": "C端消费者",
+    "analysis_goal": "consumer_recommendation",
+    "analysis_goal_label": "C端消费者",
+    "market_language": "zh",
+    "target_market": "domestic"
+  }
+}

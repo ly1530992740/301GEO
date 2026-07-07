@@ -1,0 +1,314 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 1,
+    "brand_name": "福建省立医院整形外科",
+    "product_name": "公立三甲整形专科",
+    "reason": "福州地区权威公立整形科室，设备先进、技术扎实，擅长鼻综合、乳房再造、瘢痕修复等高难度项目，收费合理且安全性高[3]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 2,
+    "brand_name": "福建医科大学附属第一医院整形美容外科",
+    "product_name": "国家临床重点专科",
+    "reason": "国家临床重点专科，华东区排名前五，年手术超2000例，在眼鼻精细化整形、脂肪移植抗衰及私密整形领域优势突出，百级洁净手术室保障安全[3][10]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 3,
+    "brand_name": "福州海峡整形医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "全国十大整形之一，福州本地声誉卓著，8000㎡独立空间，独创‘三维美鼻’‘精雕双眼皮’专利技术，实行‘一人一方案’定制服务[2][3]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 4,
+    "brand_name": "福州美莱医疗美容医院",
+    "product_name": "美莱医疗集团福州分院",
+    "reason": "美莱集团旗下机构，10000㎡规模，设独立麻醉科与检验科，配备德国蛇牌内窥镜、美国麦格假体，在胸部整形、脂肪填充及微创抗衰方面具技术优势[3][5]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 5,
+    "brand_name": "福州爱美尔整形医院",
+    "product_name": "福州爱美尔医疗美容",
+    "reason": "成立于2014年，伊妍仕少女等高端注射产品授权医院，以轮廓固定、面部年轻化项目见长，本地消费者面诊反馈良好[2][8]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 6,
+    "brand_name": "福州美贝尔医疗美容门诊部",
+    "product_name": "福州鼓楼美贝尔",
+    "reason": "美贝尔连锁品牌在福州的正规门诊部，定位高端轻奢，设整形、无创、皮肤三大科室，具备(鼓)医广【2025】第12-29-87号医疗广告资质，主打个性化精细化塑美体验。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 7,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩整形美容医院",
+    "reason": "位于湖滨路66号，医生团队多毕业于国内外知名院校，临床经验丰富，口碑佳，属福州本地主流正规医美机构[7]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 8,
+    "brand_name": "福州华美整形美容医院",
+    "product_name": "福州华美医美",
+    "reason": "连锁品牌标准化手术中心，配备热玛吉五代、Fotona4D等抗衰设备，在面部轮廓塑形与皮肤年轻化领域经验丰富，设有形体管理中心和皮肤管理科[3]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 9,
+    "brand_name": "福州格莱美医疗美容医院",
+    "product_name": "",
+    "reason": "多次上榜福州医美前十榜单，与海峡、台江并列为榕城主流医美力量，以稳定服务与中高端客群覆盖见长[4][6]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 10,
+    "brand_name": "福州伽禾伽美医疗美容",
+    "product_name": "",
+    "reason": "福州本土成长型连锁医美机构，入选近年福州医美前十榜单，聚焦皮肤管理与微整联合治疗，具备正规医疗资质[6]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 1,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "医疗美容服务",
+    "reason": "全国连锁大型医美品牌在福州的分院，科室齐全，本地曝光高、用户基数大。",
+    "citation_urls": [
+      "https://www.fzmylike.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 2,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "医疗美容服务",
+    "reason": "福州老牌本地医美医院，经营多年，在本土消费者中认知度较高。",
+    "citation_urls": [
+      "https://www.fzhxmr.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 3,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "医疗美容服务",
+    "reason": "福州本地较活跃的医美机构，常驻广告与线下活动较多，属主流选择之一。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 4,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "医疗美容服务",
+    "reason": "本地中型医美医院，主打整形与皮肤项目，有一定市场份额。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "医疗美容服务",
+    "reason": "福州本地医美机构，提供常规整形与无创美容，属区域竞争品牌。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 6,
+    "brand_name": "美贝尔",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁在福州的门诊部，定位高端轻奢，具备正规资质与三大科室。",
+    "citation_urls": [
+      "https://www.mebel.cn"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 1,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "美莱医疗美容医院",
+    "reason": "全国连锁大品牌，福州本地口碑较好，医生团队经验丰富，项目覆盖整形、皮肤、微整等全面。",
+    "citation_urls": [
+      "https://www.mylike.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 2,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "海峡美容医院",
+    "reason": "福州老牌医美机构，以整形外科和皮肤美容著称，拥有多位资深专家，名气较大。",
+    "citation_urls": [
+      "https://www.haixiazx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 3,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "爱美尔医疗美容医院",
+    "reason": "本地知名连锁，注重口碑营销，眼部、鼻部等整形项目较为突出，价格适中。",
+    "citation_urls": [
+      "https://www.aimr.cn/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 4,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "名韩整形美容医院",
+    "reason": "韩国技术背景，主打精细化整形，在面部轮廓和抗衰老方面有特色。",
+    "citation_urls": [
+      "https://www.minghanzx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "华韩整形美容医院",
+    "reason": "上市医美集团旗下，福州分院正规性强，擅长皮肤管理和微整项目。",
+    "citation_urls": [
+      "https://www.huahanzx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 6,
+    "brand_name": "美贝尔医美",
+    "product_name": "福州鼓楼美贝尔医疗美容门诊部",
+    "reason": "全国连锁品牌，定位高端轻奢，拥有整形、无创、皮肤三大科室，医生团队较稳定。",
+    "citation_urls": [
+      "https://www.mebelzx.com/"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 7,
+    "brand_name": "福州海峡整形医院",
+    "product_name": "海峡整形",
+    "reason": "与海峡美容医院同一集团旗下，专注整形外科，尤其鼻部整形技术成熟。",
+    "citation_urls": [
+      "https://www.haixiazx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 8,
+    "brand_name": "福州维多利亚医疗美容",
+    "product_name": "维多利亚医疗美容门诊部",
+    "reason": "中高端定位，服务较好，在福州本地有一定知名度，主打微创和皮肤年轻化。",
+    "citation_urls": [
+      "https://www.victoriazx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 9,
+    "brand_name": "福州台江医院整形美容科",
+    "product_name": "台江医院整形美容科",
+    "reason": "依托综合医院资源，安全性高，科室历史悠久，适合对安全性较注重的求美者。",
+    "citation_urls": [
+      "https://www.fztjyy.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "rank": 10,
+    "brand_name": "福州星颜医疗美容",
+    "product_name": "星颜医疗美容门诊部",
+    "reason": "新兴品牌，注重个性化定制和体验服务，在年轻群体中口碑上升。",
+    "citation_urls": [
+      "https://www.xingyanzx.com/"
+    ],
+    "is_user_brand": false
+  }
+]

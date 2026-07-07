@@ -1,0 +1,7 @@
+{
+  "matches": [],
+  "resource_count": 0,
+  "refresh_counts": {},
+  "warning": "media resources refresh failed: 'FakeStorage' object has no attribute 'upsert_media_resources'",
+  "refresh_error": "'FakeStorage' object has no attribute 'upsert_media_resources'"
+}

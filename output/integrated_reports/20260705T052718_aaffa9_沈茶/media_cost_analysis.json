@@ -1,0 +1,29 @@
+{
+  "benchmark_brand": "KOI Thé",
+  "benchmark_mentioned_count": 10,
+  "benchmark_metric_type": "top_k_fallback",
+  "user_brand_count": 10,
+  "content_asset_gap": 0,
+  "planning_note": "建议发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。",
+  "target_articles": 10,
+  "currency": "CNY",
+  "matched_media_count": 1,
+  "min_unit_price": 20.0,
+  "avg_unit_price": 20.0,
+  "max_unit_price": 20.0,
+  "rows": [
+    {
+      "source_domain": "dianping.com",
+      "resource_title": "凤凰网海南",
+      "resource_type": "website",
+      "match_type": "fuzzy",
+      "confidence": 0.72,
+      "price_1": 20.0,
+      "price_2": 20.0,
+      "price_3": 20.0,
+      "unit_price": 20.0,
+      "target_articles": 10,
+      "estimated_total_cost": 200.0
+    }
+  ]
+}

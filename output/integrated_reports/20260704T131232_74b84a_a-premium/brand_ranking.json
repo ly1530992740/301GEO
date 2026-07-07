@@ -1,0 +1,479 @@
+[
+  {
+    "brand_name": "A-Premium",
+    "brand_key": "apremium",
+    "recommendation_count": 26,
+    "avg_rank": 3.38,
+    "trend_term_count": 9,
+    "engine": "qwen",
+    "is_user_brand": true
+  },
+  {
+    "brand_name": "BOSCH",
+    "brand_key": "bosch",
+    "recommendation_count": 4,
+    "avg_rank": 1.75,
+    "trend_term_count": 4,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "DENSO",
+    "brand_key": "denso",
+    "recommendation_count": 2,
+    "avg_rank": 3.5,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Brembo",
+    "brand_key": "brembo",
+    "recommendation_count": 2,
+    "avg_rank": 4.0,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Advance Auto Parts",
+    "brand_key": "advanceautoparts",
+    "recommendation_count": 2,
+    "avg_rank": 6.0,
+    "trend_term_count": 2,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "A-Premium Official Store",
+    "brand_key": "apremiumofficialstore",
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Amazon Automotive",
+    "brand_key": "amazonautomotive",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Mercedes-Benz OEM Parts",
+    "brand_key": "mercedesbenzoemparts",
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "BYD F3 / Wuling Hongguang",
+    "brand_key": "bydf3wulinghongguang",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Continental",
+    "brand_key": "continental",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Ferodo",
+    "brand_key": "ferodo",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Huangshan Benma Group",
+    "brand_key": "huangshanbenmagroup",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "RockAuto",
+    "brand_key": "rockauto",
+    "recommendation_count": 1,
+    "avg_rank": 3.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "CarParts.com",
+    "brand_key": "carpartscom",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Kia Rio / Hyundai Accent",
+    "brand_key": "kiariohyundaiaccent",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Ningbo Mandy Auto Parts",
+    "brand_key": "ningbomandyautoparts",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "昆明市新辰汽配",
+    "brand_key": "昆明市新辰汽配",
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Guangzhou Xino Auto Parts",
+    "brand_key": "guangzhouxinoautoparts",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Jetty (Volkswagen Jetta legacy models)",
+    "brand_key": "jettyvolkswagenjettalegacymodels",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "KYB",
+    "brand_key": "kyb",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Summit Racing Equipment",
+    "brand_key": "summitracingequipment",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "TRW",
+    "brand_key": "trw",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Wufang Tianya汽配城",
+    "brand_key": "wufangtianya汽配城",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "ZF",
+    "brand_key": "zf",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "十堰翔诺汽车零部件有限公司",
+    "brand_key": "十堰翔诺汽车零部件有限公司",
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "AKEBONO",
+    "brand_key": "akebono",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "VALEO",
+    "brand_key": "valeo",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Varta",
+    "brand_key": "varta",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Zijinquan汽配城",
+    "brand_key": "zijinquan汽配城",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "eEuroparts",
+    "brand_key": "eeuroparts",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "枣阳市晨凯汽车配件有限公司",
+    "brand_key": "枣阳市晨凯汽车配件有限公司",
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "ESKO",
+    "brand_key": "esko",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Kangzhong汽配 (Xi’an)",
+    "brand_key": "kangzhong汽配xian",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Mann-Filter",
+    "brand_key": "mannfilter",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "O'Reilly Auto Parts",
+    "brand_key": "oreillyautoparts",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Pexco (Pai Su / 湃速)",
+    "brand_key": "pexcopaisu湃速",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "河北德康汽车零部件有限公司",
+    "brand_key": "河北德康汽车零部件有限公司",
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Gates",
+    "brand_key": "gates",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Wanxing汽配",
+    "brand_key": "wanxing汽配",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "ZEN-NOH / 佐佐木",
+    "brand_key": "zennoh佐佐木",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "vika",
+    "brand_key": "vika",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "河南锐特威电子科技有限公司",
+    "brand_key": "河南锐特威电子科技有限公司",
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Honeywell",
+    "brand_key": "honeywell",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "LUK",
+    "brand_key": "luk",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Tianyuan汽车电器批发",
+    "brand_key": "tianyuan汽车电器批发",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Tire Rack (for select A-Premium chassis & braking components)",
+    "brand_key": "tirerackforselectapremiumchassisbrakingcomponents",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Tower (塔图)",
+    "brand_key": "tower塔图",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "吉品帝",
+    "brand_key": "吉品帝",
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "ACDelco",
+    "brand_key": "acdelco",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Hella / HELLA",
+    "brand_key": "hellahella",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Jilong Shengchi Auto Repair & Parts (Tibet)",
+    "brand_key": "jilongshengchiautorepairpartstibet",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "Wayfair Auto (via Wayfair’s automotive vertical)",
+    "brand_key": "wayfairautoviawayfairsautomotivevertical",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  },
+  {
+    "brand_name": "奥迪(AUDI)原厂",
+    "brand_key": "奥迪audi原厂",
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "trend_term_count": 1,
+    "engine": "qwen",
+    "is_user_brand": false
+  }
+]

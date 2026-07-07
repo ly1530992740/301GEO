@@ -1,0 +1,17 @@
+{
+  "market_language": "zh",
+  "target_market": "domestic",
+  "primary_region": "福州",
+  "business_type": "local_brand",
+  "geo_probe_subject": "福州奶茶",
+  "questions": [
+    {
+      "term": "????福州?奶茶",
+      "question": "????福州?奶茶",
+      "intent": "mainstream"
+    }
+  ],
+  "neutral_search_queries": [
+    "????福州?奶茶"
+  ]
+}

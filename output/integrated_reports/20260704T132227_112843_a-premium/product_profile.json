@@ -1,0 +1,37 @@
+{
+  "product_name": "汽车售后替换零部件",
+  "brand_name": "A-Premium",
+  "brand_aliases": [
+    "A-Premium Auto Parts",
+    "A-Premium.com",
+    "apremiumcom"
+  ],
+  "category_local": "汽车零配件",
+  "category_en": "Auto Parts & Accessories",
+  "summary": "A-Premium 是一家专注于汽车售后替换零部件的在线零售品牌，提供涵盖发动机、制动、底盘、冷却及车身等多个系统的优质替换件。品牌致力于提供达到或超越OEM标准的零部件，主打精准适配、免费送货、90天免费退货及全球仓储快速发货，主要面向DIY车主、独立维修店及日常汽车维护用户，并通过丰富的技术博客和会员体系增强用户粘性。",
+  "target_audience": [
+    "DIY汽车爱好者和机械师",
+    "需要日常维护和修理的普通车主",
+    "独立汽车维修店和专业技工",
+    "越野车及户外生活方式车主"
+  ],
+  "selling_points": [
+    "精准适配保证 (Guaranteed Fit)",
+    "无门槛免费标准配送",
+    "90天免费退货政策",
+    "24/7全天候专业技术支持",
+    "达到或超越OEM标准，最高3年质保",
+    "全球及本地仓储布局，快速发货",
+    "多层级会员奖励计划与积分抵扣"
+  ],
+  "evidence": [
+    "Guaranteed Fit: Exact fit for your specific vehicle application.",
+    "Free Shipping: Free standard shipping, no minimum required.",
+    "90-Day Free Returns: Return your purchase for free within 90 days.",
+    "A-Premium products are manufactured to meet or exceed OEM specifications.",
+    "Logistics Support: 10+ global warehouses, 605,000 m² total area.",
+    "Up to 3 Years Warranty on all qualified and tested parts.",
+    "Rewards program: Multi-tier points system, redeem points for up to 50% off item prices."
+  ],
+  "profile_md": "## A-Premium 汽车零配件\n\n**品牌定位**：高品质汽车售后替换零部件在线零售商\n\n**核心产品**：\n- 发动机与传动系统部件\n- 制动与轮毂组件\n- 悬挂与转向系统\n- 车身、车灯及外部配件\n- 加热、冷却与空调系统\n\n**核心优势**：\n- **品质与适配**：达到或超越OEM标准，提供车型精准适配查询，最高3年质保。\n- **物流与服务**：全球10+仓储中心（超60万平方米），无门槛免费标准配送，90天免费退货，24/7全天候客服。\n- **用户生态**：提供详尽的DIY维修指南、OBD2故障码解析及车型历史博客；设立多层级会员奖励计划，积分最高可抵扣50%订单金额。\n\n**目标客群**：DIY汽修爱好者、普通车主、独立维修厂及户外越野玩家。"
+}

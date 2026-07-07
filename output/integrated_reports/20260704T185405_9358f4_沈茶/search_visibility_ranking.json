@@ -1,0 +1,162 @@
+[
+  {
+    "brand_name": "书亦烧仙草",
+    "brand_key": "书亦烧仙草",
+    "mentioned_count": 50,
+    "result_count": 50,
+    "query": "福州 书亦烧仙草 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 1
+  },
+  {
+    "brand_name": "唐沫茶兮",
+    "brand_key": "唐沫茶兮",
+    "mentioned_count": 50,
+    "result_count": 50,
+    "query": "福州 唐沫茶兮 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 2
+  },
+  {
+    "brand_name": "沈茶",
+    "brand_key": "沈茶",
+    "mentioned_count": 50,
+    "result_count": 50,
+    "query": "福州 沈茶 奶茶",
+    "is_user_brand": true,
+    "error": "",
+    "search_visibility_rank": 3
+  },
+  {
+    "brand_name": "蜜雪冰城",
+    "brand_key": "蜜雪冰城",
+    "mentioned_count": 50,
+    "result_count": 50,
+    "query": "福州 蜜雪冰城 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 4
+  },
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "霸王茶姬",
+    "mentioned_count": 50,
+    "result_count": 50,
+    "query": "福州 霸王茶姬 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 5
+  },
+  {
+    "brand_name": "壶见",
+    "brand_key": "壶见",
+    "mentioned_count": 49,
+    "result_count": 50,
+    "query": "福州 壶见 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 6
+  },
+  {
+    "brand_name": "沪上阿姨",
+    "brand_key": "沪上阿姨",
+    "mentioned_count": 49,
+    "result_count": 50,
+    "query": "福州 沪上阿姨 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 7
+  },
+  {
+    "brand_name": "瑞幸咖啡",
+    "brand_key": "瑞幸咖啡",
+    "mentioned_count": 49,
+    "result_count": 50,
+    "query": "福州 瑞幸咖啡 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 8
+  },
+  {
+    "brand_name": "甜啦啦",
+    "brand_key": "甜啦啦",
+    "mentioned_count": 49,
+    "result_count": 50,
+    "query": "福州 甜啦啦 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 9
+  },
+  {
+    "brand_name": "一只酸奶牛",
+    "brand_key": "一只酸奶牛",
+    "mentioned_count": 48,
+    "result_count": 50,
+    "query": "福州 一只酸奶牛 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 10
+  },
+  {
+    "brand_name": "古茗",
+    "brand_key": "古茗",
+    "mentioned_count": 48,
+    "result_count": 50,
+    "query": "福州 古茗 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 11
+  },
+  {
+    "brand_name": "KOI Thé",
+    "brand_key": "koith",
+    "mentioned_count": 47,
+    "result_count": 50,
+    "query": "福州 KOI Thé 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 12
+  },
+  {
+    "brand_name": "茶百道",
+    "brand_key": "茶百道",
+    "mentioned_count": 47,
+    "result_count": 50,
+    "query": "福州 茶百道 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 13
+  },
+  {
+    "brand_name": "鲜芋仙",
+    "brand_key": "鲜芋仙",
+    "mentioned_count": 47,
+    "result_count": 50,
+    "query": "福州 鲜芋仙 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 14
+  },
+  {
+    "brand_name": "益禾堂",
+    "brand_key": "益禾堂",
+    "mentioned_count": 47,
+    "result_count": 49,
+    "query": "福州 益禾堂 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 15
+  },
+  {
+    "brand_name": "唐末茶兮",
+    "brand_key": "唐末茶兮",
+    "mentioned_count": 1,
+    "result_count": 50,
+    "query": "福州 唐末茶兮 奶茶",
+    "is_user_brand": false,
+    "error": "",
+    "search_visibility_rank": 16
+  }
+]

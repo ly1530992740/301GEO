@@ -1,0 +1,9 @@
+[
+  {
+    "term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Unified mainstream question used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  }
+]

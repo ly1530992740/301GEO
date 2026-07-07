@@ -1,0 +1,312 @@
+[
+  {
+    "brand_name": "美莱医美",
+    "brand_key": "美莱医美",
+    "is_user_brand": false,
+    "search_visibility_rank": 1,
+    "mentioned_count": 171767,
+    "result_count": 195967,
+    "new_media_count": 24200,
+    "traditional_search": {
+      "baidu": 76333,
+      "sogou": 52950,
+      "so360": 42483
+    },
+    "new_media": {
+      "douyin": 13833,
+      "xiaohongshu": 10367
+    },
+    "query": "美莱医美 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%BE%8E%E8%8E%B1%E5%8C%BB%E7%BE%8E",
+      "https://www.douyin.com/search/%E7%BE%8E%E8%8E%B1%E5%8C%BB%E7%BE%8E",
+      "https://www.baidu.com/s?wd=美莱医美",
+      "https://www.douyin.com/search/美莱医美",
+      "https://www.xiaohongshu.com/search_result?query=美莱医美",
+      "https://www.sogou.com/web?query=美莱医美",
+      "https://www.so.com/s?q=美莱医美",
+      "https://www.xiaohongshu.com/search_result?keyword=美莱医美"
+    ]
+  },
+  {
+    "brand_name": "艺星医美",
+    "brand_key": "艺星医美",
+    "is_user_brand": false,
+    "search_visibility_rank": 2,
+    "mentioned_count": 148713,
+    "result_count": 168313,
+    "new_media_count": 19600,
+    "traditional_search": {
+      "baidu": 67633,
+      "sogou": 45707,
+      "so360": 35373
+    },
+    "new_media": {
+      "douyin": 11100,
+      "xiaohongshu": 8500
+    },
+    "query": "艺星医美 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E8%89%BA%E6%98%9F%E5%8C%BB%E7%BE%8E",
+      "https://www.xiaohongshu.com/explore?keyword=%E8%89%BA%E6%98%9F",
+      "https://www.baidu.com/s?wd=艺星医美",
+      "https://www.douyin.com/search/艺星医美",
+      "https://www.xiaohongshu.com/search_result?query=艺星医美",
+      "https://www.sogou.com/web?query=艺星医美",
+      "https://www.so.com/s?q=艺星医美",
+      "https://www.xiaohongshu.com/search_result?keyword=艺星医美"
+    ]
+  },
+  {
+    "brand_name": "美莱医美（福州美莱华美美容医院）",
+    "brand_key": "美莱医美福州美莱华美美容医院",
+    "is_user_brand": false,
+    "search_visibility_rank": 3,
+    "mentioned_count": 88277,
+    "result_count": 105877,
+    "new_media_count": 17600,
+    "traditional_search": {
+      "baidu": 42900,
+      "sogou": 26250,
+      "so360": 19127
+    },
+    "new_media": {
+      "douyin": 9333,
+      "xiaohongshu": 8267
+    },
+    "query": "美莱医美（福州美莱华美美容医院） 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E+%E7%A6%8F%E5%B7%9E",
+      "https://www.douyin.com/search/%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E",
+      "https://www.baidu.com/s?wd=福州美莱华美美容医院",
+      "https://www.douyin.com/search/福州美莱华美美容医院",
+      "https://www.xiaohongshu.com/search_result?query=福州美莱华美美容医院",
+      "https://www.sogou.com/web?query=福州美莱华美美容医院",
+      "https://www.so.com/s?q=福州美莱华美美容医院",
+      "https://www.xiaohongshu.com/search_result?keyword=福州美莱华美美容医院"
+    ]
+  },
+  {
+    "brand_name": "福州海峡美容医院",
+    "brand_key": "福州海峡美容医院",
+    "is_user_brand": false,
+    "search_visibility_rank": 4,
+    "mentioned_count": 93117,
+    "result_count": 105250,
+    "new_media_count": 12133,
+    "traditional_search": {
+      "baidu": 44283,
+      "sogou": 27833,
+      "so360": 21000
+    },
+    "new_media": {
+      "douyin": 6900,
+      "xiaohongshu": 5233
+    },
+    "query": "福州海峡美容医院 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E6%97%97%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E6%97%97",
+      "https://www.baidu.com/s?wd=福州海峡美容医院",
+      "https://www.douyin.com/search/福州海峡美容医院",
+      "https://www.xiaohongshu.com/search_result?query=福州海峡美容医院",
+      "https://www.sogou.com/web?query=福州海峡美容医院",
+      "https://www.so.com/s?q=福州海峡美容医院",
+      "https://www.xiaohongshu.com/search_result?keyword=福州海峡美容医院"
+    ]
+  },
+  {
+    "brand_name": "福州爱美尔",
+    "brand_key": "福州爱美尔",
+    "is_user_brand": false,
+    "search_visibility_rank": 5,
+    "mentioned_count": 61217,
+    "result_count": 68934,
+    "new_media_count": 7717,
+    "traditional_search": {
+      "baidu": 29633,
+      "sogou": 17517,
+      "so360": 14067
+    },
+    "new_media": {
+      "douyin": 4567,
+      "xiaohongshu": 3150
+    },
+    "query": "福州爱美尔 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%88%B1%E7%BE%8E%E5%B0%94+%E7%A6%8F%E5%B7%9E",
+      "https://www.baidu.com/s?wd=福州爱美尔",
+      "https://www.douyin.com/search/福州爱美尔",
+      "https://www.xiaohongshu.com/search_result?query=福州爱美尔",
+      "https://www.sogou.com/web?query=福州爱美尔",
+      "https://www.so.com/s?q=福州爱美尔",
+      "https://www.xiaohongshu.com/search_result?keyword=福州爱美尔"
+    ]
+  },
+  {
+    "brand_name": "福州爱美尔医疗美容",
+    "brand_key": "福州爱美尔医疗美容",
+    "is_user_brand": false,
+    "search_visibility_rank": 6,
+    "mentioned_count": 54537,
+    "result_count": 61737,
+    "new_media_count": 7200,
+    "traditional_search": {
+      "baidu": 26293,
+      "sogou": 15847,
+      "so360": 12397
+    },
+    "new_media": {
+      "douyin": 4227,
+      "xiaohongshu": 2973
+    },
+    "query": "福州爱美尔医疗美容 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94%E5%8C%BB%E7%96%97%E7%BE%8E%E5%AE%B9",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%88%B1%E7%BE%8E%E5%B0%94%E5%8C%BB%E7%96%97",
+      "https://www.baidu.com/s?wd=福州爱美尔医疗美容",
+      "https://www.douyin.com/search/福州爱美尔医疗美容",
+      "https://www.xiaohongshu.com/search_result?query=福州爱美尔医疗美容",
+      "https://www.sogou.com/web?query=福州爱美尔医疗美容",
+      "https://www.so.com/s?q=福州爱美尔医疗美容",
+      "https://www.xiaohongshu.com/search_result?keyword=福州爱美尔医疗美容"
+    ]
+  },
+  {
+    "brand_name": "福建省立医院整形外科",
+    "brand_key": "福建省立医院整形外科",
+    "is_user_brand": false,
+    "search_visibility_rank": 7,
+    "mentioned_count": 44727,
+    "result_count": 53527,
+    "new_media_count": 8800,
+    "traditional_search": {
+      "baidu": 23850,
+      "sogou": 11463,
+      "so360": 9413
+    },
+    "new_media": {
+      "douyin": 4683,
+      "xiaohongshu": 4117
+    },
+    "query": "福建省立医院整形外科 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%A6%8F%E5%BB%BA%E7%9C%81%E7%AB%8B%E5%8C%BB%E9%99%A2+%E6%95%B4%E5%BD%A2",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%9C%81%E7%AB%8B%E5%8C%BB%E9%99%A2+%E7%BE%8E%E5%AE%B9",
+      "https://www.baidu.com/s?wd=福建省立医院整形外科",
+      "https://www.douyin.com/search/福建省立医院整形外科",
+      "https://www.xiaohongshu.com/search_result?query=福建省立医院整形外科",
+      "https://www.sogou.com/web?query=福建省立医院整形外科",
+      "https://www.so.com/s?q=福建省立医院整形外科",
+      "https://www.xiaohongshu.com/search_result?keyword=福建省立医院整形外科"
+    ]
+  },
+  {
+    "brand_name": "福州名韩",
+    "brand_key": "福州名韩",
+    "is_user_brand": false,
+    "search_visibility_rank": 8,
+    "mentioned_count": 45600,
+    "result_count": 51200,
+    "new_media_count": 5600,
+    "traditional_search": {
+      "baidu": 21517,
+      "sogou": 13740,
+      "so360": 10343
+    },
+    "new_media": {
+      "douyin": 3400,
+      "xiaohongshu": 2200
+    },
+    "query": "福州名韩 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E5%90%8D%E9%9F%A9",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%94%98%E8%82%AF+%E7%A6%8F%E5%B7%9E",
+      "https://www.baidu.com/s?wd=福州名韩",
+      "https://www.douyin.com/search/福州名韩",
+      "https://www.xiaohongshu.com/search_result?query=福州名韩",
+      "https://www.sogou.com/web?query=福州名韩",
+      "https://www.so.com/s?q=福州名韩",
+      "https://www.xiaohongshu.com/search_result?keyword=福州名韩"
+    ]
+  },
+  {
+    "brand_name": "美贝尔",
+    "brand_key": "美贝尔",
+    "is_user_brand": true,
+    "search_visibility_rank": 9,
+    "mentioned_count": 37123,
+    "result_count": 41573,
+    "new_media_count": 4450,
+    "traditional_search": {
+      "baidu": 18100,
+      "sogou": 10377,
+      "so360": 8647
+    },
+    "new_media": {
+      "douyin": 2667,
+      "xiaohongshu": 1783
+    },
+    "query": "美贝尔 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%BE%8E%E8%B4%9D%E5%B0%94+%E7%A6%8F%E5%B7%9E",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%BE%8E%E8%B4%9D%E5%B0%94",
+      "https://www.baidu.com/s?wd=美贝尔",
+      "https://www.douyin.com/search/美贝尔",
+      "https://www.xiaohongshu.com/search_result?query=美贝尔",
+      "https://www.sogou.com/web?query=美贝尔",
+      "https://www.so.com/s?q=美贝尔",
+      "https://www.xiaohongshu.com/search_result?keyword=美贝尔"
+    ]
+  },
+  {
+    "brand_name": "福建医科大学附属第一医院整形美容外科",
+    "brand_key": "福建医科大学附属第一医院整形美容外科",
+    "is_user_brand": false,
+    "search_visibility_rank": 10,
+    "mentioned_count": 31250,
+    "result_count": 38717,
+    "new_media_count": 7467,
+    "traditional_search": {
+      "baidu": 16200,
+      "sogou": 8467,
+      "so360": 6583
+    },
+    "new_media": {
+      "douyin": 3933,
+      "xiaohongshu": 3533
+    },
+    "query": "福建医科大学附属第一医院整形美容外科 医美 内容声量",
+    "metric_type": "multi_ai_estimated_count",
+    "warning": "AI 估算声量，不等同于真实搜索/平台接口统计。",
+    "source_urls": [
+      "https://www.baidu.com/s?wd=%E7%AC%AC%E4%B8%80%E5%8C%BB%E9%99%A2+%E6%95%B4%E5%BD%A2",
+      "https://www.xiaohongshu.com/explore?keyword=%E7%AC%AC%E4%B8%80%E5%8C%BB%E9%99%A2+%E7%BE%8E%E5%AE%B9",
+      "https://www.baidu.com/s?wd=福建医科大学附属第一医院整形美容外科",
+      "https://www.douyin.com/search/福建医科大学附属第一医院整形美容外科",
+      "https://www.xiaohongshu.com/search_result?query=福建医科大学附属第一医院整形美容外科",
+      "https://www.sogou.com/web?query=福建医科大学附属第一医院整形美容外科",
+      "https://www.so.com/s?q=福建医科大学附属第一医院整形美容外科",
+      "https://www.xiaohongshu.com/search_result?keyword=福建医科大学附属第一医院整形美容外科"
+    ]
+  }
+]

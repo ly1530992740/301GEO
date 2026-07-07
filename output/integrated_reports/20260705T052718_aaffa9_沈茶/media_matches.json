@@ -1,0 +1,39 @@
+{
+  "source_link_count": 1,
+  "resource_count": 2828,
+  "refresh_counts": {},
+  "matches": [
+    {
+      "source_site_name": "宇宙治茶闽南阿达子",
+      "source_domain": "dianping.com",
+      "source_url": "https://www.dianping.com/shop/xxxxx",
+      "link_count": 1,
+      "resource_type": "website",
+      "resource_id": 99989,
+      "resource_title": "凤凰网海南",
+      "case_link": "https://hainan.ifeng.com/c/8kWQNWKaWjs",
+      "entrance_link": null,
+      "price_1": 20.0,
+      "price_2": 20.0,
+      "price_3": 20.0,
+      "match_type": "fuzzy",
+      "confidence": 0.72,
+      "confirmed": false,
+      "warning": "未找到完全匹配，需确认相似平台后才可发布",
+      "raw_resource": {
+        "id": 34,
+        "resource_type": "website",
+        "resource_id": 99989,
+        "title": "凤凰网海南",
+        "case_link": "https://hainan.ifeng.com/c/8kWQNWKaWjs",
+        "entrance_link": null,
+        "price_1": 20.0,
+        "price_2": 20.0,
+        "price_3": 20.0,
+        "remarks": "不带二维码、联系电话、医美、融资、贷款、产品对比、涉及互联网金融、整形手术、涉及领导人、一带一路相关，标题和内容不出现地域名；（例北京、上海等）海南本地稿件、河北稿件不发，文章尾部有免责声明",
+        "raw_json": "{\"resource_id\": 99989, \"title\": \"凤凰网海南\", \"price_1\": \"20.00\", \"price_2\": \"20.00\", \"price_3\": \"20.00\", \"remarks\": \"不带二维码、联系电话、医美、融资、贷款、产品对比、涉及互联网金融、整形手术、涉及领导人、一带一路相关，标题和内容不出现地域名；（例北京、上海等）海南本地稿件、河北稿件不发，文章尾部有免责声明\", \"case_link\": \"https://hainan.ifeng.com/c/8kWQNWKaWjs\", \"field_1\": 1006, \"field_3\": 3006, \"field_5\": 5001, \"field_6\": 6001, \"field_9\": \"9009\", \"pc_weigh\": 2, \"wap_weigh\": 2, \"entrance_link\": null, \"publish_rate\": 72, \"publish_time\": 24440, \"type\": 3, \"update_time\": 1783168233, \"is_collect\": 0, \"is_blacklist\": 0, \"price_type\": null, \"field_1_name\": \"新闻资讯\", \"field_3_name\": \"海南\", \"field_5_name\": \"不包网页收录\", \"field_6_name\": \"不可带网址\", \"resource_type\": \"website\"}",
+        "fetched_at": "2026-07-04T13:52:25Z"
+      }
+    }
+  ]
+}

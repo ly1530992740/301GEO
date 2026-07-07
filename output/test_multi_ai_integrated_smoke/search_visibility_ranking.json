@@ -1,0 +1,20 @@
+[
+  {
+    "brand_name": "霸王茶姬",
+    "brand_key": "bwcj",
+    "is_user_brand": false,
+    "search_visibility_rank": 1,
+    "mentioned_count": 1200,
+    "result_count": 2000,
+    "query": "x"
+  },
+  {
+    "brand_name": "沈茶",
+    "brand_key": "sc",
+    "is_user_brand": true,
+    "search_visibility_rank": 2,
+    "mentioned_count": 70,
+    "result_count": 100,
+    "query": "x"
+  }
+]

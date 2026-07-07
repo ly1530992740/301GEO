@@ -1,0 +1,58 @@
+{
+  "strategy_version": "multi_ai_consensus_v1",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "service_scope": "local_city",
+  "service_region": "福州",
+  "business_type": "local_service",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "category_local": "医疗美容",
+  "category_en": "medical aesthetics",
+  "geo_probe_subject": "福州医疗美容",
+  "mainstream_competition_only": true,
+  "multi_ai_providers": [
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek"
+  ],
+  "recommendation_question": "推荐一下福州的医疗美容",
+  "search_intents": [
+    {
+      "intent": "multi_ai_mainstream_recommendation",
+      "neutral_queries": [
+        "推荐一下福州的医疗美容"
+      ],
+      "ai_probe_question": "推荐一下福州的医疗美容",
+      "reason": "Simplified flow uses one mainstream query across multiple AI models."
+    }
+  ],
+  "neutral_search_queries": [
+    "推荐一下福州的医疗美容"
+  ],
+  "ai_probe_questions": [
+    {
+      "term": "推荐一下福州的医疗美容",
+      "question": "推荐一下福州的医疗美容",
+      "intent": "consumer_recommendation",
+      "question_type": "recommendation",
+      "reason": "Unified mainstream question used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    }
+  ],
+  "competitor_types": [
+    "multi_ai_recommended"
+  ],
+  "topic_taxonomy": [
+    "资质/专业性",
+    "案例/口碑",
+    "服务范围",
+    "价格/收费",
+    "合规/风险",
+    "响应速度"
+  ],
+  "validation_notes": [
+    "旧竞品发现和策略生成已合并为多 AI 主流推荐测试。",
+    "声量数据由 AI 估算，字段使用 estimated_count，不等同于真实平台接口统计。"
+  ]
+}

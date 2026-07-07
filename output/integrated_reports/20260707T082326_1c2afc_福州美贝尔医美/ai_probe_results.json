@@ -1,0 +1,693 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 1,
+          "brand_name": "福州海峡整形医院",
+          "product_name": "福州海峡美容医院",
+          "reason": "全国十大整形机构之一，福州本地声誉高，拥有8000㎡独立医疗空间、进口设备及‘三维美鼻’‘精雕双眼皮’等专利技术，实行‘一人一方案’定制服务[2][3]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 2,
+          "brand_name": "福建省立医院整形外科",
+          "product_name": "整形外科（公立三甲）",
+          "reason": "公立三甲专科，设备先进、技术实力雄厚，擅长鼻综合、乳房再造、瘢痕修复，采用数字化术前设计，收费合理，感染控制严格[3]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 3,
+          "brand_name": "福建医科大学附属第一医院整形美容外科",
+          "product_name": "整形美容外科（国家临床重点专科）",
+          "reason": "国家临床重点专科，华东区排名第五，年手术超2000例，在眼鼻精细化整形、脂肪移植抗衰、私密整形及四级手术方面经验丰富，配备赛诺秀激光、Body-jet水动力吸脂等高端设备[3][10]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 4,
+          "brand_name": "福州美贝尔医疗美容",
+          "product_name": "福州市鼓楼区美贝尔医疗美容门诊部",
+          "reason": "全国七城连锁医美品牌，定位高端轻奢时尚，下设整形、无创、皮肤三大科室，汇聚国内外资深医生团队，提供个性化精细化服务，2026年福州医美前十榜单常驻品牌[4][6]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 5,
+          "brand_name": "福州爱美尔整形医院",
+          "product_name": "福州爱美尔医疗美容",
+          "reason": "成立于2014年，伊妍仕少女等高端注射产品授权机构，医生技术扎实、口碑良好，主打轮廓固定与微整抗衰项目[2][8]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 6,
+          "brand_name": "福州美莱医疗美容医院",
+          "product_name": "福州美莱医疗美容医院（晋安区）",
+          "reason": "美莱集团旗下机构，建筑面积10000㎡，设独立麻醉科与检验科，配备德国蛇牌内窥镜、美国麦格假体，在胸部整形、脂肪填充及微创抗衰领域具技术优势[3][5]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 7,
+          "brand_name": "福州华美整形美容医院",
+          "product_name": "福州华美整形美容医院",
+          "reason": "连锁品牌标准化手术中心，配备热玛吉五代、Fotona4D等抗衰设备，覆盖面部轮廓塑形与皮肤年轻化全周期管理，定期开展韩方技术交流[3]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 8,
+          "brand_name": "福州名韩医疗美容",
+          "product_name": "福州名韩医疗美容（湖滨路院区）",
+          "reason": "正规医美机构，医生团队多毕业于国内外知名院校，临床经验丰富，擅长各类美容项目，口碑佳、技术强[7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 9,
+          "brand_name": "福州格莱美医疗美容",
+          "product_name": "福州格莱美医疗美容",
+          "reason": "福州医美前十常列品牌，资质合规、服务成熟，在面部年轻化与形体管理方向有稳定客群基础[4][6]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 10,
+          "brand_name": "福州台江整形外科",
+          "product_name": "福州台江整形外科",
+          "reason": "福州本地老牌整形机构，位列2026年福州整形医院前十榜单第二位，以精细操作和术后管理见长[4]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "整形美容、皮肤美容",
+          "reason": "福州本地老牌医美医院，规模大、认知度高，是区域主流选择。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 2,
+          "brand_name": "美莱医美",
+          "product_name": "福州美莱医疗美容",
+          "reason": "全国知名连锁医美品牌，福州有分院，综合实力强。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 3,
+          "brand_name": "艺星医美",
+          "product_name": "福州艺星医疗美容",
+          "reason": "全国连锁高端医美品牌，在福州有较高知名度。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 4,
+          "brand_name": "福州名韩整形医院",
+          "product_name": "整形美容",
+          "reason": "福州本地较主流的整形专科医院，本地用户提及率高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 5,
+          "brand_name": "华美医美",
+          "product_name": "福州华美医疗美容",
+          "reason": "全国连锁医美机构，福州设有门店，属主流竞争者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 6,
+          "brand_name": "福州爱美尔医疗美容",
+          "product_name": "医疗美容门诊",
+          "reason": "福州本地医美机构，常见本地推荐榜单品牌。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 7,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国七城连锁医美品牌，福州鼓楼有门诊部，定位高端轻奢。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "福州本地老牌医美机构，知名度高，尤其在整形外科领域口碑较好，是本地求美者常选品牌。",
+          "citation_urls": [
+            "https://www.fzhxyy.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 2,
+          "brand_name": "美莱医美",
+          "product_name": "福州美莱医疗美容医院",
+          "reason": "全国连锁大型医美品牌，在福州设有分院，综合实力强，覆盖整形、皮肤、无创等多科室，品牌信赖度高。",
+          "citation_urls": [
+            "https://www.mylike.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 3,
+          "brand_name": "艺星医美",
+          "product_name": "福州艺星医疗美容医院",
+          "reason": "全国连锁的轻奢医美品牌，在福州口碑良好，擅长微整和皮肤项目，深受年轻求美者喜爱。",
+          "citation_urls": [
+            "https://fz.yestar.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 4,
+          "brand_name": "华美医美",
+          "product_name": "福州华美医疗美容医院",
+          "reason": "国内知名连锁品牌，福州华美拥有多年历史，在整形和皮肤美容方面经验丰富，是主流选择之一。",
+          "citation_urls": [
+            "https://fz.hm.cn/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 5,
+          "brand_name": "福州名韩整形医院",
+          "product_name": "",
+          "reason": "福州本地实力医美机构，以精细化的整形手术著称，在福州地区有较高知名度和忠实客户群。",
+          "citation_urls": [
+            "http://www.fzmhans.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 6,
+          "brand_name": "福州爱美尔医疗美容",
+          "product_name": "",
+          "reason": "福州本地口碑良好的医美品牌，主打面部整形和皮肤管理，价格适中，适合大众求美者。",
+          "citation_urls": [
+            "https://www.fzamr.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 7,
+          "brand_name": "美贝尔医疗美容",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国七城连锁品牌，在福州鼓楼区设有门诊部，定位高端轻奢，提供个性化整形、无创及皮肤服务。",
+          "citation_urls": [
+            "https://fz.mebel.cn/"
+          ],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 8,
+          "brand_name": "福州台江整形医院",
+          "product_name": "",
+          "reason": "福州本地老牌医美机构，擅长吸脂、隆胸等形体手术，在本地市场占有一席之地。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 9,
+          "brand_name": "薇琳医美",
+          "product_name": "福州薇琳医疗美容医院",
+          "reason": "全国连锁品牌，在福州设有机构，以微创和年轻化项目为特色，受到时尚人群关注。",
+          "citation_urls": [
+            "https://fz.weilin.cn/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "rank": 10,
+          "brand_name": "福州海西整形医院",
+          "product_name": "",
+          "reason": "本地有口碑的专科医院，在眼鼻整形等五官项目上较为出名，适合项目针对性强的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  }
+]

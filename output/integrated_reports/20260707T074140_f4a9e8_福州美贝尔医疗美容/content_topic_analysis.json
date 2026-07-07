@@ -1,0 +1,215 @@
+{
+  "topics": [
+    {
+      "topic": "案例/口碑",
+      "count": 18
+    },
+    {
+      "topic": "综合推荐",
+      "count": 9
+    },
+    {
+      "topic": "服务范围",
+      "count": 3
+    },
+    {
+      "topic": "响应速度",
+      "count": 3
+    },
+    {
+      "topic": "价格/收费",
+      "count": 2
+    },
+    {
+      "topic": "资质/专业性",
+      "count": 1
+    },
+    {
+      "topic": "合规/风险",
+      "count": 1
+    }
+  ],
+  "brand_topic_matrix": [
+    {
+      "brand": "华美医美",
+      "topic": "案例/口碑",
+      "count": 2
+    },
+    {
+      "brand": "美莱医美",
+      "topic": "案例/口碑",
+      "count": 2
+    },
+    {
+      "brand": "美贝尔",
+      "topic": "案例/口碑",
+      "count": 2
+    },
+    {
+      "brand": "艺星医美",
+      "topic": "案例/口碑",
+      "count": 2
+    },
+    {
+      "brand": "华美医美",
+      "topic": "价格/收费",
+      "count": 1
+    },
+    {
+      "brand": "华美医美",
+      "topic": "响应速度",
+      "count": 1
+    },
+    {
+      "brand": "华美医美",
+      "topic": "服务范围",
+      "count": 1
+    },
+    {
+      "brand": "名韩整形美容医院",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "海峡美容医院",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "爱美尔医疗美容",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "福州名韩整形美容医院",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "福州海峡美容医院",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "福州爱美尔医疗美容",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "美立方医美",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "美贝尔整形（特指）",
+      "topic": "响应速度",
+      "count": 1
+    },
+    {
+      "brand": "美贝尔整形（特指）",
+      "topic": "服务范围",
+      "count": 1
+    },
+    {
+      "brand": "美贝尔整形（特指）",
+      "topic": "案例/口碑",
+      "count": 1
+    },
+    {
+      "brand": "薇琳医美",
+      "topic": "案例/口碑",
+      "count": 1
+    }
+  ],
+  "topic_rules": [
+    {
+      "topic": "资质/专业性",
+      "keywords": [
+        "资质/专业性",
+        "资质",
+        "认证",
+        "安全",
+        "合规",
+        "禁忌",
+        "证书",
+        "certified",
+        "safe",
+        "compliance"
+      ]
+    },
+    {
+      "topic": "案例/口碑",
+      "keywords": [
+        "案例/口碑",
+        "口碑",
+        "评价",
+        "推荐",
+        "评分",
+        "好评",
+        "差评",
+        "review",
+        "rating",
+        "trusted"
+      ]
+    },
+    {
+      "topic": "服务范围",
+      "keywords": [
+        "服务范围",
+        "服务",
+        "售后",
+        "客服",
+        "响应",
+        "质保",
+        "support",
+        "service",
+        "warranty"
+      ]
+    },
+    {
+      "topic": "价格/收费",
+      "keywords": [
+        "价格/收费",
+        "价格",
+        "性价比",
+        "便宜",
+        "平价",
+        "折扣",
+        "预算",
+        "price",
+        "affordable",
+        "value",
+        "budget"
+      ]
+    },
+    {
+      "topic": "合规/风险",
+      "keywords": [
+        "合规/风险",
+        "资质",
+        "认证",
+        "安全",
+        "合规",
+        "禁忌",
+        "证书",
+        "certified",
+        "safe",
+        "compliance"
+      ]
+    },
+    {
+      "topic": "响应速度",
+      "keywords": [
+        "响应速度",
+        "服务",
+        "售后",
+        "客服",
+        "响应",
+        "质保",
+        "support",
+        "service",
+        "warranty"
+      ]
+    }
+  ]
+}

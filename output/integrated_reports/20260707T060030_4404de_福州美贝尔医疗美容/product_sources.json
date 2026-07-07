@@ -1,0 +1,10 @@
+{
+  "website_url": "http://www.fzmebel.com/",
+  "website_pages": [
+    {
+      "url": "http://www.fzmebel.com",
+      "error": "502 Server Error: Bad Gateway for url: http://www.fzmebel.com/"
+    }
+  ],
+  "pdf_documents": []
+}

@@ -1,0 +1,279 @@
+{
+  "workflow_version": "integrated_geo_v5_multi_ai_consensus_20260707",
+  "run_id": "smoke",
+  "run_dir": "output\\test_multi_ai_integrated_smoke",
+  "report_language": "zh",
+  "product_profile": {
+    "product_name": "沈茶",
+    "brand_name": "沈茶",
+    "category_local": "奶茶",
+    "primary_region": "福州",
+    "service_scope": "local_city",
+    "market_language": "zh",
+    "target_market": "domestic",
+    "geo_audience": "consumer_recommendation"
+  },
+  "analysis_strategy": {
+    "recommendation_question": "????福州?奶茶",
+    "geo_audience": "consumer_recommendation",
+    "analysis_goal": "consumer_recommendation",
+    "geo_probe_subject": "福州奶茶",
+    "service_scope": "local_city",
+    "service_region": "福州",
+    "topic_taxonomy": [
+      "??/??"
+    ],
+    "neutral_search_queries": [
+      "????福州?奶茶"
+    ]
+  },
+  "sources": {},
+  "competitor_discovery": {
+    "direct_competitors": [
+      {
+        "brand_name": "霸王茶姬",
+        "reason": "multi ai"
+      }
+    ],
+    "local_competitors": [],
+    "national_competitors": [],
+    "adjacent_competitors": []
+  },
+  "question_discovery": {
+    "market_language": "zh",
+    "target_market": "domestic",
+    "primary_region": "福州",
+    "business_type": "local_brand",
+    "geo_probe_subject": "福州奶茶",
+    "questions": [
+      {
+        "term": "????福州?奶茶",
+        "question": "????福州?奶茶",
+        "intent": "mainstream"
+      }
+    ],
+    "neutral_search_queries": [
+      "????福州?奶茶"
+    ]
+  },
+  "trend_discovery": {
+    "terms": [
+      {
+        "term": "????福州?奶茶",
+        "source": "multi_ai",
+        "relevance_reason": "mainstream"
+      }
+    ],
+    "probe_questions": [
+      {
+        "term": "????福州?奶茶",
+        "question": "????福州?奶茶",
+        "intent": "mainstream"
+      }
+    ]
+  },
+  "ai_probes": [
+    {
+      "engine": "qwen",
+      "trend_term": "????福州?奶茶",
+      "question_meta": {
+        "question": "????福州?奶茶",
+        "intent": "multi_ai_mainstream_recommendation"
+      },
+      "result": {
+        "question": "????福州?奶茶",
+        "recommendations": [
+          {
+            "engine": "qwen",
+            "trend_term": "????福州?奶茶",
+            "question": "????福州?奶茶",
+            "rank": 1,
+            "brand_name": "霸王茶姬",
+            "reason": "ok",
+            "citation_urls": []
+          }
+        ],
+        "search_results": []
+      }
+    }
+  ],
+  "recommendation_items": [
+    {
+      "engine": "qwen",
+      "trend_term": "????福州?奶茶",
+      "question": "????福州?奶茶",
+      "rank": 1,
+      "brand_name": "霸王茶姬",
+      "reason": "ok",
+      "citation_urls": []
+    }
+  ],
+  "ai_recommendation_ranking": [
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "bwcj",
+      "recommendation_count": 4,
+      "avg_rank": 1.0,
+      "engine": "qwen,doubao,yuanbao,deepseek",
+      "is_user_brand": false
+    },
+    {
+      "brand_name": "沈茶",
+      "brand_key": "sc",
+      "recommendation_count": 1,
+      "avg_rank": 8.0,
+      "engine": "qwen",
+      "is_user_brand": true
+    }
+  ],
+  "search_visibility_ranking": [
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "bwcj",
+      "is_user_brand": false,
+      "search_visibility_rank": 1,
+      "mentioned_count": 1200,
+      "result_count": 2000,
+      "query": "x"
+    },
+    {
+      "brand_name": "沈茶",
+      "brand_key": "sc",
+      "is_user_brand": true,
+      "search_visibility_rank": 2,
+      "mentioned_count": 70,
+      "result_count": 100,
+      "query": "x"
+    }
+  ],
+  "search_volume_ranking": [
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "bwcj",
+      "is_user_brand": false,
+      "estimated_result_count": 2000,
+      "traditional_search_count": 1200,
+      "new_media_count": 800,
+      "search_volume_rank": 1,
+      "gap_vs_user": 1900,
+      "query": "x",
+      "metric_type": "multi_ai_estimated_count",
+      "warning": "AI estimated"
+    },
+    {
+      "brand_name": "沈茶",
+      "brand_key": "sc",
+      "is_user_brand": true,
+      "estimated_result_count": 100,
+      "traditional_search_count": 70,
+      "new_media_count": 30,
+      "search_volume_rank": 2,
+      "gap_vs_user": 0,
+      "query": "x",
+      "metric_type": "multi_ai_estimated_count",
+      "warning": "AI estimated"
+    }
+  ],
+  "search_volume_queries": [],
+  "visibility_query_strategy": {
+    "visibility_queries": []
+  },
+  "competitive_gap_ranking": [
+    {
+      "brand_name": "沈茶",
+      "brand_key": "沈茶",
+      "ai_recommendation_rank": 2,
+      "ai_recommendation_count": 1,
+      "avg_ai_rank": 8.0,
+      "search_visibility_rank": 2,
+      "mentioned_count": 70,
+      "result_count": 100,
+      "is_user_brand": true,
+      "gap_score": 0,
+      "gap_label": "AI 推荐与搜索声量相对一致"
+    },
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "霸王茶姬",
+      "ai_recommendation_rank": 1,
+      "ai_recommendation_count": 4,
+      "avg_ai_rank": 1.0,
+      "search_visibility_rank": 1,
+      "mentioned_count": 1200,
+      "result_count": 2000,
+      "is_user_brand": false,
+      "gap_score": 0,
+      "gap_label": "AI 推荐与搜索声量相对一致"
+    }
+  ],
+  "brand_ranking": [
+    {
+      "brand_name": "霸王茶姬",
+      "brand_key": "bwcj",
+      "recommendation_count": 4,
+      "avg_rank": 1.0,
+      "engine": "qwen,doubao,yuanbao,deepseek",
+      "is_user_brand": false
+    },
+    {
+      "brand_name": "沈茶",
+      "brand_key": "sc",
+      "recommendation_count": 1,
+      "avg_rank": 8.0,
+      "engine": "qwen",
+      "is_user_brand": true
+    }
+  ],
+  "source_links": [],
+  "source_articles": [],
+  "baidu_mentions": [
+    {
+      "brand_name": "霸王茶姬",
+      "mentioned_count": 1200,
+      "result_count": 2000,
+      "is_user_brand": false
+    },
+    {
+      "brand_name": "沈茶",
+      "mentioned_count": 70,
+      "result_count": 100,
+      "is_user_brand": true
+    }
+  ],
+  "baidu_query_results": [],
+  "content_topic_analysis": {
+    "topics": [
+      {
+        "topic": "??/??",
+        "count": 1
+      }
+    ],
+    "brand_topic_matrix": []
+  },
+  "content_pattern_report": "# content",
+  "article_generation_format": "# format",
+  "media_matches": {
+    "matches": [],
+    "resource_count": 0,
+    "refresh_counts": {},
+    "warning": "media resources refresh failed: 'FakeStorage' object has no attribute 'upsert_media_resources'",
+    "refresh_error": "'FakeStorage' object has no attribute 'upsert_media_resources'"
+  },
+  "media_cost_analysis": {
+    "benchmark_brand": "霸王茶姬",
+    "benchmark_mentioned_count": 2000,
+    "benchmark_metric_type": "multi_ai_estimated_count",
+    "user_brand_count": 100,
+    "content_asset_gap": 1900,
+    "planning_note": "建议发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。",
+    "target_articles": 300,
+    "currency": "CNY",
+    "matched_media_count": 0,
+    "min_unit_price": 0,
+    "avg_unit_price": 0,
+    "max_unit_price": 0,
+    "rows": []
+  },
+  "multi_ai_recommendation_results": [],
+  "multi_ai_visibility_results": []
+}

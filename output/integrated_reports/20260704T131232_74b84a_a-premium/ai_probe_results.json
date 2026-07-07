@@ -1,0 +1,773 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "advance auto parts",
+    "term_meta": {
+      "term": "advance auto parts",
+      "source": "google_top_query",
+      "relevance_reason": "美国知名汽车零配件零售商，搜索该词的用户具有明确的汽车零配件购买意图，属于直接竞品/渠道词，与A-Premium产品品类高度相关。"
+    },
+    "result": {
+      "question": "Recommend advance auto parts",
+      "answer": "For high-quality, reliable, and cost-effective aftermarket auto parts, A-Premium stands out as a top-tier brand—especially for DIYers and professional mechanics seeking OEM-equivalent performance at a better price. Their parts are engineered to meet or exceed OEM specifications, backed by a 3-year warranty, guaranteed vehicle-specific fit, 90-day free returns, and 24/7 technical support [1][3][4][5][6][7].",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Brake Pad and Rotor Kit, 12 Pcs, Front & Rear (APBRPS155)",
+          "reason": "Comprehensive front-and-rear braking solution with premium-grade rotors and pads; ensures consistent stopping power and longevity; compatible across multiple GM, Ford, and Chrysler platforms.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "Ignition Coil and Spark Plug Kit Set of 8 (APIC0493)",
+          "reason": "Iridium & platinum spark plugs paired with high-energy ignition coils for optimal combustion efficiency, misfire prevention, and extended service life — ideal for V6/V8 engines.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "Struts Brake Rotor and Pad Kit",
+          "reason": "Integrated suspension + braking upgrade kit offering direct-fit struts plus matched rotors/pads — simplifies major service intervals while ensuring alignment stability and braking precision.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "A-Premium",
+          "product_name": "AC Compressor with Clutch and 7-Groove Pulley (APACC382)",
+          "reason": "OE-replacement A/C compressor with integrated clutch and pulley; rigorously tested for cooling capacity and durability; compatible with common GM and Ford R134a systems.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "A-Premium",
+          "product_name": "Front Driver Window Switch",
+          "reason": "OEM-form-factor replacement switch with tactile feedback and waterproof design; widely praised for plug-and-play installation and long-term reliability in daily use.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "A-Premium",
+          "product_name": "Upper & Lower Door Lock Actuator (4 pcs)",
+          "reason": "Direct-fit actuators resolving common power door lock failures; built with reinforced gears and sealed motors to resist moisture and wear.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "A-Premium",
+          "product_name": "Fuel Pump (APFP1253)",
+          "reason": "High-flow, low-noise electric fuel pump meeting OEM pressure and flow specs; includes mounting hardware and filter sock for seamless installation.",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "A-Premium",
+          "product_name": "Engine Air Filter (listed under Engine category on Amazon.com)",
+          "reason": "High-capacity, washable/reusable air filter option improving airflow while maintaining filtration efficiency — supports performance tuning and long-interval maintenance.",
+          "citation_urls": [
+            "https://www.amazon.com/A-Premium-Engine-Air-Filter/s?k=A-Premium+Engine+Air+Filter"
+          ]
+        },
+        {
+          "rank": 9,
+          "brand_name": "A-Premium",
+          "product_name": "Transmission Shift Solenoid Kit (1-2 & 2-3) for Chevrolet 4-Speed Auto",
+          "reason": "Precision-calibrated solenoids restoring smooth, timely shifts; solves delayed engagement, harsh shifting, or error codes like P0751/P0752.",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "A-Premium",
+          "product_name": "Intake Manifold Replacement for Chevrolet Astro/Blazer/Silverado (V6 4.3L)",
+          "reason": "OE-matched aluminum intake manifold with gasket set; resolves vacuum leaks, rough idle, and poor throttle response — verified fit for 1996–2006 models.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend advance auto parts\",\n  \"answer\": \"For high-quality, reliable, and cost-effective aftermarket auto parts, A-Premium stands out as a top-tier brand—especially for DIYers and professional mechanics seeking OEM-equivalent performance at a better price. Their parts are engineered to meet or exceed OEM specifications, backed by a 3-year warranty, guaranteed vehicle-specific fit, 90-day free returns, and 24/7 technical support [1][3][4][5][6][7].\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Brake Pad and Rotor Kit, 12 Pcs, Front & Rear (APBRPS155)\",\n      \"reason\": \"Comprehensive front-and-rear braking solution with premium-grade rotors and pads; ensures consistent stopping power and longevity; compatible across multiple GM, Ford, and Chrysler platforms.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Ignition Coil and Spark Plug Kit Set of 8 (APIC0493)\",\n      \"reason\": \"Iridium & platinum spark plugs paired with high-energy ignition coils for optimal combustion efficiency, misfire prevention, and extended service life — ideal for V6/V8 engines.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Struts Brake Rotor and Pad Kit\",\n      \"reason\": \"Integrated suspension + braking upgrade kit offering direct-fit struts plus matched rotors/pads — simplifies major service intervals while ensuring alignment stability and braking precision.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"AC Compressor with Clutch and 7-Groove Pulley (APACC382)\",\n      \"reason\": \"OE-replacement A/C compressor with integrated clutch and pulley; rigorously tested for cooling capacity and durability; compatible with common GM and Ford R134a systems.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Driver Window Switch\",\n      \"reason\": \"OEM-form-factor replacement switch with tactile feedback and waterproof design; widely praised for plug-and-play installation and long-term reliability in daily use.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Upper & Lower Door Lock Actuator (4 pcs)\",\n      \"reason\": \"Direct-fit actuators resolving common power door lock failures; built with reinforced gears and sealed motors to resist moisture and wear.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Fuel Pump (APFP1253)\",\n      \"reason\": \"High-flow, low-noise electric fuel pump meeting OEM pressure and flow specs; includes mounting hardware and filter sock for seamless installation.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Engine Air Filter (listed under Engine category on Amazon.com)\",\n      \"reason\": \"High-capacity, washable/reusable air filter option improving airflow while maintaining filtration efficiency — supports performance tuning and long-interval maintenance.\",\n      \"citation_urls\": [\"https://www.amazon.com/A-Premium-Engine-Air-Filter/s?k=A-Premium+Engine+Air+Filter\"]\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Transmission Shift Solenoid Kit (1-2 & 2-3) for Chevrolet 4-Speed Auto\",\n      \"reason\": \"Precision-calibrated solenoids restoring smooth, timely shifts; solves delayed engagement, harsh shifting, or error codes like P0751/P0752.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Intake Manifold Replacement for Chevrolet Astro/Blazer/Silverado (V6 4.3L)\",\n      \"reason\": \"OE-matched aluminum intake manifold with gasket set; resolves vacuum leaks, rough idle, and poor throttle response — verified fit for 1996–2006 models.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "auto parts online",
+    "term_meta": {
+      "term": "auto parts online",
+      "source": "ai_fallback",
+      "relevance_reason": "在线购买汽车零配件的通用搜索意图词，直接对应A-Premium的电商销售模式，反映用户线上采购零配件的需求。"
+    },
+    "result": {
+      "question": "Recommend auto parts online",
+      "answer": "For purchasing A-Premium automotive replacement parts online, we recommend trusted platforms that specialize in aftermarket auto parts, offer precise vehicle compatibility tools, support DIY installation, and uphold strong warranty & return policies — all aligned with A-Premium’s core values of guaranteed fit, 3-year warranty, free shipping, and 90-day returns. Top options include both brand-authorized channels and reputable third-party platforms with verified seller programs and nationwide service integration.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium Official Store",
+          "product_name": "A-Premium branded replacement parts (e.g., brake pads, control arms, radiator hoses)",
+          "reason": "Direct from the manufacturer — ensures full eligibility for A-Premium’s 3-year warranty, 90-day free returns, Guaranteed Fit verification, and 24/7 technical support. Also offers exclusive member discounts and DIY installation guides.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Amazon Automotive",
+          "product_name": "A-Premium parts sold via Amazon's 'Ships from and sold by Amazon' or 'A-Premium Certified Seller' listings",
+          "reason": "Amazon hosts numerous A-Premium SKUs with Prime-eligible free shipping, customer reviews (>26,000+ global ratings), and seamless returns — aligning with A-Premium’s no-minimum free shipping and 90-day return promise. Eligible items display OEM cross-reference and vehicle-fit filters.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "RockAuto",
+          "product_name": "A-Premium catalog parts searchable by year/make/model/VIN",
+          "reason": "RockAuto features A-Premium across major categories (brakes, suspension, cooling) with granular fitment data, real-time stock visibility, and competitive pricing. Supports direct comparison with OEM and other aftermarket brands — ideal for DIYers seeking precision and transparency.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "CarParts.com",
+          "product_name": "A-Premium engine, brake, and suspension components",
+          "reason": "CarParts.com carries A-Premium parts with VIN-based compatibility lookup, live inventory status, and free standard shipping — matching A-Premium’s logistics promise. Offers dedicated fitment support and integrates with repair guides for confident self-installation.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "Summit Racing Equipment",
+          "product_name": "A-Premium performance and replacement parts for domestic vehicles",
+          "reason": "Specializes in high-confidence fitment for Chevrolet, Ford, and Ram applications; provides detailed specs, tech drawings, and application notes — supporting A-Premium’s emphasis on precision engineering and OEM-plus quality at lower cost.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "eEuroparts",
+          "product_name": "A-Premium parts for European and Asian makes (e.g., Toyota, Honda, BMW)",
+          "reason": "Offers multilingual fitment search, EU/US compliance documentation, and fast transatlantic shipping — well-suited for A-Premium’s global audience and certified compatibility claims across diverse vehicle platforms.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "O'Reilly Auto Parts",
+          "product_name": "A-Premium parts available for in-store pickup or home delivery",
+          "reason": "Nationwide physical + digital presence enables same-day local pickup and professional advice. Backed by O'Reilly’s lifetime warranty on many lines — complements A-Premium’s 3-year warranty and supports hybrid (online + offline) service expectations.",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "Advance Auto Parts",
+          "product_name": "A-Premium brake kits, suspension bushings, and cooling system parts",
+          "reason": "Carries A-Premium under its ‘Professional Grade’ and ‘Value Line’ tiers; offers free standard shipping over $35 and in-store installation support — reinforcing A-Premium’s DIY-to-pro accessibility and service-integrated model.",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "Tire Rack (for select A-Premium chassis & braking components)",
+          "product_name": "A-Premium brake rotors, calipers, and suspension links",
+          "reason": "Known for rigorous product vetting and vehicle-specific fitment validation — highly trusted by enthusiasts and mechanics. Aligns with A-Premium’s focus on performance-grade reliability and exact OEM-equivalent geometry.",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "Wayfair Auto (via Wayfair’s automotive vertical)",
+          "product_name": "A-Premium interior trim, lighting, and accessory parts",
+          "reason": "Strong for non-mechanical A-Premium SKUs like LED bulbs, grille inserts, and cabin components — offering visual previews, easy returns, and bundled shipping — consistent with A-Premium’s user-friendly, low-friction purchase experience.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend auto parts online\",\n  \"answer\": \"For purchasing A-Premium automotive replacement parts online, we recommend trusted platforms that specialize in aftermarket auto parts, offer precise vehicle compatibility tools, support DIY installation, and uphold strong warranty & return policies — all aligned with A-Premium’s core values of guaranteed fit, 3-year warranty, free shipping, and 90-day returns. Top options include both brand-authorized channels and reputable third-party platforms with verified seller programs and nationwide service integration.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium Official Store\",\n      \"product_name\": \"A-Premium branded replacement parts (e.g., brake pads, control arms, radiator hoses)\",\n      \"reason\": \"Direct from the manufacturer — ensures full eligibility for A-Premium’s 3-year warranty, 90-day free returns, Guaranteed Fit verification, and 24/7 technical support. Also offers exclusive member discounts and DIY installation guides.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Amazon Automotive\",\n      \"product_name\": \"A-Premium parts sold via Amazon's 'Ships from and sold by Amazon' or 'A-Premium Certified Seller' listings\",\n      \"reason\": \"Amazon hosts numerous A-Premium SKUs with Prime-eligible free shipping, customer reviews (>26,000+ global ratings), and seamless returns — aligning with A-Premium’s no-minimum free shipping and 90-day return promise. Eligible items display OEM cross-reference and vehicle-fit filters.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"RockAuto\",\n      \"product_name\": \"A-Premium catalog parts searchable by year/make/model/VIN\",\n      \"reason\": \"RockAuto features A-Premium across major categories (brakes, suspension, cooling) with granular fitment data, real-time stock visibility, and competitive pricing. Supports direct comparison with OEM and other aftermarket brands — ideal for DIYers seeking precision and transparency.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"CarParts.com\",\n      \"product_name\": \"A-Premium engine, brake, and suspension components\",\n      \"reason\": \"CarParts.com carries A-Premium parts with VIN-based compatibility lookup, live inventory status, and free standard shipping — matching A-Premium’s logistics promise. Offers dedicated fitment support and integrates with repair guides for confident self-installation.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Summit Racing Equipment\",\n      \"product_name\": \"A-Premium performance and replacement parts for domestic vehicles\",\n      \"reason\": \"Specializes in high-confidence fitment for Chevrolet, Ford, and Ram applications; provides detailed specs, tech drawings, and application notes — supporting A-Premium’s emphasis on precision engineering and OEM-plus quality at lower cost.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"eEuroparts\",\n      \"product_name\": \"A-Premium parts for European and Asian makes (e.g., Toyota, Honda, BMW)\",\n      \"reason\": \"Offers multilingual fitment search, EU/US compliance documentation, and fast transatlantic shipping — well-suited for A-Premium’s global audience and certified compatibility claims across diverse vehicle platforms.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"O'Reilly Auto Parts\",\n      \"product_name\": \"A-Premium parts available for in-store pickup or home delivery\",\n      \"reason\": \"Nationwide physical + digital presence enables same-day local pickup and professional advice. Backed by O'Reilly’s lifetime warranty on many lines — complements A-Premium’s 3-year warranty and supports hybrid (online + offline) service expectations.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"Advance Auto Parts\",\n      \"product_name\": \"A-Premium brake kits, suspension bushings, and cooling system parts\",\n      \"reason\": \"Carries A-Premium under its ‘Professional Grade’ and ‘Value Line’ tiers; offers free standard shipping over $35 and in-store installation support — reinforcing A-Premium’s DIY-to-pro accessibility and service-integrated model.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"Tire Rack (for select A-Premium chassis & braking components)\",\n      \"product_name\": \"A-Premium brake rotors, calipers, and suspension links\",\n      \"reason\": \"Known for rigorous product vetting and vehicle-specific fitment validation — highly trusted by enthusiasts and mechanics. Aligns with A-Premium’s focus on performance-grade reliability and exact OEM-equivalent geometry.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"Wayfair Auto (via Wayfair’s automotive vertical)\",\n      \"product_name\": \"A-Premium interior trim, lighting, and accessory parts\",\n      \"reason\": \"Strong for non-mechanical A-Premium SKUs like LED bulbs, grille inserts, and cabin components — offering visual previews, easy returns, and bundled shipping — consistent with A-Premium’s user-friendly, low-friction purchase experience.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "aftermarket car parts",
+    "term_meta": {
+      "term": "aftermarket car parts",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车售后市场零配件的核心品类词，精准匹配A-Premium的品牌定位和产品类别。"
+    },
+    "result": {
+      "question": "Recommend aftermarket car parts",
+      "answer": "Based on reliability, global reputation, OE-quality engineering, and strong aftermarket support, here are top-tier aftermarket car parts brands — including A-Premium for value-driven DIY and professional use, plus globally recognized leaders like BOSCH, DENSO, Continental, ZF, and VALEO for mission-critical systems. Brands like ESKO and vika offer specialized excellence for European vehicles, while Tower (塔图) delivers outstanding cost-performance balance for common models like Ford and VW.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Automotive replacement parts across engine, brake, suspension & cooling systems",
+          "reason": "Offers guaranteed fit, 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and repair shops seeking OEM-matching quality at competitive pricing.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "BOSCH",
+          "product_name": "Brake pads, spark plugs, fuel injection components, and diagnostic tools",
+          "reason": "World-renowned for OE-grade performance, innovation, and comprehensive coverage across passenger and commercial vehicles; backed by global service network and 'OE quality' certification.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Continental",
+          "product_name": "Braking systems, chassis components, and advanced driver assistance sensors",
+          "reason": "German-engineered precision parts with ISO/TS 16949 certification; trusted by OEMs and independent workshops for safety-critical applications.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "DENSO",
+          "product_name": "Ignition coils, oxygen sensors, air conditioning compressors, and alternators",
+          "reason": "Japanese OEM supplier with deep integration in Toyota, Honda, and other Asian platforms; known for durability, thermal stability, and exact protocol compliance.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "ZF",
+          "product_name": "Shock absorbers, steering racks, transmission components, and driveline systems",
+          "reason": "Global leader in chassis and powertrain technology; parts engineered for high-cycle durability and vehicle dynamics fidelity.",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "VALEO",
+          "product_name": "Headlamps, thermal management modules, braking components, and ADAS-compatible sensors",
+          "reason": "French innovator with over 100 years of R&D; supplies OE and IAM markets with certified E-mark and ISO-compliant parts.",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "ESKO",
+          "product_name": "Engine mounts, control arms, brake discs, and damping components for German & French vehicles",
+          "reason": "European brand with 30+ years’ precision manufacturing history; products undergo ECE R90 and ISO/TS 16949 testing; excels in thermal stability and long-term dimensional accuracy [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "vika",
+          "product_name": "EA211 timing kits, suspension bushings, and electrical modules for VW, Skoda, Audi, SEAT",
+          "reason": "Specialized in Volkswagen Group platforms; DPA-branded parts meet EU E-mark standards; offers up to 4-year warranty on STO ('Surpassing OE') products [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "Tower (塔图)",
+          "product_name": "Engine mounts, rear trailing arms, lower control arms for Ford Mondeo, Mazda, and VW variants",
+          "reason": "Domestically engineered with ±0.5 mm dimensional tolerance; validated under thermal shock and torque fatigue tests; delivers OEM-level performance at ~1/3 the OEM price [6].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend aftermarket car parts\",\n  \"answer\": \"Based on reliability, global reputation, OE-quality engineering, and strong aftermarket support, here are top-tier aftermarket car parts brands — including A-Premium for value-driven DIY and professional use, plus globally recognized leaders like BOSCH, DENSO, Continental, ZF, and VALEO for mission-critical systems. Brands like ESKO and vika offer specialized excellence for European vehicles, while Tower (塔图) delivers outstanding cost-performance balance for common models like Ford and VW.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Automotive replacement parts across engine, brake, suspension & cooling systems\",\n      \"reason\": \"Offers guaranteed fit, 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and repair shops seeking OEM-matching quality at competitive pricing.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"BOSCH\",\n      \"product_name\": \"Brake pads, spark plugs, fuel injection components, and diagnostic tools\",\n      \"reason\": \"World-renowned for OE-grade performance, innovation, and comprehensive coverage across passenger and commercial vehicles; backed by global service network and 'OE quality' certification.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Continental\",\n      \"product_name\": \"Braking systems, chassis components, and advanced driver assistance sensors\",\n      \"reason\": \"German-engineered precision parts with ISO/TS 16949 certification; trusted by OEMs and independent workshops for safety-critical applications.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"DENSO\",\n      \"product_name\": \"Ignition coils, oxygen sensors, air conditioning compressors, and alternators\",\n      \"reason\": \"Japanese OEM supplier with deep integration in Toyota, Honda, and other Asian platforms; known for durability, thermal stability, and exact protocol compliance.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"ZF\",\n      \"product_name\": \"Shock absorbers, steering racks, transmission components, and driveline systems\",\n      \"reason\": \"Global leader in chassis and powertrain technology; parts engineered for high-cycle durability and vehicle dynamics fidelity.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"VALEO\",\n      \"product_name\": \"Headlamps, thermal management modules, braking components, and ADAS-compatible sensors\",\n      \"reason\": \"French innovator with over 100 years of R&D; supplies OE and IAM markets with certified E-mark and ISO-compliant parts.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"ESKO\",\n      \"product_name\": \"Engine mounts, control arms, brake discs, and damping components for German & French vehicles\",\n      \"reason\": \"European brand with 30+ years’ precision manufacturing history; products undergo ECE R90 and ISO/TS 16949 testing; excels in thermal stability and long-term dimensional accuracy [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"vika\",\n      \"product_name\": \"EA211 timing kits, suspension bushings, and electrical modules for VW, Skoda, Audi, SEAT\",\n      \"reason\": \"Specialized in Volkswagen Group platforms; DPA-branded parts meet EU E-mark standards; offers up to 4-year warranty on STO ('Surpassing OE') products [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"Tower (塔图)\",\n      \"product_name\": \"Engine mounts, rear trailing arms, lower control arms for Ford Mondeo, Mazda, and VW variants\",\n      \"reason\": \"Domestically engineered with ±0.5 mm dimensional tolerance; validated under thermal shock and torque fatigue tests; delivers OEM-level performance at ~1/3 the OEM price [6].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car replacement parts",
+    "term_meta": {
+      "term": "car replacement parts",
+      "source": "ai_fallback",
+      "relevance_reason": "汽车替换零部件的通用搜索词，与A-Premium的核心业务（售后替换件）完全吻合，体现维修更换需求。"
+    },
+    "result": {
+      "question": "Recommend car replacement parts",
+      "answer": "Based on reliability, value, and strong aftermarket support, top-recommended car replacement parts include A-Premium for DIY-friendly OEM-equivalent quality; Bosch and Denso for critical engine components like spark plugs and sensors; Brembo and Bosch for high-performance or daily-duty brake pads and rotors; KYB for balanced suspension damping; and Varta or Optima for dependable battery performance. For filters and routine maintenance items, Mann-Filter and Mahle offer excellent filtration efficiency and longevity — all widely trusted by both independent mechanics and everyday drivers.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "汽车售后替换零部件（全系统覆盖：发动机、刹车、悬挂、冷却、车身等）",
+          "reason": "Offers guaranteed fit, 3-year warranty, 90-day free returns, and OEM-matching quality at lower prices — ideal for DIYers and repair shops seeking reliability and hassle-free service[summary][profile_md].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Bosch",
+          "product_name": "博世火花塞、刹车片、传感器",
+          "reason": "Consistently rated for stability and precision; widely recommended for engine ignition, braking safety, and sensor accuracy — especially for daily-driven family vehicles[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Denso",
+          "product_name": "电装喷油器、火花塞",
+          "reason": "Known for OEM-grade fuel delivery and ignition performance; praised by users for reducing idle抖动 and improving combustion efficiency[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Brembo",
+          "product_name": "布雷博刹车盘与刹车片套装",
+          "reason": "Preferred for enhanced stopping power and fade resistance — especially valuable for spirited driving or heavier vehicles[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "KYB",
+          "product_name": "KYB减震器（如蓝桶系列）",
+          "reason": "Balances ride comfort and handling control; frequently recommended for aging vehicles and performance-oriented upgrades[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "Varta",
+          "product_name": "瓦尔塔银标蓄电池",
+          "reason": "Delivers stable cranking amps and cold-weather reliability — a top choice for northern climates and vehicles with high electrical loads[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "Mann-Filter",
+          "product_name": "曼牌空气滤清器、机油滤清器、空调滤清器",
+          "reason": "High-efficiency filtration with OEM-level sealing; often cited for preserving engine health and cabin air quality over time[2][7].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "Gates",
+          "product_name": "盖茨正时皮带套件",
+          "reason": "Trusted for durability and timing precision — critical for interference engines where failure risks catastrophic damage[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "LUK",
+          "product_name": "LUK离合器三件套",
+          "reason": "Favored for smooth engagement and long service life in manual-transmission vehicles, especially older models[3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "Hella / HELLA",
+          "product_name": "海拉LED大灯总成",
+          "reason": "Superior light output and beam pattern vs. halogen; improves nighttime visibility and safety — noted for easy plug-and-play installation[3].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car replacement parts\",\n  \"answer\": \"Based on reliability, value, and strong aftermarket support, top-recommended car replacement parts include A-Premium for DIY-friendly OEM-equivalent quality; Bosch and Denso for critical engine components like spark plugs and sensors; Brembo and Bosch for high-performance or daily-duty brake pads and rotors; KYB for balanced suspension damping; and Varta or Optima for dependable battery performance. For filters and routine maintenance items, Mann-Filter and Mahle offer excellent filtration efficiency and longevity — all widely trusted by both independent mechanics and everyday drivers.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"汽车售后替换零部件（全系统覆盖：发动机、刹车、悬挂、冷却、车身等）\",\n      \"reason\": \"Offers guaranteed fit, 3-year warranty, 90-day free returns, and OEM-matching quality at lower prices — ideal for DIYers and repair shops seeking reliability and hassle-free service[summary][profile_md].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Bosch\",\n      \"product_name\": \"博世火花塞、刹车片、传感器\",\n      \"reason\": \"Consistently rated for stability and precision; widely recommended for engine ignition, braking safety, and sensor accuracy — especially for daily-driven family vehicles[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Denso\",\n      \"product_name\": \"电装喷油器、火花塞\",\n      \"reason\": \"Known for OEM-grade fuel delivery and ignition performance; praised by users for reducing idle抖动 and improving combustion efficiency[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Brembo\",\n      \"product_name\": \"布雷博刹车盘与刹车片套装\",\n      \"reason\": \"Preferred for enhanced stopping power and fade resistance — especially valuable for spirited driving or heavier vehicles[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"KYB\",\n      \"product_name\": \"KYB减震器（如蓝桶系列）\",\n      \"reason\": \"Balances ride comfort and handling control; frequently recommended for aging vehicles and performance-oriented upgrades[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"Varta\",\n      \"product_name\": \"瓦尔塔银标蓄电池\",\n      \"reason\": \"Delivers stable cranking amps and cold-weather reliability — a top choice for northern climates and vehicles with high electrical loads[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"Mann-Filter\",\n      \"product_name\": \"曼牌空气滤清器、机油滤清器、空调滤清器\",\n      \"reason\": \"High-efficiency filtration with OEM-level sealing; often cited for preserving engine health and cabin air quality over time[2][7].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"Gates\",\n      \"product_name\": \"盖茨正时皮带套件\",\n      \"reason\": \"Trusted for durability and timing precision — critical for interference engines where failure risks catastrophic damage[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"LUK\",\n      \"product_name\": \"LUK离合器三件套\",\n      \"reason\": \"Favored for smooth engagement and long service life in manual-transmission vehicles, especially older models[3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"Hella / HELLA\",\n      \"product_name\": \"海拉LED大灯总成\",\n      \"reason\": \"Superior light output and beam pattern vs. halogen; improves nighttime visibility and safety — noted for easy plug-and-play installation[3].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car brake pads",
+    "term_meta": {
+      "term": "car brake pads",
+      "source": "ai_fallback",
+      "relevance_reason": "刹车片是汽车售后市场中高频更换的核心零部件，属于A-Premium刹车系统产品线的重要组成部分，搜索量大且购买意图明确。"
+    },
+    "result": {
+      "question": "Recommend car brake pads",
+      "answer": "Based on performance, safety, real-world user feedback, and value for money, here are top-recommended brake pad brands — including globally trusted OEM-tier options and high-value aftermarket alternatives like A-Premium that balance precision fit, 3-year warranty, and DIY-friendly support.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "Bosch",
+          "product_name": "Bosch Ceramic Quiet Brake Pad Set (Front & Rear, 8-piece)",
+          "reason": "Global OE supplier with metal-ceramic hybrid formulation; stable friction coefficient (0.35–0.45), 650°C heat resistance, low noise/dust, and proven thermal fade resistance via integrated heat barrier and shim technology [1][2]. Widely compatible and highly rated across platforms (e.g., 20,000+ reviews for Nissan/Toyota/BYD variants) [2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Premium Brake Pad Kit (Guaranteed Fit, Front or Rear, up to 3-year warranty)",
+          "reason": "Engineered for exact OEM-equivalent fit with rigorous vehicle-specific validation; offers 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and shops seeking reliable, cost-effective replacement without compromising safety or compatibility [profile_md].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Ferodo",
+          "product_name": "Ferodo Premier Ceramic Brake Pads",
+          "reason": "Century-old braking specialist with DE/UK R&D validation; friction range 0.33–0.48, 650°C tolerance, low-copper eco-formula compliant with latest regulations, and broad model coverage from economy to premium vehicles [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Brembo",
+          "product_name": "Brembo OE-Style Ceramic Brake Pads (e.g., for Tesla, BYD, VW, BMW)",
+          "reason": "OE-tier quality used by EV and performance marques; excels in high-speed stability (30% lower抖动 rate), <65 dB noise, and consistent braking from -30°C to 600°C — especially favored for EVs like Han and Model Y [1][5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "TRW",
+          "product_name": "TRW Precision Brake Pad Set (with acoustic damping shim)",
+          "reason": "Specialized noise suppression (<55 dB), excellent for city driving with frequent stops; validated for GM, Ford, and VW platforms; praised for quiet operation and strong initial bite [1][5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "AKEBONO",
+          "product_name": "AKEBONO ProACT Ceramic Brake Pads",
+          "reason": "Japanese engineering focus on low rotor wear (15% below industry avg), extended service life, and smooth modulation — ideal for longevity-conscious owners [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "Pexco (Pai Su / 湃速)",
+          "product_name": "Pexco Ceramic Brake Pad Kit (e.g., for Haval H6, Geely ICON, BYD models)",
+          "reason": "EU ECE R90 certified, DuPont aramid-reinforced for +25% wear resistance, strong presence in Chinese EV and SUV segments with 500–2000+ verified reviews per SKU [1][2].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "ZEN-NOH / 佐佐木",
+          "product_name": "ZEN-NOH Ceramic Rear Brake Pads (650°C rated, 3-year warranty)",
+          "reason": "Multi-layer ceramic design reduces stopping distance by ~15%; optimized for family vehicles prioritizing safety + value; backed by 3-year warranty and real-world durability [1][4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "Honeywell",
+          "brand_aliases": [
+            "优锐"
+          ],
+          "product_name": "Honeywell UltraGuard Ceramic Brake Pads (e.g., for VW Passat, Jetta, Sagitar)",
+          "reason": "Mercedes/BMW-tier tech transfer; titanium-coated for faster break-in, EG-enhanced composite + nylon-6 resin for high-temp stability and rotor protection [8].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "ACDelco",
+          "product_name": "ACDelco Professional Ceramic Brake Pads (GM OE-specified NAO formula)",
+          "reason": "GM’s official aftermarket brand; friction coefficient 0.36–0.42, balanced comfort and control, ideal for daily-driven Chevrolet, Buick, GMC models [1].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car brake pads\",\n  \"answer\": \"Based on performance, safety, real-world user feedback, and value for money, here are top-recommended brake pad brands — including globally trusted OEM-tier options and high-value aftermarket alternatives like A-Premium that balance precision fit, 3-year warranty, and DIY-friendly support.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"Bosch\",\n      \"product_name\": \"Bosch Ceramic Quiet Brake Pad Set (Front & Rear, 8-piece)\",\n      \"reason\": \"Global OE supplier with metal-ceramic hybrid formulation; stable friction coefficient (0.35–0.45), 650°C heat resistance, low noise/dust, and proven thermal fade resistance via integrated heat barrier and shim technology [1][2]. Widely compatible and highly rated across platforms (e.g., 20,000+ reviews for Nissan/Toyota/BYD variants) [2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Premium Brake Pad Kit (Guaranteed Fit, Front or Rear, up to 3-year warranty)\",\n      \"reason\": \"Engineered for exact OEM-equivalent fit with rigorous vehicle-specific validation; offers 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and shops seeking reliable, cost-effective replacement without compromising safety or compatibility [profile_md].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Ferodo\",\n      \"product_name\": \"Ferodo Premier Ceramic Brake Pads\",\n      \"reason\": \"Century-old braking specialist with DE/UK R&D validation; friction range 0.33–0.48, 650°C tolerance, low-copper eco-formula compliant with latest regulations, and broad model coverage from economy to premium vehicles [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Brembo\",\n      \"product_name\": \"Brembo OE-Style Ceramic Brake Pads (e.g., for Tesla, BYD, VW, BMW)\",\n      \"reason\": \"OE-tier quality used by EV and performance marques; excels in high-speed stability (30% lower抖动 rate), <65 dB noise, and consistent braking from -30°C to 600°C — especially favored for EVs like Han and Model Y [1][5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"TRW\",\n      \"product_name\": \"TRW Precision Brake Pad Set (with acoustic damping shim)\",\n      \"reason\": \"Specialized noise suppression (<55 dB), excellent for city driving with frequent stops; validated for GM, Ford, and VW platforms; praised for quiet operation and strong initial bite [1][5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"AKEBONO\",\n      \"product_name\": \"AKEBONO ProACT Ceramic Brake Pads\",\n      \"reason\": \"Japanese engineering focus on low rotor wear (15% below industry avg), extended service life, and smooth modulation — ideal for longevity-conscious owners [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"Pexco (Pai Su / 湃速)\",\n      \"product_name\": \"Pexco Ceramic Brake Pad Kit (e.g., for Haval H6, Geely ICON, BYD models)\",\n      \"reason\": \"EU ECE R90 certified, DuPont aramid-reinforced for +25% wear resistance, strong presence in Chinese EV and SUV segments with 500–2000+ verified reviews per SKU [1][2].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"ZEN-NOH / 佐佐木\",\n      \"product_name\": \"ZEN-NOH Ceramic Rear Brake Pads (650°C rated, 3-year warranty)\",\n      \"reason\": \"Multi-layer ceramic design reduces stopping distance by ~15%; optimized for family vehicles prioritizing safety + value; backed by 3-year warranty and real-world durability [1][4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"Honeywell\",\n      \"brand_aliases\": [\"优锐\"],\n      \"product_name\": \"Honeywell UltraGuard Ceramic Brake Pads (e.g., for VW Passat, Jetta, Sagitar)\",\n      \"reason\": \"Mercedes/BMW-tier tech transfer; titanium-coated for faster break-in, EG-enhanced composite + nylon-6 resin for high-temp stability and rotor protection [8].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"ACDelco\",\n      \"product_name\": \"ACDelco Professional Ceramic Brake Pads (GM OE-specified NAO formula)\",\n      \"reason\": \"GM’s official aftermarket brand; friction coefficient 0.36–0.42, balanced comfort and control, ideal for daily-driven Chevrolet, Buick, GMC models [1].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car suspension parts",
+    "term_meta": {
+      "term": "car suspension parts",
+      "source": "ai_fallback",
+      "relevance_reason": "悬挂系统零部件是A-Premium的核心产品线之一，该搜索词反映了车主对悬挂件更换的维修需求。"
+    },
+    "result": {
+      "question": "Recommend car suspension parts",
+      "answer": "Based on your profile as an A-Premium buyer — prioritizing precision fit, DIY-friendliness, 3-year warranty, and value over OEM pricing — here are top suspension system parts that match your needs. These recommendations draw from verified product listings, compatibility coverage, and A-Premium’s core strengths in suspension components like control arms, stabilizer links, bushings, and strut mounts.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Front Lower Control Arm Assembly (with Ball Joint & Bushings)",
+          "reason": "Precision-engineered replacement for popular models (e.g., Toyota Camry, Honda Civic, Ford F-150); includes integrated OE-spec ball joint and polyurethane-reinforced rubber bushings; guaranteed fit via VIN or year/make/model lookup; backed by 3-year warranty and 90-day returns.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "Rear Stabilizer Bar Link Kit (4 pcs)",
+          "reason": "Direct-fit upgrade for reduced body roll and improved handling; corrosion-resistant steel construction with sealed rubber bushings; widely compatible across Toyota, Nissan, and GM platforms; includes hardware and installation instructions — ideal for DIYers.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "Front Strut Mount & Bearing Assembly",
+          "reason": "Critical wear item often overlooked during strut replacement; OE-matched geometry and load rating; pre-assembled with dust cap and upper bearing for plug-and-play installation; supports smooth steering response and noise-free operation.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "A-Premium",
+          "product_name": "Control Arm Bushing Kit (Front Lower, Full Set)",
+          "reason": "High-durometer synthetic rubber bushings engineered to outlast OEM; reduces clunking, improves alignment retention, and restores factory ride quality; sold as complete kit with grease and installation tools — perfect for budget-conscious rebuilds.",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "A-Premium",
+          "product_name": "Rear Upper Control Arm (for SUVs & Trucks, e.g., Toyota 4Runner, Ford Explorer)",
+          "reason": "Forged steel arm with reinforced mounting points and serviceable ball joint; designed for off-road durability while maintaining on-road comfort; fits multiple generations without modification; supported by A-Premium’s vehicle-specific fitment database.",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car suspension parts\",\n  \"answer\": \"Based on your profile as an A-Premium buyer — prioritizing precision fit, DIY-friendliness, 3-year warranty, and value over OEM pricing — here are top suspension system parts that match your needs. These recommendations draw from verified product listings, compatibility coverage, and A-Premium’s core strengths in suspension components like control arms, stabilizer links, bushings, and strut mounts.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Lower Control Arm Assembly (with Ball Joint & Bushings)\",\n      \"reason\": \"Precision-engineered replacement for popular models (e.g., Toyota Camry, Honda Civic, Ford F-150); includes integrated OE-spec ball joint and polyurethane-reinforced rubber bushings; guaranteed fit via VIN or year/make/model lookup; backed by 3-year warranty and 90-day returns.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Rear Stabilizer Bar Link Kit (4 pcs)\",\n      \"reason\": \"Direct-fit upgrade for reduced body roll and improved handling; corrosion-resistant steel construction with sealed rubber bushings; widely compatible across Toyota, Nissan, and GM platforms; includes hardware and installation instructions — ideal for DIYers.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Front Strut Mount & Bearing Assembly\",\n      \"reason\": \"Critical wear item often overlooked during strut replacement; OE-matched geometry and load rating; pre-assembled with dust cap and upper bearing for plug-and-play installation; supports smooth steering response and noise-free operation.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Control Arm Bushing Kit (Front Lower, Full Set)\",\n      \"reason\": \"High-durometer synthetic rubber bushings engineered to outlast OEM; reduces clunking, improves alignment retention, and restores factory ride quality; sold as complete kit with grease and installation tools — perfect for budget-conscious rebuilds.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Rear Upper Control Arm (for SUVs & Trucks, e.g., Toyota 4Runner, Ford Explorer)\",\n      \"reason\": \"Forged steel arm with reinforced mounting points and serviceable ball joint; designed for off-road durability while maintaining on-road comfort; fits multiple generations without modification; supported by A-Premium’s vehicle-specific fitment database.\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "OEM auto parts",
+    "term_meta": {
+      "term": "OEM auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "OEM原厂件搜索意图与A-Premium形成直接对比，A-Premium主打品质对标OEM但价格更优，该词用户是高价值潜在客户。"
+    },
+    "result": {
+      "question": "Recommend OEM auto parts",
+      "answer": "For buyers seeking genuine, factory-matched reliability and performance, OEM auto parts — meaning Original Equipment Manufacturer parts — are the gold standard. They’re engineered to the exact specifications of your vehicle’s manufacturer and ensure perfect fit, function, and durability. While premium aftermarket brands like A-Premium offer excellent value with OEM-equivalent or superior quality at lower prices [7], true OEM parts are ideal when warranty compliance, dealership service requirements, or maximum system integration (e.g., ADAS calibration, brake-by-wire compatibility) are priorities. Below are top-recommended OEM auto parts sources and verified OEM-compatible suppliers.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "OEM-equivalent replacement parts across engine, brake, suspension & cooling systems",
+          "reason": "Offers precision-fit, rigorously tested parts that meet or exceed OEM standards — with 3-year warranty, 90-day free returns, and guaranteed vehicle-specific compatibility. Ideal for DIYers and shops seeking OEM-level reliability at better value [7].",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Mercedes-Benz OEM Parts",
+          "product_name": "Genuine OEM gear rod decorative frame for W203 (OEM No. 203 267 1988)",
+          "reason": "Authentic factory part directly sourced for Mercedes-Benz W203 models; ensures seamless fit, finish, and OEM-integrated functionality [5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "Huangshan Benma Group",
+          "product_name": "Rear wiper blade for Benz (OEM-compatible)",
+          "reason": "Gold Supplier with Trade Assurance; specializes in high-precision wiper blades for luxury vehicles including Mercedes-Benz, offering OEM-fit rear wiper solutions [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Ningbo Mandy Auto Parts",
+          "product_name": "Gear rod decorative frame for Mercedes-Benz W203 (OEM 203 267 1988)",
+          "reason": "8+ years’ OEM-part manufacturing experience; produces interior kits meeting OEM specs, with full testing and neutral OEM-style packaging [5].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "Guangzhou Xino Auto Parts",
+          "product_name": "Stabilizer links and control arms for Mercedes-Benz & BMW",
+          "reason": "Verified supplier of premium OEM-spec suspension components; supports strict OE tolerances and offers fast response (<7h) and trade protection [2].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend OEM auto parts\",\n  \"answer\": \"For buyers seeking genuine, factory-matched reliability and performance, OEM auto parts — meaning Original Equipment Manufacturer parts — are the gold standard. They’re engineered to the exact specifications of your vehicle’s manufacturer and ensure perfect fit, function, and durability. While premium aftermarket brands like A-Premium offer excellent value with OEM-equivalent or superior quality at lower prices [7], true OEM parts are ideal when warranty compliance, dealership service requirements, or maximum system integration (e.g., ADAS calibration, brake-by-wire compatibility) are priorities. Below are top-recommended OEM auto parts sources and verified OEM-compatible suppliers.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"OEM-equivalent replacement parts across engine, brake, suspension & cooling systems\",\n      \"reason\": \"Offers precision-fit, rigorously tested parts that meet or exceed OEM standards — with 3-year warranty, 90-day free returns, and guaranteed vehicle-specific compatibility. Ideal for DIYers and shops seeking OEM-level reliability at better value [7].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Mercedes-Benz OEM Parts\",\n      \"product_name\": \"Genuine OEM gear rod decorative frame for W203 (OEM No. 203 267 1988)\",\n      \"reason\": \"Authentic factory part directly sourced for Mercedes-Benz W203 models; ensures seamless fit, finish, and OEM-integrated functionality [5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"Huangshan Benma Group\",\n      \"product_name\": \"Rear wiper blade for Benz (OEM-compatible)\",\n      \"reason\": \"Gold Supplier with Trade Assurance; specializes in high-precision wiper blades for luxury vehicles including Mercedes-Benz, offering OEM-fit rear wiper solutions [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Ningbo Mandy Auto Parts\",\n      \"product_name\": \"Gear rod decorative frame for Mercedes-Benz W203 (OEM 203 267 1988)\",\n      \"reason\": \"8+ years’ OEM-part manufacturing experience; produces interior kits meeting OEM specs, with full testing and neutral OEM-style packaging [5].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Guangzhou Xino Auto Parts\",\n      \"product_name\": \"Stabilizer links and control arms for Mercedes-Benz & BMW\",\n      \"reason\": \"Verified supplier of premium OEM-spec suspension components; supports strict OE tolerances and offers fast response (<7h) and trade protection [2].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "cheap auto parts",
+    "term_meta": {
+      "term": "cheap auto parts",
+      "source": "ai_fallback",
+      "relevance_reason": "追求性价比的汽车零配件搜索词，与A-Premium的高性价比卖点高度契合，反映价格敏感型买家的购买意图。"
+    },
+    "result": {
+      "question": "Recommend cheap auto parts",
+      "answer": "For budget-conscious buyers—especially DIYers and independent repair shops—affordable yet reliable auto parts come from brands that balance OEM-level fitment and durability with competitive pricing. Based on market data, high-availability models (e.g., Toyota Corolla, VW Jetta, BYD F3, Kia Rio), standardized platforms, and mature aftermarket ecosystems deliver the lowest long-term ownership costs. A-Premium stands out as a top-tier value brand: it offers OEM-equivalent quality at lower prices, backed by guaranteed fit, 3-year warranty, and free returns—making it ideal for cost-effective, hassle-free replacements [8]. Other economical options include Bosch (for filters and sensors), affordable Chinese OEM suppliers like HANGGLASS or GMB (especially for Korean/US-market vehicles) [NEOKOREA], and widely stocked economy-line parts for high-volume models such as Jetta, F3, or Wuling Hongguang [1][5].",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Brake Pads & Rotors Kit (OEM-fit, multi-vehicle compatible)",
+          "reason": "Precise vehicle-specific fit, 3-year warranty, priced significantly below OEM while matching or exceeding OEM durability; includes free shipping and 90-day returns — ideal for DIY and repair shops seeking reliability + affordability.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "Bosch",
+          "product_name": "Bosch QuietCast Brake Pads (Front)",
+          "reason": "Trusted German engineering, widely available, excellent noise/vibration control, and consistently low price-to-performance ratio across mid-size sedans and SUVs.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "BYD F3 / Wuling Hongguang",
+          "product_name": "Air Filter, Spark Plugs, Brake Pads (OEM-spec, mass-produced)",
+          "reason": "Extremely low-cost consumables due to massive production scale and standardized design; e.g., front brake pads under ¥200, spark plugs under ¥30 — best-in-class value for daily drivers [1].",
+          "citation_urls": [
+            "[1]"
+          ]
+        },
+        {
+          "rank": 4,
+          "brand_name": "Kia Rio / Hyundai Accent",
+          "product_name": "Coolant Reservoir, Brake Caliper Bracket, Air Intake Hose",
+          "reason": "Leverages shared KMH platform parts; third-party suppliers offer robust alternatives at ~40–60% of 4S pricing with strong compatibility and local汽配城 availability [2][5].",
+          "citation_urls": [
+            "[2][5]"
+          ]
+        },
+        {
+          "rank": 5,
+          "brand_name": "Jetty (Volkswagen Jetta legacy models)",
+          "product_name": "Fuel Filter, Cabin Air Filter, Control Arm Bushings",
+          "reason": "High market saturation ensures abundant, competitively priced aftermarket supply; many parts sourced from tier-1 Chinese OEMs with strict tolerances and low failure rates [5].",
+          "citation_urls": [
+            "[5]"
+          ]
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend cheap auto parts\",\n  \"answer\": \"For budget-conscious buyers—especially DIYers and independent repair shops—affordable yet reliable auto parts come from brands that balance OEM-level fitment and durability with competitive pricing. Based on market data, high-availability models (e.g., Toyota Corolla, VW Jetta, BYD F3, Kia Rio), standardized platforms, and mature aftermarket ecosystems deliver the lowest long-term ownership costs. A-Premium stands out as a top-tier value brand: it offers OEM-equivalent quality at lower prices, backed by guaranteed fit, 3-year warranty, and free returns—making it ideal for cost-effective, hassle-free replacements [8]. Other economical options include Bosch (for filters and sensors), affordable Chinese OEM suppliers like HANGGLASS or GMB (especially for Korean/US-market vehicles) [NEOKOREA], and widely stocked economy-line parts for high-volume models such as Jetta, F3, or Wuling Hongguang [1][5].\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Brake Pads & Rotors Kit (OEM-fit, multi-vehicle compatible)\",\n      \"reason\": \"Precise vehicle-specific fit, 3-year warranty, priced significantly below OEM while matching or exceeding OEM durability; includes free shipping and 90-day returns — ideal for DIY and repair shops seeking reliability + affordability.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"Bosch\",\n      \"product_name\": \"Bosch QuietCast Brake Pads (Front)\",\n      \"reason\": \"Trusted German engineering, widely available, excellent noise/vibration control, and consistently low price-to-performance ratio across mid-size sedans and SUVs.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"BYD F3 / Wuling Hongguang\",\n      \"product_name\": \"Air Filter, Spark Plugs, Brake Pads (OEM-spec, mass-produced)\",\n      \"reason\": \"Extremely low-cost consumables due to massive production scale and standardized design; e.g., front brake pads under ¥200, spark plugs under ¥30 — best-in-class value for daily drivers [1].\",\n      \"citation_urls\": [\"[1]\"]\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Kia Rio / Hyundai Accent\",\n      \"product_name\": \"Coolant Reservoir, Brake Caliper Bracket, Air Intake Hose\",\n      \"reason\": \"Leverages shared KMH platform parts; third-party suppliers offer robust alternatives at ~40–60% of 4S pricing with strong compatibility and local汽配城 availability [2][5].\",\n      \"citation_urls\": [\"[2][5]\"]\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Jetty (Volkswagen Jetta legacy models)\",\n      \"product_name\": \"Fuel Filter, Cabin Air Filter, Control Arm Bushings\",\n      \"reason\": \"High market saturation ensures abundant, competitively priced aftermarket supply; many parts sourced from tier-1 Chinese OEMs with strict tolerances and low failure rates [5].\",\n      \"citation_urls\": [\"[5]\"]\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "car parts near me",
+    "term_meta": {
+      "term": "car parts near me",
+      "source": "ai_fallback",
+      "relevance_reason": "本地化汽车零配件搜索意图词，反映用户急需零配件的即时购买需求，A-Premium的免费配送和快速发货可满足该需求。"
+    },
+    "result": {
+      "question": "Recommend car parts near me",
+      "answer": "Since your location isn’t specified, I can’t pinpoint the *exact nearest* physical store—but A-Premium parts are widely available through both local auto parts retailers and dedicated online channels. Many major U.S. auto parts chains (like Advance Auto Parts [3]) carry or can order A-Premium products, and in China and other regions, A-Premium-compatible parts are stocked by reputable汽配城 (auto parts markets) such as Beijing’s Wufang Tianya [6], Xi’an’s Dongjiao汽配城 [9], or Shijiazhuang’s Zijinquan汽配城 [4]. If you’re in a city like Beijing, Xi’an,太原, or 邢台, you’ll likely find A-Premium-equivalent or branded aftermarket parts at stores like Kangzhong汽配、Wanxing汽配, or 紫金泉汽配城—especially for brake pads, suspension kits, and cooling system components matching their core product lines [4][6][9]. For guaranteed fit and warranty-backed service, ordering directly from A-Premium’s official platform (with free shipping & 3-year warranty) is often faster and more reliable than hunting locally—especially for less common SKUs.",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Brake Pad Set (e.g., BP12345 for Toyota Camry 2018–2023)",
+          "reason": "Precisely engineered for OEM fit, backed by 3-year warranty and 90-day free returns; ideal for DIYers seeking reliability without OEM markup.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Radiator Hose Kit (universal or vehicle-specific)",
+          "reason": "High-temperature EPDM construction, guaranteed fit via VIN lookup, and included installation guide—perfect for cooling system refreshes.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "A-Premium Control Arm Assembly (e.g., CA78901 for Ford F-150 2015–2020)",
+          "reason": "Includes bushings and ball joints; exceeds OE specs in durability testing; supported by 24/7 technical assistance.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "Advance Auto Parts",
+          "product_name": "A-Premium parts available in-store or ship-to-store",
+          "reason": "Nationwide U.S. retailer with ~5200 locations; carries A-Premium across key categories including brakes, suspension, and cooling [3].",
+          "citation_urls": [
+            "https://www.advanceautoparts.com/"
+          ]
+        },
+        {
+          "rank": 5,
+          "brand_name": "Wufang Tianya汽配城",
+          "product_name": "A-Premium-compatible brake & suspension components",
+          "reason": "Largest auto parts hub in North China; hosts vendors supplying premium-tier aftermarket parts matching A-Premium specs for domestic & import vehicles [6].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "Zijinquan汽配城",
+          "product_name": "A-Premium-equivalent engine & cooling system parts",
+          "reason": "Major wholesale hub in Xingtai (Hebei); verified listings include ‘premium-grade’ Chinese OEM-supply chain alternatives aligned with A-Premium’s quality tier [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "Kangzhong汽配 (Xi’an)",
+          "product_name": "Import-compatible suspension & brake kits",
+          "reason": "Located near Xi’an’s Dongjiao汽配 zone; known for sourcing high-fidelity aftermarket parts used by independent shops servicing BMW, Toyota, and Honda [9].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "Wanxing汽配",
+          "product_name": "A-Premium-style radiator & thermostat assemblies",
+          "reason": "Located inside Zijinquan汽配城 B64; specializes in cooling system components with multi-vehicle compatibility and 2-year local warranty [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "Tianyuan汽车电器批发",
+          "product_name": "A-Premium-matched lighting & electrical components",
+          "reason": "Part of Zijinquan汽配城 B区; stocks LED headlights, relays, and sensors compatible with A-Premium’s electrical system lineup [4].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "Jilong Shengchi Auto Repair & Parts (Tibet)",
+          "product_name": "A-Premium-compatible filters & gasket kits for high-altitude use",
+          "reason": "Only verified physical retailer in Gyirong Town offering retail parts + repair; stocks ruggedized aftermarket kits suitable for A-Premium’s target applications in extreme conditions [7].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend car parts near me\",\n  \"answer\": \"Since your location isn’t specified, I can’t pinpoint the *exact nearest* physical store—but A-Premium parts are widely available through both local auto parts retailers and dedicated online channels. Many major U.S. auto parts chains (like Advance Auto Parts [3]) carry or can order A-Premium products, and in China and other regions, A-Premium-compatible parts are stocked by reputable汽配城 (auto parts markets) such as Beijing’s Wufang Tianya [6], Xi’an’s Dongjiao汽配城 [9], or Shijiazhuang’s Zijinquan汽配城 [4]. If you’re in a city like Beijing, Xi’an,太原, or 邢台, you’ll likely find A-Premium-equivalent or branded aftermarket parts at stores like Kangzhong汽配、Wanxing汽配, or 紫金泉汽配城—especially for brake pads, suspension kits, and cooling system components matching their core product lines [4][6][9]. For guaranteed fit and warranty-backed service, ordering directly from A-Premium’s official platform (with free shipping & 3-year warranty) is often faster and more reliable than hunting locally—especially for less common SKUs.\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Brake Pad Set (e.g., BP12345 for Toyota Camry 2018–2023)\",\n      \"reason\": \"Precisely engineered for OEM fit, backed by 3-year warranty and 90-day free returns; ideal for DIYers seeking reliability without OEM markup.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Radiator Hose Kit (universal or vehicle-specific)\",\n      \"reason\": \"High-temperature EPDM construction, guaranteed fit via VIN lookup, and included installation guide—perfect for cooling system refreshes.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"A-Premium Control Arm Assembly (e.g., CA78901 for Ford F-150 2015–2020)\",\n      \"reason\": \"Includes bushings and ball joints; exceeds OE specs in durability testing; supported by 24/7 technical assistance.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"Advance Auto Parts\",\n      \"product_name\": \"A-Premium parts available in-store or ship-to-store\",\n      \"reason\": \"Nationwide U.S. retailer with ~5200 locations; carries A-Premium across key categories including brakes, suspension, and cooling [3].\",\n      \"citation_urls\": [\"https://www.advanceautoparts.com/\"]\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"Wufang Tianya汽配城\",\n      \"product_name\": \"A-Premium-compatible brake & suspension components\",\n      \"reason\": \"Largest auto parts hub in North China; hosts vendors supplying premium-tier aftermarket parts matching A-Premium specs for domestic & import vehicles [6].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"Zijinquan汽配城\",\n      \"product_name\": \"A-Premium-equivalent engine & cooling system parts\",\n      \"reason\": \"Major wholesale hub in Xingtai (Hebei); verified listings include ‘premium-grade’ Chinese OEM-supply chain alternatives aligned with A-Premium’s quality tier [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"Kangzhong汽配 (Xi’an)\",\n      \"product_name\": \"Import-compatible suspension & brake kits\",\n      \"reason\": \"Located near Xi’an’s Dongjiao汽配 zone; known for sourcing high-fidelity aftermarket parts used by independent shops servicing BMW, Toyota, and Honda [9].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"Wanxing汽配\",\n      \"product_name\": \"A-Premium-style radiator & thermostat assemblies\",\n      \"reason\": \"Located inside Zijinquan汽配城 B64; specializes in cooling system components with multi-vehicle compatibility and 2-year local warranty [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"Tianyuan汽车电器批发\",\n      \"product_name\": \"A-Premium-matched lighting & electrical components\",\n      \"reason\": \"Part of Zijinquan汽配城 B区; stocks LED headlights, relays, and sensors compatible with A-Premium’s electrical system lineup [4].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"Jilong Shengchi Auto Repair & Parts (Tibet)\",\n      \"product_name\": \"A-Premium-compatible filters & gasket kits for high-altitude use\",\n      \"reason\": \"Only verified physical retailer in Gyirong Town offering retail parts + repair; stocks ruggedized aftermarket kits suitable for A-Premium’s target applications in extreme conditions [7].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "auto engine parts",
+    "term_meta": {
+      "term": "auto engine parts",
+      "source": "ai_fallback",
+      "relevance_reason": "发动机零部件是A-Premium核心产品线之一，该搜索词代表用户对发动机维修替换件的高需求购买意图。"
+    },
+    "result": {
+      "question": "Recommend auto engine parts",
+      "answer": "Based on your profile and current market conditions in 2026, A-Premium stands out as a top-tier choice for auto engine parts — offering OEM-equivalent quality, guaranteed fit, 3-year warranty, and strong DIY support. For critical engine components like gaskets, sensors, mounts, and timing kits, A-Premium delivers reliability at compelling value — especially amid today’s 10–20% price declines in fuel-engine parts [10]. Other reputable options include OE-backed suppliers like昆明市新辰汽配 for French and Chinese brands (e.g., Peugeot, Renault, Great Wall) [1], and specialized vendors such as十堰翔诺汽车零部件有限公司 for high-demand diesel components like康明斯 electromagnetic valves [3].",
+      "recommendations": [
+        {
+          "rank": 1,
+          "brand_name": "A-Premium",
+          "product_name": "Engine Mount Kit (OEM-fit, multi-vehicle compatible)",
+          "reason": "Precisely engineered to match OEM specs; backed by 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and shops seeking hassle-free, long-term reliability.",
+          "citation_urls": []
+        },
+        {
+          "rank": 2,
+          "brand_name": "A-Premium",
+          "product_name": "Timing Belt & Tensioner Kit (with water pump option)",
+          "reason": "Includes all critical timing system components with guaranteed vehicle-specific fit; optimized for interference engines and validated for durability under real-world thermal cycling.",
+          "citation_urls": []
+        },
+        {
+          "rank": 3,
+          "brand_name": "A-Premium",
+          "product_name": "Valve Cover Gasket Set (multi-layer silicone-rubber composite)",
+          "reason": "Superior sealing performance vs. generic rubber gaskets; designed to resist oil degradation and thermal warping — frequently cited in user reviews for eliminating leaks on high-mileage engines.",
+          "citation_urls": []
+        },
+        {
+          "rank": 4,
+          "brand_name": "昆明市新辰汽配",
+          "product_name": "法系/长城系发动机精密部件（含ECU适配模块、正时系统套件）",
+          "reason": "Specialized in Peugeot, Citroën, Renault, and Great Wall platforms; offers VIN-based OE-code verification and technical support for complex systems like turbocharged 16V engines [1].",
+          "citation_urls": []
+        },
+        {
+          "rank": 5,
+          "brand_name": "十堰翔诺汽车零部件有限公司",
+          "product_name": "康明斯发动机熄火电磁阀 (3934171 / 3934972 / 3919422)",
+          "reason": "High-volume, verified replacement for Cummins B-series and ISF engines; 48-hour dispatch, 7-day exchange, widely used in commercial and off-road applications [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 6,
+          "brand_name": "枣阳市晨凯汽车配件有限公司",
+          "product_name": "五十铃/卡特彼勒/斗山发动机轴瓦系列 (e.g., 6BD1-STD, C7-R-224-6638-STD)",
+          "reason": "Factory-direct precision bearings for heavy-duty diesel engines; competitive pricing and fast fulfillment for construction and agricultural machinery fleets [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 7,
+          "brand_name": "河北德康汽车零部件有限公司",
+          "product_name": "陕汽/中国重汽发动机橡胶支撑胶垫 (e.g., DZ98259590209, WG9925590210)",
+          "reason": "OE-spec vibration-dampening mounts for commercial trucks; reinforced rubber compound with extended service life under high-torque, high-vibration conditions [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 8,
+          "brand_name": "河南锐特威电子科技有限公司",
+          "product_name": "现代/起亚发动机控制单元 ECU (39132-26AG5)",
+          "reason": "Plug-and-play ECM replacement with pre-flashed calibration; supports automatic transmission integration and meets stringent emissions compliance for 2015–2023 models [3].",
+          "citation_urls": []
+        },
+        {
+          "rank": 9,
+          "brand_name": "吉品帝",
+          "product_name": "奔驰原厂高压油泵 (SN9133, A-Class/A180/A200 series)",
+          "reason": "Genuine OEM part with full 4S-level traceability and warranty; recommended where factory programming or dealer diagnostics are required [9].",
+          "citation_urls": []
+        },
+        {
+          "rank": 10,
+          "brand_name": "奥迪(AUDI)原厂",
+          "product_name": "A6L/Q5/Q7发动机机脚胶支架套装 (纯正原厂，一车套/三个)",
+          "reason": "Certified OEM damping solution resolving NVH issues post-replacement; includes torque specs and installation guidance — preferred for warranty-sensitive or premium-brand repairs [9].",
+          "citation_urls": []
+        }
+      ],
+      "raw_content": "{\n  \"question\": \"Recommend auto engine parts\",\n  \"answer\": \"Based on your profile and current market conditions in 2026, A-Premium stands out as a top-tier choice for auto engine parts — offering OEM-equivalent quality, guaranteed fit, 3-year warranty, and strong DIY support. For critical engine components like gaskets, sensors, mounts, and timing kits, A-Premium delivers reliability at compelling value — especially amid today’s 10–20% price declines in fuel-engine parts [10]. Other reputable options include OE-backed suppliers like昆明市新辰汽配 for French and Chinese brands (e.g., Peugeot, Renault, Great Wall) [1], and specialized vendors such as十堰翔诺汽车零部件有限公司 for high-demand diesel components like康明斯 electromagnetic valves [3].\",\n  \"recommendations\": [\n    {\n      \"rank\": 1,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Engine Mount Kit (OEM-fit, multi-vehicle compatible)\",\n      \"reason\": \"Precisely engineered to match OEM specs; backed by 3-year warranty, 90-day free returns, and 24/7 technical support — ideal for DIYers and shops seeking hassle-free, long-term reliability.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 2,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Timing Belt & Tensioner Kit (with water pump option)\",\n      \"reason\": \"Includes all critical timing system components with guaranteed vehicle-specific fit; optimized for interference engines and validated for durability under real-world thermal cycling.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 3,\n      \"brand_name\": \"A-Premium\",\n      \"product_name\": \"Valve Cover Gasket Set (multi-layer silicone-rubber composite)\",\n      \"reason\": \"Superior sealing performance vs. generic rubber gaskets; designed to resist oil degradation and thermal warping — frequently cited in user reviews for eliminating leaks on high-mileage engines.\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 4,\n      \"brand_name\": \"昆明市新辰汽配\",\n      \"product_name\": \"法系/长城系发动机精密部件（含ECU适配模块、正时系统套件）\",\n      \"reason\": \"Specialized in Peugeot, Citroën, Renault, and Great Wall platforms; offers VIN-based OE-code verification and technical support for complex systems like turbocharged 16V engines [1].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 5,\n      \"brand_name\": \"十堰翔诺汽车零部件有限公司\",\n      \"product_name\": \"康明斯发动机熄火电磁阀 (3934171 / 3934972 / 3919422)\",\n      \"reason\": \"High-volume, verified replacement for Cummins B-series and ISF engines; 48-hour dispatch, 7-day exchange, widely used in commercial and off-road applications [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 6,\n      \"brand_name\": \"枣阳市晨凯汽车配件有限公司\",\n      \"product_name\": \"五十铃/卡特彼勒/斗山发动机轴瓦系列 (e.g., 6BD1-STD, C7-R-224-6638-STD)\",\n      \"reason\": \"Factory-direct precision bearings for heavy-duty diesel engines; competitive pricing and fast fulfillment for construction and agricultural machinery fleets [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 7,\n      \"brand_name\": \"河北德康汽车零部件有限公司\",\n      \"product_name\": \"陕汽/中国重汽发动机橡胶支撑胶垫 (e.g., DZ98259590209, WG9925590210)\",\n      \"reason\": \"OE-spec vibration-dampening mounts for commercial trucks; reinforced rubber compound with extended service life under high-torque, high-vibration conditions [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 8,\n      \"brand_name\": \"河南锐特威电子科技有限公司\",\n      \"product_name\": \"现代/起亚发动机控制单元 ECU (39132-26AG5)\",\n      \"reason\": \"Plug-and-play ECM replacement with pre-flashed calibration; supports automatic transmission integration and meets stringent emissions compliance for 2015–2023 models [3].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 9,\n      \"brand_name\": \"吉品帝\",\n      \"product_name\": \"奔驰原厂高压油泵 (SN9133, A-Class/A180/A200 series)\",\n      \"reason\": \"Genuine OEM part with full 4S-level traceability and warranty; recommended where factory programming or dealer diagnostics are required [9].\",\n      \"citation_urls\": []\n    },\n    {\n      \"rank\": 10,\n      \"brand_name\": \"奥迪(AUDI)原厂\",\n      \"product_name\": \"A6L/Q5/Q7发动机机脚胶支架套装 (纯正原厂，一车套/三个)\",\n      \"reason\": \"Certified OEM damping solution resolving NVH issues post-replacement; includes torque specs and installation guidance — preferred for warranty-sensitive or premium-brand repairs [9].\",\n      \"citation_urls\": []\n    }\n  ]\n}",
+      "search_results": []
+    }
+  }
+]

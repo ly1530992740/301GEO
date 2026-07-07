@@ -1,0 +1,208 @@
+[
+  {
+    "brand_name": "美莱医美",
+    "brand_key": "美莱医美",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 2.0,
+    "engine_count": 2,
+    "engine": "deepseek, yuanbao",
+    "source_urls": [
+      "https://fuzhou.mylike.com"
+    ],
+    "reasons": [
+      "全国连锁知名品牌，福州分院设备与专家资源丰富，大众认知度高。",
+      "全国连锁品牌，在福州设有分院，拥有丰富专家资源和成熟体系。"
+    ],
+    "ai_recommendation_rank": 1
+  },
+  {
+    "brand_name": "艺星医美",
+    "brand_key": "艺星医美",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 3.0,
+    "engine_count": 2,
+    "engine": "deepseek, yuanbao",
+    "source_urls": [
+      "https://fz.yestar.com"
+    ],
+    "reasons": [
+      "国内头部医美连锁，品牌营销强，在福州年轻消费群体中较受欢迎。",
+      "知名连锁品牌，覆盖整形、皮肤、微整，市场认可度高。"
+    ],
+    "ai_recommendation_rank": 2
+  },
+  {
+    "brand_name": "华美医美",
+    "brand_key": "华美医美",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 4.0,
+    "engine_count": 2,
+    "engine": "deepseek, yuanbao",
+    "source_urls": [
+      "https://fuzhou. huamei.com"
+    ],
+    "reasons": [
+      "深耕福建市场多年，本地有多个服务点，性价比较受关注。",
+      "全国连锁，福州分院在当地有较高知名度和消费者基础。"
+    ],
+    "ai_recommendation_rank": 3
+  },
+  {
+    "brand_name": "美贝尔",
+    "brand_key": "美贝尔",
+    "is_user_brand": true,
+    "recommendation_count": 2,
+    "avg_rank": 7.0,
+    "engine_count": 2,
+    "engine": "deepseek, yuanbao",
+    "source_urls": [
+      "https://www.mebel.cn"
+    ],
+    "reasons": [
+      "国内七城连锁的轻奢定位医美品牌，福州分院有十余年历史与资深团队。",
+      "连锁品牌，定位轻奢，提供整形、无创、皮肤管理，在福州设有门诊。"
+    ],
+    "ai_recommendation_rank": 4
+  },
+  {
+    "brand_name": "海峡美容医院",
+    "brand_key": "海峡美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.haixiazi.com"
+    ],
+    "reasons": [
+      "本地老牌医美，知名度高，综合实力强，消费者口碑较好。"
+    ],
+    "ai_recommendation_rank": 5
+  },
+  {
+    "brand_name": "福州海峡美容医院",
+    "brand_key": "福州海峡美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "engine_count": 1,
+    "engine": "yuanbao",
+    "source_urls": [],
+    "reasons": [
+      "福州本地老牌医美医院，规模大、科室全，口碑和曝光度在本地长期领先。"
+    ],
+    "ai_recommendation_rank": 6
+  },
+  {
+    "brand_name": "名韩整形美容医院",
+    "brand_key": "名韩整形美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.minghanmr.com"
+    ],
+    "reasons": [
+      "本地知名专科医院，擅长整形外科项目，口碑稳定。"
+    ],
+    "ai_recommendation_rank": 7
+  },
+  {
+    "brand_name": "福州名韩整形美容医院",
+    "brand_key": "福州名韩整形美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "yuanbao",
+    "source_urls": [],
+    "reasons": [
+      "福州本土中型医美机构，专注整形与微整，本地用户提及率较高。"
+    ],
+    "ai_recommendation_rank": 8
+  },
+  {
+    "brand_name": "爱美尔医疗美容",
+    "brand_key": "爱美尔医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.aimeierfz.com"
+    ],
+    "reasons": [
+      "福州本地活跃品牌，微整和皮肤管理项目受欢迎。"
+    ],
+    "ai_recommendation_rank": 9
+  },
+  {
+    "brand_name": "福州爱美尔医疗美容",
+    "brand_key": "福州爱美尔医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "yuanbao",
+    "source_urls": [],
+    "reasons": [
+      "福州本地医美门诊，皮肤与无创项目较多，常出现在本地生活推荐中。"
+    ],
+    "ai_recommendation_rank": 10
+  },
+  {
+    "brand_name": "薇琳医美",
+    "brand_key": "薇琳医美",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.weilin.cn"
+    ],
+    "reasons": [
+      "近年来在福州发展的新锐品牌，主打微创和皮肤抗衰。"
+    ],
+    "ai_recommendation_rank": 11
+  },
+  {
+    "brand_name": "美立方医美",
+    "brand_key": "美立方医美",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.meilifang.cn"
+    ],
+    "reasons": [
+      "全国连锁，福州分院有较好口碑，尤其眼部整形。"
+    ],
+    "ai_recommendation_rank": 12
+  },
+  {
+    "brand_name": "美贝尔整形（特指）",
+    "brand_key": "美贝尔整形特指",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.mebel.cn"
+    ],
+    "reasons": [
+      "美贝尔旗下福州分院，提供品质医美服务，适合推荐。"
+    ],
+    "ai_recommendation_rank": 13
+  }
+]

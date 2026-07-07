@@ -1,0 +1,25 @@
+{
+  "benchmark_brand": "蜜雪冰城",
+  "benchmark_mentioned_count": 50,
+  "target_articles": 50,
+  "currency": "CNY",
+  "matched_media_count": 1,
+  "min_unit_price": 5.0,
+  "avg_unit_price": 5.0,
+  "max_unit_price": 5.0,
+  "rows": [
+    {
+      "source_domain": "ziniu.com",
+      "resource_title": "生活健康",
+      "resource_type": "wemedia",
+      "match_type": "fuzzy",
+      "confidence": 0.75,
+      "price_1": 5.0,
+      "price_2": 5.0,
+      "price_3": 5.0,
+      "unit_price": 5.0,
+      "target_articles": 50,
+      "estimated_total_cost": 250.0
+    }
+  ]
+}
