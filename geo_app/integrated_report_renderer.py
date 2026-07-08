@@ -586,6 +586,268 @@ def _chart_payload(
     }
 
 
+def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
+    ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    rec_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
+    rec_chart = _recommendation_chart_rows(rec_rows)
+    platform_rows = _platform_breakdown_rows(data.get("search_volume_ranking") or [])
+    provider_rows = _provider_visibility_rows(data)
+    content = data.get("content_positioning_analysis") or _derive_content_positioning_analysis(data)
+    articles = data.get("source_articles") or []
+    provider_status = data.get("multi_ai_provider_status") or _provider_status_from_results(data)
+    return {
+        "providerStatusRows": provider_status,
+        "ranking": {
+            "x": [item.get("brand_name", "") for item in ranking[:20]],
+            "y": [item.get("recommendation_count", 0) for item in ranking[:20]],
+            "colors": ["#dc2626" if item.get("is_user_brand") else "#64748b" for item in ranking[:20]],
+        },
+        "recommendationSource": _count_payload(rec_chart, "AI平台", "品牌"),
+        "recommendationHeatmap": _heatmap_payload(rec_chart, row_key="品牌", col_key="AI平台", value_key="推荐热度", limit=20),
+        "platformTotals": _sum_payload(platform_rows, "平台", "内容数量估算"),
+        "brandPlatform": _stacked_payload(platform_rows, x_key="品牌", stack_key="平台", value_key="内容数量估算", limit=10),
+        "providerPlatform": _stacked_payload(provider_rows, x_key="AI平台", stack_key="平台", value_key="内容数量估算"),
+        "providerBrand": _stacked_payload(provider_rows, x_key="品牌", stack_key="AI平台", value_key="内容数量估算", limit=10),
+        "boundary": _count_payload(content.get("category_boundary") or [], "boundary_type", "brand_name"),
+        "motives": _sum_payload(content.get("psychology_motives") or [], "motive", "score"),
+        "heuristics": _sum_payload(content.get("decision_heuristics") or [], "heuristic", "score"),
+        "priceBands": _count_payload(content.get("price_bands") or [], "price_band", "brand_name"),
+        "personas": _count_payload(content.get("personas") or [], "spending_power", "brand_name"),
+        "sellingPoints": _count_payload(content.get("selling_points") or [], "brand_name", "selling_point", limit=12),
+        "assetScores": _asset_score_payload(content.get("digital_asset_scores") or []),
+        "articleStatus": _article_status_payload(articles),
+    }
+
+
+def _recommendation_chart_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows[:30]:
+        brand = item.get("brand_name", "")
+        for provider, key in (("Qwen", "qwen_rank"), ("豆包", "doubao_rank"), ("元宝", "yuanbao_rank"), ("DeepSeek", "deepseek_rank")):
+            rank = item.get(key)
+            if rank in ("", None):
+                continue
+            rank_value = _safe_int(rank)
+            if not rank_value:
+                continue
+            result.append({"品牌": brand, "AI平台": provider, "推荐名次": rank_value, "推荐热度": max(1, 11 - rank_value)})
+    return result
+
+
+def _platform_breakdown_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows[:20]:
+        traditional, new_media = _platform_values(item)
+        values = {
+            "百度": traditional.get("baidu", 0),
+            "搜狗": traditional.get("sogou", 0),
+            "360搜索": traditional.get("so360", 0),
+            "抖音": new_media.get("douyin", 0),
+            "小红书": new_media.get("xiaohongshu", 0),
+        }
+        for platform, value in values.items():
+            result.append({"品牌": item.get("brand_name", ""), "平台": platform, "内容数量估算": _safe_int(value)})
+    return result
+
+
+def _platform_values(item: dict[str, Any]) -> tuple[dict[str, int], dict[str, int]]:
+    traditional = {key: _safe_int(value) for key, value in (item.get("traditional_search") or {}).items()}
+    new_media = {key: _safe_int(value) for key, value in (item.get("new_media") or {}).items()}
+    if any(traditional.values()) or any(new_media.values()):
+        return traditional, new_media
+    estimates = [estimate for estimate in item.get("provider_estimates") or [] if isinstance(estimate, dict)]
+    if not estimates:
+        return traditional, new_media
+    traditional_totals = {"baidu": 0, "sogou": 0, "so360": 0}
+    new_media_totals = {"douyin": 0, "xiaohongshu": 0}
+    for estimate in estimates:
+        for key in traditional_totals:
+            traditional_totals[key] += _safe_int((estimate.get("traditional_search") or {}).get(key, 0))
+        for key in new_media_totals:
+            new_media_totals[key] += _safe_int((estimate.get("new_media") or {}).get(key, 0))
+    provider_count = max(len(estimates), 1)
+    return (
+        {key: round(value / provider_count) for key, value in traditional_totals.items()},
+        {key: round(value / provider_count) for key, value in new_media_totals.items()},
+    )
+
+
+def _provider_visibility_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    result = []
+    for item in data.get("search_volume_ranking") or []:
+        for estimate in item.get("provider_estimates") or []:
+            provider = _provider_label(estimate.get("provider", ""))
+            traditional = estimate.get("traditional_search") or {}
+            new_media = estimate.get("new_media") or {}
+            values = {
+                "百度": traditional.get("baidu", 0),
+                "搜狗": traditional.get("sogou", 0),
+                "360搜索": traditional.get("so360", 0),
+                "抖音": new_media.get("douyin", 0),
+                "小红书": new_media.get("xiaohongshu", 0),
+            }
+            for platform, value in values.items():
+                result.append({"AI平台": provider, "品牌": item.get("brand_name", ""), "平台": platform, "内容数量估算": _safe_int(value)})
+    return result
+
+
+def _count_payload(rows: list[dict[str, Any]], label_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
+    counts: Counter[str] = Counter()
+    for item in rows:
+        label = str(item.get(label_key) or "未知")
+        if value_key:
+            counts[label] += 1 if item.get(value_key) is not None else 0
+        else:
+            counts[label] += 1
+    items = counts.most_common(limit)
+    return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _sum_payload(rows: list[dict[str, Any]], label_key: str, value_key: str) -> dict[str, Any]:
+    totals: defaultdict[str, int] = defaultdict(int)
+    for item in rows:
+        totals[str(item.get(label_key) or "未知")] += _safe_int(item.get(value_key))
+    items = sorted(totals.items(), key=lambda pair: pair[1], reverse=True)
+    return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _stacked_payload(rows: list[dict[str, Any]], x_key: str, stack_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
+    totals: defaultdict[str, int] = defaultdict(int)
+    for item in rows:
+        totals[str(item.get(x_key) or "")] += _safe_int(item.get(value_key))
+    xs = [key for key, _ in sorted(totals.items(), key=lambda pair: pair[1], reverse=True) if key]
+    if limit:
+        xs = xs[:limit]
+    stacks = list(dict.fromkeys(str(item.get(stack_key) or "") for item in rows if item.get(stack_key)))
+    traces = []
+    for stack in stacks:
+        traces.append(
+            {
+                "type": "bar",
+                "name": stack,
+                "x": xs,
+                "y": [
+                    sum(_safe_int(item.get(value_key)) for item in rows if str(item.get(x_key) or "") == x and str(item.get(stack_key) or "") == stack)
+                    for x in xs
+                ],
+            }
+        )
+    return {"x": xs, "traces": traces}
+
+
+def _heatmap_payload(rows: list[dict[str, Any]], row_key: str, col_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
+    row_totals: defaultdict[str, int] = defaultdict(int)
+    for item in rows:
+        row_totals[str(item.get(row_key) or "")] += _safe_int(item.get(value_key))
+    y = [key for key, _ in sorted(row_totals.items(), key=lambda pair: pair[1], reverse=True) if key]
+    if limit:
+        y = y[:limit]
+    x = list(dict.fromkeys(str(item.get(col_key) or "") for item in rows if item.get(col_key)))
+    lookup = {(str(item.get(row_key) or ""), str(item.get(col_key) or "")): _safe_int(item.get(value_key)) for item in rows}
+    return {"x": x, "y": y, "z": [[lookup.get((row, col), 0) for col in x] for row in y]}
+
+
+def _asset_score_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    brands = [str(item.get("brand_name") or "") for item in rows[:12]]
+    specs = [
+        ("搜索资产", "search_asset_score"),
+        ("内容平台资产", "content_platform_score"),
+        ("官网可访问性", "website_access_score"),
+        ("信任证明资产", "proof_asset_score"),
+    ]
+    traces = []
+    for label, key in specs:
+        traces.append({"type": "bar", "name": label, "x": brands, "y": [_safe_int(item.get(key)) for item in rows[:12]]})
+    return {"traces": traces}
+
+
+def _article_status_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    success = len([item for item in rows if item.get("text_excerpt") and not item.get("error")])
+    failed = len([item for item in rows if item.get("error") or not item.get("text_excerpt")])
+    return {"labels": ["成功", "失败"], "values": [success, failed]}
+
+
+def _derive_content_positioning_analysis(data: dict[str, Any]) -> dict[str, Any]:
+    ranking = data.get("ai_recommendation_ranking") or []
+    items = data.get("recommendation_items") or []
+    by_brand: dict[str, list[dict[str, Any]]] = {}
+    for item in items:
+        brand = str(item.get("brand_name") or "").strip()
+        if brand:
+            by_brand.setdefault(brand, []).append(item)
+    analysis = {"category_boundary": [], "price_bands": [], "psychology_motives": [], "decision_heuristics": [], "personas": [], "selling_points": [], "digital_asset_scores": []}
+    for brand in ranking[:12]:
+        name = str(brand.get("brand_name") or "")
+        text = " ".join(str(item.get("reason") or "") for item in by_brand.get(name, []))
+        analysis["category_boundary"].append({"brand_name": name, "boundary_type": _infer_boundary_type(text), "positioning": text[:80], "evidence": text[:120]})
+        analysis["price_bands"].append({"brand_name": name, "price_band": _infer_price_band(text), "evidence": text[:120]})
+        for motive, score in _infer_motive_scores(text).items():
+            analysis["psychology_motives"].append({"brand_name": name, "motive": motive, "score": score})
+        for heuristic, score in _infer_heuristic_scores(text).items():
+            analysis["decision_heuristics"].append({"brand_name": name, "heuristic": heuristic, "score": score})
+        analysis["personas"].append({"brand_name": name, "spending_power": _infer_price_band(text)})
+        points = _selling_points_from_text(text)
+        for point in points:
+            analysis["selling_points"].append({"brand_name": name, "selling_point": point})
+        analysis["digital_asset_scores"].append({"brand_name": name, "search_asset_score": min(100, int(brand.get("recommendation_count") or 0) * 25), "content_platform_score": min(100, len(by_brand.get(name, [])) * 20), "website_access_score": 30, "proof_asset_score": min(100, len(points) * 20)})
+    return analysis
+
+
+def _provider_label(value: Any) -> str:
+    return {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}.get(str(value or "").lower(), str(value or ""))
+
+
+def _infer_boundary_type(text: str) -> str:
+    if any(word in text for word in ("医院", "医美", "整形", "医生", "科室", "服务")):
+        return "卖服务"
+    if any(word in text for word in ("场景", "体验", "空间", "生活方式")):
+        return "卖场景"
+    if any(word in text for word in ("解决方案", "一站式", "综合")):
+        return "卖解决方案"
+    return "混合/依据不足"
+
+
+def _infer_price_band(text: str) -> str:
+    if any(word in text for word in ("高端", "轻奢", "定制")):
+        return "高"
+    if any(word in text for word in ("合理", "性价比", "亲民")):
+        return "中低"
+    if any(word in text for word in ("连锁", "大型", "主流")):
+        return "中"
+    return "未知"
+
+
+def _infer_motive_scores(text: str) -> dict[str, int]:
+    result = {"功能价值": 1}
+    if any(word in text for word in ("安全", "资质", "医生", "设备", "技术", "效果", "正规")):
+        result["功能价值"] = 3
+    if any(word in text for word in ("安心", "服务", "体验", "口碑", "信任", "环境")):
+        result["情感价值"] = 2
+    if any(word in text for word in ("高端", "轻奢", "审美", "定制", "身份")):
+        result["自我实现"] = 2
+    return result
+
+
+def _infer_heuristic_scores(text: str) -> dict[str, int]:
+    result: dict[str, int] = {}
+    if any(word in text for word in ("排名", "前十", "知名", "主流", "老牌")):
+        result["从众效应"] = 2
+    if any(word in text for word in ("三甲", "资质", "专家", "博士", "医生", "权威")):
+        result["权威背书"] = 3
+    if any(word in text for word in ("案例", "对比", "口碑", "评价")):
+        result["社会认同"] = 2
+    return result or {"依据不足": 1}
+
+
+def _selling_points_from_text(text: str) -> list[str]:
+    parts = []
+    for token in re.split(r"[，,。；;\n、]", str(text or "")):
+        token = token.strip()
+        if 4 <= len(token) <= 40:
+            parts.append(token)
+    return list(dict.fromkeys(parts))[:5] or ["资质背书", "服务项目覆盖", "医生/技术能力", "案例或口碑", "本地可达性"]
+
+
 def _script_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False).replace("</", "<\\/")
 

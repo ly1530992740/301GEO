@@ -441,18 +441,21 @@ def load_history_report(storage: Storage, report_id: int) -> None:
             pass
     md_path = Path(report.get("file_path") or run_dir / "integrated_report.md")
     html_path = run_dir / "integrated_report.html"
+    dashboard_html_path = run_dir / "dashboard_report.html"
     data = enrich_analysis_data(data)
     if run_dir.exists():
         try:
             outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
             md_path = Path(outputs["report_md_path"])
             html_path = Path(outputs["report_html_path"])
+            dashboard_html_path = Path(outputs["dashboard_html_path"])
         except Exception:
             pass
     st.session_state.integrated_result = {
         "report_id": report_id,
         "report_md_path": str(md_path),
         "report_html_path": str(html_path),
+        "dashboard_html_path": str(dashboard_html_path),
         "data_path": str(data_path),
         "report_md": md_path.read_text(encoding="utf-8") if md_path.exists() else "",
         "analysis_data": data,
@@ -471,10 +474,12 @@ def render_result() -> None:
         if run_dir.exists():
             try:
                 outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+                dashboard_path = outputs.get("dashboard_html_path") or str(run_dir / "dashboard_report.html")
                 result.update(
                     {
                         "report_md_path": outputs["report_md_path"],
                         "report_html_path": outputs["report_html_path"],
+                        "dashboard_html_path": dashboard_path,
                         "data_path": outputs["data_path"],
                         "report_md": outputs["report_md"],
                         "analysis_data": enrich_analysis_data(data),
@@ -564,9 +569,10 @@ def render_downloads(result: dict[str, Any]) -> None:
     paths = [
         ("下载 Markdown 报告", result.get("report_md_path", ""), "text/markdown"),
         ("下载 HTML 报告", result.get("report_html_path", ""), "text/html"),
+        ("下载可视化看板 HTML", result.get("dashboard_html_path", ""), "text/html"),
         ("下载完整 JSON", result.get("data_path", ""), "application/json"),
     ]
-    cols = st.columns(3)
+    cols = st.columns(4)
     for idx, (label, path, mime) in enumerate(paths):
         file_path = Path(path) if path else None
         if file_path and file_path.exists():

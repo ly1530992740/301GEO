@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GEO 可视化看板</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body { margin:0; background:#f6f7fb; color:#172033; font-family: Arial, "Microsoft YaHei", sans-serif; }
+    main { max-width: 1280px; margin: 0 auto; padding: 28px 22px 60px; }
+    .hero { background:#111827; color:white; padding:24px; border-radius:10px; margin-bottom:18px; }
+    .hero h1 { margin:0 0 10px; font-size:30px; }
+    .meta { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-top:18px; }
+    .metric { background:white; border:1px solid #e5e7eb; border-radius:8px; padding:14px; }
+    .metric span { color:#64748b; font-size:13px; }
+    .metric strong { display:block; margin-top:6px; font-size:20px; color:#111827; }
+    section { background:white; border:1px solid #e5e7eb; border-radius:10px; padding:20px; margin:18px 0; }
+    h2 { margin:0 0 14px; font-size:22px; }
+    h3 { margin:18px 0 10px; font-size:17px; color:#334155; }
+    .grid2 { display:grid; grid-template-columns: repeat(auto-fit,minmax(460px,1fr)); gap:14px; }
+    .chart { min-height:420px; }
+    .wide { min-height:480px; }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    th,td { border-bottom:1px solid #e5e7eb; padding:9px; text-align:left; vertical-align:top; }
+    th { background:#f8fafc; }
+    .note { color:#64748b; font-size:13px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <h1>GEO 可视化看板</h1>
+    <div>美贝尔 · 医美 · 福州</div>
+    <div class="meta">
+      <div class="metric"><span>产品/服务</span><strong>整形美容与皮肤美容服务</strong></div>
+      <div class="metric"><span>品牌</span><strong>美贝尔</strong></div>
+      <div class="metric"><span>类目</span><strong>医美</strong></div>
+      <div class="metric"><span>目标市场</span><strong>domestic</strong></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>第一步：AI 推荐排名</h2>
+    <div id="rankingChart" class="chart wide"></div>
+    <div class="grid2">
+      <div id="recommendationSourcePie" class="chart"></div>
+      <div id="recommendationHeatmap" class="chart"></div>
+    </div>
+    <h3>多 AI 平台调用状态</h3>
+    <table><thead><tr><th>AI平台</th><th>推荐排名</th><th>推荐条数</th><th>声量估算</th><th>声量品牌数</th><th>模型</th><th>超时秒数</th><th>错误信息</th></tr></thead><tbody><tr><td>qwen</td><td>OK</td><td>10</td><td>OK</td><td>10</td><td>qwen-plus</td><td></td><td></td></tr><tr><td>doubao</td><td>OK</td><td>6</td><td>FAIL</td><td>0</td><td>doubao-seed-evolving</td><td>90</td><td>HTTPSConnectionPool(host=&#x27;ark.cn-beijing.volces.com&#x27;, port=443): Read timed out. (read timeout=90)</td></tr><tr><td>yuanbao</td><td>OK</td><td>6</td><td>OK</td><td>10</td><td>hy3</td><td>30</td><td></td></tr><tr><td>deepseek</td><td>OK</td><td>10</td><td>OK</td><td>10</td><td>deepseek-chat</td><td>30</td><td></td></tr></tbody></table>
+  </section>
+
+  <section>
+    <h2>第二步：五平台声量</h2>
+    <div id="platformPie" class="chart wide"></div>
+    <div id="platformBar" class="chart"></div>
+    <div id="brandPlatformStack" class="chart wide"></div>
+    <h3>分 AI 平台五平台声量估算</h3>
+    <div id="providerPlatformStack" class="chart wide"></div>
+    <div id="providerBrandCompare" class="chart wide"></div>
+  </section>
+
+  <section>
+    <h2>第三步：文章与定位分析</h2>
+    <p class="note">下列图表基于 AI 推荐理由、可访问文章正文与链接抓取状态生成。抓取失败只代表本次自动抓取不可用，不代表品牌没有内容资产。</p>
+    <div class="grid2">
+      <div id="boundaryPie" class="chart"></div>
+      <div id="motiveBar" class="chart"></div>
+      <div id="heuristicBar" class="chart"></div>
+      <div id="pricePie" class="chart"></div>
+      <div id="personaBar" class="chart"></div>
+      <div id="sellingPointBar" class="chart"></div>
+    </div>
+    <div id="assetScoreChart" class="chart wide"></div>
+    <div id="articleStatusPie" class="chart"></div>
+  </section>
+</main>
+<script>
+const D = {"providerStatusRows": [{"provider": "qwen", "recommendation_ok": true, "visibility_ok": true, "recommendation_error": "", "visibility_error": "", "recommendation_count": 10, "visibility_count": 10, "model": "qwen-plus", "endpoint": "", "timeout": ""}, {"provider": "doubao", "recommendation_ok": true, "visibility_ok": false, "recommendation_error": "", "visibility_error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=90)", "recommendation_count": 6, "visibility_count": 0, "model": "doubao-seed-evolving", "endpoint": "https://ark.cn-beijing.volces.com/api/v3/responses", "timeout": 90}, {"provider": "yuanbao", "recommendation_ok": true, "visibility_ok": true, "recommendation_error": "", "visibility_error": "", "recommendation_count": 6, "visibility_count": 10, "model": "hy3", "endpoint": "https://tokenhub.tencentmaas.com/v1/responses", "timeout": 30}, {"provider": "deepseek", "recommendation_ok": true, "visibility_ok": true, "recommendation_error": "", "visibility_error": "", "recommendation_count": 10, "visibility_count": 10, "model": "deepseek-chat", "endpoint": "https://api.deepseek.com/chat/completions", "timeout": 30}], "ranking": {"x": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州爱美尔医疗美容门诊部", "艺星医美（福州艺星医疗美容）", "福州华美整形美容医院", "福州名韩医疗美容", "福州美莱医疗美容医院", "美贝尔（福州鼓楼美贝尔医疗美容门诊部）", "福州华美整形", "福州格莱美整形医院", "福州名韩整形医院", "福州维多利亚整形"], "y": [4, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "colors": ["#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#dc2626", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b", "#64748b"]}, "recommendationSource": {"labels": ["Qwen", "DeepSeek", "豆包", "元宝"], "values": [10, 10, 6, 6]}, "recommendationHeatmap": {"x": ["Qwen", "豆包", "元宝", "DeepSeek"], "y": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州爱美尔医疗美容门诊部", "艺星医美（福州艺星医疗美容）", "福州华美整形美容医院", "福州名韩医疗美容", "福州美莱医疗美容医院", "美贝尔（福州鼓楼美贝尔医疗美容门诊部）", "福州华美整形", "福州格莱美整形医院", "福州名韩整形医院", "福州维多利亚整形"], "z": [[10, 10, 10, 10], [0, 0, 9, 9], [0, 0, 8, 8], [0, 0, 7, 7], [0, 0, 6, 6], [0, 0, 5, 5], [9, 0, 0, 0], [0, 9, 0, 0], [0, 8, 0, 0], [8, 0, 0, 0], [7, 0, 0, 0], [0, 7, 0, 0], [6, 0, 0, 0], [0, 6, 0, 0], [5, 0, 0, 0], [0, 5, 0, 0], [0, 0, 0, 4], [4, 0, 0, 0], [3, 0, 0, 0], [0, 0, 0, 3]]}, "platformTotals": {"labels": ["百度", "搜狗", "360搜索", "抖音", "小红书"], "values": [366742, 230151, 179433, 64643, 50123]}, "brandPlatform": {"x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "traces": [{"type": "bar", "name": "百度", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [76333, 67633, 42900, 44283, 29633, 26293, 23850, 21517, 18100, 16200]}, {"type": "bar", "name": "搜狗", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [52950, 45707, 26250, 27833, 17517, 15847, 11463, 13740, 10377, 8467]}, {"type": "bar", "name": "360搜索", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [42483, 35373, 19127, 21000, 14067, 12397, 9413, 10343, 8647, 6583]}, {"type": "bar", "name": "抖音", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [13833, 11100, 9333, 6900, 4567, 4227, 4683, 3400, 2667, 3933]}, {"type": "bar", "name": "小红书", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [10367, 8500, 8267, 5233, 3150, 2973, 4117, 2200, 1783, 3533]}]}, "providerPlatform": {"x": ["DeepSeek", "Qwen", "元宝"], "traces": [{"type": "bar", "name": "百度", "x": ["DeepSeek", "Qwen", "元宝"], "y": [930000, 164000, 6230]}, {"type": "bar", "name": "搜狗", "x": ["DeepSeek", "Qwen", "元宝"], "y": [640000, 48250, 2200]}, {"type": "bar", "name": "360搜索", "x": ["DeepSeek", "Qwen", "元宝"], "y": [495000, 41770, 1530]}, {"type": "bar", "name": "抖音", "x": ["DeepSeek", "Qwen", "元宝"], "y": [116000, 70400, 7530]}, {"type": "bar", "name": "小红书", "x": ["DeepSeek", "Qwen", "元宝"], "y": [57000, 87400, 5970]}]}, "providerBrand": {"x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "traces": [{"type": "bar", "name": "Qwen", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [76700, 61200, 76700, 29300, 20300, 20300, 65600, 10350, 8870, 42500]}, {"type": "bar", "name": "元宝", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [4200, 3740, 2930, 3450, 1500, 1410, 1480, 1250, 1850, 1650]}, {"type": "bar", "name": "DeepSeek", "x": ["美莱医美", "艺星医美", "美莱医美（福州美莱华美美容医院）", "福州海峡美容医院", "福州爱美尔", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科"], "y": [507000, 440000, 238000, 283000, 185000, 163500, 93500, 142000, 114000, 72000]}]}, "boundary": {"labels": ["卖服务"], "values": [10]}, "motives": {"labels": ["功能价值", "情感价值", "自我实现"], "values": [20, 10, 4]}, "heuristics": {"labels": ["从众效应", "权威背书", "社会认同", "依据不足", "锚定效应"], "values": [10, 6, 4, 3, 1]}, "priceBands": {"labels": ["未知"], "values": [10]}, "personas": {"labels": ["中高"], "values": [10]}, "sellingPoints": {"labels": ["福州海峡美容医院", "美莱医美", "艺星医美", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科", "福州爱美尔", "福州名韩"], "values": [5, 5, 5, 5, 5, 5, 5, 5, 4, 4]}, "assetScores": {"traces": [{"type": "bar", "name": "搜索资产", "x": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科"], "y": [100, 50, 50, 50, 50, 50, 25, 25, 25, 25]}, {"type": "bar", "name": "内容平台资产", "x": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科"], "y": [80, 40, 40, 40, 40, 40, 20, 20, 20, 20]}, {"type": "bar", "name": "官网可访问性", "x": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科"], "y": [20, 80, 80, 80, 80, 80, 20, 20, 20, 20]}, {"type": "bar", "name": "信任证明资产", "x": ["福州海峡美容医院", "美莱医美", "艺星医美", "福州爱美尔", "福州名韩", "美贝尔", "福建医科大学附属第一医院整形美容外科", "美莱医美（福州美莱华美美容医院）", "福州爱美尔医疗美容", "福建省立医院整形外科"], "y": [50, 50, 50, 50, 50, 50, 50, 50, 50, 50]}]}, "articleStatus": {"labels": ["成功", "失败"], "values": [5, 2]}};
+const layout = { margin: { l: 60, r: 24, t: 54, b: 110 }, paper_bgcolor: "white", plot_bgcolor: "white" };
+const compact = { margin: { l: 30, r: 20, t: 54, b: 30 }, paper_bgcolor: "white", plot_bgcolor: "white" };
+function plot(id, traces, extra={}) {
+  const el = document.getElementById(id);
+  if (!el || !traces || !traces.length) return;
+  Plotly.newPlot(id, traces, {...layout, ...extra}, {responsive:true, displaylogo:false});
+}
+plot("rankingChart", [{type:"bar", x:D.ranking.x, y:D.ranking.y, marker:{color:D.ranking.colors}}], {title:"综合 AI 推荐排名", yaxis:{title:"AI推荐次数"}, xaxis:{title:"品牌"}});
+plot("recommendationSourcePie", [{type:"pie", labels:D.recommendationSource.labels, values:D.recommendationSource.values, hole:0.35, textinfo:"label+percent+value"}], {...compact, title:"AI 推荐来源占比"});
+plot("recommendationHeatmap", [{type:"heatmap", x:D.recommendationHeatmap.x, y:D.recommendationHeatmap.y, z:D.recommendationHeatmap.z, colorscale:"YlGnBu"}], {title:"AI 推荐热度矩阵"});
+plot("platformPie", [{type:"pie", labels:D.platformTotals.labels, values:D.platformTotals.values, hole:0.35, textinfo:"label+percent+value"}], {...compact, title:"五平台总占比"});
+plot("platformBar", [{type:"bar", x:D.platformTotals.values, y:D.platformTotals.labels, orientation:"h", marker:{color:"#0f766e"}}], {title:"五平台内容数量对比", xaxis:{title:"内容数量估算"}, yaxis:{title:"平台"}});
+plot("brandPlatformStack", D.brandPlatform.traces, {title:"各品牌五平台拆分", barmode:"stack", yaxis:{title:"内容数量估算"}, xaxis:{title:"品牌"}});
+plot("providerPlatformStack", D.providerPlatform.traces, {title:"各 AI 平台对五平台声量的估算", barmode:"stack", yaxis:{title:"内容数量估算"}, xaxis:{title:"AI平台"}});
+plot("providerBrandCompare", D.providerBrand.traces, {title:"各 AI 平台给出的品牌声量 Top 对比", barmode:"group", yaxis:{title:"内容数量估算"}, xaxis:{title:"品牌"}});
+plot("boundaryPie", [{type:"pie", labels:D.boundary.labels, values:D.boundary.values, hole:0.35, textinfo:"label+percent+value"}], {...compact, title:"品类边界分布"});
+plot("motiveBar", [{type:"bar", x:D.motives.labels, y:D.motives.values, marker:{color:"#2563eb"}}], {title:"消费心理动机", yaxis:{title:"强度"}});
+plot("heuristicBar", [{type:"bar", x:D.heuristics.values, y:D.heuristics.labels, orientation:"h", marker:{color:"#7c3aed"}}], {title:"决策捷径/心理启发式", xaxis:{title:"强度"}});
+plot("pricePie", [{type:"pie", labels:D.priceBands.labels, values:D.priceBands.values, hole:0.35, textinfo:"label+percent+value"}], {...compact, title:"价格带/客单价定位"});
+plot("personaBar", [{type:"bar", x:D.personas.labels, y:D.personas.values, marker:{color:"#f59e0b"}}], {title:"用户画像：消费能力分布", yaxis:{title:"品牌数"}});
+plot("sellingPointBar", [{type:"bar", x:D.sellingPoints.values, y:D.sellingPoints.labels, orientation:"h", marker:{color:"#059669"}}], {title:"各品牌卖点数量", xaxis:{title:"卖点数量"}});
+plot("assetScoreChart", D.assetScores.traces, {title:"数字资产评分", barmode:"group", yaxis:{title:"评分"}, xaxis:{title:"品牌"}});
+plot("articleStatusPie", [{type:"pie", labels:D.articleStatus.labels, values:D.articleStatus.values, hole:0.35, textinfo:"label+percent+value"}], {...compact, title:"文章链接抓取状态"});
+</script>
+</body>
+</html>
