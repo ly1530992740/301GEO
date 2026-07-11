@@ -1,0 +1,629 @@
+[
+  {
+    "brand_name": "福州海峡美容医院",
+    "brand_key": "福州海峡美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 12,
+    "avg_rank": 1.83,
+    "engine_count": 4,
+    "engine": "deepseek, doubao, qwen, yuanbao",
+    "source_urls": [
+      "https://www.haixia.com",
+      "https://www.fzhxmr.com",
+      "https://www.fjhaixia.com/",
+      "https://www.fzhaixia.com/",
+      "https://www.fzhaixia.com",
+      "https://www.haixia.com/"
+    ],
+    "reasons": [
+      "福州老牌5A级民营医美，20余年历史，台江区核心地段；林沸腾‘沸腾丰胸术’、薛克墘鼻修复技术业内知名；配备瑞士共振吸脂、飞顿黑金超光子等进口设备，主打专人专项、自然塑形，多次入选福州医美前十榜单[1][5][7][9]",
+      "福州本地深耕多年的老牌正规医美机构，资质完备，医师团队临床经验丰富，眼鼻整形、胸部塑形、光电抗衰等项目受众认可度高，服务流程规范，是本地知名度较高的医美品牌。",
+      "福州本地老牌医美机构，知名度高，项目覆盖广，口碑较稳定",
+      "福建本土知名连锁医美品牌，拥有多位经验丰富的整形外科医师，在眼鼻整形、吸脂塑形领域口碑较好，且价格相对透明。",
+      "台江区知名连锁医美，与福能集团战略合作，切开双眼皮以灵动自然著称，技术认证严格，本地搜索热度高[无]",
+      "福州本地深耕多年的老牌医美标杆机构，眼整形是其经典核心优势项目，医师团队临床案例积累充足，双眼皮风格覆盖自然妈生款、上镜款等多元类型，有大量本地求美者的真人术后反馈可参考，收费体系透明，配套术后护理跟进服务完善。",
+      "福州地区规模较大的本土医美机构，鼻综合与疑难鼻修复均有开展，医生资历较深，本地认知度高。",
+      "福州老牌医美，鼻整形技术成熟，医生团队包括多位资深主刀，特色是‘仿生鼻综合’，在鼻尖塑形和远期稳定性上口碑良好，规模大且资质齐全，是美贝尔与爱美尔的有力竞争者。"
+    ],
+    "ai_recommendation_rank": 1
+  },
+  {
+    "brand_name": "福州格莱美美容医院",
+    "brand_key": "福州格莱美美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 12,
+    "avg_rank": 4.25,
+    "engine_count": 4,
+    "engine": "deepseek, doubao, qwen, yuanbao",
+    "source_urls": [
+      "https://www.fzgelaimei.com",
+      "https://www.fzglm.com",
+      "https://www.glmyl.com/",
+      "https://www.gelaimei.com/"
+    ],
+    "reasons": [
+      "连续多年位列福州医美前十（2022–2025），台江区或鼓楼区设点，以轮廓精雕、皮肤管理及轻医美项目见长，属本地主流民营竞争梯队[7][8][9]",
+      "开设整形、微整、皮肤美容等全品类医美项目，硬件配置合规，配备标准层流手术室，鼻部整形、注射微整、日常美肤等项目性价比不错，能满足多样化医美需求。",
+      "福州区域连锁型医美机构，线下门店曝光多，属主流选择",
+      "全国连锁医美品牌，福州分院在眼鼻整形及面部年轻化项目上经验丰富，设施和环境较好。",
+      "近10年品质化医美品牌，注重现代美学与脸型协调，术前设计细致，环境舒适，割双眼皮为特色项目之一[无]",
+      "福州本地经营多年的合规医美机构，双眼皮整形项目覆盖全面，从基础埋线、综合美眼到高难度眼修复均有专科医师坐诊，价格档位选择丰富，适配不同预算、不同审美偏好的求美者，整体性价比不错。",
+      "连锁医美品牌福州分院，鼻部整形为常规核心项目，营销曝光多，价格区间选择较广，适合初次尝试鼻综合的年轻群体。",
+      "格莱美注重鼻部整体与和谐，技术引进韩国精细技术，医生团队包括王蓓等，案例风格偏网红精致，适合追求立体感强、风格明显的求美者，在福州有稳定的客源。"
+    ],
+    "ai_recommendation_rank": 2
+  },
+  {
+    "brand_name": "福州爱美尔医疗美容医院",
+    "brand_key": "福州爱美尔医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 11,
+    "avg_rank": 2.64,
+    "engine_count": 4,
+    "engine": "deepseek, doubao, qwen, yuanbao",
+    "source_urls": [
+      "https://www.fzamr.com",
+      "https://www.fzaimer.com",
+      "https://www.fzame.com/",
+      "https://www.xiaohongshu.com/search_result?keyword=福州爱美尔鼻综合",
+      "https://www.ai-meier.com",
+      "https://www.aimier.com/"
+    ],
+    "reasons": [
+      "鼓楼区五一中路连锁品牌，1万余平米空间，专注鼻部整形、眼部整形及脂肪移植；2014年成立，2026年仍稳居福州医美前五，以标准化流程、韩式定制理念及透明收费获年轻群体青睐[3][5][7]",
+      "正规连锁医美品牌，主打个性化方案定制，眼部综合、脂肪塑形、皮肤光电类项目口碑不错，价格体系透明，术后跟进服务完善，受到不少年轻求美者的喜爱。",
+      "福州主流私立医美医院之一，常年在本地广告与榜单中出现",
+      "另一家本地连锁品牌，专注于微整形及皮肤抗衰，风格偏自然，深受年轻白领欢迎。",
+      "福州本地主流竞争品牌之一，常与美贝尔、名韩同列口碑榜单，主打轻奢医美体验与眼部精细化塑形[无]",
+      "福州本地知名度较高的正规医美机构，眼部整形专项技术成熟，主打精细化眼部综合塑形，会结合求美者眼部基础、五官比例与审美需求定制专属双眼皮方案，术后恢复指导细致，不少本地求美者反馈术后形态自然、手术痕迹较淡。",
+      "福州本地老牌医美，鼻综合为招牌项目之一，医生团队专注五官精细化雕塑，技术以仿生软骨鼻综合与自然鼻尖处理为特点，用户口碑中鼻部案例较多。",
+      "爱美尔是本地知名连锁，主打‘肋骨鼻综合’及个性化定制，医生林潮（鼻整形骨干）、郑健（擅长复杂鼻修复）在案例中口碑较好，侧重高满意度与术后效果自然，适合需要重建或追求明显改善的求美者。"
+    ],
+    "ai_recommendation_rank": 3
+  },
+  {
+    "brand_name": "福州美贝尔医疗美容医院",
+    "brand_key": "福州美贝尔医疗美容医院",
+    "is_user_brand": true,
+    "recommendation_count": 8,
+    "avg_rank": 3.38,
+    "engine_count": 4,
+    "engine": "deepseek, doubao, qwen, yuanbao",
+    "source_urls": [
+      "https://www.fzmeier.com",
+      "https://www.maybellfz.com",
+      "https://www.meibeier.com/",
+      "https://www.zhihu.com/question/343743256",
+      "https://www.mbellfz.com"
+    ],
+    "reasons": [
+      "隶属美贝尔集团，深耕福州十年，鼓楼五四路地标位置；5000㎡空间、6间百级层流手术室；林峰院长领衔眼鼻胸精雕，融合韩国CK技术资源，主打‘不推销、无隐形消费’透明服务模式[summary]",
+      "隶属美贝尔医疗美容集团，是在福州运营十年的正规私立医美机构，拥有5000㎡诊疗空间与百级层流手术室，融合中韩精细化整形技术，主打自然塑形风格，承诺无隐形消费、不主动推销，配套1对1陪护与酒店级留观服务，覆盖眼鼻整形、吸脂、抗衰等多元项目。",
+      "深耕福州十年的正规机构，硬件较好且价格透明，本地口碑不错",
+      "深耕福州十年，拥有5000㎡诊疗空间及百级层流手术室，主打精细化整形和透明消费，无隐形费用，业界口碑良好。",
+      "深耕福州十年的集团连锁正规医美机构，主打韩式精细化自然风双眼皮，坚持价格透明、无强制推销，有林峰等资深眼整形医师坐诊，提供1对1全程陪护服务，适合偏好自然无痕风格、看重消费透明度的求美者。",
+      "十年集团化机构，拥有叶森明等鼻修复资深医师，融合韩式技术资源，主打无痕自然鼻雕与修复，硬件为百级层流手术室，适合重安全与服务体验者。",
+      "美贝尔有十年历史，特色‘四维鼻雕术’注重鼻部整体美学塑造，医生林峰（院长）与叶森明（擅长修复）经验丰富，技术融合中韩理念，且承诺价格透明、无隐形消费，适合求稳的自然风格求美者。",
+      "十年机构，中韩技术融合主打自然无痕塑形，位于鼓楼区交通便利"
+    ],
+    "ai_recommendation_rank": 4
+  },
+  {
+    "brand_name": "厦门海峡医疗美容医院",
+    "brand_key": "厦门海峡医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 3,
+    "avg_rank": 8.33,
+    "engine_count": 2,
+    "engine": "qwen, yuanbao",
+    "source_urls": [
+      "https://www.xmhaixia.com/",
+      "https://www.xmhaixia.com"
+    ],
+    "reasons": [
+      "厦门头部医美机构，在眼部综合整形领域技术辐射至福州，部分福州用户反馈其双眼皮风格更偏韩系精致，案例透明度高[无]",
+      "虽地处厦门，但作为闽南区域头部医美机构，常承接福州及周边城市转诊客户，吸脂技术成熟、案例丰富，适合对效果要求极高且愿跨城面诊者。",
+      "福建区域内知名医美连锁，福州用户也会跨城参考对比"
+    ],
+    "ai_recommendation_rank": 5
+  },
+  {
+    "brand_name": "福州美莱华美美容医院",
+    "brand_key": "福州美莱华美美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 4.5,
+    "engine_count": 2,
+    "engine": "deepseek, qwen",
+    "source_urls": [
+      "https://www.fzmeilai.com/",
+      "https://www.fzmelh.com/"
+    ],
+    "reasons": [
+      "美莱集团连锁，鼻整形项目有独立‘美鼻’品牌，医生如许雅娟等，手法细腻，主打‘生态鼻综合’，利用自体软骨，术后自然且恢复较快，是福州鼻整形热门机构之一。",
+      "国内知名连锁医美品牌，硬件完善、专家团队成熟，在面部吸脂方面有深厚造诣，强调自然美学与个性化方案[4]。"
+    ],
+    "ai_recommendation_rank": 6
+  },
+  {
+    "brand_name": "福建医科大学附属协和医院整形外科",
+    "brand_key": "福建医科大学附属协和医院整形外科",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 6.5,
+    "engine_count": 2,
+    "engine": "deepseek, qwen",
+    "source_urls": [
+      "https://www.fjxiehe.com/"
+    ],
+    "reasons": [
+      "1998年成立，激光美容与注射美容强项，热玛吉、超声刀等非侵入项目成熟，医护细致、收费透明，适合偏好保守自然风格及基础抗衰需求者[2][10]",
+      "公立三甲，医生陈小松等为核心，技术扎实，对鼻部功能与外形结合处理到位，适合对安全性要求极高或二次修复的求美者，但手术排期多。"
+    ],
+    "ai_recommendation_rank": 7
+  },
+  {
+    "brand_name": "泉州欧菲整形医院",
+    "brand_key": "泉州欧菲整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 7.5,
+    "engine_count": 2,
+    "engine": "qwen, yuanbao",
+    "source_urls": [
+      "https://www.qzoufei.com"
+    ],
+    "reasons": [
+      "虽属泉州，但因在闽南医美圈影响力强、眼整形技术成熟，常被福州求美者跨城选择，尤其以高难度眼修复见长[无]",
+      "闽南地区主流整形机构，省内求美者常作为备选比较对象"
+    ],
+    "ai_recommendation_rank": 8
+  },
+  {
+    "brand_name": "福州美贝尔医疗美容门诊部",
+    "brand_key": "福州美贝尔医疗美容门诊部",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 5.5,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [
+      "https://www.fzmbe.com/"
+    ],
+    "reasons": [
+      "2014年成立，卫健委持证正规机构，张潮院长主推自然不留痕双眼皮，李勇、叶森明、林建华等医生均有大量实操案例与用户自发分享（如术后3个月无疤痕增生）[1][3][4][6][7]",
+      "国际化连锁机构，鼓楼区五四路核心地段，交通便利；采用德国/美国/以色列先进吸脂仪器，强调自然轮廓与低创伤恢复[2][4]。"
+    ],
+    "ai_recommendation_rank": 9
+  },
+  {
+    "brand_name": "福州华美整形医院",
+    "brand_key": "福州华美整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 6.5,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzhuamei.com",
+      "https://www.fzhuamei.com/"
+    ],
+    "reasons": [
+      "较早成立的福州本土医美品牌，在大众点评及本地论坛上有一定忠实客户，以专业技术和服务著称。",
+      "福州本地老牌整形医院，吸脂手术经验丰富，尤其适合大面积吸脂，术后疤痕隐蔽。"
+    ],
+    "ai_recommendation_rank": 10
+  },
+  {
+    "brand_name": "福州联合丽格医疗美容",
+    "brand_key": "福州联合丽格医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 2,
+    "avg_rank": 7.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzunited.com",
+      "https://www.unionleage.com/"
+    ],
+    "reasons": [
+      "联合丽格集团旗下机构，医生团队多来自三甲医院，在疑难修复及高阶整形方面有优势。",
+      "以医美修复与年轻化著称，鼻整形上专注解决‘问题鼻’，包括驼峰鼻、短鼻等，医生吴晓玲在鼻综合方面有较好审美，适合有明确鼻部改善诉求的用户。"
+    ],
+    "ai_recommendation_rank": 11
+  },
+  {
+    "brand_name": "福州名韩医疗美容医院",
+    "brand_key": "福州名韩医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "中整协认证的福州地区眼部整形修复基地，专注双眼皮及高难度眼修复，6000㎡空间+多专家坐诊，真人案例丰富且风格偏精致[8]"
+    ],
+    "ai_recommendation_rank": 12
+  },
+  {
+    "brand_name": "福建医科大学附属协和医院",
+    "brand_key": "福建医科大学附属协和医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [
+      "https://www.fjxhyy.com/"
+    ],
+    "reasons": [
+      "三甲公立医院，技术规范、安全性高，医师经验丰富，适合追求稳妥、重视资质的求美者；在面部及身体吸脂领域有长期临床积累[4]。"
+    ],
+    "ai_recommendation_rank": 13
+  },
+  {
+    "brand_name": "福建省立医院整形烧伤科",
+    "brand_key": "福建省立医院整形烧伤科",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 1.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "省内最早成立的整形专科之一，博士/硕士授权点及住院医师规培基地，郑清健等知名专家坐镇，在鼻综合、乳房再造、瘢痕修复等高难度项目上临床与学术实力突出，安全性与规范性为本地首选[1][6][10]"
+    ],
+    "ai_recommendation_rank": 14
+  },
+  {
+    "brand_name": "福建医科大学附属第一医院整形美容外科",
+    "brand_key": "福建医科大学附属第一医院整形美容外科",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 2.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "成立于1995年三甲医院专科，省内重点学科及医学会挂靠单位，王美水、朱世泽等主任领衔，擅长眼鼻精细化整形、脂肪移植抗衰及四级手术，设备含赛诺秀激光、Body-jet水动力吸脂，兼顾功能与自然美学[2][5][6]"
+    ],
+    "ai_recommendation_rank": 15
+  },
+  {
+    "brand_name": "福州美整形医院",
+    "brand_key": "福州美整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [
+      "https://www.fzmzx.com/"
+    ],
+    "reasons": [
+      "拥有18间层流手术室及数十台进口光电设备，练银发医生擅用细针管均匀吸脂，减少凹凸不平，恢复快、疤痕隐蔽[7]。"
+    ],
+    "ai_recommendation_rank": 16
+  },
+  {
+    "brand_name": "美莱医疗美容医院",
+    "brand_key": "美莱医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 4.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.mylike.com/"
+    ],
+    "reasons": [
+      "全国连锁品牌，福州分院设备先进，医生团队有经验，吸脂效果自然，术后恢复指导专业。"
+    ],
+    "ai_recommendation_rank": 17
+  },
+  {
+    "brand_name": "福州华美整形美容医院",
+    "brand_key": "福州华美整形美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "晋安区塔头路分院，全国华美/美莱体系成员；拥有热玛吉五代、Fotona4D等抗衰设备，独创‘三线五维’面部年轻化设计，术前三维模拟+美丽档案跟踪，JCI标准环境与百级洁净手术室[1][4][6]"
+    ],
+    "ai_recommendation_rank": 18
+  },
+  {
+    "brand_name": "福州比华利美容医院",
+    "brand_key": "福州比华利美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "自2005年运营，擅长显微美容外科技术，双眼皮手术方式灵活，材料与器械筛选严格，医生团队临床经验丰富[无]"
+    ],
+    "ai_recommendation_rank": 19
+  },
+  {
+    "brand_name": "福建名韩医疗美容门诊部",
+    "brand_key": "福建名韩医疗美容门诊部",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "经卫生部门批准设立，突出无菌手术环境与专业吸脂设备，在吸脂及脂肪移植项目中注重自然过渡与细节处理[4]。"
+    ],
+    "ai_recommendation_rank": 20
+  },
+  {
+    "brand_name": "福建省立医院整形外科",
+    "brand_key": "福建省立医院整形外科",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 5.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fjsl.com.cn/"
+    ],
+    "reasons": [
+      "公立三甲医院整形科，安全性最高，医生如薛浩、郑胜武等具备丰富修复经验，适合有严重鼻畸形或需修复的复杂案例，但候诊时间较长，风格偏保守。"
+    ],
+    "ai_recommendation_rank": 21
+  },
+  {
+    "brand_name": "福州爱美尔医疗美容门诊部",
+    "brand_key": "福州爱美尔医疗美容门诊部",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "主打韩式整形风格，医护团队经验丰富，擅长面部吸脂实现紧致小脸效果，强调术后自然美观而非过度削薄[4]。"
+    ],
+    "ai_recommendation_rank": 22
+  },
+  {
+    "brand_name": "福州艺星医疗美容医院",
+    "brand_key": "福州艺星医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.yestar.com/"
+    ],
+    "reasons": [
+      "艺星连锁品牌在福州的机构，吸脂采用水动力技术，创伤小恢复快，深受年轻女性信赖。"
+    ],
+    "ai_recommendation_rank": 23
+  },
+  {
+    "brand_name": "福州韩尔整形美容门诊部",
+    "brand_key": "福州韩尔整形美容门诊部",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "稳定运营近19年，强调个性化手术原则，长期外派医生交流学习，双眼皮操作细致化程度高，地理位置便利[无]"
+    ],
+    "ai_recommendation_rank": 24
+  },
+  {
+    "brand_name": "福州韩辰医疗美容",
+    "brand_key": "福州韩辰医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 6.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzhanchen.com"
+    ],
+    "reasons": [
+      "韩式医美风格，擅长鼻综合、眼部整形及皮肤管理，注重术后效果的自然和谐，受追求韩范的求美者青睐。"
+    ],
+    "ai_recommendation_rank": 25
+  },
+  {
+    "brand_name": "福州伊莱美医疗美容",
+    "brand_key": "福州伊莱美医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzylm.com"
+    ],
+    "reasons": [
+      "本地口碑较好的综合医美机构，眼鼻整形和抗衰项目性价比高，服务较细致。"
+    ],
+    "ai_recommendation_rank": 26
+  },
+  {
+    "brand_name": "福州爱尔丽医疗美容医院",
+    "brand_key": "福州爱尔丽医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "与美贝尔并列福州好评榜前列，技术实力相当，医生服务细致周到，本地用户评价中提及‘切割精准、恢复快’[无]"
+    ],
+    "ai_recommendation_rank": 27
+  },
+  {
+    "brand_name": "福州维多利医疗美容门诊部",
+    "brand_key": "福州维多利医疗美容门诊部",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.victoryjm.com/"
+    ],
+    "reasons": [
+      "专注于吸脂与形体雕塑，个性化设计方案较多，适合对细节要求高的求美者。"
+    ],
+    "ai_recommendation_rank": 28
+  },
+  {
+    "brand_name": "福建省立医院",
+    "brand_key": "福建省立医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 7.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [
+      "https://www.fjsl120.com/"
+    ],
+    "reasons": [
+      "三甲综合医院，黄雄梅等医师在脂肪移植与吸脂塑形方面有多年定制化经验，兼顾功能修复与形态美化[4]。"
+    ],
+    "ai_recommendation_rank": 29
+  },
+  {
+    "brand_name": "福州台江整形医院",
+    "brand_key": "福州台江整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fztjzx.com/"
+    ],
+    "reasons": [
+      "本地知名品牌，设有独立鼻整形专病科室，医生团队如叶向阳等，对鼻部亚单位调整精细，性价比高，适合预算有限但追求效果的用户。"
+    ],
+    "ai_recommendation_rank": 30
+  },
+  {
+    "brand_name": "福州瑞丽医疗美容医院",
+    "brand_key": "福州瑞丽医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 8.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.ruili.com/"
+    ],
+    "reasons": [
+      "瑞丽品牌在福州有较好口碑，吸脂术后恢复指导细致，鼓楼区交通较为便利。"
+    ],
+    "ai_recommendation_rank": 31
+  },
+  {
+    "brand_name": "福州美立方整形医院",
+    "brand_key": "福州美立方整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.meilifang.com/"
+    ],
+    "reasons": [
+      "美立方在福州有一定知名度，吸脂塑形效果自然，价格适中，适合大众消费。"
+    ],
+    "ai_recommendation_rank": 32
+  },
+  {
+    "brand_name": "福州美莱医疗美容医院",
+    "brand_key": "福州美莱医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "美莱集团福州分院，万平规模，引进3D数字化隆鼻、内窥镜双平面丰胸等技术，24小时应急通道与术后维养体系完善，全国连锁保障设备与耗材合规性[1][6]"
+    ],
+    "ai_recommendation_rank": 33
+  },
+  {
+    "brand_name": "福州芳华整形",
+    "brand_key": "福州芳华整形",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 9.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzfh.com"
+    ],
+    "reasons": [
+      "专注于女性轻医美和整形，在面部轮廓、皮肤美容方面有特色，客户群体以中高端女性为主。"
+    ],
+    "ai_recommendation_rank": 34
+  },
+  {
+    "brand_name": "福州维多利亚医疗美容医院",
+    "brand_key": "福州维多利亚医疗美容医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "engine_count": 1,
+    "engine": "qwen",
+    "source_urls": [],
+    "reasons": [
+      "以‘自然美学’为核心，引进瑞士共振吸脂、韩国4D线雕，设有独立皮肤管理研究中心及会员制健康管理，注重耗材可追溯与效果稳定性[1][6]"
+    ],
+    "ai_recommendation_rank": 35
+  },
+  {
+    "brand_name": "福州薇琳医疗美容",
+    "brand_key": "福州薇琳医疗美容",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.fzwl.com"
+    ],
+    "reasons": [
+      "主打微创整形与年轻化项目，医生团队有多年临床经验，术后跟踪服务较好。"
+    ],
+    "ai_recommendation_rank": 36
+  },
+  {
+    "brand_name": "福州韩美整形医院",
+    "brand_key": "福州韩美整形医院",
+    "is_user_brand": false,
+    "recommendation_count": 1,
+    "avg_rank": 10.0,
+    "engine_count": 1,
+    "engine": "deepseek",
+    "source_urls": [
+      "https://www.hanmei.com/"
+    ],
+    "reasons": [
+      "采用韩国精细吸脂技术，品牌定位较高，效果自然，术后住院环境舒适。"
+    ],
+    "ai_recommendation_rank": 37
+  }
+]

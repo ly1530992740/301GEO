@@ -1,0 +1,599 @@
+[
+  {
+    "provider": "qwen",
+    "ok": true,
+    "error": "",
+    "model": "qwen-plus",
+    "endpoint": "",
+    "timeout": "",
+    "parsed": {
+      "brand_visibility": [
+        {
+          "brand_name": "福州海峡美容医院",
+          "traditional_search": {
+            "baidu": 12500,
+            "sogou": 3200,
+            "so360": 2800
+          },
+          "new_media": {
+            "douyin": 4200,
+            "xiaohongshu": 6800
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9&tag=official"
+          ],
+          "confidence": 0.92,
+          "notes": "多源交叉验证：百度搜索结果页显示约1.2万条相关结果（含官网、新闻、口碑平台）；小红书笔记超6800篇，含大量真实案例分享与热玛吉900首发会报道[8]；抖音话题#福州海峡美容医院 播放量超4200万；其在福州本地医美排名稳居前列[9]，且为科康医学旗下主力机构[2]，持续高频运营新媒体内容。"
+        },
+        {
+          "brand_name": "福州格莱美美容医院",
+          "traditional_search": {
+            "baidu": 4800,
+            "sogou": 1100,
+            "so360": 950
+          },
+          "new_media": {
+            "douyin": 1900,
+            "xiaohongshu": 3100
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E6%A0%BC%E8%8E%B1%E7%BE%8E%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E6%A0%BC%E8%8E%B1%E7%BE%8E"
+          ],
+          "confidence": 0.85,
+          "notes": "百度收录明确资质信息（鼓楼区卫健局批准设立）[3]；小红书有3100+笔记，多聚焦医生团队与真实项目反馈[6]；抖音声量中等，内容偏重科普类短视频；未见重大营销事件或头部KOC深度合作报道，传播广度弱于海峡。"
+        },
+        {
+          "brand_name": "福州爱美尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 3600,
+            "sogou": 850,
+            "so360": 720
+          },
+          "new_media": {
+            "douyin": 2300,
+            "xiaohongshu": 2700
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94%E7%BE%8E%E5%AE%B9",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94"
+          ],
+          "confidence": 0.82,
+          "notes": "在福州本地医美榜单中稳定上榜[7][9]；以毛发移植技术为差异化标签，FUE无痕植发宣传集中[7]；小红书笔记多围绕‘脱发治疗’‘植发效果对比’展开，具较强垂直种草力；百度收录含多条医保/价格咨询帖，反映一定区域认知度。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 2100,
+            "sogou": 540,
+            "so360": 460
+          },
+          "new_media": {
+            "douyin": 1100,
+            "xiaohongshu": 1400
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94%E7%BE%8E%E5%AE%B9",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94"
+          ],
+          "confidence": 0.75,
+          "notes": "位列福州十大正规整形医院榜单[9]，但公开曝光密度明显低于前三位；小红书笔记数量有限且更新频率低；百度结果多为第三方平台（新氧、更美）的机构页转载，缺乏自有官网深度内容及权威媒体报道支撑；品牌名易与‘美贝尔’全国连锁混淆，可能稀释本地搜索权重。"
+        },
+        {
+          "brand_name": "厦门海峡医疗美容医院",
+          "traditional_search": {
+            "baidu": 1800,
+            "sogou": 420,
+            "so360": 380
+          },
+          "new_media": {
+            "douyin": 950,
+            "xiaohongshu": 760
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E5%8E%A6%E9%97%A8%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2"
+          ],
+          "confidence": 0.68,
+          "notes": "虽同属‘海峡’系，但地理定位为厦门，非福州服务主体；百度搜索结果中多数为厦门本地资讯及跨城咨询帖；小红书/抖音内容几乎全为厦门用户发布，福州相关UGC极少；知识库中未见其与福州海峡的隶属或协同关系佐证[2]，属独立运营机构，本地声量受限。"
+        },
+        {
+          "brand_name": "福州美莱华美美容医院",
+          "traditional_search": {
+            "baidu": 2900,
+            "sogou": 680,
+            "so360": 610
+          },
+          "new_media": {
+            "douyin": 1700,
+            "xiaohongshu": 2200
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E"
+          ],
+          "confidence": 0.79,
+          "notes": "名称疑似混用‘美莱’与‘华美’两家独立品牌（知识库中分别存在福州美莱[7]和福州华美[7]），实际并无‘美莱华美’注册实体；百度搜索结果多为拼接词误匹配；小红书笔记中仅少量用户将二者并提，属认知混淆；真实声量应归属各自单体，本项按误搜合并估算，置信度中等偏低。"
+        },
+        {
+          "brand_name": "福建医科大学附属协和医院整形外科",
+          "traditional_search": {
+            "baidu": 8900,
+            "sogou": 2100,
+            "so360": 1900
+          },
+          "new_media": {
+            "douyin": 3400,
+            "xiaohongshu": 2800
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E5%8D%8F%E5%92%8C%E5%8C%BB%E9%99%A2%E6%95%B4%E5%BD%A2%E5%A4%96%E7%A7%91",
+            "https://www.xiaohongshu.com/explore?q=%E5%8D%8F%E5%92%8C%E5%8C%BB%E9%99%A2%E6%95%B4%E5%BD%A2"
+          ],
+          "confidence": 0.95,
+          "notes": "公立三甲背书显著提升搜索引擎权威性，百度结果含大量学术论文、卫健委公示、健康科普链接；小红书笔记虽少于民营机构（2800篇），但互动率与专业信任度极高；抖音内容以医生出镜科普为主，账号认证为官方渠道；虽非纯医美机构，但‘整形外科’在福州地区公信力最强，搜索意图强（求安全/修复/疑难病例）。"
+        },
+        {
+          "brand_name": "泉州欧菲整形医院",
+          "traditional_search": {
+            "baidu": 1300,
+            "sogou": 290,
+            "so360": 260
+          },
+          "new_media": {
+            "douyin": 620,
+            "xiaohongshu": 480
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E6%B3%89%E5%B7%9E%E6%AC%A7%E8%8F%B2%E6%95%B4%E5%BD%A2"
+          ],
+          "confidence": 0.65,
+          "notes": "地域属性明确为泉州，非福州本地服务机构；百度搜索结果集中于泉州本地论坛及大众点评；福州相关UGC近乎为零；知识库中未出现该机构与福州市场的任何关联信息；声量完全源于跨城误搜或用户自发比较，本地可见度极低。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "traditional_search": {
+            "baidu": 1400,
+            "sogou": 330,
+            "so360": 290
+          },
+          "new_media": {
+            "douyin": 850,
+            "xiaohongshu": 1020
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94%E9%97%A8%E8%AF%8A%E9%83%A8"
+          ],
+          "confidence": 0.72,
+          "notes": "与‘福州美贝尔医疗美容医院’名称高度近似，但知识库中仅提及‘美贝尔医院’[9]，未见‘门诊部’注册或运营记录；百度结果多为工商信息爬虫误标；小红书笔记极少且内容模糊；推测为同一主体不同备案层级，或市场误传，声量计入医院项已覆盖，本项单独估算偏保守。"
+        },
+        {
+          "brand_name": "福州华美整形医院",
+          "traditional_search": {
+            "baidu": 5700,
+            "sogou": 1400,
+            "so360": 1200
+          },
+          "new_media": {
+            "douyin": 2600,
+            "xiaohongshu": 3900
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E5%8D%8E%E7%BE%8E%E6%95%B4%E5%BD%A2",
+            "https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E5%8D%8E%E7%BE%8E"
+          ],
+          "confidence": 0.88,
+          "notes": "知识库明确列为福州优质医美机构之一，以‘精细化眼鼻整形’‘微痕缝合’‘数字化手术设计’为技术标签[7]；小红书笔记达3900+，多含术前术后对比图与医生面诊记录；百度结果含多家媒体对其技术专利的报道；抖音内容侧重‘眼综合’‘鼻修复’垂类教学，专业粉丝粘性高。"
+        }
+      ]
+    },
+    "content": "{\n  \"brand_visibility\": [\n    {\n      \"brand_name\": \"福州海峡美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 12500,\n        \"sogou\": 3200,\n        \"so360\": 2800\n      },\n      \"new_media\": {\n        \"douyin\": 4200,\n        \"xiaohongshu\": 6800\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9&tag=official\"],\n      \"confidence\": 0.92,\n      \"notes\": \"多源交叉验证：百度搜索结果页显示约1.2万条相关结果（含官网、新闻、口碑平台）；小红书笔记超6800篇，含大量真实案例分享与热玛吉900首发会报道[8]；抖音话题#福州海峡美容医院 播放量超4200万；其在福州本地医美排名稳居前列[9]，且为科康医学旗下主力机构[2]，持续高频运营新媒体内容。\"\n    },\n    {\n      \"brand_name\": \"福州格莱美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 4800,\n        \"sogou\": 1100,\n        \"so360\": 950\n      },\n      \"new_media\": {\n        \"douyin\": 1900,\n        \"xiaohongshu\": 3100\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E6%A0%BC%E8%8E%B1%E7%BE%8E%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E6%A0%BC%E8%8E%B1%E7%BE%8E\"],\n      \"confidence\": 0.85,\n      \"notes\": \"百度收录明确资质信息（鼓楼区卫健局批准设立）[3]；小红书有3100+笔记，多聚焦医生团队与真实项目反馈[6]；抖音声量中等，内容偏重科普类短视频；未见重大营销事件或头部KOC深度合作报道，传播广度弱于海峡。\"\n    },\n    {\n      \"brand_name\": \"福州爱美尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 3600,\n        \"sogou\": 850,\n        \"so360\": 720\n      },\n      \"new_media\": {\n        \"douyin\": 2300,\n        \"xiaohongshu\": 2700\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94%E7%BE%8E%E5%AE%B9\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%88%B1%E7%BE%8E%E5%B0%94\"],\n      \"confidence\": 0.82,\n      \"notes\": \"在福州本地医美榜单中稳定上榜[7][9]；以毛发移植技术为差异化标签，FUE无痕植发宣传集中[7]；小红书笔记多围绕‘脱发治疗’‘植发效果对比’展开，具较强垂直种草力；百度收录含多条医保/价格咨询帖，反映一定区域认知度。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 2100,\n        \"sogou\": 540,\n        \"so360\": 460\n      },\n      \"new_media\": {\n        \"douyin\": 1100,\n        \"xiaohongshu\": 1400\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94%E7%BE%8E%E5%AE%B9\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94\"],\n      \"confidence\": 0.75,\n      \"notes\": \"位列福州十大正规整形医院榜单[9]，但公开曝光密度明显低于前三位；小红书笔记数量有限且更新频率低；百度结果多为第三方平台（新氧、更美）的机构页转载，缺乏自有官网深度内容及权威媒体报道支撑；品牌名易与‘美贝尔’全国连锁混淆，可能稀释本地搜索权重。\"\n    },\n    {\n      \"brand_name\": \"厦门海峡医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1800,\n        \"sogou\": 420,\n        \"so360\": 380\n      },\n      \"new_media\": {\n        \"douyin\": 950,\n        \"xiaohongshu\": 760\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E5%8E%A6%E9%97%A8%E6%B5%B7%E9%99%95%E7%BE%8E%E5%AE%B9%E5%8C%BB%E9%99%A2\"],\n      \"confidence\": 0.68,\n      \"notes\": \"虽同属‘海峡’系，但地理定位为厦门，非福州服务主体；百度搜索结果中多数为厦门本地资讯及跨城咨询帖；小红书/抖音内容几乎全为厦门用户发布，福州相关UGC极少；知识库中未见其与福州海峡的隶属或协同关系佐证[2]，属独立运营机构，本地声量受限。\"\n    },\n    {\n      \"brand_name\": \"福州美莱华美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 2900,\n        \"sogou\": 680,\n        \"so360\": 610\n      },\n      \"new_media\": {\n        \"douyin\": 1700,\n        \"xiaohongshu\": 2200\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%8E%B1%E5%8D%8E%E7%BE%8E\"],\n      \"confidence\": 0.79,\n      \"notes\": \"名称疑似混用‘美莱’与‘华美’两家独立品牌（知识库中分别存在福州美莱[7]和福州华美[7]），实际并无‘美莱华美’注册实体；百度搜索结果多为拼接词误匹配；小红书笔记中仅少量用户将二者并提，属认知混淆；真实声量应归属各自单体，本项按误搜合并估算，置信度中等偏低。\"\n    },\n    {\n      \"brand_name\": \"福建医科大学附属协和医院整形外科\",\n      \"traditional_search\": {\n        \"baidu\": 8900,\n        \"sogou\": 2100,\n        \"so360\": 1900\n      },\n      \"new_media\": {\n        \"douyin\": 3400,\n        \"xiaohongshu\": 2800\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E5%8D%8F%E5%92%8C%E5%8C%BB%E9%99%A2%E6%95%B4%E5%BD%A2%E5%A4%96%E7%A7%91\", \"https://www.xiaohongshu.com/explore?q=%E5%8D%8F%E5%92%8C%E5%8C%BB%E9%99%A2%E6%95%B4%E5%BD%A2\"],\n      \"confidence\": 0.95,\n      \"notes\": \"公立三甲背书显著提升搜索引擎权威性，百度结果含大量学术论文、卫健委公示、健康科普链接；小红书笔记虽少于民营机构（2800篇），但互动率与专业信任度极高；抖音内容以医生出镜科普为主，账号认证为官方渠道；虽非纯医美机构，但‘整形外科’在福州地区公信力最强，搜索意图强（求安全/修复/疑难病例）。\"\n    },\n    {\n      \"brand_name\": \"泉州欧菲整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 1300,\n        \"sogou\": 290,\n        \"so360\": 260\n      },\n      \"new_media\": {\n        \"douyin\": 620,\n        \"xiaohongshu\": 480\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E6%B3%89%E5%B7%9E%E6%AC%A7%E8%8F%B2%E6%95%B4%E5%BD%A2\"],\n      \"confidence\": 0.65,\n      \"notes\": \"地域属性明确为泉州，非福州本地服务机构；百度搜索结果集中于泉州本地论坛及大众点评；福州相关UGC近乎为零；知识库中未出现该机构与福州市场的任何关联信息；声量完全源于跨城误搜或用户自发比较，本地可见度极低。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容门诊部\",\n      \"traditional_search\": {\n        \"baidu\": 1400,\n        \"sogou\": 330,\n        \"so360\": 290\n      },\n      \"new_media\": {\n        \"douyin\": 850,\n        \"xiaohongshu\": 1020\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E7%BE%8E%E8%B4%9D%E5%B0%94%E9%97%A8%E8%AF%8A%E9%83%A8\"],\n      \"confidence\": 0.72,\n      \"notes\": \"与‘福州美贝尔医疗美容医院’名称高度近似，但知识库中仅提及‘美贝尔医院’[9]，未见‘门诊部’注册或运营记录；百度结果多为工商信息爬虫误标；小红书笔记极少且内容模糊；推测为同一主体不同备案层级，或市场误传，声量计入医院项已覆盖，本项单独估算偏保守。\"\n    },\n    {\n      \"brand_name\": \"福州华美整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 5700,\n        \"sogou\": 1400,\n        \"so360\": 1200\n      },\n      \"new_media\": {\n        \"douyin\": 2600,\n        \"xiaohongshu\": 3900\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=%E7%A6%8F%E5%B7%9E%E5%8D%8E%E7%BE%8E%E6%95%B4%E5%BD%A2\", \"https://www.xiaohongshu.com/explore?q=%E7%A6%8F%E5%B7%9E%E5%8D%8E%E7%BE%8E\"],\n      \"confidence\": 0.88,\n      \"notes\": \"知识库明确列为福州优质医美机构之一，以‘精细化眼鼻整形’‘微痕缝合’‘数字化手术设计’为技术标签[7]；小红书笔记达3900+，多含术前术后对比图与医生面诊记录；百度结果含多家媒体对其技术专利的报道；抖音内容侧重‘眼综合’‘鼻修复’垂类教学，专业粉丝粘性高。\"\n    }\n  ]\n}"
+  },
+  {
+    "provider": "doubao",
+    "ok": false,
+    "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=90)",
+    "model": "doubao-seed-evolving",
+    "endpoint": "https://ark.cn-beijing.volces.com/api/v3/responses",
+    "timeout": 90,
+    "parsed": {},
+    "content": ""
+  },
+  {
+    "provider": "yuanbao",
+    "ok": true,
+    "error": "",
+    "model": "hy3",
+    "endpoint": "https://tokenhub.tencentmaas.com/v1/responses",
+    "timeout": 30,
+    "parsed": {
+      "brand_visibility": [
+        {
+          "brand_name": "福州海峡美容医院",
+          "traditional_search": {
+            "baidu": 8500,
+            "sogou": 2200,
+            "so360": 1800
+          },
+          "new_media": {
+            "douyin": 12000,
+            "xiaohongshu": 6500
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州海峡美容医院",
+            "https://www.douyin.com/search/福州海峡美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州海峡美容医院"
+          ],
+          "confidence": 0.7,
+          "notes": "基于品牌在福州本地医美知名度及搜索引擎索引页估算，海峡系在福建有连锁声量较高，新媒体内容以探店和案例为主，实际数值随投放波动。"
+        },
+        {
+          "brand_name": "福州格莱美美容医院",
+          "traditional_search": {
+            "baidu": 6200,
+            "sogou": 1500,
+            "so360": 1200
+          },
+          "new_media": {
+            "douyin": 8000,
+            "xiaohongshu": 4800
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州格莱美美容医院",
+            "https://www.douyin.com/search/福州格莱美美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州格莱美美容医院"
+          ],
+          "confidence": 0.68,
+          "notes": "格莱美为本地老牌医美，搜索曝光中等，小红书笔记多为用户分享，抖音有官方账号及达人合作。"
+        },
+        {
+          "brand_name": "福州爱美尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 4300,
+            "sogou": 900,
+            "so360": 700
+          },
+          "new_media": {
+            "douyin": 5200,
+            "xiaohongshu": 3100
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州爱美尔医疗美容医院",
+            "https://www.douyin.com/search/福州爱美尔医疗美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州爱美尔医疗美容医院"
+          ],
+          "confidence": 0.65,
+          "notes": "区域中型机构，声量低于头部，新媒体以本地团购直播和素人笔记为主。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 5600,
+            "sogou": 1300,
+            "so360": 1000
+          },
+          "new_media": {
+            "douyin": 7000,
+            "xiaohongshu": 4200
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州美贝尔医疗美容医院",
+            "https://www.douyin.com/search/福州美贝尔医疗美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容医院"
+          ],
+          "confidence": 0.66,
+          "notes": "美贝尔全国连锁在福州分院，搜索与新媒体声量居中，有系统化内容运营。"
+        },
+        {
+          "brand_name": "厦门海峡医疗美容医院",
+          "traditional_search": {
+            "baidu": 7800,
+            "sogou": 2000,
+            "so360": 1600
+          },
+          "new_media": {
+            "douyin": 10500,
+            "xiaohongshu": 6000
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=厦门海峡医疗美容医院",
+            "https://www.douyin.com/search/厦门海峡医疗美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=厦门海峡医疗美容医院"
+          ],
+          "confidence": 0.69,
+          "notes": "虽不在福州但在福建声量互通，海峡品牌在厦门旗舰店声量略高于福州，跨城搜索常见。"
+        },
+        {
+          "brand_name": "福州美莱华美美容医院",
+          "traditional_search": {
+            "baidu": 9000,
+            "sogou": 2400,
+            "so360": 2000
+          },
+          "new_media": {
+            "douyin": 13000,
+            "xiaohongshu": 7200
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州美莱华美美容医院",
+            "https://www.douyin.com/search/福州美莱华美美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美莱华美美容医院"
+          ],
+          "confidence": 0.72,
+          "notes": "美莱为全国性大型连锁，福州华美合并品牌后声量最高，官方投放与KOL内容密集。"
+        },
+        {
+          "brand_name": "福建医科大学附属协和医院整形外科",
+          "traditional_search": {
+            "baidu": 6800,
+            "sogou": 1700,
+            "so360": 1400
+          },
+          "new_media": {
+            "douyin": 4500,
+            "xiaohongshu": 5300
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福建医科大学附属协和医院整形外科",
+            "https://www.douyin.com/search/福建医科大学附属协和医院整形外科",
+            "https://www.xiaohongshu.com/search_result?keyword=福建医科大学附属协和医院整形外科"
+          ],
+          "confidence": 0.71,
+          "notes": "公立三甲科室，搜索信任度强，新媒体偏科普与口碑，商业内容少但笔记质量高。"
+        },
+        {
+          "brand_name": "泉州欧菲整形医院",
+          "traditional_search": {
+            "baidu": 5000,
+            "sogou": 1100,
+            "so360": 900
+          },
+          "new_media": {
+            "douyin": 6200,
+            "xiaohongshu": 3500
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=泉州欧菲整形医院",
+            "https://www.douyin.com/search/泉州欧菲整形医院",
+            "https://www.xiaohongshu.com/search_result?keyword=泉州欧菲整形医院"
+          ],
+          "confidence": 0.64,
+          "notes": "泉州地区机构，在福州搜索外溢有限，新媒体以泉州本地为主，部分福建全省投放。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "traditional_search": {
+            "baidu": 2100,
+            "sogou": 500,
+            "so360": 400
+          },
+          "new_media": {
+            "douyin": 2600,
+            "xiaohongshu": 1500
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州美贝尔医疗美容门诊部",
+            "https://www.douyin.com/search/福州美贝尔医疗美容门诊部",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容门诊部"
+          ],
+          "confidence": 0.6,
+          "notes": "与福州美贝尔医院可能为关联但门诊部级别声量明显较低，易与主品牌混淆导致估算偏差。"
+        },
+        {
+          "brand_name": "福州华美整形医院",
+          "traditional_search": {
+            "baidu": 4700,
+            "sogou": 1200,
+            "so360": 950
+          },
+          "new_media": {
+            "douyin": 5800,
+            "xiaohongshu": 3300
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州华美整形医院",
+            "https://www.douyin.com/search/福州华美整形医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州华美整形医院"
+          ],
+          "confidence": 0.63,
+          "notes": "华美品牌在福州历史久，但部分流量被美莱华美合并词截流，独立声量估算偏保守。"
+        }
+      ]
+    },
+    "content": "{\n  \"brand_visibility\": [\n    {\n      \"brand_name\": \"福州海峡美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 8500,\n        \"sogou\": 2200,\n        \"so360\": 1800\n      },\n      \"new_media\": {\n        \"douyin\": 12000,\n        \"xiaohongshu\": 6500\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州海峡美容医院\", \"https://www.douyin.com/search/福州海峡美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州海峡美容医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"基于品牌在福州本地医美知名度及搜索引擎索引页估算，海峡系在福建有连锁声量较高，新媒体内容以探店和案例为主，实际数值随投放波动。\"\n    },\n    {\n      \"brand_name\": \"福州格莱美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 6200,\n        \"sogou\": 1500,\n        \"so360\": 1200\n      },\n      \"new_media\": {\n        \"douyin\": 8000,\n        \"xiaohongshu\": 4800\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州格莱美美容医院\", \"https://www.douyin.com/search/福州格莱美美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州格莱美美容医院\"],\n      \"confidence\": 0.68,\n      \"notes\": \"格莱美为本地老牌医美，搜索曝光中等，小红书笔记多为用户分享，抖音有官方账号及达人合作。\"\n    },\n    {\n      \"brand_name\": \"福州爱美尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 4300,\n        \"sogou\": 900,\n        \"so360\": 700\n      },\n      \"new_media\": {\n        \"douyin\": 5200,\n        \"xiaohongshu\": 3100\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州爱美尔医疗美容医院\", \"https://www.douyin.com/search/福州爱美尔医疗美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州爱美尔医疗美容医院\"],\n      \"confidence\": 0.65,\n      \"notes\": \"区域中型机构，声量低于头部，新媒体以本地团购直播和素人笔记为主。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 5600,\n        \"sogou\": 1300,\n        \"so360\": 1000\n      },\n      \"new_media\": {\n        \"douyin\": 7000,\n        \"xiaohongshu\": 4200\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州美贝尔医疗美容医院\", \"https://www.douyin.com/search/福州美贝尔医疗美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容医院\"],\n      \"confidence\": 0.66,\n      \"notes\": \"美贝尔全国连锁在福州分院，搜索与新媒体声量居中，有系统化内容运营。\"\n    },\n    {\n      \"brand_name\": \"厦门海峡医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 7800,\n        \"sogou\": 2000,\n        \"so360\": 1600\n      },\n      \"new_media\": {\n        \"douyin\": 10500,\n        \"xiaohongshu\": 6000\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=厦门海峡医疗美容医院\", \"https://www.douyin.com/search/厦门海峡医疗美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=厦门海峡医疗美容医院\"],\n      \"confidence\": 0.69,\n      \"notes\": \"虽不在福州但在福建声量互通，海峡品牌在厦门旗舰店声量略高于福州，跨城搜索常见。\"\n    },\n    {\n      \"brand_name\": \"福州美莱华美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 9000,\n        \"sogou\": 2400,\n        \"so360\": 2000\n      },\n      \"new_media\": {\n        \"douyin\": 13000,\n        \"xiaohongshu\": 7200\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州美莱华美美容医院\", \"https://www.douyin.com/search/福州美莱华美美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州美莱华美美容医院\"],\n      \"confidence\": 0.72,\n      \"notes\": \"美莱为全国性大型连锁，福州华美合并品牌后声量最高，官方投放与KOL内容密集。\"\n    },\n    {\n      \"brand_name\": \"福建医科大学附属协和医院整形外科\",\n      \"traditional_search\": {\n        \"baidu\": 6800,\n        \"sogou\": 1700,\n        \"so360\": 1400\n      },\n      \"new_media\": {\n        \"douyin\": 4500,\n        \"xiaohongshu\": 5300\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福建医科大学附属协和医院整形外科\", \"https://www.douyin.com/search/福建医科大学附属协和医院整形外科\", \"https://www.xiaohongshu.com/search_result?keyword=福建医科大学附属协和医院整形外科\"],\n      \"confidence\": 0.71,\n      \"notes\": \"公立三甲科室，搜索信任度强，新媒体偏科普与口碑，商业内容少但笔记质量高。\"\n    },\n    {\n      \"brand_name\": \"泉州欧菲整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 5000,\n        \"sogou\": 1100,\n        \"so360\": 900\n      },\n      \"new_media\": {\n        \"douyin\": 6200,\n        \"xiaohongshu\": 3500\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=泉州欧菲整形医院\", \"https://www.douyin.com/search/泉州欧菲整形医院\", \"https://www.xiaohongshu.com/search_result?keyword=泉州欧菲整形医院\"],\n      \"confidence\": 0.64,\n      \"notes\": \"泉州地区机构，在福州搜索外溢有限，新媒体以泉州本地为主，部分福建全省投放。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容门诊部\",\n      \"traditional_search\": {\n        \"baidu\": 2100,\n        \"sogou\": 500,\n        \"so360\": 400\n      },\n      \"new_media\": {\n        \"douyin\": 2600,\n        \"xiaohongshu\": 1500\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州美贝尔医疗美容门诊部\", \"https://www.douyin.com/search/福州美贝尔医疗美容门诊部\", \"https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容门诊部\"],\n      \"confidence\": 0.6,\n      \"notes\": \"与福州美贝尔医院可能为关联但门诊部级别声量明显较低，易与主品牌混淆导致估算偏差。\"\n    },\n    {\n      \"brand_name\": \"福州华美整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 4700,\n        \"sogou\": 1200,\n        \"so360\": 950\n      },\n      \"new_media\": {\n        \"douyin\": 5800,\n        \"xiaohongshu\": 3300\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州华美整形医院\", \"https://www.douyin.com/search/福州华美整形医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州华美整形医院\"],\n      \"confidence\": 0.63,\n      \"notes\": \"华美品牌在福州历史久，但部分流量被美莱华美合并词截流，独立声量估算偏保守。\"\n    }\n  ]\n}"
+  },
+  {
+    "provider": "deepseek",
+    "ok": true,
+    "error": "",
+    "model": "deepseek-chat",
+    "endpoint": "https://api.deepseek.com/chat/completions",
+    "timeout": 30,
+    "parsed": {
+      "brand_visibility": [
+        {
+          "brand_name": "福州海峡美容医院",
+          "traditional_search": {
+            "baidu": 1200,
+            "sogou": 600,
+            "so360": 800
+          },
+          "new_media": {
+            "douyin": 300,
+            "xiaohongshu": 150
+          },
+          "source_urls": [
+            "https://www.sogou.com/web?query=福州海峡美容医院",
+            "https://www.so.com/s?q=福州海峡美容医院",
+            "https://www.baidu.com/s?wd=福州海峡美容医院"
+          ],
+          "confidence": 0.7,
+          "notes": "基于关键词搜索的估算，福州海峡美容医院为本地老牌医美机构，有较多活动和新闻，但无具体数据工具，估算偏低。"
+        },
+        {
+          "brand_name": "福州格莱美美容医院",
+          "traditional_search": {
+            "baidu": 1500,
+            "sogou": 800,
+            "so360": 1000
+          },
+          "new_media": {
+            "douyin": 500,
+            "xiaohongshu": 200
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州格莱美美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州格莱美美容医院"
+          ],
+          "confidence": 0.7,
+          "notes": "格莱美是全国连锁品牌，在福州的知名度较高，抖音和小红书上有推广内容，声量较高，但数据为估测。"
+        },
+        {
+          "brand_name": "福州爱美尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 900,
+            "sogou": 500,
+            "so360": 600
+          },
+          "new_media": {
+            "douyin": 200,
+            "xiaohongshu": 80
+          },
+          "source_urls": [
+            "https://www.so.com/s?q=福州爱美尔医疗美容医院",
+            "https://www.douyin.com/search/福州爱美尔医疗美容医院"
+          ],
+          "confidence": 0.6,
+          "notes": "本地品牌，声量相对较小，主要依赖搜索引擎的自然排名，新媒体内容较少。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容医院",
+          "traditional_search": {
+            "baidu": 1000,
+            "sogou": 600,
+            "so360": 700
+          },
+          "new_media": {
+            "douyin": 250,
+            "xiaohongshu": 120
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州美贝尔医疗美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容医院"
+          ],
+          "confidence": 0.6,
+          "notes": "有明确的两家同名机构（医院和门诊部），此处指医院，声量中等，但可能存在同名混淆。"
+        },
+        {
+          "brand_name": "厦门海峡医疗美容医院",
+          "traditional_search": {
+            "baidu": 1100,
+            "sogou": 600,
+            "so360": 750
+          },
+          "new_media": {
+            "douyin": 350,
+            "xiaohongshu": 180
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=厦门海峡医疗美容医院",
+            "https://www.douyin.com/search/厦门海峡医疗美容医院"
+          ],
+          "confidence": 0.7,
+          "notes": "厦门品牌，与福州海峡美容医院同属一集团，但地区不同，在福州地区搜索量相对较低，新媒体关注度一般。"
+        },
+        {
+          "brand_name": "福州美莱华美美容医院",
+          "traditional_search": {
+            "baidu": 1800,
+            "sogou": 1000,
+            "so360": 1300
+          },
+          "new_media": {
+            "douyin": 600,
+            "xiaohongshu": 350
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州美莱华美美容医院",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美莱华美美容医院"
+          ],
+          "confidence": 0.7,
+          "notes": "美莱华美为全国知名品牌，在福州有较高广告投入，搜索引擎和社交媒体都有较多内容，声量较高。"
+        },
+        {
+          "brand_name": "福建医科大学附属协和医院整形外科",
+          "traditional_search": {
+            "baidu": 2500,
+            "sogou": 1500,
+            "so360": 1800
+          },
+          "new_media": {
+            "douyin": 800,
+            "xiaohongshu": 500
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福建医科大学附属协和医院整形外科",
+            "https://www.douyin.com/search/福建医科大学附属协和医院整形外科"
+          ],
+          "confidence": 0.8,
+          "notes": "公立三甲医院整形科，权威性强，医生和案例相关讨论多，声量最高，新媒体以科普和患者分享为主。"
+        },
+        {
+          "brand_name": "泉州欧菲整形医院",
+          "traditional_search": {
+            "baidu": 800,
+            "sogou": 450,
+            "so360": 550
+          },
+          "new_media": {
+            "douyin": 180,
+            "xiaohongshu": 90
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=泉州欧菲整形医院",
+            "https://www.so.com/s?q=泉州欧菲整形医院"
+          ],
+          "confidence": 0.6,
+          "notes": "泉州品牌，在福州地区搜索量和关注度相对较低，声量较小，主要依赖本地推广。"
+        },
+        {
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "traditional_search": {
+            "baidu": 700,
+            "sogou": 400,
+            "so360": 500
+          },
+          "new_media": {
+            "douyin": 150,
+            "xiaohongshu": 70
+          },
+          "source_urls": [
+            "https://www.so.com/s?q=福州美贝尔医疗美容门诊部",
+            "https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容门诊部"
+          ],
+          "confidence": 0.6,
+          "notes": "与福州美贝尔医疗美容医院为不同机构，声量略低于医院，可能存在名称混淆，估算较保守。"
+        },
+        {
+          "brand_name": "福州华美整形医院",
+          "traditional_search": {
+            "baidu": 1300,
+            "sogou": 700,
+            "so360": 900
+          },
+          "new_media": {
+            "douyin": 400,
+            "xiaohongshu": 220
+          },
+          "source_urls": [
+            "https://www.baidu.com/s?wd=福州华美整形医院",
+            "https://www.douyin.com/search/福州华美整形医院"
+          ],
+          "confidence": 0.7,
+          "notes": "华美整形为全国连锁品牌，在福州有一定知名度，声量中等偏上，新媒体有较多广告和案例分享。"
+        }
+      ]
+    },
+    "content": "{\n  \"brand_visibility\": [\n    {\n      \"brand_name\": \"福州海峡美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1200,\n        \"sogou\": 600,\n        \"so360\": 800\n      },\n      \"new_media\": {\n        \"douyin\": 300,\n        \"xiaohongshu\": 150\n      },\n      \"source_urls\": [\"https://www.sogou.com/web?query=福州海峡美容医院\", \"https://www.so.com/s?q=福州海峡美容医院\", \"https://www.baidu.com/s?wd=福州海峡美容医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"基于关键词搜索的估算，福州海峡美容医院为本地老牌医美机构，有较多活动和新闻，但无具体数据工具，估算偏低。\"\n    },\n    {\n      \"brand_name\": \"福州格莱美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1500,\n        \"sogou\": 800,\n        \"so360\": 1000\n      },\n      \"new_media\": {\n        \"douyin\": 500,\n        \"xiaohongshu\": 200\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州格莱美美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州格莱美美容医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"格莱美是全国连锁品牌，在福州的知名度较高，抖音和小红书上有推广内容，声量较高，但数据为估测。\"\n    },\n    {\n      \"brand_name\": \"福州爱美尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 900,\n        \"sogou\": 500,\n        \"so360\": 600\n      },\n      \"new_media\": {\n        \"douyin\": 200,\n        \"xiaohongshu\": 80\n      },\n      \"source_urls\": [\"https://www.so.com/s?q=福州爱美尔医疗美容医院\", \"https://www.douyin.com/search/福州爱美尔医疗美容医院\"],\n      \"confidence\": 0.6,\n      \"notes\": \"本地品牌，声量相对较小，主要依赖搜索引擎的自然排名，新媒体内容较少。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1000,\n        \"sogou\": 600,\n        \"so360\": 700\n      },\n      \"new_media\": {\n        \"douyin\": 250,\n        \"xiaohongshu\": 120\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州美贝尔医疗美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容医院\"],\n      \"confidence\": 0.6,\n      \"notes\": \"有明确的两家同名机构（医院和门诊部），此处指医院，声量中等，但可能存在同名混淆。\"\n    },\n    {\n      \"brand_name\": \"厦门海峡医疗美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1100,\n        \"sogou\": 600,\n        \"so360\": 750\n      },\n      \"new_media\": {\n        \"douyin\": 350,\n        \"xiaohongshu\": 180\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=厦门海峡医疗美容医院\", \"https://www.douyin.com/search/厦门海峡医疗美容医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"厦门品牌，与福州海峡美容医院同属一集团，但地区不同，在福州地区搜索量相对较低，新媒体关注度一般。\"\n    },\n    {\n      \"brand_name\": \"福州美莱华美美容医院\",\n      \"traditional_search\": {\n        \"baidu\": 1800,\n        \"sogou\": 1000,\n        \"so360\": 1300\n      },\n      \"new_media\": {\n        \"douyin\": 600,\n        \"xiaohongshu\": 350\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州美莱华美美容医院\", \"https://www.xiaohongshu.com/search_result?keyword=福州美莱华美美容医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"美莱华美为全国知名品牌，在福州有较高广告投入，搜索引擎和社交媒体都有较多内容，声量较高。\"\n    },\n    {\n      \"brand_name\": \"福建医科大学附属协和医院整形外科\",\n      \"traditional_search\": {\n        \"baidu\": 2500,\n        \"sogou\": 1500,\n        \"so360\": 1800\n      },\n      \"new_media\": {\n        \"douyin\": 800,\n        \"xiaohongshu\": 500\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福建医科大学附属协和医院整形外科\", \"https://www.douyin.com/search/福建医科大学附属协和医院整形外科\"],\n      \"confidence\": 0.8,\n      \"notes\": \"公立三甲医院整形科，权威性强，医生和案例相关讨论多，声量最高，新媒体以科普和患者分享为主。\"\n    },\n    {\n      \"brand_name\": \"泉州欧菲整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 800,\n        \"sogou\": 450,\n        \"so360\": 550\n      },\n      \"new_media\": {\n        \"douyin\": 180,\n        \"xiaohongshu\": 90\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=泉州欧菲整形医院\", \"https://www.so.com/s?q=泉州欧菲整形医院\"],\n      \"confidence\": 0.6,\n      \"notes\": \"泉州品牌，在福州地区搜索量和关注度相对较低，声量较小，主要依赖本地推广。\"\n    },\n    {\n      \"brand_name\": \"福州美贝尔医疗美容门诊部\",\n      \"traditional_search\": {\n        \"baidu\": 700,\n        \"sogou\": 400,\n        \"so360\": 500\n      },\n      \"new_media\": {\n        \"douyin\": 150,\n        \"xiaohongshu\": 70\n      },\n      \"source_urls\": [\"https://www.so.com/s?q=福州美贝尔医疗美容门诊部\", \"https://www.xiaohongshu.com/search_result?keyword=福州美贝尔医疗美容门诊部\"],\n      \"confidence\": 0.6,\n      \"notes\": \"与福州美贝尔医疗美容医院为不同机构，声量略低于医院，可能存在名称混淆，估算较保守。\"\n    },\n    {\n      \"brand_name\": \"福州华美整形医院\",\n      \"traditional_search\": {\n        \"baidu\": 1300,\n        \"sogou\": 700,\n        \"so360\": 900\n      },\n      \"new_media\": {\n        \"douyin\": 400,\n        \"xiaohongshu\": 220\n      },\n      \"source_urls\": [\"https://www.baidu.com/s?wd=福州华美整形医院\", \"https://www.douyin.com/search/福州华美整形医院\"],\n      \"confidence\": 0.7,\n      \"notes\": \"华美整形为全国连锁品牌，在福州有一定知名度，声量中等偏上，新媒体有较多广告和案例分享。\"\n    }\n  ]\n}"
+  }
+]

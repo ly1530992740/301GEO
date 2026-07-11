@@ -79,24 +79,59 @@ def run_integrated_geo_analysis(
 
     del trend_count, recommendations_per_term
     run_dir = Path(profile_run["run_dir"])
+    status_path = run_dir / "run_status.json"
+    status_events: list[dict[str, Any]] = []
+
+    def record_status(message: str, state: str = "running") -> None:
+        status_events.append({"time": utc_now_iso(), "message": message, "state": state})
+        payload = {
+            "run_id": profile_run.get("run_id", ""),
+            "state": state,
+            "updated_at": utc_now_iso(),
+            "last_message": message,
+            "events": status_events[-80:],
+        }
+        try:
+            write_text(status_path, json.dumps(payload, ensure_ascii=False, indent=2))
+        except Exception:
+            pass
+        if progress:
+            progress(message)
+
     confirmed_profile = _apply_user_market_context(
         confirmed_profile,
         confirmed_profile.get("user_market_context") or profile_run.get("user_market_context") or {},
     )
 
-    if progress:
-        progress("启动多 AI 共识流程：Qwen、豆包、元宝、DeepSeek 使用同一个主流推荐问题")
-    multi_ai = run_multi_ai_geo_competition(
-        config=config,
-        profile=confirmed_profile,
-        report_language=report_language,
-        progress=progress,
-    )
+    record_status("启动多 AI 共识流程：Qwen、豆包、元宝、DeepSeek 使用 Prompt 组执行主流推荐测试")
+    try:
+        multi_ai = run_multi_ai_geo_competition(
+            config=config,
+            profile=confirmed_profile,
+            report_language=report_language,
+            progress=record_status,
+        )
+    except Exception as exc:
+        record_status(f"多 AI 共识流程失败：{exc}", state="error")
+        raise
 
     analysis_strategy = multi_ai["analysis_strategy"]
     competitor_discovery = multi_ai["competitor_discovery"]
     question_discovery = multi_ai["question_discovery"]
     trend_discovery = multi_ai["trend_discovery"]
+    prompt_runs = multi_ai.get("prompt_runs") or []
+    geo_visibility_summary = multi_ai.get("geo_visibility_summary") or {}
+    neutral_visibility_summary = multi_ai.get("neutral_visibility_summary") or geo_visibility_summary
+    brand_diagnostic_results = multi_ai.get("brand_diagnostic_results") or []
+    brand_diagnostic_items = multi_ai.get("brand_diagnostic_items") or []
+    brand_diagnostic_prompt_runs = multi_ai.get("brand_diagnostic_prompt_runs") or []
+    brand_diagnostic_summary = multi_ai.get("brand_diagnostic_summary") or {}
+    comparison_results = multi_ai.get("comparison_results") or []
+    comparison_items = multi_ai.get("comparison_items") or []
+    comparison_prompt_runs = multi_ai.get("comparison_prompt_runs") or []
+    comparison_summary = multi_ai.get("comparison_summary") or {}
+    brand_visibility_metrics = multi_ai.get("brand_visibility_metrics") or []
+    provider_visibility_matrix = multi_ai.get("provider_visibility_matrix") or []
     recommendation_items = multi_ai["recommendation_items"]
     ai_recommendation_ranking = multi_ai["ai_recommendation_ranking"]
     brand_ranking = multi_ai["brand_ranking"]
@@ -130,6 +165,19 @@ def run_integrated_geo_analysis(
     write_text(run_dir / "trend_discovery.json", json.dumps(trend_discovery, ensure_ascii=False, indent=2))
     write_text(run_dir / "probe_questions.json", json.dumps(question_discovery.get("questions") or [], ensure_ascii=False, indent=2))
     write_text(run_dir / "ai_probe_results.json", json.dumps(probes, ensure_ascii=False, indent=2))
+    write_text(run_dir / "prompt_runs.json", json.dumps(prompt_runs, ensure_ascii=False, indent=2))
+    write_text(run_dir / "geo_visibility_summary.json", json.dumps(geo_visibility_summary, ensure_ascii=False, indent=2))
+    write_text(run_dir / "neutral_visibility_summary.json", json.dumps(neutral_visibility_summary, ensure_ascii=False, indent=2))
+    write_text(run_dir / "brand_diagnostic_results.json", json.dumps(brand_diagnostic_results, ensure_ascii=False, indent=2))
+    write_text(run_dir / "brand_diagnostic_items.json", json.dumps(brand_diagnostic_items, ensure_ascii=False, indent=2))
+    write_text(run_dir / "brand_diagnostic_prompt_runs.json", json.dumps(brand_diagnostic_prompt_runs, ensure_ascii=False, indent=2))
+    write_text(run_dir / "brand_diagnostic_summary.json", json.dumps(brand_diagnostic_summary, ensure_ascii=False, indent=2))
+    write_text(run_dir / "comparison_results.json", json.dumps(comparison_results, ensure_ascii=False, indent=2))
+    write_text(run_dir / "comparison_items.json", json.dumps(comparison_items, ensure_ascii=False, indent=2))
+    write_text(run_dir / "comparison_prompt_runs.json", json.dumps(comparison_prompt_runs, ensure_ascii=False, indent=2))
+    write_text(run_dir / "comparison_summary.json", json.dumps(comparison_summary, ensure_ascii=False, indent=2))
+    write_text(run_dir / "brand_visibility_metrics.json", json.dumps(brand_visibility_metrics, ensure_ascii=False, indent=2))
+    write_text(run_dir / "provider_visibility_matrix.json", json.dumps(provider_visibility_matrix, ensure_ascii=False, indent=2))
     write_text(run_dir / "recommendation_items.json", json.dumps(recommendation_items, ensure_ascii=False, indent=2))
     write_text(run_dir / "ai_recommendation_ranking.json", json.dumps(ai_recommendation_ranking, ensure_ascii=False, indent=2))
     write_text(run_dir / "brand_ranking.json", json.dumps(brand_ranking, ensure_ascii=False, indent=2))
@@ -145,9 +193,8 @@ def run_integrated_geo_analysis(
     write_text(run_dir / "content_pattern_report.md", content_pattern_report)
     write_text(run_dir / "article_generation_format.md", article_generation_format)
 
-    if progress:
-        progress("用 AI 返回的来源链接匹配媒介库资源和报价")
-    media_matches = _match_media_sources(storage, config, source_links, progress)
+    record_status("用 AI 返回的来源链接匹配媒介库资源和报价")
+    media_matches = _match_media_sources(storage, config, source_links, record_status)
     media_cost_analysis = _derive_media_cost_analysis(media_matches, search_volume_ranking or search_visibility_ranking)
     write_text(run_dir / "media_matches.json", json.dumps(media_matches, ensure_ascii=False, indent=2))
     write_text(run_dir / "content_topic_analysis.json", json.dumps(content_topic_analysis, ensure_ascii=False, indent=2))
@@ -165,6 +212,19 @@ def run_integrated_geo_analysis(
         "question_discovery": question_discovery,
         "trend_discovery": trend_discovery,
         "ai_probes": probes,
+        "prompt_runs": prompt_runs,
+        "geo_visibility_summary": geo_visibility_summary,
+        "neutral_visibility_summary": neutral_visibility_summary,
+        "brand_diagnostic_results": brand_diagnostic_results,
+        "brand_diagnostic_items": brand_diagnostic_items,
+        "brand_diagnostic_prompt_runs": brand_diagnostic_prompt_runs,
+        "brand_diagnostic_summary": brand_diagnostic_summary,
+        "comparison_results": comparison_results,
+        "comparison_items": comparison_items,
+        "comparison_prompt_runs": comparison_prompt_runs,
+        "comparison_summary": comparison_summary,
+        "brand_visibility_metrics": brand_visibility_metrics,
+        "provider_visibility_matrix": provider_visibility_matrix,
         "recommendation_items": recommendation_items,
         "ai_recommendation_ranking": ai_recommendation_ranking,
         "search_visibility_ranking": search_visibility_ranking,
@@ -202,8 +262,7 @@ def run_integrated_geo_analysis(
             "file_path": outputs["report_md_path"],
         }
     )
-    if progress:
-        progress(f"多 AI 一键分析完成，报告已保存：{outputs['report_md_path']}")
+    record_status(f"多 AI 一键分析完成，报告已保存：{outputs['report_md_path']}", state="complete")
     return {**outputs, "report_id": report_id, "analysis_data": analysis_data}
 
 

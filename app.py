@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import fields
 from datetime import datetime
 import html
 import json
@@ -9,11 +10,10 @@ from pathlib import Path
 from typing import Any
 
 import streamlit as st
-import streamlit.components.v1 as components
-
 from geo_app.config import (
     AppConfig,
     BudgetConfig,
+    GEOAIConfig,
     MeijiekuConfig,
     QwenConfig,
     load_config,
@@ -48,6 +48,8 @@ def code_last_modified_text() -> str:
         Path("geo_app/integrated_workflow.py"),
         Path("geo_app/multi_ai_geo_workflow.py"),
         Path("geo_app/multi_ai_clients.py"),
+        Path("geo_app/geo_visibility_metrics.py"),
+        Path("geo_app/sentiment_scoring.py"),
         Path("geo_app/qwen_client.py"),
         Path("geo_app/integrated_report_renderer.py"),
         Path("geo_app/topic_analysis.py"),
@@ -105,6 +107,7 @@ def sidebar_config() -> AppConfig:
             forced_search=base.qwen.forced_search,
             enable_source=base.qwen.enable_source,
             enable_citation=base.qwen.enable_citation,
+            timeout_seconds=base.qwen.timeout_seconds,
         ),
         meijieku=MeijiekuConfig(
             base_url=normalize_meijieku_base_url(meijieku_base_url),
@@ -121,7 +124,23 @@ def sidebar_config() -> AppConfig:
             max_total_budget=base.budget.max_total_budget,
             require_fuzzy_confirmation=True,
         ),
+        geo_ai=_build_geo_ai_config(base.geo_ai),
     )
+
+
+def _build_geo_ai_config(base_geo_ai: Any) -> GEOAIConfig:
+    values = {
+        "prompt_count": getattr(base_geo_ai, "prompt_count", 5),
+        "brand_diagnostic_prompt_count": getattr(base_geo_ai, "brand_diagnostic_prompt_count", 3),
+        "comparison_prompt_count": getattr(base_geo_ai, "comparison_prompt_count", 2),
+        "recommendations_per_prompt": getattr(base_geo_ai, "recommendations_per_prompt", 10),
+        "visibility_brand_limit": getattr(base_geo_ai, "visibility_brand_limit", 10),
+        "source_link_limit": getattr(base_geo_ai, "source_link_limit", 80),
+        "article_fetch_limit": getattr(base_geo_ai, "article_fetch_limit", 40),
+        "enable_ai_prompt_discovery": getattr(base_geo_ai, "enable_ai_prompt_discovery", True),
+    }
+    supported = {field.name for field in fields(GEOAIConfig)}
+    return GEOAIConfig(**{key: value for key, value in values.items() if key in supported})
 
 
 def require_qwen(config: AppConfig) -> bool:
@@ -139,6 +158,27 @@ def add_log(message: str) -> None:
     logs = st.session_state.setdefault("geo_console_logs", [])
     logs.append(str(message))
     st.session_state.geo_console_logs = logs[-160:]
+
+
+def _analysis_progress_percent(message: str) -> int:
+    text = str(message or "")
+    stages = [
+        (10, ["启动", "Prompt", "问题组"]),
+        (20, ["中立推荐", "主流推荐", "推荐排名"]),
+        (35, ["品牌诊断"]),
+        (45, ["竞品直接对比"]),
+        (55, ["品牌声量", "传统搜索", "新媒体"]),
+        (68, ["抓取 AI 文章链接", "抓取 AI 返回", "文章链接正文"]),
+        (78, ["提炼", "文章宣传", "定位分析"]),
+        (88, ["媒介库", "报价", "媒介"]),
+        (96, ["报告", "保存"]),
+        (100, ["完成"]),
+    ]
+    matched = 5
+    for percent, keywords in stages:
+        if any(keyword in text for keyword in keywords):
+            matched = percent
+    return matched
 
 
 def inject_styles() -> None:
@@ -363,6 +403,18 @@ def render_profile_confirmation(storage: Storage, config: AppConfig) -> None:
     }
     st.session_state.confirmed_profile = confirmed_profile
     with st.status("正在执行 GEO 一键分析", expanded=True) as status:
+        progress_bar = st.progress(0, text="准备启动")
+        progress_text = st.empty()
+        progress_events = st.empty()
+
+        def progress_with_ui(message: str) -> None:
+            add_log(message)
+            percent = _analysis_progress_percent(message)
+            progress_bar.progress(percent, text=message)
+            progress_text.caption(f"当前进度：{percent}% · {message}")
+            recent = st.session_state.get("geo_console_logs", [])[-8:]
+            progress_events.markdown("\n".join(f"- {item}" for item in recent))
+
         try:
             result = run_integrated_geo_analysis(
                 storage=storage,
@@ -372,9 +424,10 @@ def render_profile_confirmation(storage: Storage, config: AppConfig) -> None:
                 report_language=st.session_state.get("report_language", "zh"),
                 trend_count=10,
                 recommendations_per_term=10,
-                progress=add_log,
+                progress=progress_with_ui,
             )
             st.session_state.integrated_result = result
+            progress_bar.progress(100, text="GEO 一键分析完成")
             status.update(label="GEO 一键分析完成", state="complete")
         except Exception as exc:
             status.update(label="GEO 一键分析失败", state="error")
@@ -514,11 +567,20 @@ def render_result() -> None:
         render_dashboard_charts_v2(data, labels)
     with tab_questions:
         questions = question_discovery.get("questions") or data.get("trend_discovery", {}).get("probe_questions") or []
+        st.markdown("#### 第一步：AI 搜索问题设计")
         st.dataframe(questions, width="stretch", hide_index=True)
         neutral_queries = strategy.get("neutral_search_queries") or question_discovery.get("neutral_search_queries") or []
         if neutral_queries:
-            st.markdown("#### 真实搜索使用的中立查询")
+            st.markdown("#### 中立推荐问题（参与主排名）")
             st.dataframe([{"query": item} for item in neutral_queries], width="stretch", hide_index=True)
+        diagnostic_queries = question_discovery.get("brand_diagnostic_questions") or []
+        if diagnostic_queries:
+            st.markdown("#### 品牌诊断问题（不参与主排名）")
+            st.dataframe([{"query": item} for item in diagnostic_queries], width="stretch", hide_index=True)
+        comparison_queries = question_discovery.get("comparison_questions") or []
+        if comparison_queries:
+            st.markdown("#### 竞品直接对比问题（不参与主排名）")
+            st.dataframe([{"query": item} for item in comparison_queries], width="stretch", hide_index=True)
         visibility_queries = (data.get("visibility_query_strategy") or {}).get("visibility_queries") or []
         if visibility_queries:
             st.markdown("#### 全网声量查询方案")
@@ -551,15 +613,19 @@ def render_result() -> None:
         )
         competitor_rows = _competitor_rows(data.get("competitor_discovery") or {})
         if competitor_rows:
-            st.markdown("#### 竞品校准")
-            st.dataframe(competitor_rows, width="stretch", hide_index=True)
+            st.markdown("#### 竞品校准（按 AI 平台拆分）")
+            platform_rows = _competitor_platform_rows(data.get("recommendation_items") or [])
+            if platform_rows:
+                _render_competitor_platform_tables(platform_rows)
+            with st.expander("查看跨平台汇总校准", expanded=False):
+                st.dataframe(competitor_rows, width="stretch", hide_index=True)
     with tab_media:
         render_media_cost(data)
     with tab_report:
         html_path = result.get("report_html_path", "")
         md = result.get("report_md") or ""
         if html_path and Path(html_path).exists():
-            components.html(Path(html_path).read_text(encoding="utf-8"), height=900, scrolling=True)
+            st.iframe(Path(html_path), height=900)
         if md:
             with st.expander("Markdown 原文", expanded=False):
                 st.markdown(md)
@@ -586,6 +652,7 @@ def render_downloads(result: dict[str, Any]) -> None:
 
 
 def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> None:
+    data = enrich_analysis_data(data)
     ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
     search_volume = data.get("search_volume_ranking") or []
     search_ranking = data.get("search_visibility_ranking") or []
@@ -606,9 +673,69 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
     provider_status = data.get("multi_ai_provider_status") or _provider_status_from_available_data(data)
     recommendation_source_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
     source_articles = data.get("source_articles") or []
+    visibility_summary = data.get("geo_visibility_summary") or {}
+    neutral_summary = data.get("neutral_visibility_summary") or visibility_summary
+    diagnostic_summary = data.get("brand_diagnostic_summary") or {}
+    comparison_summary = data.get("comparison_summary") or {}
+    brand_metrics = data.get("brand_visibility_metrics") or []
+    prompt_runs = data.get("prompt_runs") or []
+    diagnostic_prompt_runs = data.get("brand_diagnostic_prompt_runs") or []
+    comparison_prompt_runs = data.get("comparison_prompt_runs") or []
+    provider_matrix = data.get("provider_visibility_matrix") or []
 
-    tab_step1, tab_step2, tab_step3 = st.tabs(["第一步：AI推荐排名", "第二步：五平台声量", "第三步：文章与定位分析"])
+    tab_overview, tab_step1, tab_step2, tab_step3 = st.tabs(["GEO可见度总览", "第一步：AI推荐排名", "第二步：五平台声量", "第三步：文章与定位分析"])
+    with tab_overview:
+        st.markdown("#### GEO 可见度体检")
+        k1, k2, k3, k4, k5, k6 = st.columns(6)
+        k1.metric("中立推荐可见度", f"{neutral_summary.get('visibility_score', 0)}%")
+        k2.metric("中立推荐提及", neutral_summary.get("mention_count", 0))
+        avg_position = neutral_summary.get("avg_position")
+        k3.metric("平均推荐位置", f"#{avg_position}" if avg_position else "未出现")
+        k4.metric("品牌诊断情绪分", f"{diagnostic_summary.get('sentiment_score', neutral_summary.get('sentiment_score', 50))}/100")
+        k5.metric("中立Prompt成功率", f"{round(float(neutral_summary.get('prompt_success_rate') or 0) * 100, 1)}%")
+        k6.metric("平台覆盖", f"{neutral_summary.get('provider_coverage_count', 0)}/{neutral_summary.get('provider_total_count', 0)}")
+
+        d1, d2, d3 = st.columns(3)
+        d1.metric("品牌诊断提及", diagnostic_summary.get("brand_mentioned_responses", 0))
+        d2.metric("诊断问题数", diagnostic_summary.get("prompt_count", len({item.get("prompt") for item in diagnostic_prompt_runs if item.get("prompt")})))
+        d3.metric("竞品对比提及", comparison_summary.get("brand_mentioned_responses", 0))
+
+        st.caption("主 GEO 可见度只计算不含客户品牌名的中立推荐问题；品牌诊断和竞品对比单独展示，不参与主推荐排名。当前五平台声量仍为 AI 估算。")
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("#### 平均推荐位置")
+            _render_bar(brand_metrics, x="brand_name", y="avg_position", color="is_user_brand")
+        with c2:
+            st.markdown("#### AI 描述情绪分")
+            _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand")
+
+        c3, c4 = st.columns(2)
+        with c3:
+            st.markdown("#### Prompt 触发表现")
+            prompt_pie_rows = _prompt_pie_rows(prompt_runs)
+            _render_pie(prompt_pie_rows, names="状态", values="数量")
+        with c4:
+            st.markdown("#### AI平台 x 品牌提及矩阵")
+            matrix_rows = [
+                {
+                    "brand": item.get("brand_name", ""),
+                    "topic": _provider_label(item.get("provider", "")),
+                    "count": item.get("mention_count", 0),
+                }
+                for item in provider_matrix
+            ]
+            _render_heatmap(matrix_rows)
+
+        with st.expander("查看 Prompt 级表现明细", expanded=False):
+            if prompt_runs:
+                st.dataframe(_prompt_run_display_rows(prompt_runs), width="stretch", hide_index=True)
+            else:
+                st.info("暂无 Prompt 级明细。")
+
     with tab_step1:
+        st.markdown("#### 第一步输入：AI 搜索问题设计")
+        _render_question_planning(data)
+
         st.markdown("#### 综合 AI 推荐排名")
         _render_bar(ranking, x="brand_name", y="recommendation_count", color="is_user_brand")
 
@@ -617,10 +744,18 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             _render_recommendation_source_charts(recommendation_source_rows)
             with st.expander("查看完整 AI 推荐来源表", expanded=False):
                 st.caption("Qwen / 豆包 / 元宝 / DeepSeek 列中的数字是该平台给出的推荐名次；空白表示该平台未推荐该品牌或调用失败。")
-                st.dataframe(recommendation_source_rows, width="stretch", hide_index=True)
+                st.dataframe(_stringify_rows(recommendation_source_rows), width="stretch", hide_index=True)
                 st.table(_compact_recommendation_source_rows(recommendation_source_rows[:20]))
         else:
             st.info("暂无 AI 推荐来源明细。")
+
+        platform_rows = _competitor_platform_rows(data.get("recommendation_items") or [])
+        if platform_rows:
+            st.markdown("#### 竞品校准（按 AI 平台展示）")
+            _render_competitor_platform_tables(platform_rows)
+
+        st.markdown("#### 品牌诊断与竞品直接对比")
+        _render_diagnostic_and_comparison(data)
 
         st.markdown("#### 多 AI 平台调用状态")
         if provider_status:
@@ -634,7 +769,7 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
                 )
             _render_provider_status_chart(provider_rows)
             with st.expander("查看 AI 平台调用明细", expanded=False):
-                st.table(provider_rows)
+                st.table(_stringify_rows(provider_rows))
         else:
             st.info("暂无多 AI 平台状态数据。")
 
@@ -650,10 +785,17 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             else:
                 st.info("暂无平台拆分数据。")
 
-        st.markdown("#### 传统搜索声量合计")
+        st.markdown("#### 品牌内容声量排名")
+        st.caption("含义：基于 AI 对百度、搜狗、360 搜索、抖音、小红书五个平台内容数量的估算，用来判断品牌在传统搜索与新媒体里的可见度；不是单一百度提及数。")
         _render_bar(search_ranking or baidu, x="brand_name", y="mentioned_count", color="is_user_brand")
+        if search_ranking:
+            with st.expander("查看品牌内容声量明细", expanded=False):
+                st.dataframe(_search_visibility_display_rows(search_ranking), width="stretch", hide_index=True)
         st.markdown("#### AI 推荐与声量差距")
         _render_bar(gap_ranking, x="brand_name", y="gap_score", color="is_user_brand")
+        if gap_ranking:
+            with st.expander("查看 AI 推荐与内容声量差异明细", expanded=False):
+                st.dataframe(_gap_display_rows(gap_ranking), width="stretch", hide_index=True)
 
     with tab_step3:
         st.markdown("#### 品牌调研与市场定位分析")
@@ -794,6 +936,228 @@ def _recommendation_source_rows(items: list[dict[str, Any]], ranking: list[dict[
     return sorted(rows, key=lambda item: (int(item.get("综合排名") or 999), item.get("brand_name", "")))[:30]
 
 
+def _render_question_planning(data: dict[str, Any]) -> None:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    trend = data.get("trend_discovery") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    questions = question_discovery.get("questions") or trend.get("probe_questions") or []
+    neutral_queries = strategy.get("neutral_search_queries") or question_discovery.get("neutral_search_queries") or []
+    diagnostic_queries = question_discovery.get("brand_diagnostic_questions") or []
+    comparison_queries = question_discovery.get("comparison_questions") or []
+    visibility_queries = (data.get("visibility_query_strategy") or {}).get("visibility_queries") or []
+
+    rows: list[dict[str, Any]] = []
+    group_labels = {
+        "neutral_recommendation": "中立推荐排名",
+        "brand_diagnostic": "品牌诊断",
+        "comparison": "竞品直接对比",
+    }
+    if isinstance(prompt_groups, dict) and prompt_groups:
+        for group_key, group_rows in prompt_groups.items():
+            for item in group_rows or []:
+                rows.append(
+                    {
+                        "模块": group_labels.get(group_key, group_key),
+                        "输入/探测主题": item.get("intent") or "",
+                        "实际问题/查询词": item.get("question") or "",
+                        "用途": "主排名" if group_key == "neutral_recommendation" else "诊断展示，不参与主排名",
+                        "说明": item.get("reason") or "",
+                    }
+                )
+    else:
+        for item in questions:
+            rows.append(
+                {
+                    "模块": "中立推荐排名",
+                    "输入/探测主题": item.get("term") or item.get("question") or "",
+                    "实际问题/查询词": item.get("question") or item.get("term") or "",
+                    "用途": item.get("intent") or item.get("question_type") or "AI 推荐排名",
+                    "说明": item.get("reason") or "",
+                }
+            )
+    for query in neutral_queries:
+        rows.append(
+            {
+                "模块": "中立推荐问题",
+                "输入/探测主题": query,
+                "实际问题/查询词": query,
+                "用途": "AI 推荐排名",
+                "说明": "不包含客户品牌名，用于统计主流竞争排名。",
+            }
+        )
+    for query in diagnostic_queries:
+        rows.append(
+            {
+                "模块": "品牌诊断问题",
+                "输入/探测主题": query,
+                "实际问题/查询词": query,
+                "用途": "品牌口碑/情绪分析",
+                "说明": "允许包含客户品牌名，不参与主推荐排名。",
+            }
+        )
+    for query in comparison_queries:
+        rows.append(
+            {
+                "模块": "竞品直接对比问题",
+                "输入/探测主题": query,
+                "实际问题/查询词": query,
+                "用途": "客户品牌 vs 头部竞品表现",
+                "说明": "基于中立推荐排名选取竞品，不参与主推荐排名。",
+            }
+        )
+    for item in visibility_queries[:12]:
+        rows.append(
+            {
+                "模块": "品牌声量查询词",
+                "输入/探测主题": item.get("brand_name", ""),
+                "实际问题/查询词": item.get("query", ""),
+                "用途": item.get("metric_goal", "五平台内容数量估算"),
+                "说明": "",
+            }
+        )
+
+    if rows:
+        st.dataframe(rows, width="stretch", hide_index=True)
+    else:
+        st.info("暂无 AI 搜索问题设计数据。")
+
+
+def _prompt_pie_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {"状态": "客户品牌被推荐", "数量": len([item for item in rows if item.get("brand_mentioned")])},
+        {"状态": "客户品牌未出现", "数量": len([item for item in rows if not item.get("brand_mentioned")])},
+    ]
+
+
+def _render_diagnostic_and_comparison(data: dict[str, Any]) -> None:
+    diagnostic_runs = data.get("brand_diagnostic_prompt_runs") or []
+    comparison_runs = data.get("comparison_prompt_runs") or []
+    diagnostic_items = data.get("brand_diagnostic_items") or []
+    comparison_items = data.get("comparison_items") or []
+    if not diagnostic_runs and not comparison_runs:
+        st.info("暂无品牌诊断或竞品直接对比数据。")
+        return
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown("##### 品牌诊断触发表现")
+        _render_pie(_prompt_pie_rows(diagnostic_runs), names="状态", values="数量")
+        if diagnostic_items:
+            _render_bar(_recommendation_source_rows(diagnostic_items, []), x="brand_name", y="来源链接数")
+        with st.expander("查看品牌诊断明细", expanded=False):
+            st.dataframe(_prompt_run_display_rows(diagnostic_runs), width="stretch", hide_index=True)
+    with c2:
+        st.markdown("##### 竞品直接对比表现")
+        _render_pie(_prompt_pie_rows(comparison_runs), names="状态", values="数量")
+        if comparison_items:
+            _render_bar(_recommendation_source_rows(comparison_items, []), x="brand_name", y="来源链接数")
+        with st.expander("查看竞品对比明细", expanded=False):
+            st.dataframe(_prompt_run_display_rows(comparison_runs), width="stretch", hide_index=True)
+
+
+def _competitor_platform_rows(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows = []
+    for item in items:
+        brand = str(item.get("brand_name") or "").strip()
+        if not brand:
+            continue
+        rows.append(
+            {
+                "AI平台": _provider_label(item.get("engine")),
+                "平台推荐排名": _format_rank(item.get("rank")),
+                "品牌": brand,
+                "搜索问题": item.get("question") or item.get("trend_term") or "",
+                "推荐理由": str(item.get("reason") or "")[:260],
+                "引用链接数": len(item.get("citation_urls") or []),
+            }
+        )
+    order = {"Qwen": 1, "豆包": 2, "元宝": 3, "DeepSeek": 4}
+    return sorted(rows, key=lambda item: (order.get(str(item.get("AI平台")), 99), _safe_int(item.get("平台推荐排名")), str(item.get("品牌"))))
+
+
+def _render_competitor_platform_tables(rows: list[dict[str, Any]]) -> None:
+    providers = [provider for provider in ("Qwen", "豆包", "元宝", "DeepSeek") if any(item.get("AI平台") == provider for item in rows)]
+    if not providers:
+        st.dataframe(rows, width="stretch", hide_index=True)
+        return
+    tabs = st.tabs(providers)
+    for tab, provider in zip(tabs, providers):
+        with tab:
+            provider_rows = [item for item in rows if item.get("AI平台") == provider]
+            st.dataframe(provider_rows, width="stretch", hide_index=True)
+
+
+def _format_rank(value: Any) -> str:
+    if value in (None, "", "None"):
+        return "未获取"
+    try:
+        number = float(str(value).strip())
+        if number <= 0:
+            return "未获取"
+        return str(int(number)) if number.is_integer() else f"{number:.1f}"
+    except Exception:
+        return str(value)
+
+
+def _stringify_rows(rows: list[dict[str, Any]]) -> list[dict[str, str]]:
+    result: list[dict[str, str]] = []
+    for row in rows or []:
+        clean: dict[str, str] = {}
+        for key, value in (row or {}).items():
+            if isinstance(value, (dict, list, tuple, set)):
+                clean[str(key)] = json.dumps(value, ensure_ascii=False)
+            elif value is None:
+                clean[str(key)] = ""
+            else:
+                clean[str(key)] = str(value)
+        result.append(clean)
+    return result
+
+
+def _format_count(value: Any, has_data: bool | None = None) -> str:
+    if value in (None, "", "None"):
+        return "未获取"
+    number = _safe_int(value)
+    if has_data is False and number == 0:
+        return "未获取"
+    return str(number)
+
+
+def _search_visibility_display_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        has_data = item.get("search_visibility_rank") not in (None, "", "None") or _safe_int(item.get("mentioned_count")) > 0
+        result.append(
+            {
+                "品牌": item.get("brand_name", ""),
+                "品牌内容声量排名": _format_rank(item.get("search_visibility_rank")),
+                "五平台内容数量估算": _format_count(item.get("mentioned_count"), has_data),
+                "结果数估算": _format_count(item.get("result_count"), has_data),
+                "查询词": item.get("query", ""),
+                "数据口径": item.get("metric_type") or "五平台内容数量估算",
+                "说明": item.get("warning") or "",
+            }
+        )
+    return result
+
+
+def _gap_display_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        has_visibility = item.get("search_visibility_rank") not in (None, "", "None") or _safe_int(item.get("mentioned_count")) > 0
+        result.append(
+            {
+                "品牌": item.get("brand_name", ""),
+                "AI排名": _format_rank(item.get("ai_recommendation_rank")),
+                "品牌内容声量排名": _format_rank(item.get("search_visibility_rank")) if has_visibility else "未进入声量估算",
+                "五平台内容数量估算": _format_count(item.get("mentioned_count"), has_visibility),
+                "解读": item.get("gap_label") if has_visibility else "AI 推荐中出现，但本轮未拿到有效五平台声量估算；不是确认没有内容。",
+            }
+        )
+    return result
+
+
 def _provider_status_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     labels = {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}
     result = []
@@ -816,6 +1180,34 @@ def _provider_status_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return result
+
+
+def _prompt_run_display_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        result.append(
+            {
+                "AI平台": _provider_label(item.get("provider", "")),
+                "问题类型": _prompt_type_label(item.get("prompt_type", "")),
+                "测试问题": item.get("prompt", ""),
+                "客户品牌是否出现": "是" if item.get("brand_mentioned") else "否",
+                "推荐位置": _format_rank(item.get("brand_position")) if item.get("brand_position") else "未出现",
+                "情绪分": item.get("sentiment_score", 50),
+                "共现竞品": "、".join(str(value) for value in (item.get("co_occurring_brands") or [])[:6]),
+                "引用链接数": len(item.get("citation_urls") or []),
+                "状态": "OK" if item.get("ok") else "FAIL",
+                "错误": item.get("error", ""),
+            }
+        )
+    return result
+
+
+def _prompt_type_label(value: Any) -> str:
+    return {
+        "neutral_recommendation": "中立推荐",
+        "brand_diagnostic": "品牌诊断",
+        "comparison": "竞品对比",
+    }.get(str(value or ""), str(value or ""))
 
 
 def _provider_status_from_available_data(data: dict[str, Any]) -> list[dict[str, Any]]:

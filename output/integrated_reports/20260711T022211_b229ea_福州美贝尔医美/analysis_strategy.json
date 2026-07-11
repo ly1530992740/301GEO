@@ -1,0 +1,117 @@
+{
+  "strategy_version": "multi_ai_consensus_v1",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "service_scope": "local_city",
+  "service_region": "福州",
+  "business_type": "local_service",
+  "geo_audience": "mixed",
+  "analysis_goal": "mixed",
+  "category_local": "医美",
+  "category_en": "Medical Aesthetics",
+  "geo_probe_subject": "福州医美",
+  "mainstream_competition_only": true,
+  "multi_ai_providers": [
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek"
+  ],
+  "recommendation_question": "推荐一下福州的医美",
+  "recommendation_questions": [
+    "推荐一下福州的医美",
+    "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+    "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+    "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+    "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？"
+  ],
+  "search_intents": [
+    {
+      "intent": "multi_ai_mainstream_recommendation",
+      "neutral_queries": [
+        "推荐一下福州的医美",
+        "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+        "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+        "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+        "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？"
+      ],
+      "ai_probe_question": "推荐一下福州的医美",
+      "reason": "Prompt group uses mainstream user questions across multiple AI models."
+    }
+  ],
+  "neutral_search_queries": [
+    "推荐一下福州的医美",
+    "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+    "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+    "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+    "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？"
+  ],
+  "ai_probe_questions": [
+    {
+      "term": "推荐一下福州的医美",
+      "question": "推荐一下福州的医美",
+      "intent": "mixed",
+      "question_type": "recommendation",
+      "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    },
+    {
+      "term": "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "question": "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "intent": "mixed",
+      "question_type": "recommendation",
+      "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    },
+    {
+      "term": "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "question": "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "intent": "mixed",
+      "question_type": "recommendation",
+      "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    },
+    {
+      "term": "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "question": "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "intent": "mixed",
+      "question_type": "recommendation",
+      "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    },
+    {
+      "term": "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "question": "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "intent": "mixed",
+      "question_type": "recommendation",
+      "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+    }
+  ],
+  "competitor_types": [
+    "multi_ai_recommended"
+  ],
+  "topic_taxonomy": [
+    "资质/专业性",
+    "案例/口碑",
+    "服务范围",
+    "价格/收费",
+    "合规/风险",
+    "响应速度"
+  ],
+  "validation_notes": [
+    "旧竞品发现和策略生成已合并为多 AI 主流推荐测试，当前使用 Prompt 组而非单一问题。",
+    "声量数据由 AI 估算，字段使用 estimated_count，不等同于真实平台接口统计。"
+  ]
+}

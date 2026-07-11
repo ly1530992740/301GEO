@@ -3,3 +3,81 @@
 
   URL: http://127.0.0.1:8501
 
++--------------------- Traceback (most recent call last) ----------------------+
+| C:\Users\15309\AppData\Roaming\Python\Python314\site-packages\streamlit\runt |
+| ime\scriptrunner\exec_code.py:129 in exec_func_with_error_handling           |
+|                                                                              |
+| C:\Users\15309\AppData\Roaming\Python\Python314\site-packages\streamlit\runt |
+| ime\scriptrunner\script_runner.py:789 in code_to_exec                        |
+|                                                                              |
+| D:\project\301GEO\app.py:1968 in <module>                                    |
+|                                                                              |
+|   1965                                                                       |
+|   1966 if __name__ == "__main__":                                            |
+|   1967     try:                                                              |
+| > 1968         main()                                                        |
+|   1969     except ModuleNotFoundError as exc:                                |
+|   1970         if exc.name == "streamlit":                                   |
+|   1971             print("缺少 Streamlit，请先运行：python -m pip install -r |
+|                                                                              |
+| D:\project\301GEO\app.py:1958 in main                                        |
+|                                                                              |
+|   1955     inject_styles()                                                   |
+|   1956     st.title("GEO 一键分析")                                          |
+|   1957     storage = get_storage()                                           |
+| > 1958     config = sidebar_config()                                         |
+|   1959     render_console()                                                  |
+|   1960     render_history(storage)                                           |
+|   1961     render_input_panel(storage, config)                               |
+|                                                                              |
+| D:\project\301GEO\app.py:130 in sidebar_config                               |
+|                                                                              |
+|    127         ),                                                            |
+|    128         geo_ai=GEOAIConfig(                                           |
+|    129             prompt_count=base.geo_ai.prompt_count,                    |
+| >  130             brand_diagnostic_prompt_count=base.geo_ai.brand_diagnosti |
+|    131             comparison_prompt_count=base.geo_ai.comparison_prompt_cou |
+|    132             recommendations_per_prompt=base.geo_ai.recommendations_pe |
+|    133             visibility_brand_limit=base.geo_ai.visibility_brand_limit |
++------------------------------------------------------------------------------+
+AttributeError: 'GEOAIConfig' object has no attribute 
+'brand_diagnostic_prompt_count'
++--------------------- Traceback (most recent call last) ----------------------+
+| C:\Users\15309\AppData\Roaming\Python\Python314\site-packages\streamlit\runt |
+| ime\scriptrunner\exec_code.py:129 in exec_func_with_error_handling           |
+|                                                                              |
+| C:\Users\15309\AppData\Roaming\Python\Python314\site-packages\streamlit\runt |
+| ime\scriptrunner\script_runner.py:789 in code_to_exec                        |
+|                                                                              |
+| D:\project\301GEO\app.py:1968 in <module>                                    |
+|                                                                              |
+|   1965                                                                       |
+|   1966 if __name__ == "__main__":                                            |
+|   1967     try:                                                              |
+| > 1968         main()                                                        |
+|   1969     except ModuleNotFoundError as exc:                                |
+|   1970         if exc.name == "streamlit":                                   |
+|   1971             print("缺少 Streamlit，请先运行：python -m pip install -r |
+|                                                                              |
+| D:\project\301GEO\app.py:1958 in main                                        |
+|                                                                              |
+|   1955     inject_styles()                                                   |
+|   1956     st.title("GEO 一键分析")                                          |
+|   1957     storage = get_storage()                                           |
+| > 1958     config = sidebar_config()                                         |
+|   1959     render_console()                                                  |
+|   1960     render_history(storage)                                           |
+|   1961     render_input_panel(storage, config)                               |
+|                                                                              |
+| D:\project\301GEO\app.py:130 in sidebar_config                               |
+|                                                                              |
+|    127         ),                                                            |
+|    128         geo_ai=GEOAIConfig(                                           |
+|    129             prompt_count=base.geo_ai.prompt_count,                    |
+| >  130             brand_diagnostic_prompt_count=base.geo_ai.brand_diagnosti |
+|    131             comparison_prompt_count=base.geo_ai.comparison_prompt_cou |
+|    132             recommendations_per_prompt=base.geo_ai.recommendations_pe |
+|    133             visibility_brand_limit=base.geo_ai.visibility_brand_limit |
++------------------------------------------------------------------------------+
+AttributeError: 'GEOAIConfig' object has no attribute 
+'brand_diagnostic_prompt_count'

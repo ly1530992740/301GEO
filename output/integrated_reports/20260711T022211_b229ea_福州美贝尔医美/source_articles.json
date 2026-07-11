@@ -1,0 +1,402 @@
+[
+  {
+    "url": "https://www.haixia.com",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.haixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.haixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://haixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://haixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.fzmeier.com",
+    "domain": "fzmeier.com",
+    "label": "福州美贝尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzmeier.com (verify=true): HTTPSConnectionPool(host='www.fzmeier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmeier.com', port=443): Failed to resolve 'www.fzmeier.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzmeier.com (verify=false): HTTPSConnectionPool(host='www.fzmeier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmeier.com', port=443): Failed to resolve 'www.fzmeier.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmeier.com (verify=true): HTTPSConnectionPool(host='fzmeier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmeier.com', port=443): Failed to resolve 'fzmeier.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmeier.com (verify=false): HTTPSConnectionPool(host='fzmeier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmeier.com', port=443): Failed to resolve 'fzmeier.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzamr.com",
+    "domain": "fzamr.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzamr.com (verify=true): HTTPSConnectionPool(host='www.fzamr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzamr.com', port=443): Failed to resolve 'www.fzamr.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzamr.com (verify=false): HTTPSConnectionPool(host='www.fzamr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzamr.com', port=443): Failed to resolve 'www.fzamr.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzamr.com (verify=true): HTTPSConnectionPool(host='fzamr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzamr.com', port=443): Failed to resolve 'fzamr.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzamr.com (verify=false): HTTPSConnectionPool(host='fzamr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzamr.com', port=443): Failed to resolve 'fzamr.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzgelaimei.com",
+    "domain": "fzgelaimei.com",
+    "label": "福州格莱美美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzgelaimei.com (verify=true): HTTPSConnectionPool(host='www.fzgelaimei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzgelaimei.com', port=443): Failed to resolve 'www.fzgelaimei.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzgelaimei.com (verify=false): HTTPSConnectionPool(host='www.fzgelaimei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzgelaimei.com', port=443): Failed to resolve 'www.fzgelaimei.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzgelaimei.com (verify=true): HTTPSConnectionPool(host='fzgelaimei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzgelaimei.com', port=443): Failed to resolve 'fzgelaimei.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzgelaimei.com (verify=false): HTTPSConnectionPool(host='fzgelaimei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzgelaimei.com', port=443): Failed to resolve 'fzgelaimei.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzunited.com",
+    "domain": "fzunited.com",
+    "label": "福州联合丽格医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "fzunited.com\nClick here to enter",
+    "error": ""
+  },
+  {
+    "url": "https://www.fzhanchen.com",
+    "domain": "fzhanchen.com",
+    "label": "福州韩辰医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzhanchen.com (verify=true): HTTPSConnectionPool(host='www.fzhanchen.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhanchen.com', port=443): Failed to resolve 'www.fzhanchen.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzhanchen.com (verify=false): HTTPSConnectionPool(host='www.fzhanchen.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhanchen.com', port=443): Failed to resolve 'www.fzhanchen.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhanchen.com (verify=true): HTTPSConnectionPool(host='fzhanchen.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhanchen.com', port=443): Failed to resolve 'fzhanchen.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhanchen.com (verify=false): HTTPSConnectionPool(host='fzhanchen.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhanchen.com', port=443): Failed to resolve 'fzhanchen.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzylm.com",
+    "domain": "fzylm.com",
+    "label": "福州伊莱美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzylm.com (verify=true): HTTPSConnectionPool(host='www.fzylm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzylm.com', port=443): Failed to resolve 'www.fzylm.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzylm.com (verify=false): HTTPSConnectionPool(host='www.fzylm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzylm.com', port=443): Failed to resolve 'www.fzylm.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzylm.com (verify=true): HTTPSConnectionPool(host='fzylm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzylm.com', port=443): Failed to resolve 'fzylm.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzylm.com (verify=false): HTTPSConnectionPool(host='fzylm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzylm.com', port=443): Failed to resolve 'fzylm.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzhuamei.com",
+    "domain": "fzhuamei.com",
+    "label": "福州华美整形医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzhuamei.com (verify=true): HTTPSConnectionPool(host='www.fzhuamei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhuamei.com', port=443): Failed to resolve 'www.fzhuamei.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzhuamei.com (verify=false): HTTPSConnectionPool(host='www.fzhuamei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhuamei.com', port=443): Failed to resolve 'www.fzhuamei.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhuamei.com (verify=true): HTTPSConnectionPool(host='fzhuamei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhuamei.com', port=443): Failed to resolve 'fzhuamei.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhuamei.com (verify=false): HTTPSConnectionPool(host='fzhuamei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhuamei.com', port=443): Failed to resolve 'fzhuamei.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzfh.com",
+    "domain": "fzfh.com",
+    "label": "福州芳华整形",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "福州飛華光電技術有限公司\n首頁\n關於我們\n產品中心\n服務中心\n新聞中心\n聯繫我們\n英文\n福州飛華光電技術有限公司創建于1989年，是一家研發、制造安防產品（以CCTV鏡頭為主）的專業廠家。飛華.....\nFH02516M-8MP\nFH01828B-3MP\n技術支援：影創企業 閩ICP備05024735号\n闽公网安备 35010202000723号",
+    "error": ""
+  },
+  {
+    "url": "https://www.fzwl.com",
+    "domain": "fzwl.com",
+    "label": "福州薇琳医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzwl.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.fzwl.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fzwl.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fzwl.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.fzaimer.com",
+    "domain": "fzaimer.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzaimer.com (verify=true): HTTPSConnectionPool(host='www.fzaimer.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzaimer.com', port=443): Failed to resolve 'www.fzaimer.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzaimer.com (verify=false): HTTPSConnectionPool(host='www.fzaimer.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzaimer.com', port=443): Failed to resolve 'www.fzaimer.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzaimer.com (verify=true): HTTPSConnectionPool(host='fzaimer.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzaimer.com', port=443): Failed to resolve 'fzaimer.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzaimer.com (verify=false): HTTPSConnectionPool(host='fzaimer.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzaimer.com', port=443): Failed to resolve 'fzaimer.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.maybellfz.com",
+    "domain": "maybellfz.com",
+    "label": "福州美贝尔医疗美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.maybellfz.com (verify=true): HTTPSConnectionPool(host='www.maybellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.maybellfz.com', port=443): Failed to resolve 'www.maybellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.maybellfz.com (verify=false): HTTPSConnectionPool(host='www.maybellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.maybellfz.com', port=443): Failed to resolve 'www.maybellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://maybellfz.com (verify=true): HTTPSConnectionPool(host='maybellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='maybellfz.com', port=443): Failed to resolve 'maybellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://maybellfz.com (verify=false): HTTPSConnectionPool(host='maybellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='maybellfz.com', port=443): Failed to resolve 'maybellfz.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzhxmr.com",
+    "domain": "fzhxmr.com",
+    "label": "福州海峡美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzhxmr.com (verify=true): HTTPSConnectionPool(host='www.fzhxmr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhxmr.com', port=443): Failed to resolve 'www.fzhxmr.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzhxmr.com (verify=false): HTTPSConnectionPool(host='www.fzhxmr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhxmr.com', port=443): Failed to resolve 'www.fzhxmr.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhxmr.com (verify=true): HTTPSConnectionPool(host='fzhxmr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhxmr.com', port=443): Failed to resolve 'fzhxmr.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhxmr.com (verify=false): HTTPSConnectionPool(host='fzhxmr.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhxmr.com', port=443): Failed to resolve 'fzhxmr.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzglm.com",
+    "domain": "fzglm.com",
+    "label": "福州格莱美美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzglm.com (verify=true): HTTPSConnectionPool(host='www.fzglm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzglm.com', port=443): Failed to resolve 'www.fzglm.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzglm.com (verify=false): HTTPSConnectionPool(host='www.fzglm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzglm.com', port=443): Failed to resolve 'www.fzglm.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzglm.com (verify=true): HTTPSConnectionPool(host='fzglm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzglm.com', port=443): Failed to resolve 'fzglm.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzglm.com (verify=false): HTTPSConnectionPool(host='fzglm.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzglm.com', port=443): Failed to resolve 'fzglm.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.meibeier.com/",
+    "domain": "meibeier.com",
+    "label": "福州美贝尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.meibeier.com (verify=true): HTTPSConnectionPool(host='www.meibeier.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.meibeier.com', port=443) at 0x2022005d090>, 'Connection to www.meibeier.com timed out. (connect timeout=20)')) | https://www.meibeier.com (verify=false): HTTPSConnectionPool(host='www.meibeier.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.meibeier.com', port=443) at 0x2022005d310>, 'Connection to www.meibeier.com timed out. (connect timeout=20)')) | https://meibeier.com (verify=true): HTTPSConnectionPool(host='meibeier.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='meibeier.com', port=443) at 0x2022005d590>, 'Connection to meibeier.com timed out. (connect timeout=20)')) | https://meibeier.com (verify=false): HTTPSConnectionPool(host='meibeier.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='meibeier.com', port=443) at 0x2022005d810>, 'Connection to meibeier.com timed out. (connect timeout=20)'))"
+  },
+  {
+    "url": "https://www.zhihu.com/question/343743256",
+    "domain": "zhihu.com",
+    "label": "福州美贝尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.zhihu.com/question/343743256 (verify=true): 403 Client Error: Forbidden for url: https://www.zhihu.com/question/343743256 | https://www.zhihu.com/question/343743256 (verify=false): 403 Client Error: Forbidden for url: https://www.zhihu.com/question/343743256 | https://zhihu.com/question/343743256 (verify=true): 403 Client Error: Forbidden for url: https://www.zhihu.com/question/343743256 | https://zhihu.com/question/343743256 (verify=false): 403 Client Error: Forbidden for url: https://www.zhihu.com/question/343743256"
+  },
+  {
+    "url": "https://www.fzame.com/",
+    "domain": "fzame.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "福州整形医院_福州整形美容医院_福州爱美尔整形美容【官网】\n鼻部整形\nNose Plastic\n甄选精品\n爱美尔挺俏鼻\n鼻部失败修复\n隆鼻\n塌鼻整形\n假体隆鼻\n注射隆鼻\n鼻部整形材料\n鼻部整形\n鼻翼缩小\n鼻头整形\n宽鼻缩窄\n鼻部矫正\n歪鼻矫正\n短鼻/朝天鼻\n长鼻/箭头鼻\n鹰钩鼻/驼峰鼻\n眼部整形\nEye Plastic\n特色项目\n电眼翘睫双眼皮\n眼部综合\n开眼角\n眼部综合\n眼睑下垂\n卧蚕\n眼部提肌\n双眼皮修复\n眼部修复\n眼睑凹陷\n眼袋修复\n眼综合修复\n眼部抗衰\n眼部祛脂\n祛眼袋\n眼睑松弛\n眼眉综合\n切眉\n提眉\n切眉修复\n眼眉整形\n胸部整形\nChest Plastic\n丰胸整形\nAY极速无痕美胸\n假体隆胸\n自体隆胸\n注射隆胸\n乳房矫正\n巨乳缩小\n乳房下垂上提\n乳房再造\n副乳矫正\n乳晕整形\n乳晕再造\n乳晕缩小\n乳头矫正\n乳头内陷矫正\n乳头缩小\n乳头再造\n乳房修复\n假体丰胸修复\n自体丰胸修复\n奥美定取出\n面部轮廓\nFacial Plastic\n精品项目\n双下巴\n轮廓整形\n贵族整形\n面部微雕\n额头填充\n丰太阳穴\n苹果肌填充\n面部吸脂\n面颊填充\n耳部整形\n耳垂畸形矫正\n耳廓缺损修复\n外耳畸形矫正\n耳软骨切除\n耳赘切除\n全耳再造\n全耳整形\n唇部整形\n唇腭裂修复\n唇外翻矫正\n口角歪斜矫正\n厚唇改薄\n形体雕塑\nBody Sculpture\n吸脂塑形\n分层吸脂\n激光溶脂\n冷冻溶脂\n面部吸脂\n腰部吸脂\n腹部吸脂\n腿部吸脂\n小腿吸脂\n手臂吸脂\n臀部吸脂\n背部吸脂\n胸部吸脂\n双下巴吸脂\nAS维密体雕\n脂肪填充\n纳米脂肪移植\n自体脂肪丰胸\n面部脂肪填充\n脂肪丰下巴\n自体脂肪丰太阳穴\n自体脂肪丰额头\n自体脂肪丰苹果肌\n自体脂肪除皱\n自体脂肪丰面颊\n自体脂肪填充泪沟\n自体脂肪丰臀\nO型腿矫正\n自体脂肪管理\n爱美尔定制自体脂肪管理\n面部年轻化\nFacial Younger\nPPDO埋线提拉\n全面部年轻紧致\n全面部年轻塑形\n爱美尔美度精雕\n微整形\nMicro Plastic\n微雕塑形\n瘦脸针\n注射隆鼻\n注射瘦腿\n注射瘦肩\n注射填充\n丰苹果肌\n注射垫下巴\n丰唇\n丰太阳穴\n丰面颊\n泪沟填充\n丰额头\n注射丰胸\n丰卧蚕\n注射除皱\n注射除皱\n祛鱼尾纹\n祛法令纹\n祛抬头纹\n祛眉间纹\n祛口周纹\n祛颈纹\n祛腋臭\n玲珑针\n注射材料\n乔雅登\nBOTOX\n玻尿酸\n双美\n瑞蓝\n伊婉\n爱芙莱\n宝尼达\n皮肤美容\nSkin beauty\n痘痘问题\n痘痘\n痘印\n粉刺\n色斑问题\n雀斑\n黄褐斑\n老年斑\n晒斑\nC6祛斑\n完美肌肤\n水光注射\n爱美尔超冰脱毛\n皮肤美白\n光子嫩肤\n毛孔粗大\n红血丝\n黑眼圈\n黑头\n皮肤粗糙\n敏感肌肤\n点痣\n胎记\n洗纹身\n微针美塑\n皮肤护理\n韩国小气泡\n青春解码\n舒敏之星\n水氧活肤\n无针水光\n超声波美白\n疤痕修复\n凹凸疤痕\n腋臭疤痕\n剖腹产疤痕\n刀疤\n烧烫疤痕\n纹身疤痕\n点痣疤痕\n烟疤\n妊娠纹\n肥胖纹\n疤痕修复\n衰老问题\n鱼尾纹\n法令纹\n抬头纹\n颈纹\n眼部松弛\n面颈部松弛\n腰腹部松弛\n眉间纹\n嘴角纹\n韩式纹绣\n纹眉\n纹眼线\n漂唇\n洗眉\n洗眼线\n唇部整形\nLip reshaping\n唇腭裂修复\n唇外翻矫正\n口角歪斜矫正\n厚唇改薄\n注射丰唇\n整形修复\nPlastic repair\n隆鼻失败修复\n双眼皮失败修复\n隆胸失败修复\n祛眼袋失败修复\n下颌角整形失败修复\n吸脂失败修复\n爱美尔新闻\n【不惧不怠，共战疫情】\n爱美尔医疗美容火速集结支援核酸采集工作！...\n【05-05我是爱美尔，世界纪录保持者！万人集福挑战吉尼斯】\n爱美尔整形联合福州小鱼网举办的...\n【02-12爱美人生 荣耀蝶变】\n爱美尔的家人们欢聚一堂，喜庆昨...\n活动中心\n匠心服务派 定义新美丽\n服务与术后管理\n品牌认证\n医院介绍\n爱美尔医疗美容于2006年成立，迄今已19年历史.独栋10000平方米精奢大楼，设美容外科、皮肤美容、注射美容、美形中心及再生抗衰中心等核心科室，专家团队均十年以上临床经验，造诣高深.\n医生团队\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n朱刚强 院长\n徐凌艳 主任\n叶冬梅 主任\n金丽玉 医生\n叶颍 医生\n宁青江 医生\n坐诊时间 |\n全月坐诊\n4212\n预约\n272\n案例\n5647\n咨询\n咨询医生\n关注\n叶颍 医生\n抗疫活动\n白衣执甲，砥砺前行！爱美尔援疫在行动！。\n设备仪器\n引进进口设备，打造品质医美。\n医院环境\n美的空间, 舒适的休息环境, 这一 切只为让您有更好的身心享受。\n正规资质\n正规放心医美，用匠心打造安心！\n联系我们\n查看地图\n官方微博\n微信平台\n福建省福州市鼓楼区五一中路29号龙华大厦\n闽ICP备18001019号\n（鼓）医广【2025】第12-29-88号 网站地图 站长统计\n网站内容申明：本网站信息仅供参考，不能作为诊疗及医疗依据，本网站商标及图片权属福州爱美尔医疗美容门诊有限公司，未经授权请勿复制",
+    "error": ""
+  },
+  {
+    "url": "https://www.xiaohongshu.com/search_result?keyword=福州爱美尔鼻综合",
+    "domain": "xiaohongshu.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "福州爱美尔鼻综合 - 小红书搜索\n创作中心\n业务合作\n发现\nRED\n直播\n发布\n通知\n沪ICP备13030189号\n|\n营业执照\n|\n2024沪公网安备31010102002533号\n|\n增值电信业务经营许可证：沪B2-20150021\n|\n医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号\n|\n互联网药品信息服务资格证书：(沪)-经营性-2023-0144\n|\n违法不良信息举报电话：4006676810\n|\n上海市互联网举报中心\n|\n网上有害信息举报专区\n|\n自营经营者信息\n|\n网络文化经营许可证：沪网文(2024)1344-086号\n|\n个性化推荐算法 网信算备310101216601302230019号\n© 2014-2026\n行吟信息科技（上海）有限公司\n地址：上海市黄浦区马当路388号C座\n电话：9501-3888\n更多\n关于我们\n沪ICP备13030189号\n|\n营业执照\n|\n2024沪公网安备31010102002533号\n|\n增值电信业务经营许可证：沪B2-20150021\n|\n医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号\n|\n互联网药品信息服务资格证书：(沪)-经营性-2023-0144\n|\n违法不良信息举报电话：4006676810\n|\n上海市互联网举报中心\n|\n网上有害信息举报专区\n|\n自营经营者信息\n|\n网络文化经营许可证：沪网文(2024)1344-086号\n|\n个性化推荐算法 网信算备310101216601302230019号\n© 2014-2026\n行吟信息科技（上海）有限公司\n地址：上海市黄浦区马当路388号C座\n电话：9501-3888\n全部\n图文\n视频\n用户\n发现\n直播\n发布\n通知",
+    "error": ""
+  },
+  {
+    "url": "https://www.fjhaixia.com/",
+    "domain": "fjhaixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fjhaixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.fjhaixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fjhaixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fjhaixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.glmyl.com/",
+    "domain": "glmyl.com",
+    "label": "福州格莱美美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.glmyl.com (verify=true): HTTPSConnectionPool(host='www.glmyl.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.glmyl.com', port=443): Failed to resolve 'www.glmyl.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.glmyl.com (verify=false): HTTPSConnectionPool(host='www.glmyl.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.glmyl.com', port=443): Failed to resolve 'www.glmyl.com' ([Errno 11001] getaddrinfo failed)\")) | https://glmyl.com (verify=true): HTTPSConnectionPool(host='glmyl.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='glmyl.com', port=443): Failed to resolve 'glmyl.com' ([Errno 11001] getaddrinfo failed)\")) | https://glmyl.com (verify=false): HTTPSConnectionPool(host='glmyl.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='glmyl.com', port=443): Failed to resolve 'glmyl.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fjsl.com.cn/",
+    "domain": "fjsl.com.cn",
+    "label": "福建省立医院整形外科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "福州大学附属省立医院（福建省立医院）\n﻿\n首页\n医院概况\n互联网医院\n互联网医院\n六大亮点\n线上网络诊间，院内外轻松就医\n7天无休专家医生面对面咨询\n流程再创新，检查预约缴费，药物配送全流程服务\n完整的个人云电子病历，云影像\n医护参与的慢病全程管理，医生病友齐交流\n随时随地享受全方位幸福医疗服务\n省立新闻\n行政管理\n党团建设\n纪检监察\n人事专栏\n医务管理\n护理园地\n科研专题\n毕业后教育\n临床教学\n信息管理\n临床科室\n员工园地\n就医指南\n省立新闻\n新闻动态\n媒体看省立\n寻根铸魂 聚力前行｜福州大学附属省立医院举行捐建奠基人胡文...\n全球首例！破译跨物种密码：基因编辑猪甲状旁腺成功“唤醒”甲...\n以医为帆，奔赴理想！欢迎报考福州大学医学院！\n2026年度福州大学附属省立医院住院医师规范化培训招生\n全国首个“环境-糖尿病大模型”在榕发布！福州大学附属省立医院携...\n【胸部医学中心】食管癌遇上残胃，怎么破？这台手术给出了答案\n2026年5月多学科义诊安排早知道\n一份民国公文背后的兴医义举——胡文虎与福建省立医院往事\n【骨科与运动医学中心】新华网专访徐杰教授：深耕专科技术，筑...\n【MDT门诊】从前“患者找科室”，如今“专家围着转”！\n省立互联网医院“出海”！福州大学附属省立医院互联网医院完成...\n骨折后千万别让人这么扶！急救专家提炼：各年龄段必须掌握的保...\n全省首例！患者在三明，福州医生“隔空”切除高难度肾上腺肿瘤\n别再乱做按摩了，真的可能中风！还有久坐和熬夜……\n1\n2\n3\n4\n5\n寻根铸魂 聚力前行｜福州大学附属省立医...\n2026年度福州大学附属省立医院住院医师规...\n全国首个“环境-糖尿病大模型”在榕发布...\n两会聚焦·智汇医改 | 省立医院AI机器人...\n省立互联网医院“出海”！福州大学附属省...\n人才招聘\nMORE\n2026年福州大学附属省立医院编外工作人员招聘启事（三）\n2026年福建省省属事业单位公开招聘工作人员方案三（医疗类）成...\n2026年福建省省属事业单位公开招聘工作人员方案三（医疗类）面...\n2026年福建省省属事业单位公开招聘工作人员方案三（医疗类）资...\n2026年福州大学附属省立医院编外工作人员招聘启事（一）（二）...\n2026年福州大学附属省立医院编外工作人员招聘启事（一）（二）...\n2026年福州大学附属省立医院编外工作人员招聘启事（一）（二）...\n院务公开\nMORE\n福州大学附属省立医院康复科经皮穴位电刺激仪市场调研公告\n福州大学附属省立医院关于过氧化氢匣等医用耗材遴选结果公示\n福州大学附属省立医院2025年度接受公益事业捐赠的情况公示\n2026年度福州大学附属省立医院预算公开\n营养室工作制度\n医师医疗权限授权管理规定\n医疗纠纷处置流程\n病历复印程序\n专题专栏\n友情链接\n福建省卫生健康委员会\n福州大学\n省急救中心\n省老年医院\n福建医科大学\n福建中医药大学\n福建省医学科学研究院\n福建省医疗保障管理局\n﻿\n中文域名：福州大学附属省立医院·公益 Copyright 2016 ©福州大学附属省立医院 All Rights Reserved.\n闽ICP备05010675号\n闽公网安备 35010202000198号\n地址：福建省福州市东街134号 邮编：350001 电话：0591-87557768\n所有与福州大学附属省立医院有关的资料，必须与福州大学附属省立医院签定书面协议方能下载，\n否则不得在网上和其他刊物上转载，福州大学附属省立医院有追究责任的权利。",
+    "error": ""
+  },
+  {
+    "url": "https://www.fjxiehe.com/",
+    "domain": "fjxiehe.com",
+    "label": "福建医科大学附属协和医院整形外科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "{\"data\":null,\"message\":\"非法请求\",\"success\":false,\"code\":100,\"traceId\":null}",
+    "error": ""
+  },
+  {
+    "url": "https://www.fzmeilai.com/",
+    "domain": "fzmeilai.com",
+    "label": "福州美莱华美美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzmeilai.com (verify=true): HTTPSConnectionPool(host='www.fzmeilai.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmeilai.com', port=443): Failed to resolve 'www.fzmeilai.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzmeilai.com (verify=false): HTTPSConnectionPool(host='www.fzmeilai.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmeilai.com', port=443): Failed to resolve 'www.fzmeilai.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmeilai.com (verify=true): HTTPSConnectionPool(host='fzmeilai.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmeilai.com', port=443): Failed to resolve 'fzmeilai.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmeilai.com (verify=false): HTTPSConnectionPool(host='fzmeilai.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmeilai.com', port=443): Failed to resolve 'fzmeilai.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fztjzx.com/",
+    "domain": "fztjzx.com",
+    "label": "福州台江整形医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fztjzx.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.fztjzx.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fztjzx.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fztjzx.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.unionleage.com/",
+    "domain": "unionleage.com",
+    "label": "福州联合丽格医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.unionleage.com (verify=true): HTTPSConnectionPool(host='www.unionleage.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.unionleage.com', port=443): Failed to resolve 'www.unionleage.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.unionleage.com (verify=false): HTTPSConnectionPool(host='www.unionleage.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.unionleage.com', port=443): Failed to resolve 'www.unionleage.com' ([Errno 11001] getaddrinfo failed)\")) | https://unionleage.com (verify=true): HTTPSConnectionPool(host='unionleage.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='unionleage.com', port=443): Failed to resolve 'unionleage.com' ([Errno 11001] getaddrinfo failed)\")) | https://unionleage.com (verify=false): HTTPSConnectionPool(host='unionleage.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='unionleage.com', port=443): Failed to resolve 'unionleage.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fjxhyy.com/",
+    "domain": "fjxhyy.com",
+    "label": "福建医科大学附属协和医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fjxhyy.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.fjxhyy.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fjxhyy.com (verify=true): HTTPSConnectionPool(host='fjxhyy.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='fjxhyy.com', port=443): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\")) | https://fjxhyy.com (verify=false): HTTPSConnectionPool(host='fjxhyy.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='fjxhyy.com', port=443): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+  },
+  {
+    "url": "https://www.fzmelh.com/",
+    "domain": "fzmelh.com",
+    "label": "福州美莱华美美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzmelh.com (verify=true): HTTPSConnectionPool(host='www.fzmelh.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmelh.com', port=443): Failed to resolve 'www.fzmelh.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzmelh.com (verify=false): HTTPSConnectionPool(host='www.fzmelh.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmelh.com', port=443): Failed to resolve 'www.fzmelh.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmelh.com (verify=true): HTTPSConnectionPool(host='fzmelh.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmelh.com', port=443): Failed to resolve 'fzmelh.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmelh.com (verify=false): HTTPSConnectionPool(host='fzmelh.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmelh.com', port=443): Failed to resolve 'fzmelh.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzhaixia.com/",
+    "domain": "fzhaixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzhaixia.com (verify=true): HTTPSConnectionPool(host='www.fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhaixia.com', port=443): Failed to resolve 'www.fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzhaixia.com (verify=false): HTTPSConnectionPool(host='www.fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhaixia.com', port=443): Failed to resolve 'www.fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhaixia.com (verify=true): HTTPSConnectionPool(host='fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhaixia.com', port=443): Failed to resolve 'fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhaixia.com (verify=false): HTTPSConnectionPool(host='fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhaixia.com', port=443): Failed to resolve 'fzhaixia.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzmzx.com/",
+    "domain": "fzmzx.com",
+    "label": "福州美整形医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzmzx.com (verify=true): HTTPSConnectionPool(host='www.fzmzx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmzx.com', port=443): Failed to resolve 'www.fzmzx.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzmzx.com (verify=false): HTTPSConnectionPool(host='www.fzmzx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzmzx.com', port=443): Failed to resolve 'www.fzmzx.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmzx.com (verify=true): HTTPSConnectionPool(host='fzmzx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmzx.com', port=443): Failed to resolve 'fzmzx.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzmzx.com (verify=false): HTTPSConnectionPool(host='fzmzx.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzmzx.com', port=443): Failed to resolve 'fzmzx.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fjsl120.com/",
+    "domain": "fjsl120.com",
+    "label": "福建省立医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fjsl120.com (verify=true): HTTPSConnectionPool(host='www.fjsl120.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fjsl120.com', port=443): Failed to resolve 'www.fjsl120.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fjsl120.com (verify=false): HTTPSConnectionPool(host='www.fjsl120.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fjsl120.com', port=443): Failed to resolve 'www.fjsl120.com' ([Errno 11001] getaddrinfo failed)\")) | https://fjsl120.com (verify=true): HTTPSConnectionPool(host='fjsl120.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fjsl120.com', port=443): Failed to resolve 'fjsl120.com' ([Errno 11001] getaddrinfo failed)\")) | https://fjsl120.com (verify=false): HTTPSConnectionPool(host='fjsl120.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fjsl120.com', port=443): Failed to resolve 'fjsl120.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzmbe.com/",
+    "domain": "fzmbe.com",
+    "label": "福州美贝尔医疗美容门诊部",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzmbe.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.fzmbe.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fzmbe.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://fzmbe.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.xmhaixia.com/",
+    "domain": "xmhaixia.com",
+    "label": "厦门海峡医疗美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.xmhaixia.com (verify=true): HTTPSConnectionPool(host='www.xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.xmhaixia.com', port=443): Failed to resolve 'www.xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.xmhaixia.com (verify=false): HTTPSConnectionPool(host='www.xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.xmhaixia.com', port=443): Failed to resolve 'www.xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://xmhaixia.com (verify=true): HTTPSConnectionPool(host='xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='xmhaixia.com', port=443): Failed to resolve 'xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://xmhaixia.com (verify=false): HTTPSConnectionPool(host='xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='xmhaixia.com', port=443): Failed to resolve 'xmhaixia.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.fzhaixia.com",
+    "domain": "fzhaixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.fzhaixia.com (verify=true): HTTPSConnectionPool(host='www.fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhaixia.com', port=443): Failed to resolve 'www.fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.fzhaixia.com (verify=false): HTTPSConnectionPool(host='www.fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fzhaixia.com', port=443): Failed to resolve 'www.fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhaixia.com (verify=true): HTTPSConnectionPool(host='fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhaixia.com', port=443): Failed to resolve 'fzhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://fzhaixia.com (verify=false): HTTPSConnectionPool(host='fzhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='fzhaixia.com', port=443): Failed to resolve 'fzhaixia.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.ai-meier.com",
+    "domain": "ai-meier.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.ai-meier.com (verify=true): HTTPSConnectionPool(host='www.ai-meier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.ai-meier.com', port=443): Failed to resolve 'www.ai-meier.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.ai-meier.com (verify=false): HTTPSConnectionPool(host='www.ai-meier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.ai-meier.com', port=443): Failed to resolve 'www.ai-meier.com' ([Errno 11001] getaddrinfo failed)\")) | https://ai-meier.com (verify=true): HTTPSConnectionPool(host='ai-meier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='ai-meier.com', port=443): Failed to resolve 'ai-meier.com' ([Errno 11001] getaddrinfo failed)\")) | https://ai-meier.com (verify=false): HTTPSConnectionPool(host='ai-meier.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='ai-meier.com', port=443): Failed to resolve 'ai-meier.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.mbellfz.com",
+    "domain": "mbellfz.com",
+    "label": "福州美贝尔医疗美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.mbellfz.com (verify=true): HTTPSConnectionPool(host='www.mbellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.mbellfz.com', port=443): Failed to resolve 'www.mbellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.mbellfz.com (verify=false): HTTPSConnectionPool(host='www.mbellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.mbellfz.com', port=443): Failed to resolve 'www.mbellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://mbellfz.com (verify=true): HTTPSConnectionPool(host='mbellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mbellfz.com', port=443): Failed to resolve 'mbellfz.com' ([Errno 11001] getaddrinfo failed)\")) | https://mbellfz.com (verify=false): HTTPSConnectionPool(host='mbellfz.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mbellfz.com', port=443): Failed to resolve 'mbellfz.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.xmhaixia.com",
+    "domain": "xmhaixia.com",
+    "label": "厦门海峡医疗美容医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.xmhaixia.com (verify=true): HTTPSConnectionPool(host='www.xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.xmhaixia.com', port=443): Failed to resolve 'www.xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.xmhaixia.com (verify=false): HTTPSConnectionPool(host='www.xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.xmhaixia.com', port=443): Failed to resolve 'www.xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://xmhaixia.com (verify=true): HTTPSConnectionPool(host='xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='xmhaixia.com', port=443): Failed to resolve 'xmhaixia.com' ([Errno 11001] getaddrinfo failed)\")) | https://xmhaixia.com (verify=false): HTTPSConnectionPool(host='xmhaixia.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='xmhaixia.com', port=443): Failed to resolve 'xmhaixia.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.qzoufei.com",
+    "domain": "qzoufei.com",
+    "label": "泉州欧菲整形医院",
+    "engine": "yuanbao",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.qzoufei.com (verify=true): HTTPSConnectionPool(host='www.qzoufei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.qzoufei.com', port=443): Failed to resolve 'www.qzoufei.com' ([Errno 11001] getaddrinfo failed)\")) | https://www.qzoufei.com (verify=false): HTTPSConnectionPool(host='www.qzoufei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.qzoufei.com', port=443): Failed to resolve 'www.qzoufei.com' ([Errno 11001] getaddrinfo failed)\")) | https://qzoufei.com (verify=true): HTTPSConnectionPool(host='qzoufei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='qzoufei.com', port=443): Failed to resolve 'qzoufei.com' ([Errno 11001] getaddrinfo failed)\")) | https://qzoufei.com (verify=false): HTTPSConnectionPool(host='qzoufei.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='qzoufei.com', port=443): Failed to resolve 'qzoufei.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "url": "https://www.aimier.com/",
+    "domain": "aimier.com",
+    "label": "福州爱美尔医疗美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "aimier.com - 该网站正在出售！ - aimier 资源和信息。",
+    "error": ""
+  },
+  {
+    "url": "https://www.haixia.com/",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.haixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.haixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://haixia.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://haixia.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  },
+  {
+    "url": "https://www.gelaimei.com/",
+    "domain": "gelaimei.com",
+    "label": "福州格莱美美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": "",
+    "text_excerpt": "",
+    "error": "https://www.gelaimei.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://www.gelaimei.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://gelaimei.com (verify=true): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)) | https://gelaimei.com (verify=false): ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+  }
+]

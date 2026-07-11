@@ -1,0 +1,42 @@
+[
+  {
+    "term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+    "question": "福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+    "question": "想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+    "question": "福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+    "question": "福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  }
+]

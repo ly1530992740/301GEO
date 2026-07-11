@@ -1,0 +1,192 @@
+[
+  {
+    "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "qwen",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": true,
+    "brand_position": 2,
+    "sentiment_score": 71,
+    "sentiment_label": "positive",
+    "co_occurring_brands": [
+      "福州海峡美容医院",
+      "福州美贝尔医疗美容门诊部",
+      "福州格莱美美容医院",
+      "福州爱美尔医疗美容门诊部",
+      "福州名韩医疗美容门诊部",
+      "福州美莱华美美容医院"
+    ],
+    "citation_urls": [],
+    "answer_excerpt": "福州海峡美容医院是福建省唯一一家5A级医美机构，资质层级更高；福州美贝尔则依托全国连锁体系与标准化质控，在技术迭代、服务体验和项目多样性上更具系统性优势。选择取决于需求侧重：追求权威认证与本地深耕选海峡，倾向连锁品质、自然审美与全周期服务选美贝尔。"
+  },
+  {
+    "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "doubao",
+    "ok": false,
+    "error": "HTTP 429: {'error': {'code': 'SetLimitExceeded', 'message': 'Your account [2121411463] has reached the set inference limit for the [doubao-seed-evolving] model, and the model service has been paused. To continue using this model, please visit the Model Activation page to adjust or close the \"Safe Experience Mode\". Request id: 02178374367185037079cdcc08b35ab782b1fd6e8da4cf0567b70', 'param': '', 'type': 'TooManyRequests'}}",
+    "brand_name": "美贝尔",
+    "brand_mentioned": false,
+    "brand_position": null,
+    "sentiment_score": 50,
+    "sentiment_label": "neutral",
+    "co_occurring_brands": [],
+    "citation_urls": [],
+    "answer_excerpt": ""
+  },
+  {
+    "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "yuanbao",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": true,
+    "brand_position": 2,
+    "sentiment_score": 72,
+    "sentiment_label": "positive",
+    "co_occurring_brands": [
+      "福州海峡美容医院",
+      "美贝尔",
+      "福州名韩整形美容医院",
+      "福州台江整形美容医院",
+      "福州华韩整形美容医院"
+    ],
+    "citation_urls": [],
+    "answer_excerpt": "两者均为福州主流医美机构，若偏好高端轻奢连锁与精细化轻医美可选美贝尔；若看重老牌综合医院规模与整形外科手术实力，福州海峡更值得选。按需决定。"
+  },
+  {
+    "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "deepseek",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": true,
+    "brand_position": 2,
+    "sentiment_score": 95,
+    "sentiment_label": "positive",
+    "co_occurring_brands": [
+      "福州海峡美容医院",
+      "美贝尔",
+      "福州名韩整形美容医院",
+      "福州台江整形美容医院",
+      "福州华韩整形美容医院"
+    ],
+    "citation_urls": [
+      "http://www.haixia.com",
+      "https://www.mebel.cn"
+    ],
+    "answer_excerpt": "如果追求高端轻奢体验和连锁品牌保障，美贝尔更适合；如果看重老牌资历和综合口碑，福州海峡美容医院更稳妥。"
+  },
+  {
+    "prompt": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "qwen",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": false,
+    "brand_position": null,
+    "sentiment_score": 50,
+    "sentiment_label": "neutral",
+    "co_occurring_brands": [
+      "福州美贝尔整形医院",
+      "福州名韩医疗美容",
+      "福州海峡美容医院",
+      "福州华韩整形美容医院",
+      "福州台江整形美容医院",
+      "福州美琳达医疗美容门诊部"
+    ],
+    "citation_urls": [
+      "https://www.mebel.com.cn/fuzhou",
+      "https://www.minghan-fz.com",
+      "https://www.haixia-fz.com",
+      "https://www.huahan-fz.com"
+    ],
+    "answer_excerpt": "若重视全国连锁资质、全品类覆盖（整形+无创+皮肤）、系统化质控与长期术后服务，优先选福州美贝尔；若聚焦眼鼻精细化手术、偏好本地专注型机构且预算适中，福州名韩亦具竞争力。"
+  },
+  {
+    "prompt": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "doubao",
+    "ok": false,
+    "error": "HTTP 429: {'error': {'code': 'SetLimitExceeded', 'message': 'Your account [2121411463] has reached the set inference limit for the [doubao-seed-evolving] model, and the model service has been paused. To continue using this model, please visit the Model Activation page to adjust or close the \"Safe Experience Mode\". Request id: 021783743701811a1b170fc911988aa69fdfa08a353ab27e581b5', 'param': '', 'type': 'TooManyRequests'}}",
+    "brand_name": "美贝尔",
+    "brand_mentioned": false,
+    "brand_position": null,
+    "sentiment_score": 50,
+    "sentiment_label": "neutral",
+    "co_occurring_brands": [],
+    "citation_urls": [],
+    "answer_excerpt": ""
+  },
+  {
+    "prompt": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "yuanbao",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": true,
+    "brand_position": 2,
+    "sentiment_score": 75,
+    "sentiment_label": "positive",
+    "co_occurring_brands": [
+      "福州海峡美容医院",
+      "美贝尔",
+      "福州名韩整形美容医院",
+      "福州台江整形美容医院",
+      "福州华韩整形美容医院"
+    ],
+    "citation_urls": [],
+    "answer_excerpt": "两者均为福州本地主流医美机构，美贝尔胜在连锁品牌实力与高端轻奢定位，名韩在本地专注整形且有一定口碑；追求综合高端体验选美贝尔，侧重本地老牌整形可看名韩，建议实地面诊对比。"
+  },
+  {
+    "prompt": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "provider": "deepseek",
+    "ok": true,
+    "error": "",
+    "brand_name": "美贝尔",
+    "brand_mentioned": true,
+    "brand_position": 3,
+    "sentiment_score": 79,
+    "sentiment_label": "positive",
+    "co_occurring_brands": [
+      "福州海峡美容医院",
+      "福州名韩整形美容医院",
+      "美贝尔",
+      "福州台江整形美容医院",
+      "福州华韩整形美容医院",
+      "福州爱思特整形美容医院",
+      "福州丽都整形美容医院",
+      "福州薇琳医美",
+      "福州鼓楼医院整形美容科",
+      "福州美莱华美整形美容医院"
+    ],
+    "citation_urls": [
+      "https://www.haixiazx.com",
+      "https://www.zxmr.net/yy/26.html",
+      "https://www.mebel.com.cn",
+      "https://www.fztjzx.com",
+      "https://www.huahan.com",
+      "https://www.aist.com",
+      "https://www.fzldzx.com",
+      "https://www.weilin.cn",
+      "https://www.fzglyy.com",
+      "https://www.mylike.com"
+    ],
+    "answer_excerpt": "两者各有千秋。美贝尔是连锁品牌，走高端轻奢路线，擅长综合医美，尤其适合追求品质和品牌信誉的求美者；名韩则更注重韩式技术，在鼻部、眼部整形方面口碑较突出，适合偏好韩式风格或寻求专科优势的用户。选择时建议根据个人需求、预算和就近便利性决定。"
+  }
+]

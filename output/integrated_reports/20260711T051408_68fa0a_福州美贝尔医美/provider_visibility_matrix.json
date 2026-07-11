@@ -1,0 +1,513 @@
+[
+  {
+    "provider": "deepseek",
+    "brand_name": "福州华美医疗美容",
+    "mention_count": 5,
+    "avg_position": 4.4,
+    "recommendation_heat": 33
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州名韩医疗美容",
+    "mention_count": 5,
+    "avg_position": 5.0,
+    "recommendation_heat": 30
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州海峡美容医院",
+    "mention_count": 5,
+    "avg_position": 1.0,
+    "recommendation_heat": 50
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州爱美尔医疗美容",
+    "mention_count": 5,
+    "avg_position": 6.0,
+    "recommendation_heat": 25
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州艺星医疗美容",
+    "mention_count": 5,
+    "avg_position": 3.0,
+    "recommendation_heat": 40
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州华美医疗美容",
+    "mention_count": 5,
+    "avg_position": 5.2,
+    "recommendation_heat": 29
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州名韩医疗美容",
+    "mention_count": 5,
+    "avg_position": 4.4,
+    "recommendation_heat": 33
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州海峡美容医院",
+    "mention_count": 5,
+    "avg_position": 1.0,
+    "recommendation_heat": 50
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州爱美尔医疗美容",
+    "mention_count": 5,
+    "avg_position": 5.4,
+    "recommendation_heat": 28
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州美莱医疗美容",
+    "mention_count": 5,
+    "avg_position": 2.0,
+    "recommendation_heat": 45
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "福州艺星医疗美容",
+    "mention_count": 5,
+    "avg_position": 3.0,
+    "recommendation_heat": 40
+  },
+  {
+    "provider": "yuanbao",
+    "brand_name": "美贝尔",
+    "mention_count": 5,
+    "avg_position": 7.0,
+    "recommendation_heat": 20
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州美莱医疗美容",
+    "mention_count": 4,
+    "avg_position": 2.0,
+    "recommendation_heat": 36
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州美贝尔医疗美容",
+    "mention_count": 4,
+    "avg_position": 6.5,
+    "recommendation_heat": 18
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州名韩医疗美容",
+    "mention_count": 4,
+    "avg_position": 6.25,
+    "recommendation_heat": 19
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州名韩医疗美容",
+    "mention_count": 3,
+    "avg_position": 4.67,
+    "recommendation_heat": 19
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州海峡美容医院",
+    "mention_count": 3,
+    "avg_position": 1.0,
+    "recommendation_heat": 30
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州美莱医疗美容",
+    "mention_count": 3,
+    "avg_position": 2.0,
+    "recommendation_heat": 27
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州艺星医疗美容",
+    "mention_count": 3,
+    "avg_position": 3.67,
+    "recommendation_heat": 22
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "美贝尔",
+    "mention_count": 3,
+    "avg_position": 6.0,
+    "recommendation_heat": 15
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州海峡美容医院",
+    "mention_count": 3,
+    "avg_position": 4.0,
+    "recommendation_heat": 21
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州美贝尔医疗美容",
+    "mention_count": 3,
+    "avg_position": 6.33,
+    "recommendation_heat": 14
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州维多利亚医疗美容",
+    "mention_count": 2,
+    "avg_position": 8.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州美立方医疗美容",
+    "mention_count": 2,
+    "avg_position": 9.5,
+    "recommendation_heat": 3
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州薇琳医疗美容",
+    "mention_count": 2,
+    "avg_position": 8.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福建省立医院整形外科",
+    "mention_count": 2,
+    "avg_position": 10.0,
+    "recommendation_heat": 2
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州华美医疗美容",
+    "mention_count": 2,
+    "avg_position": 6.0,
+    "recommendation_heat": 10
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州爱美尔医疗美容",
+    "mention_count": 2,
+    "avg_position": 3.5,
+    "recommendation_heat": 15
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州华美整形美容医院",
+    "mention_count": 2,
+    "avg_position": 8.5,
+    "recommendation_heat": 5
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州爱美尔医疗美容",
+    "mention_count": 2,
+    "avg_position": 7.0,
+    "recommendation_heat": 8
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州美莱医疗美容医院",
+    "mention_count": 2,
+    "avg_position": 7.5,
+    "recommendation_heat": 7
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州艺星医疗美容",
+    "mention_count": 2,
+    "avg_position": 9.5,
+    "recommendation_heat": 3
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州鼓楼爱美尔医疗美容门诊部",
+    "mention_count": 2,
+    "avg_position": 5.5,
+    "recommendation_heat": 11
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福建医科大学附属第一医院整形美容外科",
+    "mention_count": 2,
+    "avg_position": 2.5,
+    "recommendation_heat": 17
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福建省立医院整形外科",
+    "mention_count": 2,
+    "avg_position": 1.5,
+    "recommendation_heat": 19
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州台江医院整形美容中心",
+    "mention_count": 1,
+    "avg_position": 9.0,
+    "recommendation_heat": 2
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州台江医院整形美容科",
+    "mention_count": 1,
+    "avg_position": 9.0,
+    "recommendation_heat": 2
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州宝岛医疗美容",
+    "mention_count": 1,
+    "avg_position": 10.0,
+    "recommendation_heat": 1
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "福州星和美医疗美容",
+    "mention_count": 1,
+    "avg_position": 9.0,
+    "recommendation_heat": 2
+  },
+  {
+    "provider": "deepseek",
+    "brand_name": "美贝尔",
+    "mention_count": 1,
+    "avg_position": 7.0,
+    "recommendation_heat": 4
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "华美",
+    "mention_count": 1,
+    "avg_position": 6.0,
+    "recommendation_heat": 5
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "名韩",
+    "mention_count": 1,
+    "avg_position": 4.0,
+    "recommendation_heat": 7
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "海峡美容",
+    "mention_count": 1,
+    "avg_position": 1.0,
+    "recommendation_heat": 10
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "爱美尔",
+    "mention_count": 1,
+    "avg_position": 5.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "福州美贝尔医疗美容",
+    "mention_count": 1,
+    "avg_position": 7.0,
+    "recommendation_heat": 4
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "美莱",
+    "mention_count": 1,
+    "avg_position": 2.0,
+    "recommendation_heat": 9
+  },
+  {
+    "provider": "doubao",
+    "brand_name": "艺星",
+    "mention_count": 1,
+    "avg_position": 3.0,
+    "recommendation_heat": 8
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "华窈轻医美",
+    "mention_count": 1,
+    "avg_position": 2.0,
+    "recommendation_heat": 9
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "懿美医学美容门诊（福州市鼓楼区）",
+    "mention_count": 1,
+    "avg_position": 8.0,
+    "recommendation_heat": 3
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州伽禾伽美医疗美容",
+    "mention_count": 1,
+    "avg_position": 8.0,
+    "recommendation_heat": 3
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州华美医疗美容",
+    "mention_count": 1,
+    "avg_position": 10.0,
+    "recommendation_heat": 1
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州台江医院整形科",
+    "mention_count": 1,
+    "avg_position": 5.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州台江整形医院",
+    "mention_count": 1,
+    "avg_position": 10.0,
+    "recommendation_heat": 1
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州市第一总医院",
+    "mention_count": 1,
+    "avg_position": 7.0,
+    "recommendation_heat": 4
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州市鼓楼区弘宇医疗美容诊所",
+    "mention_count": 1,
+    "avg_position": 6.0,
+    "recommendation_heat": 5
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州格莱美医疗美容",
+    "mention_count": 1,
+    "avg_position": 7.0,
+    "recommendation_heat": 4
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州格莱美整形医院",
+    "mention_count": 1,
+    "avg_position": 4.0,
+    "recommendation_heat": 7
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州格莱美美容医院",
+    "mention_count": 1,
+    "avg_position": 8.0,
+    "recommendation_heat": 3
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州比华利医疗美容医院",
+    "mention_count": 1,
+    "avg_position": 4.0,
+    "recommendation_heat": 7
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州海峡医疗美容医院",
+    "mention_count": 1,
+    "avg_position": 1.0,
+    "recommendation_heat": 10
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州爱美尔整形医院",
+    "mention_count": 1,
+    "avg_position": 5.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州美琳达医疗美容医院",
+    "mention_count": 1,
+    "avg_position": 5.0,
+    "recommendation_heat": 6
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州美贝尔医疗美容医院",
+    "mention_count": 1,
+    "avg_position": 3.0,
+    "recommendation_heat": 8
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州魅诗嘉丽医疗美容中心",
+    "mention_count": 1,
+    "avg_position": 10.0,
+    "recommendation_heat": 1
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州鼓楼中意医疗美容门诊部",
+    "mention_count": 1,
+    "avg_position": 4.0,
+    "recommendation_heat": 7
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州鼓楼曙光医疗美容医院",
+    "mention_count": 1,
+    "avg_position": 1.0,
+    "recommendation_heat": 10
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州鼓楼美贝尔医疗美容门诊部",
+    "mention_count": 1,
+    "avg_position": 3.0,
+    "recommendation_heat": 8
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福州鼓楼雷氏嘉美医疗美容门诊部",
+    "mention_count": 1,
+    "avg_position": 7.0,
+    "recommendation_heat": 4
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福建医科大学附属协和医院",
+    "mention_count": 1,
+    "avg_position": 3.0,
+    "recommendation_heat": 8
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福建医科大学附属第一医院",
+    "mention_count": 1,
+    "avg_position": 2.0,
+    "recommendation_heat": 9
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "福建省立医院",
+    "mention_count": 1,
+    "avg_position": 1.0,
+    "recommendation_heat": 10
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "鼓楼婍丽美容皮肤科诊所",
+    "mention_count": 1,
+    "avg_position": 2.0,
+    "recommendation_heat": 9
+  },
+  {
+    "provider": "qwen",
+    "brand_name": "鼓楼荟和她时代美容皮肤科诊所",
+    "mention_count": 1,
+    "avg_position": 9.0,
+    "recommendation_heat": 2
+  }
+]

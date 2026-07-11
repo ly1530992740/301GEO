@@ -1,0 +1,37 @@
+[
+  {
+    "term": "推荐一下福州的医美",
+    "question": "推荐一下福州的医美",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  },
+  {
+    "term": "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+    "question": "福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  },
+  {
+    "term": "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+    "question": "福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  },
+  {
+    "term": "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+    "question": "在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  },
+  {
+    "term": "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+    "question": "福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+    "intent": "mixed",
+    "question_type": "recommendation",
+    "reason": "Prompt group used across Qwen, Doubao, Yuanbao, and DeepSeek."
+  }
+]

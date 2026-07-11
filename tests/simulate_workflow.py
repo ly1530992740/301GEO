@@ -11,7 +11,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from geo_app.config import AppConfig, BudgetConfig, MeijiekuConfig, QwenConfig, SerpApiConfig
+from geo_app.config import AppConfig, BudgetConfig, GEOAIConfig, MeijiekuConfig, QwenConfig, SerpApiConfig
 from geo_app.storage import Storage
 import geo_app.workflow as workflow
 
@@ -143,6 +143,7 @@ def main() -> None:
             meijieku=MeijiekuConfig(mobile="fake", password="fake"),
             serpapi=SerpApiConfig(api_key="fake"),
             budget=BudgetConfig(max_price_per_platform=200, max_total_budget=300),
+            geo_ai=GEOAIConfig(),
         )
 
         task = workflow.create_task(

@@ -1,0 +1,193 @@
+{
+  "run_id": "20260711T022211_b229ea",
+  "state": "complete",
+  "updated_at": "2026-07-11T03:02:32Z",
+  "last_message": "多 AI 一键分析完成，报告已保存：D:\\project\\301GEO\\output\\integrated_reports\\20260711T022211_b229ea_福州美贝尔医美\\integrated_report.md",
+  "events": [
+    {
+      "time": "2026-07-11T02:29:09Z",
+      "message": "启动多 AI 共识流程：Qwen、豆包、元宝、DeepSeek 使用 Prompt 组执行主流推荐测试",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:29:09Z",
+      "message": "调用 Qwen 生成 5 个真实用户 GEO 搜索问题",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:29:17Z",
+      "message": "多 AI 主流推荐测试问题组：5 个问题，每题最多推荐 10 个品牌",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:29:17Z",
+      "message": "调用 qwen 获取主流推荐排名 1/20：推荐一下福州的医美",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:29:37Z",
+      "message": "调用 doubao 获取主流推荐排名 2/20：推荐一下福州的医美",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:35:19Z",
+      "message": "调用 yuanbao 获取主流推荐排名 3/20：推荐一下福州的医美",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:35:24Z",
+      "message": "调用 deepseek 获取主流推荐排名 4/20：推荐一下福州的医美",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:35:34Z",
+      "message": "调用 qwen 获取主流推荐排名 5/20：福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:35:52Z",
+      "message": "调用 doubao 获取主流推荐排名 6/20：福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:41:38Z",
+      "message": "调用 yuanbao 获取主流推荐排名 7/20：福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:41:46Z",
+      "message": "调用 deepseek 获取主流推荐排名 8/20：福州美贝尔医美做双眼皮怎么样？有真人案例和医生推荐吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:41:53Z",
+      "message": "调用 qwen 获取主流推荐排名 9/20：福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:41:55Z",
+      "message": "调用 doubao 获取主流推荐排名 10/20：福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:11Z",
+      "message": "调用 yuanbao 获取主流推荐排名 11/20：福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:19Z",
+      "message": "调用 deepseek 获取主流推荐排名 12/20：福州美贝尔做热玛吉抗衰靠谱吗？价格透明吗？会不会有隐形消费？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:27Z",
+      "message": "调用 qwen 获取主流推荐排名 13/20：在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:29Z",
+      "message": "调用 doubao 获取主流推荐排名 14/20：在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:45Z",
+      "message": "调用 yuanbao 获取主流推荐排名 15/20：在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:42:54Z",
+      "message": "调用 deepseek 获取主流推荐排名 16/20：在福州做鼻综合整形，美贝尔和爱美尔哪家更推荐？对比下医生和技术特点。",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:43:07Z",
+      "message": "调用 qwen 获取主流推荐排名 17/20：福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:43:27Z",
+      "message": "调用 doubao 获取主流推荐排名 18/20：福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:49:07Z",
+      "message": "调用 yuanbao 获取主流推荐排名 19/20：福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:49:15Z",
+      "message": "调用 deepseek 获取主流推荐排名 20/20：福州美贝尔吸脂塑形效果自然吗？术后恢复要多久？鼓楼区过去方便吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:49:23Z",
+      "message": "调用 Qwen/元宝/豆包/DeepSeek 估算传统搜索和新媒体内容声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:49:23Z",
+      "message": "调用 qwen 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:50:12Z",
+      "message": "调用 doubao 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:59:18Z",
+      "message": "调用 yuanbao 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:59:42Z",
+      "message": "调用 deepseek 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:59:53Z",
+      "message": "抓取 AI 返回的文章链接正文",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T02:59:53Z",
+      "message": "抓取 AI 文章链接正文 1/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:00:04Z",
+      "message": "抓取 AI 文章链接正文 10/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:01:36Z",
+      "message": "抓取 AI 文章链接正文 20/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:02:12Z",
+      "message": "抓取 AI 文章链接正文 30/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:02:23Z",
+      "message": "抓取 AI 文章链接正文 40/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:02:27Z",
+      "message": "调用 Qwen 提炼各品牌文章宣传重点",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:02:28Z",
+      "message": "用 AI 返回的来源链接匹配媒介库资源和报价",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T03:02:32Z",
+      "message": "多 AI 一键分析完成，报告已保存：D:\\project\\301GEO\\output\\integrated_reports\\20260711T022211_b229ea_福州美贝尔医美\\integrated_report.md",
+      "state": "complete"
+    }
+  ]
+}

@@ -1,0 +1,3978 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "福州海峡整形美容医院",
+          "reason": "全国十大整形机构之一，创立于1998年，以个性化服务、精细手术及林沸腾院长领衔的隆胸技术闻名，具备8000㎡独立医疗空间及多项专利技术[1][2][4][8]",
+          "citation_urls": [
+            "https://www.haixiamed.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福建省立医院整形外科",
+          "product_name": "福建省立医院整形外科（公立三甲）",
+          "reason": "福州地区最具公信力的公立整形专科，拥有国际标准层流手术室、数字化术前设计系统，在鼻综合、乳房再造、瘢痕修复等领域优势突出，收费合理、技术稳健[2]",
+          "citation_urls": [
+            "https://www.fjslyy.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福建医科大学附属第一医院整形美容外科",
+          "product_name": "附一院整形美容外科",
+          "reason": "集医疗、教学、科研于一体，擅长创伤修复、先天畸形矫正及眼鼻精细化整形，配备美国赛诺秀激光、德国Body-jet水动力吸脂等高端设备，可开展四级高难度手术[2]",
+          "citation_urls": [
+            "https://www.fjfy.com.cn"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华美整形美容医院",
+          "product_name": "福州华美医疗美容医院",
+          "reason": "经卫生部门批准的正规连锁医美机构，主打面部轮廓塑形与皮肤年轻化，配备热玛吉五代、Fotona4D等抗衰设备，设有形体管理中心与皮肤管理科[2][3]",
+          "citation_urls": [
+            "https://www.fzhmmy.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州爱美尔整形医院",
+          "product_name": "福州爱美尔医疗美容医院",
+          "reason": "成立于2014年，位列2026福州整形医院排名前五，以自然微整与定制化方案见长，在福州本地持续积累良好口碑[1][4]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州格莱美美容医院",
+          "product_name": "福州格莱美医疗美容医院",
+          "reason": "长期稳居福州医美前十榜单，与海峡、爱美尔同列2022及2026年多版权威排名，属本地主流合规医美机构[4][6][9]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州名韩医疗美容",
+          "product_name": "福州名韩整形美容医院",
+          "reason": "位于湖滨路66号，医生团队毕业于国内外知名院校，临床经验丰富，专注各类美容项目，口碑佳、技术强[7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州台江整形医院",
+          "product_name": "福州台江整形美容医院",
+          "reason": "连续多年入选福州十大整形医院榜单（2026年位列第二），属本地深耕型机构，资质正规、项目覆盖面广[4][6]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "福州美贝尔医美（鼓楼院区）",
+          "reason": "全国连锁轻奢医美品牌，创立于2012年，设整形、无创、皮肤三大科室，具备正规医疗资质（(鼓)医广【2025】第12-29-87号），主打个性化与高品质服务体验",
+          "citation_urls": [
+            "https://www.mebelmed.com/fuzhou"
+          ],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州美莱医疗美容医院",
+          "product_name": "福州美莱医疗美容医院",
+          "reason": "美莱集团在榕旗舰院区，建筑面积达10000㎡，配备德国蛇牌内窥镜、美国麦格假体等高端器材，在胸部整形、脂肪填充及微创抗衰领域具技术优势[2]",
+          "citation_urls": [
+            "https://fuzhou.meilai.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "福州海峡美容医院医疗美容服务",
+          "reason": "福州本地运营多年的老牌正规医美机构，持有齐全的医疗执业资质，开设整形外科、微整注射、皮肤美容、抗衰管理等全品类医美项目，医师团队临床经验较为丰富，在本地拥有较高的知名度与不错的用户口碑。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "福州台江整形美容医院医疗美容服务",
+          "reason": "福州本地成立较早的专业医美机构，正规医疗资质完备，项目覆盖五官整形、形体雕塑、光电美肤、微创抗衰等多个领域，配套医疗保障体系较为完善，可满足不同求美者的多元塑美需求。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "美贝尔",
+          "product_name": "美贝尔医疗美容服务",
+          "reason": "美贝尔是2012年创立的全国连锁医美品牌，福州院区位于鼓楼区，定位高端、轻奢、时尚，下设整形美容、无创美容、皮肤美容三大科室，拥有常驻资深医疗团队与完善的医疗保障体系，可提供上百项精细化塑美项目，适合追求高品质医美体验的人群。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "福州名韩整形美容医院医疗美容服务",
+          "reason": "主打韩式塑美风格的正规医美机构，在眼鼻整形、皮肤管理、微创抗衰等项目上具备特色，服务流程细致周到，偏好韩式自然塑美风格的求美者可优先考虑。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "福州华韩整形美容医院医疗美容服务",
+          "reason": "全国连锁医美品牌旗下的正规医美机构，执业资质齐全，在光电抗衰、微整注射、整形修复等项目上有一定技术优势，医疗流程规范，注重用户隐私保护与服务体验。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "福州海峡美容医院",
+          "reason": "福州老牌大型医美机构，本地知名度高，科室齐全，用户提及率领先。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "福州名韩整形美容医院",
+          "reason": "福州主流整形美容医院之一，深耕本地市场，口碑较稳定。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "福州台江整形美容医院",
+          "reason": "台江片区代表性医美机构，服务覆盖面广，属本地常见选择。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "福州华韩整形美容医院",
+          "reason": "连锁背景的福州医美机构，项目较全，在本地有一定客群。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国连锁在福州的门诊部，主打高端轻奢定位，有整形、无创、皮肤三大科室。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "",
+          "reason": "全国连锁品牌，在福州口碑好，主打整形外科和皮肤美容，专家团队实力强，设备先进。",
+          "citation_urls": [
+            "https://www.huahan.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "福建老牌医美机构，规模大、项目全，尤其在鼻整形和胸部整形方面有较高知名度。",
+          "citation_urls": [
+            "https://www.fjhaixia.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "",
+          "reason": "福州本地老字号，拥有多年经验，手术类项目口碑较好，价格相对亲民。",
+          "citation_urls": [
+            "https://www.taijiang.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州美莱整形美容医院",
+          "product_name": "",
+          "reason": "全国连锁，皮肤和微整项目受欢迎，注重服务和环境，适合追求轻奢体验的消费者。",
+          "citation_urls": [
+            "https://www.mylike.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "韩国背景技术，擅长眼部整形和面部轮廓整形，医生团队经验丰富，知名度较高。",
+          "citation_urls": [
+            "https://www.minghan.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州薇琳医疗美容医院",
+          "product_name": "",
+          "reason": "专注皮肤管理和抗衰，引进国际先进设备，口碑不错，适合年轻女性。",
+          "citation_urls": [
+            "https://www.vline.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "",
+          "reason": "全国连锁品牌，科室涵盖整形、无创、皮肤，定位高端轻奢，适合追求个性化方案的用户。",
+          "citation_urls": [
+            "https://www.mebel.com/"
+          ],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州星范医疗美容",
+          "product_name": "",
+          "reason": "主打微创整形和面部年轻化，医生团队来自公立医院，性价比高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州仁爱医疗美容医院",
+          "product_name": "",
+          "reason": "综合性医美机构，项目较全，服务态度好，适合初次体验的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "推荐一下福州的医疗美容",
+    "question_meta": {
+      "question": "推荐一下福州的医疗美容",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "推荐一下福州的医疗美容",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "推荐一下福州的医疗美容",
+          "question": "推荐一下福州的医疗美容",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州婀丽医疗美容门诊部",
+          "product_name": "",
+          "reason": "本地口碑较好的中小型机构，擅长注射和皮肤项目，价格适中。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福建省立医院整形外科",
+          "product_name": "公立三甲整形专科",
+          "reason": "福州地区唯一公立三甲医院直属整形外科，持国家卫健委认证资质，拥有国际标准层流手术室及激光中心，在鼻综合、瘢痕修复、数字化术前设计等领域技术权威，收费合理且零有效客诉记录[5]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州海峡整形医院",
+          "product_name": "全国十大整形连锁·福州旗舰院",
+          "reason": "全国十大整形品牌，福州本地声誉最高、规模最大的专业医美机构之一，8000㎡独立空间，配备瑞士共振吸脂仪、以色列飞顿激光等进口设备，‘三维美鼻’‘精雕双眼皮’获专利认证，实行一人一方案定制服务[5][2][6]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福建医科大学附属第一医院整形美容外科",
+          "product_name": "公立教学型整形美容专科",
+          "reason": "集医疗、教学、科研于一体，具备开展四级高难度整形手术资质，配备美国赛诺秀激光、德国Body-jet水动力吸脂系统，在眼鼻精细化整形、脂肪移植抗衰及私密整形领域经验丰富，年手术量超2000例[5]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州名韩医疗美容",
+          "product_name": "正规医美专科医院（湖滨路66号）",
+          "reason": "2010年成立，经卫生行政部门批准的正规医美专科医院，资质齐全、医生技术强、用户口碑佳，长期稳居福州本地医美口碑前列[3][6]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "福州老牌公立背景整形科",
+          "reason": "2004年注册，以星级标准建设皮肤科与整形科，环境洁净、质量稳定，本地居民认可度高，多次入选福州整形医院前十榜单[7][6]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州华美整形美容医院",
+          "product_name": "连锁品牌标准化手术中心",
+          "reason": "经卫生部门批准的专业医美机构，配备热玛吉五代、欧洲之星Fotona4D等主流抗衰设备，在面部轮廓塑形与皮肤年轻化方面经验成熟，设有形体管理中心与皮肤管理科[4][5]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州爱美尔整形医院",
+          "product_name": "10年本土连锁品牌（2014年成立）",
+          "reason": "成立于2014年，深耕福州市场十余年，以个性化服务和精细操作见长，持续位列福州医美机构主流推荐榜单[2][6]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "鼓楼区高端轻奢连锁门诊",
+          "reason": "美贝尔全国连锁品牌（2012年创立）在福州的正式落点，具备正规医疗资质（(鼓)医广【2025】第12-29-87号），设整形、无创、皮肤三大科室，主打个性化综合塑美，属福州中高端医美主流选择之一[6][10]。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州格莱美医疗美容医院",
+          "product_name": "福州本地知名连锁机构",
+          "reason": "多次上榜福州十大正规医美机构（2025–2026年），综合实力强，口碑稳定，在2026年福清/福州区域榜单中常居前五，属本地消费者高频提及的合规选项[6][7]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州美莱医疗美容医院",
+          "product_name": "美莱集团福州旗舰院",
+          "reason": "美莱医疗美容集团旗下大型机构，建筑面积达10000㎡，设独立麻醉科与检验科，配备德国蛇牌内窥镜、美国麦格假体等高端器材，在胸部整形与微创抗衰项目上具技术优势[5]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "福州海峡美容医院医疗美容服务",
+          "reason": "福州本地成立较早的正规医疗美容专科医院，持有齐全的医疗执业资质，下设整形美容外科、微整注射、皮肤美容、抗衰管理等核心科室，医师团队临床经验丰富，项目覆盖全面，在本地求美者中拥有多年口碑积淀，认知度较高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "福州台江整形美容医院医疗美容服务",
+          "reason": "福州本土老牌正规医美机构，资质合规，诊疗流程规范，开展五官整形、形体雕塑、皮肤管理、微创抗衰等多元医美项目，服务体系成熟，本地用户认可度较高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "福州名韩整形美容医院医疗美容服务",
+          "reason": "具备正规医疗美容执业资质，主打精细化整形、皮肤美容与微创抗衰项目，医师团队专业度较强，服务细节完善，受到不少有精细化塑美需求用户的认可。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "美贝尔",
+          "product_name": "美贝尔医疗美容服务",
+          "reason": "为2012年创立的美贝尔全国连锁医美品牌旗下福州机构，地处鼓楼区，持有正规医疗资质（(鼓)医广【2025】第12-29-87号），下设整形美容、无创美容、皮肤美容三大科室，汇聚国内外资深常驻医疗团队，覆盖上百项精细化塑美项目，主打高端、轻奢的塑美服务体验，拥有完善的医疗安全保障体系。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "福州华韩整形美容医院医疗美容服务",
+          "reason": "正规连锁医美品牌旗下福州机构，资质齐全，开展整形手术、微整注射、光电抗衰、皮肤管理等全品类医美项目，诊疗操作规范，依托连锁品牌的实力支撑，服务与品质有一定保障，用户口碑稳定。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "福州本地老牌医美医院，资质正规，口碑较好，规模较大，项目齐全。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "福州知名医美机构，具备正规医疗资质，在五官整形等领域有较好口碑。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "",
+          "reason": "福州地区成立较久的整形美容医院，资质合规，本地认知度高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "",
+          "reason": "连锁医美品牌福州分院，资质正规，服务与口碑较稳定。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国连锁医美品牌福州门诊部，位于鼓楼区，具备正规医疗资质，设三大科室。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "福州老牌知名连锁医美医院，拥有正规医疗资质，擅长整形外科与皮肤美容，口碑稳定，深受本地消费者信赖。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "韩国整形技术与理念引入，注重术前设计，拥有多位经验丰富的医生，在面部微整与抗衰方面口碑较好。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "",
+          "reason": "深耕福州市场多年，项目涵盖整形、无创、皮肤等，以性价比和规范化服务获得不少求美者好评。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "",
+          "reason": "华韩连锁品牌在福州设有分院，依托集团资源，医生团队和麻醉安全保障体系较为完善，适合安全优先的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "美贝尔是知名连锁品牌，福州分院位于鼓楼区，资质正规，主打高端定制服务，在五官精雕与皮肤管理方面有一定口碑。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州丽之都医疗美容门诊部",
+          "product_name": "",
+          "reason": "本地口碑机构，注重细节与术后服务，在微创注射和面部年轻化项目中积累了不少忠实客户。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州爱思特医疗美容医院",
+          "product_name": "",
+          "reason": "爱思特集团连锁，具备四级手术资质，可开展高难度整形项目，在福州医美市场具有较强技术实力。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州薇琳医美",
+          "product_name": "",
+          "reason": "主打轻医美与皮肤管理，环境舒适，医师团队专业，无创项目体验好评较多，适合注重隐私与舒适度的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州格莱美医疗美容门诊部",
+          "product_name": "",
+          "reason": "格莱美在业内有一定知名度，医生团队较稳定，擅长眼鼻整形，本地口碑尚可。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question_meta": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州美立方医疗美容医院",
+          "product_name": "",
+          "reason": "美立方品牌正规，注重安全与效果平衡，在乳房整形与形体雕塑方面有特色，适合有特定需求的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福建医科大学附属第一医院",
+          "product_name": "整形美容外科",
+          "reason": "省内最早设立的整形专科，三甲公立背景，擅长肿眼泡、上睑下垂及二次修复等复杂案例，手术风格自然保守，安全性与临床经验公认领先[1][2][5][7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福建医科大学附属协和医院",
+          "product_name": "整形外科",
+          "reason": "福建省内成立较早的整形专科，微创三点式与开扇/平行型设计经验丰富，亚专业细致，可同步评估内眦开大或提肌调整，术后流畅度本地认可度高[1][2][5][7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "海峡整形",
+          "reason": "营业时间长、正规连锁医美机构，拥有无菌手术室与VIP病房，双眼皮案例量多、医生技术稳定，口碑可查，位列福州双眼皮医院实力排行前3[2][3]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州美莱医疗美容医院",
+          "product_name": "眼部整形中心",
+          "reason": "全国连锁品牌，设独立眼部整形中心，案例库充足便于眼型比对，审美偏时尚灵动，提供妈生款/小平行定制及完善术后随访[1][3]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福建省立医院",
+          "product_name": "整形烧伤科",
+          "reason": "三甲综合医院，擅长个性化方案定制与复杂双眼皮修复，在内双及精细化切开术方面经验丰富，患者评价效果自然、恢复快[5][7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州格莱美美容医院",
+          "product_name": "",
+          "reason": "本地主流医美连锁，被多家渠道列为福州双眼皮可靠选择之一，与海峡、美贝尔同属高频推荐阵营[2][3][4]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "具备正规资质、医生经验丰富、审美自然、价格透明，是福州地区双眼皮项目值得考虑的民营选项[无来源直接引用但符合2026年5月最新公开评价]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "MEBEL",
+          "reason": "全国连锁品牌（创立于2012年），福州鼓楼区持证机构，具备正规医疗资质（(鼓)医广【2025】第12-29-87号），主打高端轻奢定位，覆盖整形/无创/皮肤全维度，团队常驻资深医师，属本地主流竞争者之一[无直接外部榜单引用，但符合本地市场结构与资质要求]",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州市第一医院",
+          "product_name": "整形外科",
+          "reason": "三甲医院，强调疤痕最小化与快速恢复，提供定制化双眼皮方案及细致术后指导，患者反馈沟通充分、效果自然[5][7]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州爱美尔整形美容医院",
+          "product_name": "",
+          "reason": "本地口碑型民营机构，被明确提及为‘眼睛天生内双’人群的优选，强调正规资质与自然效果，属福州双眼皮主流推荐名单之一[无来源直接引用但符合2025年2月公开信息]",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "双眼皮整形医疗美容服务",
+          "reason": "是福州本地经营多年的老牌整形专科医院，双眼皮手术是其热门经典项目，医师团队临床经验丰富，可驾驭自然、精致等多种风格，会结合求美者眼部基础与审美需求定制方案，资质齐全合规，术前检查、术后随访服务体系成熟，是本地多数眼整形求美者的优先选择之一。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "美贝尔双眼皮整形医疗美容服务",
+          "reason": "隶属于2012年创立的美贝尔全国连锁医美品牌，门店位于鼓楼区，持有正规医疗资质（医广号：(鼓)医广【2025】第12-29-87号），整形科有常驻资深外科医师团队，双眼皮手术操作精细化，主打个性化塑美，配套完善的医疗保障体系，整体服务走高端轻奢路线，体验感较好。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "双眼皮整形医疗美容服务",
+          "reason": "是福州本地知名度较高的正规医美机构，双眼皮项目临床案例积累充足，医师团队注重眼部与面部整体的协调性设计，不会打造千篇一律的款式，术前评估、术后跟进流程完善。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "双眼皮整形医疗美容服务",
+          "reason": "是福州本地成立较早的正规整形机构，双眼皮相关术式成熟规范，收费公开透明无隐形消费，医师团队临床经验扎实，整体性价比不错，适合预算适中的求美者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "双眼皮手术",
+          "reason": "福州本地老牌医美医院，规模较大，整形科室成熟，双眼皮项目案例丰富，用户口碑较稳定。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "双眼皮手术",
+          "reason": "专注整形美容的本地机构，眼部整形为常见主推项目，医生团队有较多眼部手术经验。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "双眼皮手术",
+          "reason": "福州较知名整形门诊，经营年限较长，双眼皮等五官手术为常规项目，本地认知度高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "双眼皮手术",
+          "reason": "连锁背景的本地医美机构，眼部整形有标准化流程，设备和环境较完善。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国连锁医美品牌在福州的门诊部，具备正规资质，设整形美容科室可开展双眼皮手术，定位偏轻奢。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "作为福州老牌医美机构，海峡美容医院在双眼皮手术方面口碑较好，医生经验丰富，属于本地主流选择。",
+          "citation_urls": [
+            "https://www.fzhxzx.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "名韩整形为连锁品牌，在福州知名度高，拥有资深的眼部整形医生，手术案例丰富。",
+          "citation_urls": [
+            "https://www.fzmhzg.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "",
+          "reason": "华韩整形为全国连锁医美品牌，福州院区技术规范和术后服务较好，双眼皮手术满意度较高。",
+          "citation_urls": [
+            "https://www.fzhhzg.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "",
+          "reason": "台江整形位于福州核心区域，是本地较为知名的机构，双眼皮手术项目成熟，医生团队稳定。",
+          "citation_urls": [
+            "https://www.fztjzx.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "",
+          "reason": "美贝尔为全国连锁品牌，福州门诊部位于鼓楼区，双眼皮手术采用精细化技术，配备资深医生。",
+          "citation_urls": [
+            "https://www.mabel.cn/"
+          ],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州爱思特医疗美容医院",
+          "product_name": "",
+          "reason": "爱思特为大型连锁医美品牌，福州院区在眼部整形方面具备较好口碑和成熟案例。",
+          "citation_urls": [
+            "https://www.fzast.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州美莱华美医疗美容医院",
+          "product_name": "",
+          "reason": "美莱华美为美莱集团旗下，福州院区规模较大，双眼皮手术经验丰富，技术相对规范。",
+          "citation_urls": [
+            "https://www.fzmylike.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州维多利亚医疗美容医院",
+          "product_name": "",
+          "reason": "维多利亚整形在福州有一定知名度，双眼皮手术注重效果自然，医生资质较全。",
+          "citation_urls": [
+            "https://www.fzwdly.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州亚韩医疗美容门诊部",
+          "product_name": "",
+          "reason": "亚韩医美在福州本地拥有较好的口碑，双眼皮手术性价比高，术后恢复较好。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question_meta": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州星范医疗美容门诊部",
+          "product_name": "",
+          "reason": "星范医美为连锁品牌，福州门诊部在眼部整形方面有一定案例积累，服务较好。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福建医科大学附属第一医院",
+          "product_name": "整形美容外科",
+          "reason": "国家临床重点专科，华东区排名第五，配备超皮秒、精准光子等高端设备，医生团队科研与临床并重，皮秒祛斑及光子嫩肤技术规范、安全性高[7][8]",
+          "citation_urls": [
+            "https://www.fjmu1h.com.cn/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福建医科大学附属协和医院",
+          "product_name": "皮肤科",
+          "reason": "福建省首批国家级皮肤科住培基地，拥有超皮秒激光、精准光子等国际设备，在色素性疾病（如黄褐斑、太田痣）及光子嫩肤领域经验丰富，疗效获广泛患者认可[7][8]",
+          "citation_urls": [
+            "https://www.fjfh.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福建省立医院",
+          "product_name": "皮肤科",
+          "reason": "省级住院医师规培基地，引进MedliteⅡ、赛诺秀Elite等先进激光平台，在皮秒祛斑、血管性病变及光子嫩肤方面效果稳定，技术成熟[7][8]",
+          "citation_urls": [
+            "https://www.fjslshospital.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州市第一医院",
+          "product_name": "医学美容科／皮肤科",
+          "reason": "百年三甲综合医院，王彪副院长领衔科室，医生定期进修学习，审美与技术兼备，光子嫩肤单次2000–5000元，性价比与可靠性突出[5][6]",
+          "citation_urls": [
+            "https://www.fz1h.com.cn/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州华美整形美容医院",
+          "product_name": "光子嫩肤与分层抗衰管理中心",
+          "reason": "1994年成立，福州老牌连锁医美，20年+经验医生坐诊，皮秒祛斑3600–8500元，推出‘分层抗衰管理’体系，案例真实、服务周期完整[3][4]",
+          "citation_urls": [
+            "https://www.fzhmmy.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州海峡整形美容医院",
+          "product_name": "光子嫩肤与超皮秒中心",
+          "reason": "福建省首家专科整形美容医院（2005年成立），台江区与鼓楼区双院区运营，光子嫩肤2800–5500元/次，医生持续操作设备且具皮肤科专业认证[4][9]",
+          "citation_urls": [
+            "https://www.fzhaixia.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州爱美尔整形美容医院",
+          "product_name": "皮肤美容科",
+          "reason": "2004年成立，台江区核心地段，专注光电美肤多年，光子嫩肤2500–5500元/次，强调医生资质与设备维保标准，学生党与轻熟龄人群口碑较好[4]",
+          "citation_urls": [
+            "https://www.fzaier.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州艺星整形美容医院",
+          "product_name": "无创抗衰中心",
+          "reason": "全国连锁品牌在榕主力院区，主打精细化光电项目，医生团队常驻培训考核，光子嫩肤与皮秒联合方案设计成熟，位列福州光子嫩肤TOP榜首位[4]",
+          "citation_urls": [
+            "https://www.fzyixing.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州格莱美美容医院",
+          "product_name": "皮肤管理中心",
+          "reason": "鼓楼区东大路院区，以激光嫩肤见长，设备更新频率高，医生多具备皮肤科背景或激光操作认证，本地用户反馈操作细腻、复购率高[9]",
+          "citation_urls": [
+            "https://www.fzglmei.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "华窈轻医美",
+          "product_name": "全周期宠粉光子中心",
+          "reason": "28年本土老牌机构，聚焦轻医美赛道，全球顶流设备+20年经验医生组合，强调真实案例佐证与全周期服务，适合学生党及初阶抗衰需求者[1]",
+          "citation_urls": [
+            "https://www.fzhuyaoyi.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "光子嫩肤、皮秒祛斑等皮肤光电美容服务",
+          "reason": "福州本地经营多年的老牌正规医美机构，皮肤美容科是核心优势科室，光电类项目医生临床经验充足，祛斑嫩肤相关案例积累量大，配备正版皮秒、光子嫩肤等设备，会根据求美者的斑型、皮肤耐受度定制个性化方案，术后随访体系完善，本地用户口碑积淀深厚",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "光子嫩肤、皮秒祛斑等皮肤美容项目",
+          "reason": "知名连锁医美品牌，皮肤美容中心专设光电美容专项组，坐诊医生均持有正规执业资质，操作时会根据个人皮肤状态适配仪器参数，可有效降低反黑、皮肤灼伤等风险，服务流程细致贴心，整体就诊体验较好",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "光子嫩肤、皮秒祛斑等皮肤美容服务",
+          "reason": "美贝尔全国连锁品牌旗下福州门店，地处鼓楼区，具备正规医疗资质，皮肤美容为三大核心科室之一，常驻资深皮肤医美医师团队，医疗保障体系完善，光电项目操作规范，可提供个性化祛斑嫩肤方案，主打轻奢高品质塑美体验",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "光子嫩肤、皮秒祛斑等光电美肤项目",
+          "reason": "福州本地成立较早的正规医美机构，光电美肤类项目开展年限久，医生操作熟练度高，项目定价亲民，还会配套专业的术后修复指导，整体性价比突出，适合预算有限的求美者",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "皮肤美容中心",
+          "reason": "福州本地老牌医美机构，皮肤美容科室配置完善，医生实操经验丰富，光电类项目口碑较稳。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "光电皮肤科",
+          "reason": "韩国技术背景连锁品牌，皮秒与光子嫩肤设备较全，常驻医师具备多年临床经验。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "医学美肤科",
+          "reason": "福州台江区域知名医美医院，皮肤管理项目成熟，医生团队稳定，祛斑案例较多。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "皮肤美容科",
+          "reason": "华东地区连锁医美，皮肤光电仪器更新快，医师培训体系规范，光子嫩肤好评率较高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "全国连锁医美品牌福州分院，设皮肤美容科室，拥有正规资质与常驻医疗团队，可开展光电祛斑与嫩肤。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "作为福州本土老牌医美机构，拥有专业皮肤科团队和先进的光电设备，光子嫩肤和皮秒祛斑技术成熟，医生经验丰富，口碑较好。",
+          "citation_urls": [
+            "https://www.haixiayimei.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "名韩在福州口碑稳固，皮肤美容科室配备国际主流激光设备，医生团队定期进修，对祛斑和嫩肤有丰富案例，服务细致。",
+          "citation_urls": [
+            "https://www.minghanmr.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "台江整形老牌机构，皮肤科拥有多位资深医师，光子嫩肤和皮秒治疗经验丰富，价格适中，受本地消费者信赖。",
+          "citation_urls": [
+            "https://www.taizhouyimei.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "华韩系连锁品牌，福州分院设备更新快，医生团队技术扎实，尤其在激光祛斑领域有较多成功案例，注重个性化方案。",
+          "citation_urls": [
+            "https://www.huahanyimei.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔医疗美容",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "美贝尔全国连锁，福州分院皮肤科配备进口激光仪器，医生经验较丰富，环境和服务体验好，适合追求品质的用户。",
+          "citation_urls": [
+            "https://www.mebel.cn/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州星颜医疗美容",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "星颜是福州本土新兴机构，主打光电类项目，光子嫩肤和皮秒设备先进，医生团队来自三甲医院，注重安全与效果。",
+          "citation_urls": [
+            "https://www.xingyanmr.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州悦美医疗美容",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "悦美专注皮肤美容，拥有M22光子嫩肤和皮秒激光设备，医生对色素性问题处理经验丰富，客户评价较高。",
+          "citation_urls": [
+            "https://www.yuemeiyimei.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question_meta": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州爱思特医疗美容医院",
+          "product_name": "光子嫩肤/皮秒祛斑",
+          "reason": "爱思特连锁品牌，福州分院皮肤科配备科医人等高端激光设备，医生团队专业，尤其在祛斑领域有较多成功案例。",
+          "citation_urls": [
+            "https://www.aistly.com/"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州鼓楼名韩医疗美容门诊部",
+          "product_name": "精细化微整注射中心",
+          "reason": "鼓楼区专属精细化微整机构，深耕注射抗衰与填充修复多年；采用B超可视引导修复技术，精准定位、避免损伤，尤其擅长再生材料（濡白天使、伊妍仕）馒化修复及眉眼口周精细化调整，自然度与安全性口碑稳定[7]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "哲诺沃国际抗衰老美容机构",
+          "product_name": "功能医学+微整联合抗衰中心",
+          "reason": "位于鼓楼区乌山西路20号，专注功能医学与注射年轻化结合；依托美国Genova功能医学研究中心背景，强调个体化剂量与代谢评估，减少肿胀淤青，提升自然度与恢复速度；设有独立无创美容区与专业注射医师团队[5]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州格莱美美容医院",
+          "product_name": "面部年轻化微整中心",
+          "reason": "鼓楼区东大路6号持证医疗美容专科医院，开展瘦脸除皱、玻尿酸/肉毒精细化注射等项目；配备标准层流手术室及激光美容室，医生团队含外科与皮肤科执业医师，强调解剖精准与动态表情管理，术后恢复期短[6]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州美贝尔医疗美容门诊部",
+          "product_name": "无创美容科",
+          "reason": "鼓楼区高端轻奢连锁医美机构，设无创美容专科，主打微整注射个性化方案设计；汇聚常驻大咖医师，覆盖肉毒、玻尿酸、胶原刺激剂等全品类注射，强调‘少而精’剂量控制与面部和谐美学，恢复快、自然度高[品牌画像]。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州玛恩皮肤医疗美容门诊部",
+          "product_name": "微整形皮肤美容中心",
+          "reason": "以生物科技与声光电设备为核心，同步开展注射类与能量类联合治疗；微整形项目强调疼痛小、恢复期短、不影响工作生活，适合追求高效自然效果的都市人群[2]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州爱美尔医疗整形美容医院",
+          "product_name": "精细化注射抗衰中心",
+          "reason": "鼓楼区井大路老牌连锁机构（始创于2001年），在假体与注射双轨并进；注射类项目由整形协会专家领衔，注重面部动静态平衡，临床经验丰富，术后反馈自然度与恢复速度表现稳定[3]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州弘宇医疗美容诊所",
+          "product_name": "面部微整咨询与注射门诊",
+          "reason": "位于鼓楼区湖东路288号水调歌头综合楼三楼，专注个性化微整方案设计；流程规范、导诊清晰，适合首次尝试者；强调术前沟通与剂量分层注射，降低肿胀风险，提升自然过渡效果[1]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "qwen",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州鼓楼曙光医疗美容",
+          "product_name": "王者之心联合微整中心",
+          "reason": "位于鼓楼区五一北路77号，配备lipokit自体脂肪机、深蓝射频等设备，支持注射+能量联合方案；微整注射注重与光电项目的协同设计，缩短恢复窗口、强化自然轮廓感[8]。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "面部微整注射医疗美容服务",
+          "reason": "机构地处鼓楼区核心地段，微整注射为其重点优势项目，坐诊医师临床注射经验丰富，会结合个人面部轮廓与气质设计个性化方案，精细化把控注射层次与剂量，追求自然协调的塑美效果，注射手法微创轻柔，术后肿胀淤青反应轻，恢复周期短，不易出现假面僵硬问题，具备正规医疗资质。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "美贝尔",
+          "product_name": "美贝尔医疗美容服务",
+          "reason": "门店位于鼓楼区，是拥有10余年运营经验的全国连锁医美品牌，下设专门的无创美容科室开展面部微整注射项目，医师团队经验充足，会根据求美者需求定制自然款注射方案，手法精准、创口微小，术后恢复快，效果贴合个人面部特质不假面，配备完善的医疗安全保障体系，资质正规可查。",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "面部微整注射医疗美容服务",
+          "reason": "距离鼓楼区交通便捷，是福州本地经营多年的老牌正规医美机构，微整注射项目技术成熟，医师团队倡导自然塑美理念，注射时兼顾面部动态、静态的自然表情呈现，操作规范轻柔，术后肿胀消褪快，效果自然不突兀。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "面部微整注射医疗美容服务",
+          "reason": "临近鼓楼区，为正规连锁医美机构，微整注射项目操作流程规范，医师会根据求美者面部基础精准把控注射点位与剂量，主打自然妈生感的注射效果，微创操作创口小、恢复快，配套完善的术后跟进服务。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "doubao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "面部微整注射医疗美容服务",
+          "reason": "距鼓楼区车程较短，是福州本地知名度较高的正规医美机构，无创科室微整注射项目经验丰富，医师手法轻柔，能精准规避面部血管与神经，降低术后淤青肿胀概率，恢复速度快，注射效果贴合个人气质，自然不假面。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "面部微整注射",
+          "reason": "福州本地老牌医美医院，微创注射项目经验丰富，用户反馈自然恢复快",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "无创微整注射",
+          "reason": "福州知名连锁医美，微整注射以自然风格见长，恢复期短",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "面部微整",
+          "reason": "福州主流整形机构，注射类项目性价比高，术后恢复较快",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "微整注射",
+          "reason": "本地常见医美品牌，有无创美容科室，注射效果偏自然",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "yuanbao",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "位于鼓楼区，设有无创美容科做微整注射，连锁品牌资质较全",
+          "citation_urls": [],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 1,
+          "brand_name": "福州海峡美容医院",
+          "product_name": "",
+          "reason": "作为本地老牌医美机构，海峡在微整注射方面经验丰富，医生团队稳定，擅长自然风格注射，恢复快，口碑较好。",
+          "citation_urls": [
+            "https://www.haixia.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 2,
+          "brand_name": "福州名韩整形美容医院",
+          "product_name": "",
+          "reason": "名韩在福州医美市场知名度高，其微整注射项目以精准、自然著称，注重术后恢复，受到不少求美者推荐。",
+          "citation_urls": [
+            "https://www.minghan.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 3,
+          "brand_name": "美贝尔",
+          "product_name": "福州美贝尔医疗美容门诊部",
+          "reason": "美贝尔位于鼓楼区，全国连锁品牌，拥有正规资质和资深团队，面部注射项目强调个性化和自然效果，恢复期短。",
+          "citation_urls": [
+            "https://www.mebel.cn"
+          ],
+          "is_user_brand": true
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 4,
+          "brand_name": "福州台江整形美容医院",
+          "product_name": "",
+          "reason": "台江整形在福州医美行业深耕多年，微整注射技术成熟，擅长通过少量多次实现自然效果，恢复快，性价比较高。",
+          "citation_urls": [
+            "https://www.taijiang.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 5,
+          "brand_name": "福州华韩整形美容医院",
+          "product_name": "",
+          "reason": "华韩整形作为连锁品牌，在微整注射领域具有标准化流程，医生经验丰富，注重无痛和快速恢复，适合追求自然效果的用户。",
+          "citation_urls": [
+            "https://www.huahan.com"
+          ],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 6,
+          "brand_name": "福州美立方医疗美容",
+          "product_name": "",
+          "reason": "美立方在福州口碑不错，面部注射项目以自然、微创为主，术后肿胀轻，恢复快，适合上班族。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 7,
+          "brand_name": "福州爱思特医疗美容医院",
+          "product_name": "",
+          "reason": "爱思特是较早进入福州的连锁医美品牌，微整注射团队稳定，注重个性化设计，自然风格反馈好，恢复速度较快。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 8,
+          "brand_name": "福州薇琳医疗美容",
+          "product_name": "",
+          "reason": "薇琳在微整注射方面有一定知名度，医生团队擅长精细化操作，效果自然，术后恢复期短，客户满意度较高。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 9,
+          "brand_name": "福州鼓楼区医院整形美容科",
+          "product_name": "",
+          "reason": "公立医院整形科具备正规资质，医生专业可靠，注射项目价格透明，风格偏向保守自然，恢复有保障。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question_meta": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "multi_ai_mainstream_recommendation"
+    },
+    "result": {
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "recommendations": [
+        {
+          "engine": "deepseek",
+          "trend_term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+          "prompt_type": "neutral_recommendation",
+          "intent": "mainstream_recommendation",
+          "rank": 10,
+          "brand_name": "福州星范医疗美容",
+          "product_name": "",
+          "reason": "星范是连锁品牌，在微整注射领域注重沟通和自然效果，设备先进，术后恢复较快，适合首次尝试者。",
+          "citation_urls": [],
+          "is_user_brand": false
+        }
+      ],
+      "search_results": []
+    }
+  }
+]

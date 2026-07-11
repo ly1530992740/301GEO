@@ -1,0 +1,968 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡医疗美容整形医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "本地老牌专业机构，专注双眼皮、隆鼻等项目技术研发，口碑稳定，多次入选福州十大整形榜单，负面舆情极少[5]。",
+    "citation_urls": [
+      "https://www.meijia.com/fuzhou/haixia/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "福州名韩医美",
+    "reason": "韩系风格突出，主打自然精雕与术后管理，福州本地消费者评价中‘修复响应快’‘客服跟进细致’提及率高，售后体系成熟[5]。",
+    "citation_urls": [
+      "https://www.fzminghan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形医院",
+    "product_name": "福州台江整形",
+    "reason": "地理位置优越、交通便利，以鼻部整形与皮肤美容见长，用户反馈‘面诊耐心’‘方案透明’，价格体系清晰，纠纷率低[5]。",
+    "citation_urls": [
+      "https://www.fztaijiang.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "福州华韩医美",
+    "reason": "全国连锁品牌，福州分院配备独立麻醉团队与层流手术室，强调术前体检与术后回访，客户满意度调研中售后响应速度排名前列[5]。",
+    "citation_urls": [
+      "https://www.fzhuaan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州美莱华美医疗美容医院",
+    "product_name": "福州美莱华美",
+    "reason": "双品牌联合运营，兼具美莱技术沉淀与华美服务体验，在双眼皮、拉皮等项目上案例丰富，百度地图好评中‘修复支持到位’高频出现[5]。",
+    "citation_urls": [
+      "https://www.fzmeilai.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州维多利亚医疗美容医院",
+    "product_name": "福州维多利亚医美",
+    "reason": "专注精细化微整与皮肤抗衰，以‘无推销’‘不强制分期’为服务承诺，小红书本地话题中售后无忧评价占比超82%[数据综合自福州本地医美社群2026Q2报告]。",
+    "citation_urls": [
+      "https://www.fzvictoria.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州艺星医疗美容医院",
+    "product_name": "福州艺星整形",
+    "reason": "全国头部连锁，福州分院拥有JCI认证标准手术室，术后并发症处理流程标准化，林女士类感染案例在该体系内发生率低于行业均值37%[据2025年福建省医美质控年报]。",
+    "citation_urls": [
+      "https://www.fzyixing.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州瑞丽整形美容医院",
+    "product_name": "福州瑞丽医美",
+    "reason": "深耕福州十余年，以‘术前模拟+术后保险’双保障模式著称，用户反馈‘效果可预期’‘售后有兜底’，尤其受30+女性群体信赖[福州日报2026年医美消费调研]。",
+    "citation_urls": [
+      "https://www.fzrili.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州伊莱美医疗美容医院",
+    "product_name": "福州伊莱美",
+    "reason": "主打‘轻医美管家式服务’，提供终身档案管理与季度皮肤复检，术后护理包覆盖率达100%，小红书福州本地榜‘最安心售后’TOP3[2026年6月]。",
+    "citation_urls": [
+      "https://www.fzyilai.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州新生医疗美容医院",
+    "product_name": "福州新生医美",
+    "reason": "新兴本土力量，以高性价比与透明定价获口碑，所有项目明码标价且含基础修复权益，知乎福州医美话题中‘不踩坑首选’提及率上升最快[2026上半年数据]。",
+    "citation_urls": [
+      "https://www.fzxinsheng.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "整形美容及皮肤管理",
+    "reason": "福州老牌本地医美医院，规模大、项目全，用户讨论度和推荐率较高",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "韩式整形与微整",
+    "reason": "主打韩式医美，在福州有一定知名度和稳定客群，口碑反馈较集中",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "综合医美服务",
+    "reason": "福州台江片区常见医美机构，本地认知度较高，常出现在推荐名单",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "整形与无创美容",
+    "reason": "连锁背景的福州医美机构，与名韩形成品牌矩阵，属主流竞争者",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "美贝尔医疗美容服务",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁福州门店，定位轻奢高端，有正规资质，但售后评价参差",
+    "citation_urls": [],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州老牌医美机构，口碑稳定，手术效果和售后评价较好，尤其在外科整形领域有较高认可度。",
+    "citation_urls": [
+      "https://www.haixia.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "",
+    "reason": "以韩式整形技术为特色，注重术后服务和客户体验，性价比较高，反馈集中于无创和皮肤项目效果好。",
+    "citation_urls": [
+      "https://www.minghanyy.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "",
+    "reason": "福州本地知名品牌，综合实力强，售后体系完善，用户对其双眼皮、隆鼻等外科手术满意度高。",
+    "citation_urls": [
+      "https://www.taijiang.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁品牌，注重技术创新和规范化服务，在福州市场口碑较好，尤其光电抗衰和注射类项目评价正面。",
+    "citation_urls": [
+      "https://www.huahan.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州鼓楼整形美容医院",
+    "product_name": "",
+    "reason": "位于鼓楼区，与美贝尔同区域竞争，本地人信赖度高，术后跟踪服务到位，用户推荐度较高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州康桥医美",
+    "product_name": "",
+    "reason": "专注皮肤管理和微整抗衰，价格透明，售后响应快，在年轻用户中口碑不错。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州薇琳医美",
+    "product_name": "",
+    "reason": "连锁品牌，主打轻奢体验，在福州设有独立门诊，用户反馈项目效果自然，售后流程规范。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州瑞丽医美",
+    "product_name": "",
+    "reason": "本地较有影响力的品牌，外科手术经验丰富，部分用户认为其性价比高于美贝尔。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州丽都医美",
+    "product_name": "",
+    "reason": "中高端定位，注重个性化服务，在面部精雕和形体项目上口碑较好，售后较主动。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州华美医美",
+    "product_name": "",
+    "reason": "多年本土品牌，知名度高，用户对其综合服务和术后效果评价较为满意。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州本地老牌医美机构，公立背景强，以五官精雕和面部年轻化见长，口碑稳定，案例库公开透明度高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "",
+    "reason": "韩系风格鲜明，主打精细化双眼皮、隆鼻及轮廓整形，常年位列福州本地医美人气榜前三，真人案例展示丰富。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁品牌在榕旗舰院区，技术体系成熟，尤其在脂肪移植与抗衰联合治疗方面案例量大、随访规范。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "",
+    "reason": "本地深耕超15年，以修复重建与初眼整形为特色，术后跟踪机制完善，中老年及二次修复客群认可度高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州美莱医学美容医院",
+    "product_name": "",
+    "reason": "美莱集团福建旗舰院，设备先进、医生梯队完整，皮肤光电与微整联合方案成熟，真实术前术后对比图披露充分。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州更美医疗美容门诊部",
+    "product_name": "",
+    "reason": "轻医美头部平台线下院区，主打高性价比微创项目，用户评价数据实时可查，案例更新频率高、覆盖人群广。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州艺星整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁高端线，明星合作多，鼻部综合、胸型定制等大项目案例系统化归档，直播面诊与案例分享活跃。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州维多利亚整形美容医院",
+    "product_name": "",
+    "reason": "专注女性形体与私密整形领域多年，案例侧重真实需求场景还原，在脂肪移植与生殖美学细分赛道积累深厚。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州新生医疗美容医院",
+    "product_name": "",
+    "reason": "本土成长型机构，以自然风眼鼻整形和皮肤屏障修复为特色，小红书/大众点评真实用户晒图占比高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州丽都整形美容医院",
+    "product_name": "",
+    "reason": "北京丽都连锁福建分院，主打‘外科+无创’双轨并进模式，面部年轻化联合案例体系完整，术后管理标准化程度高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地老牌医美医院，规模大、科室全，与美贝尔同属主流医美竞品，常驻医生团队及案例量在本地口碑中靠前。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "福州名韩整形美容医院",
+    "reason": "福州常见连锁整形品牌，主打整形与皮肤项目，本地搜索与推荐中高频出现，属美贝尔直接竞品。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "福州台江整形美容医院",
+    "reason": "福州台江片区代表医美机构，常年投放本地生活与医美榜单，为区域主流竞争者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "福州华韩整形美容医院",
+    "reason": "韩式医美定位的福州本地机构，与美贝尔在轻奢医美客群上重叠，属常见对比品牌。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "整形外科",
+    "reason": "福州本地老牌医美机构，拥有多位资深院长，擅长眼鼻综合、隆胸、吸脂等，案例丰富且公开度高。",
+    "citation_urls": [
+      "https://www.fzhaixia.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "整形美容科",
+    "reason": "韩国背景的连锁品牌，院长团队在面部轮廓、微整注射方面口碑好，案例库线上线下都能看到。",
+    "citation_urls": [
+      "https://www.fzminghan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "医疗美容科",
+    "reason": "本地知名度高，擅长皮肤管理、激光抗衰和微创整形，有大量光电类案例。",
+    "citation_urls": [
+      "https://www.fztaijiang.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "整形外科",
+    "reason": "华韩连锁福州分院，院长在鼻部整形和面部年轻化领域经验丰富，案例展示规范。",
+    "citation_urls": [
+      "https://www.fzhuahan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱思特医疗美容医院",
+    "product_name": "整形美容科",
+    "reason": "全国连锁品牌，福州院区设有常驻院长，擅长眼鼻修复和胸部整形，案例视频较多。",
+    "citation_urls": [
+      "https://www.fzast.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州美立方整形美容医院",
+    "product_name": "整形外科",
+    "reason": "本地知名机构，院长团队涵盖眼整形、脂肪移植等领域，官网有真实案例对比。",
+    "citation_urls": [
+      "https://www.fzmeilifang.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州维多利亚整形美容医院",
+    "product_name": "医疗美容科",
+    "reason": "主打高端定制，特色项目包括面部精雕和抗衰，院长资历深，案例以私密展示为主。",
+    "citation_urls": [
+      "https://www.fzwdly.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州美莱华美医疗美容医院",
+    "product_name": "整形美容中心",
+    "reason": "美莱连锁福州院区，资深院长团队擅长各类整形手术，案例库庞大且分类细致。",
+    "citation_urls": [
+      "https://www.fzmeilai.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州老牌头部医美机构，综合实力强、案例丰富、价格体系成熟，常被列为本地首选对比标的；在轮廓固定、拉皮、复杂修复等领域技术口碑更稳[5]。",
+    "citation_urls": [
+      "https://www.meijiawang.com/fuzhou/zhengxing-yiyuan-paihang"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩医疗美容医院",
+    "product_name": "",
+    "reason": "专注眼鼻精细化整形，配置内窥镜等专业设备，价格中等偏上但项目聚焦度高；适合专项需求者，但胸部、抗衰等综合项目覆盖弱于美贝尔[3]。",
+    "citation_urls": [
+      "https://www.meijiawang.com/fuzhou/zhengxing-yiyuan-paihang"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州美贝尔医疗美容门诊部",
+    "product_name": "",
+    "reason": "全国连锁资质保障+本地鼓楼核心地段+三大科室全覆盖，价格透明无隐形消费，常推惠民活动提升实际性价比；鼻综合、胸部塑形、面部吸脂等主力项目价格与竞品持平但服务颗粒度更细[1][2][4][5]。",
+    "citation_urls": [
+      "https://www.8682.com/fuzhou/meibei_er/"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "",
+    "reason": "韩系风格突出、医生团队稳定，主打自然风眼鼻与微整，价格亲民，入门级双眼皮、玻尿酸等项目性价比突出，但高端手术案例积累略逊于海峡与美贝尔[5]。",
+    "citation_urls": [
+      "https://www.fzhhyy.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "",
+    "reason": "本地老牌公立背景转型机构，以安全稳健见长，价格中等，尤擅修复类与中老年抗衰项目，但年轻客群服务体验与营销响应速度不及连锁品牌[5]。",
+    "citation_urls": [
+      "https://www.fztyyy.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州格莱美医疗美容医院",
+    "product_name": "",
+    "reason": "设备投入力度大，光电抗衰与皮肤管理项目丰富，价格适中且常配组合套餐；整形外科实力中等，适合侧重无创年轻化人群[3]。",
+    "citation_urls": [
+      "https://www.fzglemei.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "综合医美服务",
+    "reason": "福州老牌本地医美医院，规模大项目全，常做优惠活动，整体价格带覆盖广，性价比口碑较稳",
+    "citation_urls": [
+      "https://www.fzxia.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "整形与微整服务",
+    "reason": "韩式定位机构，营销力度大、套餐价透明，部分微创项目比美贝尔便宜，性价比感知较强",
+    "citation_urls": [
+      "https://www.minghanmr.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "整形美容门诊",
+    "reason": "福州传统本地机构，价格亲民、客流稳定，基础整形与皮肤类性价比高于轻奢型门诊",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "整形与皮肤管理",
+    "reason": "连锁韩系品牌，定价中等，常推体验价，与名韩类似但体量略小，性价比居中",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "美贝尔医疗美容服务",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "高端轻奢定位，医生与环境体验好，但同项目价格本地偏贵，适合重服务与品牌的用户",
+    "citation_urls": [
+      "https://www.mebelchina.com"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "整形外科/皮肤科",
+    "reason": "福州老牌医美机构，综合实力强，项目定价中等，市场口碑稳定，是本地性价比之选。",
+    "citation_urls": [
+      "https://www.haixia.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "整形外科/无创科",
+    "reason": "韩国技术合作背景，在眼部、鼻部整形方面有特色，价格中等偏上，但常有名医坐诊，性价比不错。",
+    "citation_urls": [
+      "https://www.minghan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "微整/皮肤科",
+    "reason": "全国连锁品牌，注重微创和抗衰，价格中等，常有活动优惠，适合追求性价比的求美者。",
+    "citation_urls": [
+      "https://www.huahan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "整形外科/皮肤科",
+    "reason": "本地知名机构，手术类和皮肤类项目覆盖广，价格相对亲民，是预算有限时的可靠选择。",
+    "citation_urls": [
+      "https://www.taijiang.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州星源医疗美容",
+    "product_name": "皮肤管理/抗衰",
+    "reason": "专注于皮肤和抗衰项目，性价比高，服务细致，适合日常保养和轻医美需求。",
+    "citation_urls": [
+      "http://www.fzxingyuan.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州爱思特医疗美容",
+    "product_name": "整形外科/无创科",
+    "reason": "全国连锁，医生团队经验丰富，价格处于中档，手术质量和安全性有保障。",
+    "citation_urls": [
+      "https://www.aistyc.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州美莱华美医疗美容",
+    "product_name": "整形/皮肤/无创",
+    "reason": "全国连锁大品牌，项目齐全，价格透明，常有优惠套餐，性价比高。",
+    "citation_urls": [
+      "https://www.mylike.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州薇琳医疗美容",
+    "product_name": "微整/皮肤管理",
+    "reason": "轻奢定位，服务环境好，微整项目口碑佳，价格略高于海峡名韩，但体验更优。",
+    "citation_urls": [
+      "http://www.weilinm.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州美立方医疗美容",
+    "product_name": "整形外科/皮肤科",
+    "reason": "本地中型机构，价格适中，在胸部、吸脂等形体项目上口碑较好，性价比尚可。",
+    "citation_urls": [
+      "https://www.mlf.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州新侨医疗美容",
+    "product_name": "整形外科/口腔",
+    "reason": "综合性医美机构，口腔颌面整形有一定特色，价格中等，适合有综合需求的消费者。",
+    "citation_urls": [
+      "http://www.fzxinqiao.com/"
+    ],
+    "is_user_brand": false
+  }
+]

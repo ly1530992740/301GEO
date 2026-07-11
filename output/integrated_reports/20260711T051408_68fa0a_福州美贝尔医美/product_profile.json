@@ -1,0 +1,64 @@
+{
+  "product_name": "福州美贝尔医疗美容",
+  "brand_name": "美贝尔",
+  "brand_aliases": [
+    "福州美贝尔医美",
+    "美贝尔整形",
+    "MEBEL",
+    "福州市鼓楼区美贝尔医疗美容门诊部"
+  ],
+  "category_local": "医疗美容",
+  "category_en": "medical aesthetics",
+  "source_language": "zh",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "primary_region": "福州",
+  "region_level": "city",
+  "business_type": "local_service",
+  "geo_probe_subject": "福州医疗美容品牌推荐",
+  "market_confidence": 0.95,
+  "market_reason": "材料为全中文，介绍的是位于福州的医疗美容门诊部及其全国连锁品牌背景。医美属于典型的本地生活服务，目标用户为国内有医美需求的本地消费者，因此语言为中文，目标市场为国内，业务类型为本地服务。竞争对手包含了福州本地知名医美及全国连锁医美品牌。",
+  "known_competitor_hints": [
+    "福州海峡美容医院",
+    "福州名韩医疗美容",
+    "福州爱美尔医疗美容",
+    "福州美莱医疗美容",
+    "福州艺星医疗美容",
+    "福州华美医疗美容"
+  ],
+  "summary": "福州美贝尔医美是美贝尔连锁品牌在福州设立的医疗美容门诊部，提供整形美容、无创美容和皮肤美容等上百项医美服务。品牌定位高端轻奢，拥有资深医疗团队，致力于为求美者提供高品质的塑美体验。",
+  "target_audience": [
+    "有整形美容及面部轮廓调整需求的求美者",
+    "有皮肤管理、抗衰及微整形需求的人群",
+    "追求高端、轻奢医美体验的中高收入消费者"
+  ],
+  "selling_points": [
+    "10余年品牌历史与全国七城连锁实力",
+    "高端、轻奢、时尚的品牌定位",
+    "汇聚国内外资深医疗团队及常驻大咖",
+    "提供个性化、综合化、精细化的高品质服务",
+    "具备完善的医疗保障体系与正规医疗资质"
+  ],
+  "evidence": [
+    "品牌源于2012年，已成长为中国专业医美连锁品牌，迄今已在福州，苏州，南京等形成魅力七连城",
+    "以“高端、轻奢、时尚”为品牌定位的美贝尔",
+    "下设整形美容、无创美容、皮肤美容三大科室，上百项变美项目",
+    "福州鼓楼美贝尔医疗美容门诊部 (鼓)医广【2025】第12-29-87号"
+  ],
+  "profile_md": "### 福州美贝尔医美 (MEBEL)\n\n**品牌定位**：高端、轻奢、时尚的专业医疗美容连锁品牌。\n\n**核心业务**：\n- 整形美容（整形外科）\n- 无创美容（微整形）\n- 皮肤美容（皮肤科）\n\n**优势与特色**：\n- **品牌实力**：源于2012年，全国七城连锁（福州、苏州、南京、常州、扬州、常熟、贵阳），10余年品质保障。\n- **医疗团队**：汇聚资深医疗大咖，配备皮肤科院长、微整科院院长、整形外科院长及主治医师团队。\n- **服务保障**：坚持完善的医疗保障体系，提供个性化、综合化、精细化的高品质塑美体验。\n\n**机构信息**：\n- **机构名称**：福州市鼓楼区美贝尔医疗美容门诊部\n- **服务区域**：福建省福州市（鼓楼区）\n- **医疗资质**：(鼓)医广【2025】第12-29-87号",
+  "service_scope": "local_city",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "user_market_context": {
+    "service_scope": "local_city",
+    "service_scope_label": "本地/城市",
+    "service_region": "福州",
+    "category_local": "医疗美容",
+    "geo_audience": "consumer_recommendation",
+    "geo_audience_label": "C端消费者",
+    "analysis_goal": "consumer_recommendation",
+    "analysis_goal_label": "C端消费者",
+    "market_language": "zh",
+    "target_market": "domestic"
+  }
+}

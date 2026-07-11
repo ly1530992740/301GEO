@@ -1,0 +1,293 @@
+{
+  "run_id": "20260711T051408_68fa0a",
+  "state": "complete",
+  "updated_at": "2026-07-11T06:40:19Z",
+  "last_message": "多 AI 一键分析完成，报告已保存：D:\\project\\301GEO\\output\\integrated_reports\\20260711T051408_68fa0a_福州美贝尔医美\\integrated_report.md",
+  "events": [
+    {
+      "time": "2026-07-11T05:14:54Z",
+      "message": "启动多 AI 共识流程：Qwen、豆包、元宝、DeepSeek 使用 Prompt 组执行主流推荐测试",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:14:54Z",
+      "message": "调用 Qwen 生成 5 个中立推荐问题和 3 个品牌诊断问题",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:15:07Z",
+      "message": "多 AI 中立推荐问题组：5 个问题；品牌诊断问题：3 个；每题最多返回 10 个品牌",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:15:07Z",
+      "message": "调用 qwen 获取中立推荐排名 1/20：推荐一下福州的医疗美容",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:15:22Z",
+      "message": "调用 doubao 获取中立推荐排名 2/20：推荐一下福州的医疗美容",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:22:47Z",
+      "message": "调用 yuanbao 获取中立推荐排名 3/20：推荐一下福州的医疗美容",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:22:55Z",
+      "message": "调用 deepseek 获取中立推荐排名 4/20：推荐一下福州的医疗美容",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:23:05Z",
+      "message": "调用 qwen 获取中立推荐排名 5/20：福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:23:35Z",
+      "message": "调用 doubao 获取中立推荐排名 6/20：福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:29:30Z",
+      "message": "调用 yuanbao 获取中立推荐排名 7/20：福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:29:39Z",
+      "message": "调用 deepseek 获取中立推荐排名 8/20：福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:29:46Z",
+      "message": "调用 qwen 获取中立推荐排名 9/20：想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:30:03Z",
+      "message": "调用 doubao 获取中立推荐排名 10/20：想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:36:01Z",
+      "message": "调用 yuanbao 获取中立推荐排名 11/20：想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:36:09Z",
+      "message": "调用 deepseek 获取中立推荐排名 12/20：想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:36:19Z",
+      "message": "调用 qwen 获取中立推荐排名 13/20：福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:36:40Z",
+      "message": "调用 doubao 获取中立推荐排名 14/20：福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:42:44Z",
+      "message": "调用 yuanbao 获取中立推荐排名 15/20：福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:42:52Z",
+      "message": "调用 deepseek 获取中立推荐排名 16/20：福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:43:01Z",
+      "message": "调用 qwen 获取中立推荐排名 17/20：福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:43:31Z",
+      "message": "调用 doubao 获取中立推荐排名 18/20：福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:52:37Z",
+      "message": "调用 yuanbao 获取中立推荐排名 19/20：福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:52:45Z",
+      "message": "调用 deepseek 获取中立推荐排名 20/20：福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:52:52Z",
+      "message": "调用 qwen 获取品牌诊断 1/12：福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T05:53:10Z",
+      "message": "调用 doubao 获取品牌诊断 2/12：福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:00:22Z",
+      "message": "调用 yuanbao 获取品牌诊断 3/12：福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:00:31Z",
+      "message": "调用 deepseek 获取品牌诊断 4/12：福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:00:39Z",
+      "message": "调用 qwen 获取品牌诊断 5/12：听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:00:55Z",
+      "message": "调用 doubao 获取品牌诊断 6/12：听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:02:17Z",
+      "message": "调用 yuanbao 获取品牌诊断 7/12：听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:02:27Z",
+      "message": "调用 deepseek 获取品牌诊断 8/12：听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:02:36Z",
+      "message": "调用 qwen 获取品牌诊断 9/12：福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:02:53Z",
+      "message": "调用 doubao 获取品牌诊断 10/12：福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:08:29Z",
+      "message": "调用 yuanbao 获取品牌诊断 11/12：福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:08:37Z",
+      "message": "调用 deepseek 获取品牌诊断 12/12：福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:08:45Z",
+      "message": "调用 qwen 获取竞品直接对比 1/8：美贝尔和福州名韩医疗美容哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:09:03Z",
+      "message": "调用 doubao 获取竞品直接对比 2/8：美贝尔和福州名韩医疗美容哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:18:09Z",
+      "message": "调用 yuanbao 获取竞品直接对比 3/8：美贝尔和福州名韩医疗美容哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:18:18Z",
+      "message": "调用 deepseek 获取竞品直接对比 4/8：美贝尔和福州名韩医疗美容哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:18:26Z",
+      "message": "调用 qwen 获取竞品直接对比 5/8：美贝尔和福州海峡美容医院哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:18:41Z",
+      "message": "调用 doubao 获取竞品直接对比 6/8：美贝尔和福州海峡美容医院哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:24:37Z",
+      "message": "调用 yuanbao 获取竞品直接对比 7/8：美贝尔和福州海峡美容医院哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:24:47Z",
+      "message": "调用 deepseek 获取竞品直接对比 8/8：美贝尔和福州海峡美容医院哪个更值得选？",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:24:57Z",
+      "message": "调用 Qwen/元宝/豆包/DeepSeek 估算传统搜索和新媒体内容声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:24:57Z",
+      "message": "调用 qwen 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:25:49Z",
+      "message": "调用 doubao 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:34:55Z",
+      "message": "调用 yuanbao 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:35:18Z",
+      "message": "调用 deepseek 估算品牌声量",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:35:32Z",
+      "message": "抓取 AI 返回的文章链接正文",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:35:32Z",
+      "message": "抓取 AI 文章链接正文 1/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:37:17Z",
+      "message": "抓取 AI 文章链接正文 10/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:37:24Z",
+      "message": "抓取 AI 文章链接正文 20/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:38:54Z",
+      "message": "抓取 AI 文章链接正文 30/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:40:09Z",
+      "message": "抓取 AI 文章链接正文 40/40",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:40:09Z",
+      "message": "调用 Qwen 提炼各品牌文章宣传重点",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:40:10Z",
+      "message": "用 AI 返回的来源链接匹配媒介库资源和报价",
+      "state": "running"
+    },
+    {
+      "time": "2026-07-11T06:40:19Z",
+      "message": "多 AI 一键分析完成，报告已保存：D:\\project\\301GEO\\output\\integrated_reports\\20260711T051408_68fa0a_福州美贝尔医美\\integrated_report.md",
+      "state": "complete"
+    }
+  ]
+}

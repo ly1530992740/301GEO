@@ -7,6 +7,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from .geo_visibility_metrics import (
+    build_brand_visibility_metrics,
+    build_geo_visibility_summary,
+    build_prompt_visibility_rows,
+    build_provider_visibility_matrix,
+)
 from .topic_analysis import derive_content_topic_analysis
 from .utils import write_text
 
@@ -21,7 +27,7 @@ LABELS = {
         "ranking": "AI 推荐品牌排名",
         "search_volume": "全网搜索声量估算",
         "visibility_queries": "搜索声量查询方案",
-        "search_ranking": "Top N 中立共现排名",
+        "search_ranking": "品牌内容声量排名",
         "gap_ranking": "AI 推荐与搜索声量差距",
         "competitors": "竞品校准",
         "mentions": "传统搜索声量合计",
@@ -110,6 +116,11 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
     article_format = analysis_data.get("article_generation_format") or ""
     provider_status = analysis_data.get("multi_ai_provider_status") or _provider_status_from_results(analysis_data)
     source_articles = analysis_data.get("source_articles") or []
+    visibility_summary = analysis_data.get("geo_visibility_summary") or {}
+    neutral_summary = analysis_data.get("neutral_visibility_summary") or visibility_summary
+    diagnostic_summary = analysis_data.get("brand_diagnostic_summary") or {}
+    comparison_summary = analysis_data.get("comparison_summary") or {}
+    brand_visibility_metrics = analysis_data.get("brand_visibility_metrics") or []
 
     lines = [f"# {labels['title']}", ""]
     if analysis_data.get("workflow_version"):
@@ -143,19 +154,25 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
                 "",
             ]
         )
-    if provider_status:
-        lines.extend(["## 多 AI 平台调用状态", "", "| AI平台 | 推荐排名 | 推荐条数 | 声量估算 | 声量品牌数 | 模型 | 超时秒数 | 错误信息 |", "|---|---|---:|---|---:|---|---:|---|"])
-        for item in provider_status:
+    if visibility_summary:
+        lines.extend(
+            [
+                "## GEO 可见度总览",
+                "",
+                f"- GEO 可见度总分：{visibility_summary.get('visibility_score', 0)}%",
+                f"- AI 提及次数：{visibility_summary.get('mention_count', 0)}",
+                f"- 平均推荐位置：{_display_rank(visibility_summary.get('avg_position'))}",
+                f"- AI 描述情绪分：{visibility_summary.get('sentiment_score', 50)}/100",
+                f"- Prompt 成功率：{round(float(visibility_summary.get('prompt_success_rate') or 0) * 100, 1)}%",
+                f"- AI 平台覆盖：{visibility_summary.get('provider_coverage_count', 0)}/{visibility_summary.get('provider_total_count', 0)}",
+                "",
+                "| 品牌 | AI提及次数 | 平均推荐位置 | 情绪分 | AI推荐份额 |",
+                "|---|---:|---:|---:|---:|",
+            ]
+        )
+        for item in brand_visibility_metrics[:12]:
             lines.append(
-                f"| {_cell(item.get('provider'))} | {_ok_text(item.get('recommendation_ok'))} | {item.get('recommendation_count', 0)} | {_ok_text(item.get('visibility_ok'))} | {item.get('visibility_count', 0)} | {_cell(item.get('model'))} | {_cell(item.get('timeout'))} | {_cell(item.get('recommendation_error') or item.get('visibility_error'))} |"
-            )
-        lines.append("")
-    competitor_rows = _competitor_rows(competitor_discovery)
-    if competitor_rows:
-        lines.extend([f"## {labels['competitors']}", "", "| 品牌 | 类型 | 地区 | 原因 |", "|---|---|---|---|"])
-        for item in competitor_rows:
-            lines.append(
-                f"| {_cell(item.get('brand_name'))} | {_cell(item.get('competitor_group'))} | {_cell(item.get('region'))} | {_cell(item.get('reason'))} |"
+                f"| {_cell(item.get('brand_name'))} | {item.get('mention_count', 0)} | {_cell(_display_rank(item.get('avg_position')))} | {item.get('sentiment_score', 50)} | {round(float(item.get('share_of_voice') or 0) * 100, 1)}% |"
             )
         lines.append("")
     if trend.get("fallback_used"):
@@ -186,6 +203,32 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
             lines.append(f"| {_cell(item.get('brand_name'))} | {_cell(item.get('query'))} | {_cell(item.get('metric_goal'))} |")
         lines.append("")
 
+    if provider_status:
+        lines.extend(["## 多 AI 平台调用状态", "", "| AI平台 | 推荐排名 | 推荐条数 | 声量估算 | 声量品牌数 | 模型 | 超时秒数 | 错误信息 |", "|---|---|---:|---|---:|---|---:|---|"])
+        for item in provider_status:
+            lines.append(
+                f"| {_cell(item.get('provider'))} | {_ok_text(item.get('recommendation_ok'))} | {item.get('recommendation_count', 0)} | {_ok_text(item.get('visibility_ok'))} | {item.get('visibility_count', 0)} | {_cell(item.get('model'))} | {_cell(item.get('timeout'))} | {_cell(item.get('recommendation_error') or item.get('visibility_error'))} |"
+            )
+        lines.append("")
+
+    competitor_platform_rows = _provider_recommendation_rows(analysis_data.get("recommendation_items") or [])
+    if competitor_platform_rows:
+        lines.extend(["## 竞品校准（按 AI 平台）", "", "| AI平台 | 平台推荐排名 | 品牌 | 搜索问题 | 引用链接数 | 推荐理由 |", "|---|---:|---|---|---:|---|"])
+        for item in competitor_platform_rows:
+            lines.append(
+                f"| {_cell(item.get('provider'))} | {_cell(item.get('rank'))} | {_cell(item.get('brand_name'))} | {_cell(item.get('question'))} | {item.get('source_url_count', 0)} | {_cell(item.get('reason'))} |"
+            )
+        lines.append("")
+
+    competitor_rows = _competitor_rows(competitor_discovery)
+    if competitor_rows:
+        lines.extend([f"## {labels['competitors']}（跨平台汇总）", "", "| 品牌 | 类型 | 地区 | 原因 |", "|---|---|---|---|"])
+        for item in competitor_rows:
+            lines.append(
+                f"| {_cell(item.get('brand_name'))} | {_cell(item.get('competitor_group'))} | {_cell(item.get('region'))} | {_cell(item.get('reason'))} |"
+            )
+        lines.append("")
+
     if search_volume:
         lines.extend([f"## {labels['search_volume']}", "", "| 品牌 | 排名 | 估算结果数 | 与客户差距 | 查询词 | 指标口径 | 说明 |", "|---|---:|---:|---:|---|---|---|"])
         for item in search_volume:
@@ -195,10 +238,10 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
         lines.append("")
 
     if search_ranking:
-        lines.extend([f"## {labels['search_ranking']}", "", "| 品牌 | 搜索声量排名 | 提及篇数 | 查询词 |", "|---|---:|---:|---|"])
+        lines.extend([f"## {labels['search_ranking']}", "", "含义：基于 AI 对百度、搜狗、360 搜索、抖音、小红书五个平台内容数量的估算，用来判断品牌在传统搜索与新媒体里的可见度。", "", "| 品牌 | 品牌内容声量排名 | 五平台内容数量估算 | 结果数估算 | 查询词 | 数据口径 |", "|---|---:|---:|---:|---|---|"])
         for item in search_ranking:
             lines.append(
-                f"| {_cell(item.get('brand_name'))} | {item.get('search_visibility_rank', '')} | {item.get('mentioned_count', 0)} | {_cell(item.get('query'))} |"
+                f"| {_cell(item.get('brand_name'))} | {_cell(_display_rank(item.get('search_visibility_rank')))} | {_cell(_display_count(item.get('mentioned_count'), _has_visibility_data(item)))} | {_cell(_display_count(item.get('result_count'), _has_visibility_data(item)))} | {_cell(item.get('query'))} | {_cell(item.get('metric_type') or '五平台内容数量估算')} |"
             )
         lines.append("")
 
@@ -229,10 +272,11 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
         lines.append("")
 
     if gap_ranking:
-        lines.extend([f"## {labels['gap_ranking']}", "", "| 品牌 | AI排名 | 搜索声量排名 | 提及篇数 | 解读 |", "|---|---:|---:|---:|---|"])
+        lines.extend([f"## {labels['gap_ranking']}", "", "| 品牌 | AI排名 | 品牌内容声量排名 | 五平台内容数量估算 | 解读 |", "|---|---:|---|---|---|"])
         for item in gap_ranking:
+            has_visibility = _has_visibility_data(item)
             lines.append(
-                f"| {_cell(item.get('brand_name'))} | {item.get('ai_recommendation_rank', '')} | {item.get('search_visibility_rank', '')} | {item.get('mentioned_count', 0)} | {_cell(item.get('gap_label'))} |"
+                f"| {_cell(item.get('brand_name'))} | {_cell(_display_rank(item.get('ai_recommendation_rank')))} | {_cell(_display_rank(item.get('search_visibility_rank')) if has_visibility else '未进入声量估算')} | {_cell(_display_count(item.get('mentioned_count'), has_visibility))} | {_cell(item.get('gap_label') if has_visibility else 'AI 推荐中出现，但本轮未拿到有效五平台声量估算；不是确认没有内容。')} |"
             )
         lines.append("")
 
@@ -307,6 +351,7 @@ def build_html_report(analysis_data: dict[str, Any], labels: dict[str, str], mar
     provider_status = analysis_data.get("multi_ai_provider_status") or _provider_status_from_results(analysis_data)
     source_articles = analysis_data.get("source_articles") or []
     recommendation_source_rows = _recommendation_source_rows(analysis_data.get("recommendation_items") or [], ranking)
+    competitor_platform_rows = _provider_recommendation_rows(analysis_data.get("recommendation_items") or [])
     probe_questions = trend.get("probe_questions") or _probe_questions_from_ai_probes(analysis_data.get("ai_probes") or [])
     charts = _chart_payload(ranking, baidu, media.get("matches") or [], topics, cost, search_ranking, gap_ranking, search_volume)
     return f"""<!doctype html>
@@ -348,13 +393,14 @@ def build_html_report(analysis_data: dict[str, Any], labels: dict[str, str], mar
     </div>
     <p>{html.escape(str(profile.get('summary', '')))}</p>
   </section>
-  <section><h2>{html.escape(labels['strategy'])}</h2>{_strategy_table(strategy)}</section>
-  <section><h2>多 AI 平台调用状态</h2>{_provider_status_table(provider_status)}</section>
-  <section><h2>{html.escape(labels['competitors'])}</h2>{_competitor_table(_competitor_rows(competitor_discovery))}</section>
   <section><h2>{html.escape(labels['trend_terms'])}</h2>{_trend_table(trend.get('terms') or [], labels)}</section>
   <section><h2>AI 搜索问题建议</h2>{_probe_question_table(probe_questions)}</section>
   <section><h2>{html.escape(labels['neutral_queries'])}</h2>{_neutral_query_table(strategy.get('neutral_search_queries') or question_discovery.get('neutral_search_queries') or [])}</section>
   <section><h2>{html.escape(labels['visibility_queries'])}</h2>{_visibility_query_table(visibility_strategy.get('visibility_queries') or [])}</section>
+  <section><h2>{html.escape(labels['strategy'])}</h2>{_strategy_table(strategy)}</section>
+  <section><h2>多 AI 平台调用状态</h2>{_provider_status_table(provider_status)}</section>
+  <section><h2>竞品校准（按 AI 平台）</h2>{_provider_recommendation_table(competitor_platform_rows)}</section>
+  <section><h2>{html.escape(labels['competitors'])}（跨平台汇总）</h2>{_competitor_table(_competitor_rows(competitor_discovery))}</section>
   <section><h2>{html.escape(labels['search_volume'])}</h2><div id="searchVolumeChart" class="chart"></div>{_search_volume_table(search_volume)}<h3>全网声量平台拆分</h3>{_visibility_platform_table(search_volume)}</section>
   <section><h2>{html.escape(labels['search_ranking'])}</h2><div id="searchVisibilityChart" class="chart"></div>{_search_visibility_table(search_ranking)}</section>
   <section><h2>{html.escape(labels['gap_ranking'])}</h2><div id="gapChart" class="chart"></div>{_gap_table(gap_ranking)}</section>
@@ -410,6 +456,47 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     profile = analysis_data.get("product_profile") or {}
     question_discovery = analysis_data.get("question_discovery") or {}
     payload = _dashboard_payload(analysis_data)
+    visibility_summary = analysis_data.get("geo_visibility_summary") or {}
+    ranking = analysis_data.get("ai_recommendation_ranking") or analysis_data.get("brand_ranking") or []
+    search_ranking = analysis_data.get("search_visibility_ranking") or []
+    search_volume = analysis_data.get("search_volume_ranking") or []
+    gap_ranking = analysis_data.get("competitive_gap_ranking") or []
+    provider_status = analysis_data.get("multi_ai_provider_status") or _provider_status_from_results(analysis_data)
+    source_articles = analysis_data.get("source_articles") or []
+    topics = analysis_data.get("content_topic_analysis") or {}
+    charts = _chart_payload(
+        ranking,
+        analysis_data.get("baidu_mentions") or [],
+        (analysis_data.get("media_matches") or {}).get("matches") or [],
+        topics,
+        analysis_data.get("media_cost_analysis") or {},
+        search_ranking,
+        gap_ranking,
+        search_volume,
+    )
+    question_table = _dashboard_question_table(analysis_data)
+    competitor_table = _provider_recommendation_table(_provider_recommendation_rows(analysis_data.get("recommendation_items") or []))
+    diagnostic_table = _prompt_run_table(analysis_data.get("brand_diagnostic_prompt_runs") or [])
+    comparison_table = _prompt_run_table(analysis_data.get("comparison_prompt_runs") or [])
+    search_visibility_table = _search_visibility_table(search_ranking)
+    gap_table = _gap_table(gap_ranking)
+    platform_detail_table = _visibility_platform_table(search_volume)
+    article_table = _source_article_table(source_articles)
+    topic_table = _topic_table(topics.get("topics") or [])
+    content_report = analysis_data.get("content_pattern_report") or ""
+    content_report_block = (
+        f'<details class="details"><summary>查看完整品牌调研与市场定位文字报告</summary><pre class="markdown">{html.escape(content_report)}</pre></details>'
+        if content_report
+        else '<p class="note">暂无品牌调研与市场定位文字报告。</p>'
+    )
+    neutral_summary = analysis_data.get("neutral_visibility_summary") or visibility_summary
+    diagnostic_summary = analysis_data.get("brand_diagnostic_summary") or {}
+    comparison_summary = analysis_data.get("comparison_summary") or {}
+    visibility_score = neutral_summary.get("visibility_score", 0)
+    avg_position = neutral_summary.get("avg_position")
+    sentiment_score = diagnostic_summary.get("sentiment_score", neutral_summary.get("sentiment_score", 50))
+    prompt_success = round(float(neutral_summary.get("prompt_success_rate") or 0) * 100, 1)
+    provider_coverage = f"{neutral_summary.get('provider_coverage_count', 0)}/{neutral_summary.get('provider_total_count', 0)}"
     title = "GEO 可视化看板"
     return f"""<!doctype html>
 <html lang="zh-CN">
@@ -427,6 +514,9 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     .metric {{ background:white; border:1px solid #e5e7eb; border-radius:8px; padding:14px; }}
     .metric span {{ color:#64748b; font-size:13px; }}
     .metric strong {{ display:block; margin-top:6px; font-size:20px; color:#111827; }}
+    .kpi strong {{ font-size:30px; }}
+    .toc {{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }}
+    .toc a {{ color:#0f766e; background:white; border:1px solid #d9e2ec; border-radius:8px; padding:9px 12px; text-decoration:none; font-size:14px; }}
     section {{ background:white; border:1px solid #e5e7eb; border-radius:10px; padding:20px; margin:18px 0; }}
     h2 {{ margin:0 0 14px; font-size:22px; }}
     h3 {{ margin:18px 0 10px; font-size:17px; color:#334155; }}
@@ -436,7 +526,11 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     table {{ width:100%; border-collapse:collapse; font-size:13px; }}
     th,td {{ border-bottom:1px solid #e5e7eb; padding:9px; text-align:left; vertical-align:top; }}
     th {{ background:#f8fafc; }}
-    .note {{ color:#64748b; font-size:13px; }}
+    .table-wrap {{ overflow:auto; border:1px solid #e5e7eb; border-radius:8px; margin-top:10px; }}
+    .note {{ color:#64748b; font-size:13px; line-height:1.7; }}
+    .details {{ margin-top:12px; border:1px solid #e5e7eb; border-radius:8px; padding:12px 14px; }}
+    .details summary {{ cursor:pointer; font-weight:700; color:#334155; }}
+    .markdown {{ white-space:pre-wrap; line-height:1.75; color:#334155; background:#f8fafc; border-radius:8px; padding:12px; overflow:auto; }}
   </style>
 </head>
 <body>
@@ -452,18 +546,53 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     </div>
   </div>
 
-  <section>
+  <nav class="toc">
+    <a href="#overview">GEO 可见度总览</a>
+    <a href="#step1">第一步：AI 推荐排名</a>
+    <a href="#step2">第二步：五平台声量</a>
+    <a href="#step3">第三步：品牌调研与定位</a>
+  </nav>
+
+  <section id="overview">
+    <h2>GEO 可见度总览</h2>
+    <p class="note">主 GEO 可见度只统计不含客户品牌名的中立推荐问题；品牌诊断和竞品直接对比单独展示，不参与主推荐排名。</p>
+    <div class="meta">
+      <div class="metric kpi"><span>中立推荐可见度</span><strong>{html.escape(str(visibility_score))}%</strong></div>
+      <div class="metric kpi"><span>中立推荐提及</span><strong>{html.escape(str(neutral_summary.get("mention_count", 0)))}</strong></div>
+      <div class="metric kpi"><span>平均推荐位置</span><strong>{html.escape("#" + str(avg_position) if avg_position else "未出现")}</strong></div>
+      <div class="metric kpi"><span>品牌诊断情绪分</span><strong>{html.escape(str(sentiment_score))}/100</strong></div>
+      <div class="metric kpi"><span>中立 Prompt 成功率</span><strong>{html.escape(str(prompt_success))}%</strong></div>
+      <div class="metric kpi"><span>AI 平台覆盖</span><strong>{html.escape(provider_coverage)}</strong></div>
+      <div class="metric kpi"><span>竞品对比提及</span><strong>{html.escape(str(comparison_summary.get("brand_mentioned_responses", 0)))}</strong></div>
+    </div>
+    <div class="grid2">
+      <div id="avgPositionChart" class="chart"></div>
+      <div id="sentimentChart" class="chart"></div>
+      <div id="promptSuccessPie" class="chart"></div>
+      <div id="providerMentionHeatmap" class="chart"></div>
+    </div>
+  </section>
+
+  <section id="step1">
     <h2>第一步：AI 推荐排名</h2>
+    <h3>第一步输入：AI 搜索问题设计</h3>
+    <div class="table-wrap">{question_table}</div>
     <div id="rankingChart" class="chart wide"></div>
     <div class="grid2">
       <div id="recommendationSourcePie" class="chart"></div>
       <div id="recommendationHeatmap" class="chart"></div>
     </div>
+    <h3>竞品校准（按 AI 平台展示）</h3>
+    <div class="table-wrap">{competitor_table}</div>
+    <h3>品牌诊断（不参与主推荐排名）</h3>
+    <div class="table-wrap">{diagnostic_table}</div>
+    <h3>竞品直接对比（不参与主推荐排名）</h3>
+    <div class="table-wrap">{comparison_table}</div>
     <h3>多 AI 平台调用状态</h3>
-    {_provider_status_table(payload["providerStatusRows"])}
+    <div class="table-wrap">{_provider_status_table(provider_status)}</div>
   </section>
 
-  <section>
+  <section id="step2">
     <h2>第二步：五平台声量</h2>
     <div id="platformPie" class="chart wide"></div>
     <div id="platformBar" class="chart"></div>
@@ -471,10 +600,19 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     <h3>分 AI 平台五平台声量估算</h3>
     <div id="providerPlatformStack" class="chart wide"></div>
     <div id="providerBrandCompare" class="chart wide"></div>
+    <h3>品牌内容声量排名</h3>
+    <p class="note">含义：基于 AI 对百度、搜狗、360 搜索、抖音、小红书五个平台内容数量的估算，用来判断品牌在传统搜索与新媒体里的可见度；不是单一百度提及数。</p>
+    <div id="searchVisibilityChart" class="chart wide"></div>
+    <div class="table-wrap">{search_visibility_table}</div>
+    <h3>AI 推荐与内容声量差异</h3>
+    <div id="gapChart" class="chart wide"></div>
+    <div class="table-wrap">{gap_table}</div>
+    <h3>五平台拆分明细</h3>
+    <div class="table-wrap">{platform_detail_table}</div>
   </section>
 
-  <section>
-    <h2>第三步：文章与定位分析</h2>
+  <section id="step3">
+    <h2>第三步：品牌调研与市场定位分析</h2>
     <p class="note">下列图表基于 AI 推荐理由、可访问文章正文与链接抓取状态生成。抓取失败只代表本次自动抓取不可用，不代表品牌没有内容资产。</p>
     <div class="grid2">
       <div id="boundaryPie" class="chart"></div>
@@ -486,10 +624,20 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     </div>
     <div id="assetScoreChart" class="chart wide"></div>
     <div id="articleStatusPie" class="chart"></div>
+    <h3>文章抓取明细</h3>
+    <div class="table-wrap">{article_table}</div>
+    <h3>内容主题分布</h3>
+    <div class="grid2">
+      <div id="topicChart" class="chart"></div>
+      <div id="topicMatrixChart" class="chart"></div>
+    </div>
+    <div class="table-wrap">{topic_table}</div>
+    {content_report_block}
   </section>
 </main>
 <script>
 const D = {_script_json(payload)};
+const C = {_script_json(charts)};
 const layout = {{ margin: {{ l: 60, r: 24, t: 54, b: 110 }}, paper_bgcolor: "white", plot_bgcolor: "white" }};
 const compact = {{ margin: {{ l: 30, r: 20, t: 54, b: 30 }}, paper_bgcolor: "white", plot_bgcolor: "white" }};
 function plot(id, traces, extra={{}}) {{
@@ -500,11 +648,17 @@ function plot(id, traces, extra={{}}) {{
 plot("rankingChart", [{{type:"bar", x:D.ranking.x, y:D.ranking.y, marker:{{color:D.ranking.colors}}}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"品牌"}}}});
 plot("recommendationSourcePie", [{{type:"pie", labels:D.recommendationSource.labels, values:D.recommendationSource.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 推荐来源占比"}});
 plot("recommendationHeatmap", [{{type:"heatmap", x:D.recommendationHeatmap.x, y:D.recommendationHeatmap.y, z:D.recommendationHeatmap.z, colorscale:"YlGnBu"}}], {{title:"AI 推荐热度矩阵"}});
+plot("avgPositionChart", [{{type:"bar", x:D.avgPosition.x, y:D.avgPosition.y, marker:{{color:D.avgPosition.colors}}}}], {{title:"平均推荐位置（越低越好）", yaxis:{{title:"平均名次", autorange:"reversed"}}, xaxis:{{title:"品牌"}}}});
+plot("sentimentChart", [{{type:"bar", x:D.sentiment.x, y:D.sentiment.y, marker:{{color:D.sentiment.colors}}}}], {{title:"AI 描述情绪分", yaxis:{{title:"情绪分", range:[0,100]}}, xaxis:{{title:"品牌"}}}});
+plot("promptSuccessPie", [{{type:"pie", labels:D.promptSuccess.labels, values:D.promptSuccess.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Prompt 触发表现"}});
+plot("providerMentionHeatmap", [{{type:"heatmap", x:D.providerMentionHeatmap.x, y:D.providerMentionHeatmap.y, z:D.providerMentionHeatmap.z, colorscale:"Blues"}}], {{title:"AI 平台 x 品牌提及矩阵"}});
 plot("platformPie", [{{type:"pie", labels:D.platformTotals.labels, values:D.platformTotals.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"五平台总占比"}});
 plot("platformBar", [{{type:"bar", x:D.platformTotals.values, y:D.platformTotals.labels, orientation:"h", marker:{{color:"#0f766e"}}}}], {{title:"五平台内容数量对比", xaxis:{{title:"内容数量估算"}}, yaxis:{{title:"平台"}}}});
 plot("brandPlatformStack", D.brandPlatform.traces, {{title:"各品牌五平台拆分", barmode:"stack", yaxis:{{title:"内容数量估算"}}, xaxis:{{title:"品牌"}}}});
 plot("providerPlatformStack", D.providerPlatform.traces, {{title:"各 AI 平台对五平台声量的估算", barmode:"stack", yaxis:{{title:"内容数量估算"}}, xaxis:{{title:"AI平台"}}}});
 plot("providerBrandCompare", D.providerBrand.traces, {{title:"各 AI 平台给出的品牌声量 Top 对比", barmode:"group", yaxis:{{title:"内容数量估算"}}, xaxis:{{title:"品牌"}}}});
+plot("searchVisibilityChart", [{{type:"bar", x:C.searchVisibility.x, y:C.searchVisibility.y, marker:{{color:"#0f766e"}}}}], {{title:"品牌内容声量排名", yaxis:{{title:"五平台内容数量估算"}}, xaxis:{{title:"品牌"}}}});
+plot("gapChart", [{{type:"bar", x:C.gap.x, y:C.gap.y, marker:{{color:C.gap.colors}}}}], {{title:"AI 推荐与内容声量差异", yaxis:{{title:"差异评分"}}, xaxis:{{title:"品牌"}}}});
 plot("boundaryPie", [{{type:"pie", labels:D.boundary.labels, values:D.boundary.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"品类边界分布"}});
 plot("motiveBar", [{{type:"bar", x:D.motives.labels, y:D.motives.values, marker:{{color:"#2563eb"}}}}], {{title:"消费心理动机", yaxis:{{title:"强度"}}}});
 plot("heuristicBar", [{{type:"bar", x:D.heuristics.values, y:D.heuristics.labels, orientation:"h", marker:{{color:"#7c3aed"}}}}], {{title:"决策捷径/心理启发式", xaxis:{{title:"强度"}}}});
@@ -513,6 +667,8 @@ plot("personaBar", [{{type:"bar", x:D.personas.labels, y:D.personas.values, mark
 plot("sellingPointBar", [{{type:"bar", x:D.sellingPoints.values, y:D.sellingPoints.labels, orientation:"h", marker:{{color:"#059669"}}}}], {{title:"各品牌卖点数量", xaxis:{{title:"卖点数量"}}}});
 plot("assetScoreChart", D.assetScores.traces, {{title:"数字资产评分", barmode:"group", yaxis:{{title:"评分"}}, xaxis:{{title:"品牌"}}}});
 plot("articleStatusPie", [{{type:"pie", labels:D.articleStatus.labels, values:D.articleStatus.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"文章链接抓取状态"}});
+plot("topicChart", [{{type:"pie", labels:C.topics.labels, values:C.topics.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"内容主题分布"}});
+plot("topicMatrixChart", [{{type:"heatmap", x:C.topicMatrix.x, y:C.topicMatrix.y, z:C.topicMatrix.z, colorscale:"Blues"}}], {{title:"品牌内容重点矩阵"}});
 </script>
 </body>
 </html>"""
@@ -588,6 +744,9 @@ def _chart_payload(
 
 def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
     ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    brand_metrics = data.get("brand_visibility_metrics") or []
+    prompt_runs = data.get("prompt_runs") or []
+    provider_matrix = data.get("provider_visibility_matrix") or []
     rec_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
     rec_chart = _recommendation_chart_rows(rec_rows)
     platform_rows = _platform_breakdown_rows(data.get("search_volume_ranking") or [])
@@ -604,6 +763,31 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
         },
         "recommendationSource": _count_payload(rec_chart, "AI平台", "品牌"),
         "recommendationHeatmap": _heatmap_payload(rec_chart, row_key="品牌", col_key="AI平台", value_key="推荐热度", limit=20),
+        "avgPosition": {
+            "x": [item.get("brand_name", "") for item in brand_metrics[:15]],
+            "y": [item.get("avg_position") or 0 for item in brand_metrics[:15]],
+            "colors": ["#dc2626" if item.get("is_user_brand") else "#2563eb" for item in brand_metrics[:15]],
+        },
+        "sentiment": {
+            "x": [item.get("brand_name", "") for item in brand_metrics[:15]],
+            "y": [item.get("sentiment_score", 50) for item in brand_metrics[:15]],
+            "colors": ["#dc2626" if item.get("is_user_brand") else "#f59e0b" for item in brand_metrics[:15]],
+        },
+        "promptSuccess": _prompt_success_payload(prompt_runs),
+        "providerMentionHeatmap": _heatmap_payload(
+            [
+                {
+                    "品牌": item.get("brand_name", ""),
+                    "AI平台": _provider_label(item.get("provider", "")),
+                    "提及次数": item.get("mention_count", 0),
+                }
+                for item in provider_matrix
+            ],
+            row_key="品牌",
+            col_key="AI平台",
+            value_key="提及次数",
+            limit=20,
+        ),
         "platformTotals": _sum_payload(platform_rows, "平台", "内容数量估算"),
         "brandPlatform": _stacked_payload(platform_rows, x_key="品牌", stack_key="平台", value_key="内容数量估算", limit=10),
         "providerPlatform": _stacked_payload(provider_rows, x_key="AI平台", stack_key="平台", value_key="内容数量估算"),
@@ -709,6 +893,14 @@ def _sum_payload(rows: list[dict[str, Any]], label_key: str, value_key: str) -> 
         totals[str(item.get(label_key) or "未知")] += _safe_int(item.get(value_key))
     items = sorted(totals.items(), key=lambda pair: pair[1], reverse=True)
     return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _prompt_success_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    if not rows:
+        return {"labels": [], "values": []}
+    success = len([item for item in rows if item.get("brand_mentioned")])
+    failed = len(rows) - success
+    return {"labels": ["客户品牌被推荐", "客户品牌未出现"], "values": [success, failed]}
 
 
 def _stacked_payload(rows: list[dict[str, Any]], x_key: str, stack_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
@@ -898,6 +1090,159 @@ def _provider_status_table(rows: list[dict[str, Any]]) -> str:
     return "<table><thead><tr><th>AI平台</th><th>推荐排名</th><th>推荐条数</th><th>声量估算</th><th>声量品牌数</th><th>模型</th><th>超时秒数</th><th>错误信息</th></tr></thead><tbody>" + body + "</tbody></table>"
 
 
+def _prompt_type_label(value: Any) -> str:
+    return {
+        "neutral_recommendation": "中立推荐",
+        "brand_diagnostic": "品牌诊断",
+        "comparison": "竞品对比",
+    }.get(str(value or ""), str(value or ""))
+
+
+def _prompt_run_table(rows: list[dict[str, Any]]) -> str:
+    if not rows:
+        return "<p class='note'>暂无数据。</p>"
+    body = "".join(
+        f"<tr><td>{html.escape(_provider_label(item.get('provider', '')))}</td><td>{html.escape(_prompt_type_label(item.get('prompt_type', '')))}</td><td>{html.escape(str(item.get('prompt', '')))}</td><td>{'是' if item.get('brand_mentioned') else '否'}</td><td>{html.escape(str(item.get('brand_position') or '未出现'))}</td><td>{html.escape(str(item.get('sentiment_score', 50)))}</td><td>{html.escape('、'.join(str(value) for value in (item.get('co_occurring_brands') or [])[:6]))}</td><td>{'OK' if item.get('ok') else 'FAIL'}</td></tr>"
+        for item in rows
+    )
+    return "<table><thead><tr><th>AI平台</th><th>问题类型</th><th>测试问题</th><th>客户品牌出现</th><th>位置</th><th>情绪分</th><th>共现竞品</th><th>状态</th></tr></thead><tbody>" + body + "</tbody></table>"
+
+
+def _dashboard_question_table(data: dict[str, Any]) -> str:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    trend = data.get("trend_discovery") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    questions = question_discovery.get("questions") or trend.get("probe_questions") or []
+    neutral_queries = strategy.get("neutral_search_queries") or question_discovery.get("neutral_search_queries") or []
+    diagnostic_queries = question_discovery.get("brand_diagnostic_questions") or []
+    comparison_queries = question_discovery.get("comparison_questions") or []
+    visibility_queries = (data.get("visibility_query_strategy") or {}).get("visibility_queries") or []
+    rows: list[dict[str, Any]] = []
+    group_labels = {
+        "neutral_recommendation": "中立推荐排名",
+        "brand_diagnostic": "品牌诊断",
+        "comparison": "竞品直接对比",
+    }
+    if isinstance(prompt_groups, dict) and prompt_groups:
+        for group_key, group_rows in prompt_groups.items():
+            for item in group_rows or []:
+                rows.append(
+                    {
+                        "module": group_labels.get(group_key, group_key),
+                        "subject": item.get("intent") or "",
+                        "query": item.get("question") or "",
+                        "purpose": "主排名" if group_key == "neutral_recommendation" else "诊断展示，不参与主排名",
+                        "note": item.get("reason") or "",
+                    }
+                )
+    else:
+        for item in questions:
+            rows.append(
+                {
+                    "module": "中立推荐排名",
+                    "subject": item.get("term") or item.get("question") or "",
+                    "query": item.get("question") or item.get("term") or "",
+                    "purpose": item.get("intent") or item.get("question_type") or "AI 推荐排名",
+                    "note": item.get("reason") or "",
+                }
+            )
+    for query in neutral_queries:
+        rows.append(
+            {
+                "module": "中立推荐问题",
+                "subject": query,
+                "query": query,
+                "purpose": "AI 推荐排名",
+                "note": "不包含客户品牌名，用于统计主流竞争排名。",
+            }
+        )
+    for query in diagnostic_queries:
+        rows.append(
+            {
+                "module": "品牌诊断问题",
+                "subject": query,
+                "query": query,
+                "purpose": "品牌口碑/情绪分析",
+                "note": "允许包含客户品牌名，不参与主推荐排名。",
+            }
+        )
+    for query in comparison_queries:
+        rows.append(
+            {
+                "module": "竞品直接对比问题",
+                "subject": query,
+                "query": query,
+                "purpose": "客户品牌 vs 头部竞品表现",
+                "note": "基于中立推荐排名选取竞品，不参与主推荐排名。",
+            }
+        )
+    for item in visibility_queries[:12]:
+        rows.append(
+            {
+                "module": "品牌声量查询词",
+                "subject": item.get("brand_name", ""),
+                "query": item.get("query", ""),
+                "purpose": item.get("metric_goal", "五平台内容数量估算"),
+                "note": "",
+            }
+        )
+    if not rows:
+        return "<p class='note'>暂无 AI 搜索问题设计数据。</p>"
+    body = "".join(
+        f"<tr><td>{html.escape(str(item.get('module', '')))}</td><td>{html.escape(str(item.get('subject', '')))}</td><td>{html.escape(str(item.get('query', '')))}</td><td>{html.escape(str(item.get('purpose', '')))}</td><td>{html.escape(str(item.get('note', ''))[:220])}</td></tr>"
+        for item in rows
+    )
+    return "<table><thead><tr><th>模块</th><th>输入/探测主题</th><th>实际问题/查询词</th><th>用途</th><th>说明</th></tr></thead><tbody>" + body + "</tbody></table>"
+
+
+def _provider_recommendation_rows(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows = []
+    provider_order = {"qwen": 1, "doubao": 2, "yuanbao": 3, "deepseek": 4}
+    for item in items:
+        brand = str(item.get("brand_name") or "").strip()
+        provider = str(item.get("engine") or "").strip().lower()
+        if not brand or not provider:
+            continue
+        rows.append(
+            {
+                "provider": _provider_label(provider),
+                "provider_key": provider,
+                "rank": _display_rank(item.get("rank")),
+                "brand_name": brand,
+                "question": item.get("question") or item.get("trend_term") or "",
+                "source_url_count": len(item.get("citation_urls") or []),
+                "reason": str(item.get("reason") or "")[:260],
+            }
+        )
+    return sorted(rows, key=lambda item: (provider_order.get(str(item.get("provider_key")), 99), _safe_int(item.get("rank")), str(item.get("brand_name"))))
+
+
+def _display_rank(value: Any) -> str:
+    if value in (None, "", "None"):
+        return "未获取"
+    try:
+        number = float(str(value).strip())
+        if number <= 0:
+            return "未获取"
+        return str(int(number)) if number.is_integer() else f"{number:.1f}"
+    except Exception:
+        return str(value)
+
+
+def _has_visibility_data(item: dict[str, Any]) -> bool:
+    return item.get("search_visibility_rank") not in (None, "", "None") or _safe_int(item.get("mentioned_count")) > 0 or _safe_int(item.get("result_count")) > 0
+
+
+def _display_count(value: Any, has_data: bool | None = None) -> str:
+    if value in (None, "", "None"):
+        return "未获取"
+    number = _safe_int(value)
+    if has_data is False and number == 0:
+        return "未获取"
+    return str(number)
+
+
 def _recommendation_source_rows(items: list[dict[str, Any]], ranking: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_brand: dict[str, dict[str, Any]] = {}
     rank_lookup = {str(item.get("brand_key") or _brand_key(item.get("brand_name", ""))): item for item in ranking}
@@ -937,6 +1282,14 @@ def _recommendation_source_table(rows: list[dict[str, Any]]) -> str:
         for item in rows
     )
     return "<table><thead><tr><th>品牌</th><th>综合排名</th><th>Qwen</th><th>豆包</th><th>元宝</th><th>DeepSeek</th><th>来源链接数</th><th>主要推荐理由</th></tr></thead><tbody>" + body + "</tbody></table>"
+
+
+def _provider_recommendation_table(rows: list[dict[str, Any]]) -> str:
+    body = "".join(
+        f"<tr><td>{html.escape(str(item.get('provider', '')))}</td><td>{html.escape(str(item.get('rank', '')))}</td><td>{html.escape(str(item.get('brand_name', '')))}</td><td>{html.escape(str(item.get('question', '')))}</td><td>{item.get('source_url_count', 0)}</td><td>{html.escape(str(item.get('reason', ''))[:220])}</td></tr>"
+        for item in rows
+    )
+    return "<table><thead><tr><th>AI平台</th><th>平台推荐排名</th><th>品牌</th><th>搜索问题</th><th>引用链接数</th><th>推荐理由</th></tr></thead><tbody>" + body + "</tbody></table>"
 
 
 def _source_note(item: dict[str, Any]) -> str:
@@ -1101,18 +1454,24 @@ def _ranking_table(rows: list[dict[str, Any]], labels: dict[str, str]) -> str:
 
 def _search_visibility_table(rows: list[dict[str, Any]]) -> str:
     body = "".join(
-        f"<tr><td>{html.escape(str(item.get('brand_name', '')))}</td><td>{item.get('search_visibility_rank', '')}</td><td>{item.get('mentioned_count', 0)}</td><td>{item.get('result_count', 0)}</td><td>{html.escape(str(item.get('query', '')))}</td></tr>"
+        f"<tr><td>{html.escape(str(item.get('brand_name', '')))}</td><td>{html.escape(_display_rank(item.get('search_visibility_rank')))}</td><td>{html.escape(_display_count(item.get('mentioned_count'), _has_visibility_data(item)))}</td><td>{html.escape(_display_count(item.get('result_count'), _has_visibility_data(item)))}</td><td>{html.escape(str(item.get('query', '')))}</td><td>{html.escape(str(item.get('metric_type') or '五平台内容数量估算'))}</td></tr>"
         for item in rows
     )
-    return "<table><thead><tr><th>品牌</th><th>声量排名</th><th>提及篇数</th><th>结果数</th><th>查询词</th></tr></thead><tbody>" + body + "</tbody></table>"
+    return "<p>含义：基于 AI 对百度、搜狗、360 搜索、抖音、小红书五个平台内容数量的估算，用来判断品牌在传统搜索与新媒体里的可见度。</p><table><thead><tr><th>品牌</th><th>品牌内容声量排名</th><th>五平台内容数量估算</th><th>结果数估算</th><th>查询词</th><th>数据口径</th></tr></thead><tbody>" + body + "</tbody></table>"
 
 
 def _gap_table(rows: list[dict[str, Any]]) -> str:
-    body = "".join(
-        f"<tr><td>{html.escape(str(item.get('brand_name', '')))}</td><td>{item.get('ai_recommendation_rank', '')}</td><td>{item.get('search_visibility_rank', '')}</td><td>{item.get('mentioned_count', 0)}</td><td>{html.escape(str(item.get('gap_label', '')))}</td></tr>"
-        for item in rows
-    )
-    return "<table><thead><tr><th>品牌</th><th>AI排名</th><th>搜索声量排名</th><th>提及篇数</th><th>解读</th></tr></thead><tbody>" + body + "</tbody></table>"
+    body = ""
+    for item in rows:
+        has_visibility = _has_visibility_data(item)
+        body += (
+            f"<tr><td>{html.escape(str(item.get('brand_name', '')))}</td>"
+            f"<td>{html.escape(_display_rank(item.get('ai_recommendation_rank')))}</td>"
+            f"<td>{html.escape(_display_rank(item.get('search_visibility_rank')) if has_visibility else '未进入声量估算')}</td>"
+            f"<td>{html.escape(_display_count(item.get('mentioned_count'), has_visibility))}</td>"
+            f"<td>{html.escape(str(item.get('gap_label') if has_visibility else 'AI 推荐中出现，但本轮未拿到有效五平台声量估算；不是确认没有内容。'))}</td></tr>"
+        )
+    return "<table><thead><tr><th>品牌</th><th>AI排名</th><th>品牌内容声量排名</th><th>五平台内容数量估算</th><th>解读</th></tr></thead><tbody>" + body + "</tbody></table>"
 
 
 def _mentions_table(rows: list[dict[str, Any]], labels: dict[str, str]) -> str:
@@ -1196,6 +1555,61 @@ def enrich_analysis_data(analysis_data: dict[str, Any]) -> dict[str, Any]:
         data["competitive_gap_ranking"] = _build_competitive_gap_ranking(
             data.get("ai_recommendation_ranking") or [],
             data.get("search_visibility_ranking") or [],
+        )
+    if not data.get("brand_visibility_metrics"):
+        data["brand_visibility_metrics"] = build_brand_visibility_metrics(
+            data.get("recommendation_items") or [],
+            data.get("product_profile") or {},
+        )
+    if not data.get("provider_visibility_matrix"):
+        data["provider_visibility_matrix"] = build_provider_visibility_matrix(data.get("recommendation_items") or [])
+    if not data.get("prompt_runs"):
+        data["prompt_runs"] = build_prompt_visibility_rows(
+            data.get("multi_ai_recommendation_results") or [],
+            data.get("product_profile") or {},
+        )
+    summary = data.get("geo_visibility_summary") or {}
+    if not summary or (not summary.get("total_ai_responses") and data.get("prompt_runs")):
+        data["geo_visibility_summary"] = build_geo_visibility_summary(data, data.get("product_profile") or {})
+    if not data.get("neutral_visibility_summary"):
+        data["neutral_visibility_summary"] = data.get("geo_visibility_summary") or {}
+    if not data.get("brand_diagnostic_prompt_runs") and data.get("brand_diagnostic_results"):
+        data["brand_diagnostic_prompt_runs"] = build_prompt_visibility_rows(
+            data.get("brand_diagnostic_results") or [],
+            data.get("product_profile") or {},
+        )
+    if not data.get("brand_diagnostic_summary") and data.get("brand_diagnostic_prompt_runs"):
+        diagnostic_items = data.get("brand_diagnostic_items") or []
+        diagnostic_metrics = data.get("brand_diagnostic_brand_metrics") or build_brand_visibility_metrics(
+            diagnostic_items,
+            data.get("product_profile") or {},
+        )
+        data["brand_diagnostic_summary"] = build_geo_visibility_summary(
+            {
+                "prompt_runs": data.get("brand_diagnostic_prompt_runs") or [],
+                "brand_visibility_metrics": diagnostic_metrics,
+                "recommendation_items": diagnostic_items,
+            },
+            data.get("product_profile") or {},
+        )
+    if not data.get("comparison_prompt_runs") and data.get("comparison_results"):
+        data["comparison_prompt_runs"] = build_prompt_visibility_rows(
+            data.get("comparison_results") or [],
+            data.get("product_profile") or {},
+        )
+    if not data.get("comparison_summary") and data.get("comparison_prompt_runs"):
+        comparison_items = data.get("comparison_items") or []
+        comparison_metrics = data.get("comparison_brand_metrics") or build_brand_visibility_metrics(
+            comparison_items,
+            data.get("product_profile") or {},
+        )
+        data["comparison_summary"] = build_geo_visibility_summary(
+            {
+                "prompt_runs": data.get("comparison_prompt_runs") or [],
+                "brand_visibility_metrics": comparison_metrics,
+                "recommendation_items": comparison_items,
+            },
+            data.get("product_profile") or {},
         )
     if not data.get("content_topic_analysis"):
         data["content_topic_analysis"] = derive_content_topic_analysis(

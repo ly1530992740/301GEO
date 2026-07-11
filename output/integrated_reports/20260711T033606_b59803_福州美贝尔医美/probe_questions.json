@@ -1,0 +1,42 @@
+[
+  {
+    "term": "推荐一下福州的医疗美容",
+    "question": "推荐一下福州的医疗美容",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  },
+  {
+    "term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+    "intent": "consumer_recommendation",
+    "question_type": "neutral_recommendation",
+    "prompt_type": "neutral_recommendation",
+    "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+  }
+]

@@ -31,6 +31,7 @@ class QwenConfig:
     forced_search: bool = True
     enable_source: bool = True
     enable_citation: bool = True
+    timeout_seconds: int = 120
 
 
 @dataclass
@@ -61,11 +62,24 @@ class BudgetConfig:
 
 
 @dataclass
+class GEOAIConfig:
+    prompt_count: int = 5
+    brand_diagnostic_prompt_count: int = 3
+    comparison_prompt_count: int = 2
+    recommendations_per_prompt: int = 10
+    visibility_brand_limit: int = 10
+    source_link_limit: int = 80
+    article_fetch_limit: int = 40
+    enable_ai_prompt_discovery: bool = True
+
+
+@dataclass
 class AppConfig:
     qwen: QwenConfig
     meijieku: MeijiekuConfig
     serpapi: SerpApiConfig
     budget: BudgetConfig
+    geo_ai: GEOAIConfig
 
 
 def normalize_meijieku_base_url(value: str) -> str:
@@ -109,6 +123,7 @@ def load_config() -> AppConfig:
             writing_model=os.getenv("QWEN_WRITING_MODEL", "qwen-plus").strip(),
             search_strategy=os.getenv("QWEN_SEARCH_STRATEGY", "max").strip(),
             analysis_strategy=os.getenv("QWEN_ANALYSIS_STRATEGY", "agent_max").strip(),
+            timeout_seconds=max(20, min(_int_env("QWEN_TIMEOUT_SECONDS", 120), 600)),
         ),
         meijieku=MeijiekuConfig(
             base_url=normalize_meijieku_base_url(os.getenv("MEIJIEKU_BASE_URL", "https://api.meijieku.com")),
@@ -130,6 +145,17 @@ def load_config() -> AppConfig:
             max_price_per_platform=_float_env("MAX_PRICE_PER_PLATFORM", 0.0),
             max_total_budget=_float_env("MAX_TOTAL_BUDGET", 0.0),
             require_fuzzy_confirmation=os.getenv("REQUIRE_FUZZY_CONFIRMATION", "true").lower()
+            not in {"0", "false", "no"},
+        ),
+        geo_ai=GEOAIConfig(
+            prompt_count=max(1, min(_int_env("GEO_AI_PROMPT_COUNT", 5), 20)),
+            brand_diagnostic_prompt_count=max(0, min(_int_env("GEO_AI_BRAND_DIAGNOSTIC_PROMPT_COUNT", 3), 10)),
+            comparison_prompt_count=max(0, min(_int_env("GEO_AI_COMPARISON_PROMPT_COUNT", 2), 10)),
+            recommendations_per_prompt=max(3, min(_int_env("GEO_AI_RECOMMENDATIONS_PER_PROMPT", 10), 20)),
+            visibility_brand_limit=max(3, min(_int_env("GEO_AI_VISIBILITY_BRAND_LIMIT", 10), 30)),
+            source_link_limit=max(0, min(_int_env("GEO_AI_SOURCE_LINK_LIMIT", 80), 300)),
+            article_fetch_limit=max(0, min(_int_env("GEO_AI_ARTICLE_FETCH_LIMIT", 40), 120)),
+            enable_ai_prompt_discovery=os.getenv("GEO_AI_ENABLE_PROMPT_DISCOVERY", "true").lower()
             not in {"0", "false", "no"},
         ),
     )

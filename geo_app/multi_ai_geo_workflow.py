@@ -7,6 +7,7 @@ from typing import Any, Callable
 
 from .brand_normalizer import brand_key, canonicalize_brand_name
 from .config import AppConfig
+from .geo_visibility_metrics import build_visibility_metric_bundle
 from .multi_ai_clients import build_default_providers
 from .product_ingestion import collect_website_pages
 from .qwen_client import QwenClient
@@ -24,21 +25,110 @@ def run_multi_ai_geo_competition(
     progress: ProgressFn | None = None,
 ) -> dict[str, Any]:
     recommendation_question = build_recommendation_question(profile)
+    prompt_count = max(1, int(getattr(config.geo_ai, "prompt_count", 5) or 5))
+    diagnostic_count = max(0, int(getattr(config.geo_ai, "brand_diagnostic_prompt_count", 3) or 0))
+    comparison_count = max(0, int(getattr(config.geo_ai, "comparison_prompt_count", 2) or 0))
+    recommendations_per_prompt = max(3, int(getattr(config.geo_ai, "recommendations_per_prompt", 10) or 10))
+    prompt_groups = build_prompt_groups(
+        config,
+        profile,
+        recommendation_question,
+        report_language,
+        prompt_count,
+        diagnostic_count,
+        progress,
+    )
+    prompt_questions = [item["question"] for item in prompt_groups["neutral_recommendation"]]
+    diagnostic_questions = [item["question"] for item in prompt_groups["brand_diagnostic"]]
     if progress:
-        progress(f"多 AI 主流推荐测试问题：{recommendation_question}")
+        progress(
+            f"多 AI 中立推荐问题组：{len(prompt_questions)} 个问题；"
+            f"品牌诊断问题：{len(diagnostic_questions)} 个；每题最多返回 {recommendations_per_prompt} 个品牌"
+        )
 
     providers = build_default_providers(config.qwen)
     recommendation_results = []
-    for provider in providers:
-        if progress:
-            progress(f"调用 {provider.name} 获取主流推荐排名")
-        recommendation_results.append(_ask_recommendations(provider, profile, recommendation_question, report_language))
+    total_calls = len(prompt_questions) * len(providers)
+    call_idx = 0
+    for prompt_item in prompt_groups["neutral_recommendation"]:
+        question = prompt_item["question"]
+        for provider in providers:
+            call_idx += 1
+            if progress:
+                progress(f"调用 {provider.name} 获取中立推荐排名 {call_idx}/{total_calls}：{question}")
+            recommendation_results.append(
+                _ask_recommendations(
+                    provider,
+                    profile,
+                    question,
+                    report_language,
+                    recommendations_per_prompt,
+                    prompt_type="neutral_recommendation",
+                    intent=prompt_item.get("intent", "mainstream_recommendation"),
+                )
+            )
 
-    recommendation_items = _flatten_recommendations(recommendation_results, profile, recommendation_question)
+    recommendation_items = _flatten_recommendations(recommendation_results, profile)
     ai_ranking = _build_multi_ai_ranking(recommendation_items, profile)
-    top_brands = _top_brand_pool(ai_ranking, profile, limit=10)
+    metric_bundle = build_visibility_metric_bundle(recommendation_results, recommendation_items, profile)
+    top_brands = _top_brand_pool(ai_ranking, profile, limit=max(3, int(getattr(config.geo_ai, "visibility_brand_limit", 10) or 10)))
     competitor_discovery = _competitor_discovery_from_ranking(ai_ranking, profile)
-    source_links = _collect_source_links(recommendation_results, recommendation_items, limit=80)
+    source_links = _collect_source_links(recommendation_results, recommendation_items, limit=int(getattr(config.geo_ai, "source_link_limit", 80) or 80))
+
+    diagnostic_results = []
+    diagnostic_items: list[dict[str, Any]] = []
+    diagnostic_metric_bundle = build_visibility_metric_bundle([], [], profile)
+    if diagnostic_questions:
+        total_diag_calls = len(diagnostic_questions) * len(providers)
+        diag_idx = 0
+        for prompt_item in prompt_groups["brand_diagnostic"]:
+            question = prompt_item["question"]
+            for provider in providers:
+                diag_idx += 1
+                if progress:
+                    progress(f"调用 {provider.name} 获取品牌诊断 {diag_idx}/{total_diag_calls}：{question}")
+                diagnostic_results.append(
+                    _ask_recommendations(
+                        provider,
+                        profile,
+                        question,
+                        report_language,
+                        recommendations_per_prompt,
+                        prompt_type="brand_diagnostic",
+                        intent=prompt_item.get("intent", "brand_reputation"),
+                    )
+                )
+        diagnostic_items = _flatten_recommendations(diagnostic_results, profile)
+        diagnostic_metric_bundle = build_visibility_metric_bundle(diagnostic_results, diagnostic_items, profile)
+
+    comparison_prompt_items = build_comparison_prompt_set(profile, top_brands, report_language, comparison_count)
+    prompt_groups["comparison"] = comparison_prompt_items
+    comparison_questions = [item["question"] for item in comparison_prompt_items]
+    comparison_results = []
+    comparison_items: list[dict[str, Any]] = []
+    comparison_metric_bundle = build_visibility_metric_bundle([], [], profile)
+    if comparison_questions:
+        total_cmp_calls = len(comparison_questions) * len(providers)
+        cmp_idx = 0
+        for prompt_item in comparison_prompt_items:
+            question = prompt_item["question"]
+            for provider in providers:
+                cmp_idx += 1
+                if progress:
+                    progress(f"调用 {provider.name} 获取竞品直接对比 {cmp_idx}/{total_cmp_calls}：{question}")
+                comparison_results.append(
+                    _ask_recommendations(
+                        provider,
+                        profile,
+                        question,
+                        report_language,
+                        recommendations_per_prompt,
+                        prompt_type="comparison",
+                        intent=prompt_item.get("intent", "direct_comparison"),
+                    )
+                )
+        comparison_items = _flatten_recommendations(comparison_results, profile)
+        comparison_metric_bundle = build_visibility_metric_bundle(comparison_results, comparison_items, profile)
 
     if progress:
         progress("调用 Qwen/元宝/豆包/DeepSeek 估算传统搜索和新媒体内容声量")
@@ -49,14 +139,14 @@ def run_multi_ai_geo_competition(
             progress(f"调用 {provider.name} 估算品牌声量")
         visibility_results.append(_ask_visibility(provider, profile, top_brands, visibility_prompt, report_language))
 
-    provider_status = _provider_status(recommendation_results, visibility_results)
+    provider_status = _provider_status(recommendation_results + diagnostic_results + comparison_results, visibility_results)
     search_volume_ranking = _aggregate_visibility(visibility_results, top_brands, profile)
     search_visibility_ranking = _search_visibility_from_volume(search_volume_ranking)
     competitive_gap_ranking = _build_gap(ai_ranking, search_visibility_ranking)
 
     if progress:
         progress("抓取 AI 返回的文章链接正文")
-    source_articles = _collect_source_articles(source_links, progress)
+    source_articles = _collect_source_articles(source_links, progress, limit=int(getattr(config.geo_ai, "article_fetch_limit", 40) or 40))
 
     if progress:
         progress("调用 Qwen 提炼各品牌文章宣传重点")
@@ -77,18 +167,33 @@ def run_multi_ai_geo_competition(
         "region_level": profile.get("region_level") or "",
         "business_type": profile.get("business_type") or "",
         "geo_probe_subject": _probe_subject(profile),
-        "business_type_reason": "Generated by simplified multi-AI mainstream recommendation flow.",
+        "business_type_reason": "Generated by multi-AI GEO flow with separated neutral, diagnostic, and comparison prompts.",
         "market_reason": profile.get("market_reason") or "",
         "questions": [
             {
-                "term": recommendation_question,
-                "question": recommendation_question,
+                "term": question,
+                "question": question,
                 "intent": profile.get("geo_audience") or "mainstream_recommendation",
-                "question_type": "recommendation",
-                "reason": "Unified mainstream question used across Qwen, Doubao, Yuanbao, and DeepSeek.",
+                "question_type": "neutral_recommendation",
+                "prompt_type": "neutral_recommendation",
+                "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。",
             }
+            for question in prompt_questions
         ],
-        "neutral_search_queries": [recommendation_question],
+        "neutral_search_queries": prompt_questions,
+        "brand_diagnostic_questions": diagnostic_questions,
+        "comparison_questions": comparison_questions,
+        "prompt_groups": prompt_groups,
+    }
+    question_discovery["prompt_generation"] = {
+        "prompt_count": len(prompt_questions),
+        "brand_diagnostic_prompt_count": len(diagnostic_questions),
+        "comparison_prompt_count": len(comparison_questions),
+        "configured_prompt_count": prompt_count,
+        "configured_brand_diagnostic_prompt_count": diagnostic_count,
+        "configured_comparison_prompt_count": comparison_count,
+        "ai_prompt_discovery_enabled": bool(getattr(config.geo_ai, "enable_ai_prompt_discovery", True)),
+        "recommendations_per_prompt": recommendations_per_prompt,
     }
     analysis_strategy = {
         "strategy_version": "multi_ai_consensus_v1",
@@ -105,25 +210,29 @@ def run_multi_ai_geo_competition(
         "mainstream_competition_only": True,
         "multi_ai_providers": [item.provider for item in recommendation_results],
         "recommendation_question": recommendation_question,
+        "recommendation_questions": prompt_questions,
+        "brand_diagnostic_questions": diagnostic_questions,
+        "comparison_questions": comparison_questions,
         "search_intents": [
             {
                 "intent": "multi_ai_mainstream_recommendation",
-                "neutral_queries": [recommendation_question],
+                "neutral_queries": prompt_questions,
                 "ai_probe_question": recommendation_question,
-                "reason": "Simplified flow uses one mainstream query across multiple AI models.",
+                "reason": "Prompt group uses mainstream user questions across multiple AI models.",
             }
         ],
-        "neutral_search_queries": [recommendation_question],
+        "neutral_search_queries": prompt_questions,
         "ai_probe_questions": question_discovery["questions"],
+        "prompt_groups": prompt_groups,
         "competitor_types": ["multi_ai_recommended"],
         "topic_taxonomy": _default_topic_taxonomy(profile),
         "validation_notes": [
-            "旧竞品发现和策略生成已合并为多 AI 主流推荐测试。",
+            "主排名只使用不含客户品牌名的中立推荐问题；品牌诊断和竞品直接对比单独展示，不参与主推荐排名。",
             "声量数据由 AI 估算，字段使用 estimated_count，不等同于真实平台接口统计。",
         ],
     }
     trend_discovery = {
-        "terms": [{"term": recommendation_question, "source": "multi_ai_unified_question", "relevance_reason": "主流 GEO 推荐问题"}],
+        "terms": [{"term": question, "source": "multi_ai_prompt_group", "relevance_reason": "主流 GEO 推荐问题"} for question in prompt_questions],
         "probe_questions": question_discovery["questions"],
         "fallback_used": False,
     }
@@ -149,8 +258,25 @@ def run_multi_ai_geo_competition(
         "question_discovery": question_discovery,
         "trend_discovery": trend_discovery,
         "multi_ai_recommendation_results": [item.raw for item in recommendation_results],
+        "brand_diagnostic_results": [item.raw for item in diagnostic_results],
+        "brand_diagnostic_items": diagnostic_items,
+        "brand_diagnostic_prompt_runs": diagnostic_metric_bundle["prompt_runs"],
+        "brand_diagnostic_brand_metrics": diagnostic_metric_bundle["brand_visibility_metrics"],
+        "brand_diagnostic_provider_matrix": diagnostic_metric_bundle["provider_visibility_matrix"],
+        "brand_diagnostic_summary": diagnostic_metric_bundle["geo_visibility_summary"],
+        "comparison_results": [item.raw for item in comparison_results],
+        "comparison_items": comparison_items,
+        "comparison_prompt_runs": comparison_metric_bundle["prompt_runs"],
+        "comparison_brand_metrics": comparison_metric_bundle["brand_visibility_metrics"],
+        "comparison_provider_matrix": comparison_metric_bundle["provider_visibility_matrix"],
+        "comparison_summary": comparison_metric_bundle["geo_visibility_summary"],
         "multi_ai_visibility_results": [item.raw for item in visibility_results],
         "multi_ai_provider_status": provider_status,
+        "prompt_runs": metric_bundle["prompt_runs"],
+        "brand_visibility_metrics": metric_bundle["brand_visibility_metrics"],
+        "provider_visibility_matrix": metric_bundle["provider_visibility_matrix"],
+        "geo_visibility_summary": metric_bundle["geo_visibility_summary"],
+        "neutral_visibility_summary": metric_bundle["geo_visibility_summary"],
         "recommendation_items": recommendation_items,
         "ai_recommendation_ranking": ai_ranking,
         "brand_ranking": ai_ranking,
@@ -192,6 +318,141 @@ def build_recommendation_question(profile: dict[str, Any]) -> str:
     if is_local and region:
         return f"推荐一下{region}的{category}"
     return f"推荐一下{category}品牌"
+
+
+def build_prompt_set(
+    config: AppConfig,
+    profile: dict[str, Any],
+    base_question: str,
+    report_language: str,
+    prompt_count: int,
+    progress: ProgressFn | None = None,
+) -> list[str]:
+    groups = build_prompt_groups(config, profile, base_question, report_language, prompt_count, 0, progress)
+    return [item["question"] for item in groups.get("neutral_recommendation") or []]
+
+
+def build_prompt_groups(
+    config: AppConfig,
+    profile: dict[str, Any],
+    base_question: str,
+    report_language: str,
+    prompt_count: int,
+    diagnostic_count: int,
+    progress: ProgressFn | None = None,
+) -> dict[str, list[dict[str, str]]]:
+    neutral_rows: list[dict[str, str]] = []
+    diagnostic_rows: list[dict[str, str]] = []
+    if getattr(config.geo_ai, "enable_ai_prompt_discovery", True):
+        try:
+            if progress:
+                progress(f"调用 Qwen 生成 {prompt_count} 个中立推荐问题和 {diagnostic_count} 个品牌诊断问题")
+            qwen = QwenClient(config.qwen)
+            language = "中文" if report_language == "zh" else "English"
+            own_terms = _own_brand_terms(profile)
+            prompt = f"""
+请根据产品画像，为 GEO 可见度测试生成两组真实用户会问 AI 的问题。
+
+基础问题：{base_question}
+客户品牌/产品黑名单：{json.dumps(own_terms, ensure_ascii=False)}
+产品画像：
+{json.dumps(_compact_profile_for_prompt(profile), ensure_ascii=False, indent=2)}
+
+要求：
+1. neutral_recommendation 只生成主流品类/服务推荐问题，用于统计“AI 会推荐谁”。严禁包含客户品牌、产品名、别名或黑名单中的任何词。
+2. neutral_recommendation 不生成长尾特色词，不用非常小众的单品词；本地服务必须包含服务地区。
+3. brand_diagnostic 用于分析客户品牌口碑/情绪，可以包含客户品牌名，但不参与主推荐排名。
+4. 如果面向国内用户，使用中文；如果面向海外用户，使用英文。
+5. 问题要像真实用户向 AI 提问，不要像 SEO 关键词。
+6. 返回 JSON，不要 Markdown。
+
+JSON schema:
+{{
+  "neutral_recommendation": [{{"question": "问题", "intent": "用户意图", "reason": "为什么需要测试这个问题"}}],
+  "brand_diagnostic": [{{"question": "问题", "intent": "用户意图", "reason": "为什么需要测试这个问题"}}]
+}}
+
+数量要求：
+- neutral_recommendation：{prompt_count} 个。
+- brand_diagnostic：{diagnostic_count} 个。
+
+输出语言：{language}
+"""
+            result = qwen._call(
+                [{"role": "user", "content": prompt}],
+                model=config.qwen.search_model,
+                enable_search=False,
+            )
+            parsed = extract_json(result.content, fallback={})
+            if isinstance(parsed, dict):
+                neutral_rows = _normalize_prompt_rows(parsed.get("neutral_recommendation") or parsed.get("questions") or [], "neutral_recommendation")
+                diagnostic_rows = _normalize_prompt_rows(parsed.get("brand_diagnostic") or [], "brand_diagnostic")
+        except Exception as exc:
+            if progress:
+                progress(f"AI 搜索问题生成失败，使用规则兜底：{exc}")
+
+    neutral_questions = _filter_neutral_questions(
+        [base_question, *[item["question"] for item in neutral_rows]],
+        profile,
+        prompt_count,
+    )
+    if len(neutral_questions) < prompt_count:
+        neutral_questions = _unique_questions(
+            [
+                *neutral_questions,
+                *_fallback_prompt_set(profile, base_question, prompt_count, report_language),
+            ],
+            prompt_count,
+        )
+    neutral_items = [
+        _prompt_item(question, "neutral_recommendation", "mainstream_recommendation", _prompt_reason_for(question, neutral_rows) or "中立主流推荐问题，不包含客户品牌名。")
+        for question in neutral_questions[:prompt_count]
+    ]
+
+    diagnostic_questions = _unique_questions([item["question"] for item in diagnostic_rows], diagnostic_count)
+    if len(diagnostic_questions) < diagnostic_count:
+        diagnostic_questions = _unique_questions(
+            [
+                *diagnostic_questions,
+                *_fallback_brand_diagnostic_prompt_set(profile, diagnostic_count, report_language),
+            ],
+            diagnostic_count,
+        )
+    diagnostic_items = [
+        _prompt_item(question, "brand_diagnostic", "brand_reputation", _prompt_reason_for(question, diagnostic_rows) or "品牌诊断问题，用于口碑和情绪分析，不参与主推荐排名。")
+        for question in diagnostic_questions[:diagnostic_count]
+    ]
+    return {
+        "neutral_recommendation": neutral_items,
+        "brand_diagnostic": diagnostic_items,
+        "comparison": [],
+    }
+
+
+def build_comparison_prompt_set(
+    profile: dict[str, Any],
+    top_brands: list[dict[str, Any]],
+    report_language: str,
+    prompt_count: int,
+) -> list[dict[str, str]]:
+    if prompt_count <= 0:
+        return []
+    own = str(profile.get("brand_name") or profile.get("product_name") or "").strip()
+    if not own:
+        return []
+    market_language = str(profile.get("market_language") or "").lower()
+    category = _category(profile)
+    region = str(profile.get("primary_region") or "").strip()
+    competitors = [item.get("brand_name", "") for item in top_brands if item.get("brand_name") and not item.get("is_user_brand")]
+    rows: list[dict[str, str]] = []
+    for competitor in competitors[:prompt_count]:
+        if market_language.startswith("en") or report_language == "en":
+            question = f"{own} vs {competitor}: which {category} option is better?"
+        else:
+            prefix = f"{region}" if region and region not in own and region not in str(competitor) else ""
+            question = f"{prefix}{own}和{competitor}哪个更值得选？"
+        rows.append(_prompt_item(question, "comparison", "direct_competitor_comparison", "基于中立推荐排名选取头部竞品，诊断客户品牌与竞品的直接对比表现。"))
+    return rows
 
 
 def build_visibility_prompt(brands: list[dict[str, Any]], profile: dict[str, Any], report_language: str) -> str:
@@ -238,9 +499,22 @@ JSON schema:
 """
 
 
-def _ask_recommendations(provider: Any, profile: dict[str, Any], question: str, report_language: str) -> Any:
+def _ask_recommendations(
+    provider: Any,
+    profile: dict[str, Any],
+    question: str,
+    report_language: str,
+    max_recommendations: int,
+    prompt_type: str = "neutral_recommendation",
+    intent: str = "mainstream_recommendation",
+) -> Any:
     language = "中文" if report_language == "zh" else "English"
     prompt_profile = _compact_profile_for_prompt(profile)
+    prompt_type_instruction = {
+        "neutral_recommendation": "这是中立推荐排名测试。只能按用户问题和真实主流竞争格局推荐，不要因为画像里出现被分析品牌就优先推荐它。",
+        "brand_diagnostic": "这是品牌诊断测试。允许围绕被分析品牌讨论口碑、风险、优势和竞品共现，但结果不得写入主推荐排名。",
+        "comparison": "这是竞品直接对比测试。请公平比较被分析品牌与题目中的竞品，指出优势、弱点和选择场景。",
+    }.get(prompt_type, "请按真实普通用户视角回答。")
     prompt = f"""
 请像普通用户正在使用 AI 搜索一样回答这个问题：
 
@@ -251,12 +525,13 @@ def _ask_recommendations(provider: Any, profile: dict[str, Any], question: str, 
 
 请只返回 JSON，不要输出 Markdown。
 要求：
-1. 返回最多 10 个推荐品牌/商家/网站。
+1. 返回最多 {max_recommendations} 个推荐品牌/商家/网站。
 2. 排名必须符合正常用户视角，不要因为被分析品牌在画像里出现就优先推荐它。
 3. 如果是本地服务或本地品牌，优先考虑服务地区的真实主流竞争。
 4. 不要推荐长尾特色词，只推荐主流品类竞争者。
 5. 如有可参考的文章链接、榜单链接、官网链接、媒体链接，请放入 citation_urls。
 6. 输出语言使用{language}。
+7. {prompt_type_instruction}
 
 JSON schema:
 {{
@@ -291,6 +566,8 @@ JSON schema:
             "endpoint": getattr(provider, "endpoint", ""),
             "timeout": getattr(provider, "timeout", ""),
             "question": question,
+            "prompt_type": prompt_type,
+            "intent": intent,
             "parsed": parsed,
             "content": result.content,
             "search_results": result.search_results or [],
@@ -353,9 +630,12 @@ def _compact_visibility_prompt(brands: list[dict[str, Any]], profile: dict[str, 
 """
 
 
-def _flatten_recommendations(results: list[Any], profile: dict[str, Any], question: str) -> list[dict[str, Any]]:
+def _flatten_recommendations(results: list[Any], profile: dict[str, Any]) -> list[dict[str, Any]]:
     rows = []
     for result in results:
+        question = (result.raw or {}).get("question") or ""
+        prompt_type = (result.raw or {}).get("prompt_type") or "neutral_recommendation"
+        intent = (result.raw or {}).get("intent") or ""
         for idx, rec in enumerate(result.recommendations or [], start=1):
             if not isinstance(rec, dict):
                 continue
@@ -367,6 +647,8 @@ def _flatten_recommendations(results: list[Any], profile: dict[str, Any], questi
                     "engine": result.provider,
                     "trend_term": question,
                     "question": question,
+                    "prompt_type": prompt_type,
+                    "intent": intent,
                     "rank": int(rec.get("rank") or idx),
                     "brand_name": brand,
                     "product_name": str(rec.get("product_name") or "").strip(),
@@ -454,18 +736,23 @@ def _provider_status(recommendation_results: list[Any], visibility_results: list
     names = list(dict.fromkeys([item.provider for item in recommendation_results] + [item.provider for item in visibility_results]))
     rows = []
     for name in names:
-        rec = next((item for item in recommendation_results if item.provider == name), None)
+        rec_items = [item for item in recommendation_results if item.provider == name]
         vis = next((item for item in visibility_results if item.provider == name), None)
+        rec = rec_items[0] if rec_items else None
         rec_raw = rec.raw if rec else {}
         vis_raw = vis.raw if vis else {}
+        rec_ok_count = len([item for item in rec_items if item.ok])
+        rec_errors = [item.error for item in rec_items if item.error]
         rows.append(
             {
                 "provider": name,
-                "recommendation_ok": bool(rec.ok) if rec else False,
+                "recommendation_ok": bool(rec_ok_count) if rec_items else False,
                 "visibility_ok": bool(vis.ok) if vis else False,
-                "recommendation_error": rec.error if rec else "not called",
+                "recommendation_error": "; ".join(dict.fromkeys(rec_errors))[:500] if rec_errors else ("" if rec_items else "not called"),
                 "visibility_error": vis.error if vis else "not called",
-                "recommendation_count": len(rec.recommendations or []) if rec else 0,
+                "recommendation_count": sum(len(item.recommendations or []) for item in rec_items),
+                "recommendation_prompt_count": len(rec_items),
+                "recommendation_success_count": rec_ok_count,
                 "visibility_count": len((vis.parsed or {}).get("brand_visibility") or []) if vis and isinstance(vis.parsed, dict) else 0,
                 "model": rec_raw.get("model") or vis_raw.get("model") or "",
                 "endpoint": rec_raw.get("endpoint") or vis_raw.get("endpoint") or "",
@@ -634,11 +921,12 @@ def _collect_source_links(results: list[Any], items: list[dict[str, Any]], limit
     return links[:limit]
 
 
-def _collect_source_articles(source_links: list[dict[str, Any]], progress: ProgressFn | None) -> list[dict[str, Any]]:
+def _collect_source_articles(source_links: list[dict[str, Any]], progress: ProgressFn | None, limit: int = 40) -> list[dict[str, Any]]:
     articles = []
-    for idx, item in enumerate(source_links[:40], start=1):
-        if progress and idx in {1, 10, 25, 40}:
-            progress(f"抓取 AI 文章链接正文 {idx}/{min(len(source_links), 40)}")
+    fetch_limit = max(0, int(limit or 0))
+    for idx, item in enumerate(source_links[:fetch_limit], start=1):
+        if progress and (idx == 1 or idx % 10 == 0 or idx == min(len(source_links), fetch_limit)):
+            progress(f"抓取 AI 文章链接正文 {idx}/{min(len(source_links), fetch_limit)}")
         pages = collect_website_pages(item["url"], max_same_domain_links=0)
         page = pages[0] if pages else {"url": item["url"], "error": "no page"}
         articles.append({**item, "text_excerpt": (page.get("text") or "")[:5000], "error": page.get("error", "")})
@@ -927,6 +1215,169 @@ def _default_topic_taxonomy(profile: dict[str, Any]) -> list[str]:
     if any(word in text for word in ("零部件", "配件", "ecommerce", "parts")):
         return ["品类覆盖", "价格/性价比", "正品/品质", "适配/兼容", "物流/退换", "客服/售后"]
     return ["价格/性价比", "品质/特色", "服务/售后", "口碑/评价", "信任/资质"]
+
+
+def _fallback_prompt_set(profile: dict[str, Any], base_question: str, prompt_count: int, report_language: str) -> list[str]:
+    category = _category(profile)
+    region = str(profile.get("primary_region") or "").strip()
+    scope = str(profile.get("service_scope") or "").strip()
+    audience = str(profile.get("geo_audience") or profile.get("analysis_goal") or "").strip()
+    is_english = report_language != "zh" or str(profile.get("market_language") or "").lower().startswith("en")
+    is_local = scope in {"local_city", "regional"} and bool(region)
+    questions = [base_question]
+    if is_english:
+        subject = f"{region} {category}".strip() if is_local else category
+        questions.extend(
+            [
+                f"What are the best {subject} brands?",
+                f"Which {subject} should I choose?",
+                f"Recommend reliable {subject} options",
+                f"What is the best {subject} for customers?",
+                f"{subject} comparison and recommendations",
+            ]
+        )
+    else:
+        subject = f"{region}{category}" if is_local else category
+        if audience == "franchise":
+            questions.extend(
+                [
+                    f"{subject}加盟品牌推荐",
+                    f"想开一家{category}店选什么品牌",
+                    f"{subject}招商品牌哪家靠谱",
+                    f"{category}加盟品牌对比",
+                ]
+            )
+        elif audience == "b2b_purchase":
+            questions.extend(
+                [
+                    f"{subject}供应商推荐",
+                    f"{category}采购选哪家",
+                    f"{subject}服务商对比",
+                    f"{category}企业采购怎么选",
+                ]
+            )
+        else:
+            questions.extend(
+                [
+                    f"{subject}推荐",
+                    f"{subject}哪家好",
+                    f"{subject}品牌排名",
+                    f"{subject}怎么选",
+                    f"{subject}口碑好的有哪些",
+                ]
+            )
+    return _unique_questions(questions, prompt_count)
+
+
+def _fallback_brand_diagnostic_prompt_set(profile: dict[str, Any], prompt_count: int, report_language: str) -> list[str]:
+    own = str(profile.get("brand_name") or profile.get("product_name") or "").strip()
+    if not own or prompt_count <= 0:
+        return []
+    category = _category(profile)
+    region = str(profile.get("primary_region") or "").strip()
+    is_english = report_language != "zh" or str(profile.get("market_language") or "").lower().startswith("en")
+    if is_english:
+        subject = f"{own} {category}".strip()
+        questions = [
+            f"How is {subject} reviewed by customers?",
+            f"Is {own} a reliable {category} option?",
+            f"What are the strengths and risks of {own}?",
+            f"What do users say about {own} compared with competitors?",
+        ]
+    else:
+        prefix = f"{region}" if region and region not in own else ""
+        questions = [
+            f"{prefix}{own}怎么样？",
+            f"{prefix}{own}做{category}靠谱吗？",
+            f"{prefix}{own}口碑和评价怎么样？",
+            f"{prefix}{own}价格、案例和服务透明吗？",
+        ]
+    return _unique_questions(questions, prompt_count)
+
+
+def _normalize_prompt_rows(rows: Any, prompt_type: str) -> list[dict[str, str]]:
+    result: list[dict[str, str]] = []
+    if not isinstance(rows, list):
+        return result
+    for item in rows:
+        if isinstance(item, str):
+            question = item.strip()
+            intent = ""
+            reason = ""
+        elif isinstance(item, dict):
+            question = str(item.get("question") or item.get("query") or item.get("term") or "").strip()
+            intent = str(item.get("intent") or item.get("question_type") or "").strip()
+            reason = str(item.get("reason") or "").strip()
+        else:
+            continue
+        if not question:
+            continue
+        result.append(_prompt_item(question, prompt_type, intent or prompt_type, reason))
+    return result
+
+
+def _prompt_item(question: str, prompt_type: str, intent: str, reason: str) -> dict[str, str]:
+    return {
+        "question": re.sub(r"\s+", " ", str(question or "").strip()),
+        "prompt_type": prompt_type,
+        "intent": intent,
+        "reason": reason,
+    }
+
+
+def _prompt_reason_for(question: str, rows: list[dict[str, str]]) -> str:
+    for row in rows:
+        if row.get("question") == question:
+            return row.get("reason", "")
+    return ""
+
+
+def _own_brand_terms(profile: dict[str, Any]) -> list[str]:
+    terms = [
+        profile.get("brand_name"),
+        profile.get("product_name"),
+        *(profile.get("brand_aliases") or []),
+    ]
+    result = []
+    for term in terms:
+        clean = str(term or "").strip()
+        if clean and clean not in result:
+            result.append(clean)
+    return result
+
+
+def _contains_own_brand_term(question: str, profile: dict[str, Any]) -> bool:
+    text = str(question or "").lower().replace(" ", "")
+    text_key = brand_key(question)
+    for term in _own_brand_terms(profile):
+        clean = str(term or "").strip().lower().replace(" ", "")
+        key = brand_key(term)
+        if clean and clean in text:
+            return True
+        if key and (key in text_key or text_key in key):
+            return True
+    return False
+
+
+def _filter_neutral_questions(questions: list[str], profile: dict[str, Any], limit: int) -> list[str]:
+    return _unique_questions(
+        [question for question in questions if question and not _contains_own_brand_term(question, profile)],
+        limit,
+    )
+
+
+def _unique_questions(questions: list[str], limit: int) -> list[str]:
+    result = []
+    seen = set()
+    for question in questions:
+        clean = re.sub(r"\s+", " ", str(question or "").strip())
+        if not clean or clean in seen:
+            continue
+        seen.add(clean)
+        result.append(clean)
+        if len(result) >= limit:
+            break
+    return result
 
 
 def _compact_profile_for_prompt(profile: dict[str, Any]) -> dict[str, Any]:

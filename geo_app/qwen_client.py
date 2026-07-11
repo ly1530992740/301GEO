@@ -71,6 +71,7 @@ class QwenClient:
             "messages": messages,
             "result_format": "message",
             "enable_search": enable_search,
+            "request_timeout": self.config.timeout_seconds,
         }
         if self.config.api_key:
             kwargs["api_key"] = self.config.api_key

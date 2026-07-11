@@ -7986,5 +7986,765 @@
       "endpoint": "https://api.deepseek.com/chat/completions",
       "timeout": 30
     }
+  ],
+  "brand_visibility_metrics": [
+    {
+      "brand_name": "福州海峡美容医院",
+      "brand_key": "福州海峡美容医院",
+      "is_user_brand": false,
+      "mention_count": 4,
+      "avg_position": 1.0,
+      "provider_coverage_count": 4,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 65,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "口碑",
+        "知名",
+        "经验"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.125,
+      "visibility_rank": 1
+    },
+    {
+      "brand_name": "美莱医美",
+      "brand_key": "美莱医美",
+      "is_user_brand": false,
+      "mention_count": 2,
+      "avg_position": 2.0,
+      "provider_coverage_count": 2,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 59,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "知名",
+        "连锁"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0625,
+      "visibility_rank": 2
+    },
+    {
+      "brand_name": "艺星医美",
+      "brand_key": "艺星医美",
+      "is_user_brand": false,
+      "mention_count": 2,
+      "avg_position": 3.0,
+      "provider_coverage_count": 2,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 59,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "知名",
+        "连锁"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0625,
+      "visibility_rank": 3
+    },
+    {
+      "brand_name": "福州爱美尔",
+      "brand_key": "福州爱美尔",
+      "is_user_brand": false,
+      "mention_count": 2,
+      "avg_position": 4.0,
+      "provider_coverage_count": 2,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 60,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "口碑",
+        "性价比"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0625,
+      "visibility_rank": 4
+    },
+    {
+      "brand_name": "福州名韩",
+      "brand_key": "福州名韩",
+      "is_user_brand": false,
+      "mention_count": 2,
+      "avg_position": 5.0,
+      "provider_coverage_count": 2,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 55,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "知名"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0625,
+      "visibility_rank": 5
+    },
+    {
+      "brand_name": "美贝尔",
+      "brand_key": "美贝尔",
+      "is_user_brand": true,
+      "mention_count": 2,
+      "avg_position": 6.0,
+      "provider_coverage_count": 2,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 57,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁",
+        "高端"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0625,
+      "visibility_rank": 6
+    },
+    {
+      "brand_name": "福建医科大学附属第一医院整形美容外科",
+      "brand_key": "福建医科大学附属第一医院整形美容外科",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 51,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "安全",
+        "高端"
+      ],
+      "risk_terms": [
+        "风险"
+      ],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 7
+    },
+    {
+      "brand_name": "美莱医美（福州美莱华美美容医院）",
+      "brand_key": "美莱医美福州美莱华美美容医院",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 54,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 8
+    },
+    {
+      "brand_name": "福州爱美尔医疗美容",
+      "brand_key": "福州爱美尔医疗美容",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 66,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "正规",
+        "知名",
+        "性价比"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 9
+    },
+    {
+      "brand_name": "福建省立医院整形外科",
+      "brand_key": "福建省立医院整形外科",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "positive_terms": [],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 10
+    },
+    {
+      "brand_name": "福州爱美尔医疗美容门诊部",
+      "brand_key": "福州爱美尔医疗美容门诊部",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 57,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "正规"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 11
+    },
+    {
+      "brand_name": "艺星医美（福州艺星医疗美容）",
+      "brand_key": "艺星医美福州艺星医疗美容",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 57,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁",
+        "高端"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 12
+    },
+    {
+      "brand_name": "福州华美整形美容医院",
+      "brand_key": "福州华美整形美容医院",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 54,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 13
+    },
+    {
+      "brand_name": "福州名韩医疗美容",
+      "brand_key": "福州名韩医疗美容",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 61,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "正规",
+        "经验"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 14
+    },
+    {
+      "brand_name": "福州美莱医疗美容医院",
+      "brand_key": "福州美莱医疗美容医院",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "positive_terms": [],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 15
+    },
+    {
+      "brand_name": "美贝尔（福州鼓楼美贝尔医疗美容门诊部）",
+      "brand_key": "美贝尔福州鼓楼美贝尔医疗美容门诊部",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 54,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 16
+    },
+    {
+      "brand_name": "福州华美整形",
+      "brand_key": "福州华美整形",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 7.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 54,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "案例"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 17
+    },
+    {
+      "brand_name": "福州格莱美整形医院",
+      "brand_key": "福州格莱美整形医院",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 7.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 63,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "正规",
+        "口碑"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 18
+    },
+    {
+      "brand_name": "福州名韩整形医院",
+      "brand_key": "福州名韩整形医院",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 8.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 59,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "知名",
+        "经验"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 19
+    },
+    {
+      "brand_name": "福州维多利亚整形",
+      "brand_key": "福州维多利亚整形",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 8.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "positive_terms": [],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 20
+    },
+    {
+      "brand_name": "福州丽都整形",
+      "brand_key": "福州丽都整形",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 9.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 56,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "口碑"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 21
+    },
+    {
+      "brand_name": "福州美贝尔医疗美容门诊部",
+      "brand_key": "福州美贝尔医疗美容门诊部",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 9.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 62,
+      "sentiment_label": "neutral",
+      "positive_terms": [
+        "连锁",
+        "资质",
+        "高端"
+      ],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 22
+    },
+    {
+      "brand_name": "福州星范医美",
+      "brand_key": "福州星范医美",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 10.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "positive_terms": [],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 23
+    },
+    {
+      "brand_name": "福建医科大学附属协和医院整形外科",
+      "brand_key": "福建医科大学附属协和医院整形外科",
+      "is_user_brand": false,
+      "mention_count": 1,
+      "avg_position": 10.0,
+      "provider_coverage_count": 1,
+      "prompt_coverage_count": 1,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "positive_terms": [],
+      "risk_terms": [],
+      "share_of_voice": 0.0312,
+      "visibility_rank": 24
+    }
+  ],
+  "provider_visibility_matrix": [
+    {
+      "provider": "deepseek",
+      "brand_name": "福州丽都整形",
+      "mention_count": 1,
+      "avg_position": 9.0,
+      "recommendation_heat": 2
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州华美整形",
+      "mention_count": 1,
+      "avg_position": 7.0,
+      "recommendation_heat": 4
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州名韩",
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "recommendation_heat": 6
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州星范医美",
+      "mention_count": 1,
+      "avg_position": 10.0,
+      "recommendation_heat": 1
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州海峡美容医院",
+      "mention_count": 1,
+      "avg_position": 1.0,
+      "recommendation_heat": 10
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州爱美尔",
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "recommendation_heat": 7
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "福州维多利亚整形",
+      "mention_count": 1,
+      "avg_position": 8.0,
+      "recommendation_heat": 3
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "美莱医美",
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "recommendation_heat": 9
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "美贝尔",
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "recommendation_heat": 5
+    },
+    {
+      "provider": "deepseek",
+      "brand_name": "艺星医美",
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "recommendation_heat": 8
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "福州名韩医疗美容",
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "recommendation_heat": 6
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "福州海峡美容医院",
+      "mention_count": 1,
+      "avg_position": 1.0,
+      "recommendation_heat": 10
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "福州爱美尔医疗美容",
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "recommendation_heat": 8
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "美莱医美（福州美莱华美美容医院）",
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "recommendation_heat": 9
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "美贝尔（福州鼓楼美贝尔医疗美容门诊部）",
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "recommendation_heat": 5
+    },
+    {
+      "provider": "doubao",
+      "brand_name": "艺星医美（福州艺星医疗美容）",
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "recommendation_heat": 7
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州华美整形美容医院",
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "recommendation_heat": 6
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州名韩整形医院",
+      "mention_count": 1,
+      "avg_position": 8.0,
+      "recommendation_heat": 3
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州格莱美整形医院",
+      "mention_count": 1,
+      "avg_position": 7.0,
+      "recommendation_heat": 4
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州海峡美容医院",
+      "mention_count": 1,
+      "avg_position": 1.0,
+      "recommendation_heat": 10
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州爱美尔医疗美容门诊部",
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "recommendation_heat": 7
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州美莱医疗美容医院",
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "recommendation_heat": 5
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福州美贝尔医疗美容门诊部",
+      "mention_count": 1,
+      "avg_position": 9.0,
+      "recommendation_heat": 2
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福建医科大学附属协和医院整形外科",
+      "mention_count": 1,
+      "avg_position": 10.0,
+      "recommendation_heat": 1
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福建医科大学附属第一医院整形美容外科",
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "recommendation_heat": 9
+    },
+    {
+      "provider": "qwen",
+      "brand_name": "福建省立医院整形外科",
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "recommendation_heat": 8
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "福州名韩",
+      "mention_count": 1,
+      "avg_position": 5.0,
+      "recommendation_heat": 6
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "福州海峡美容医院",
+      "mention_count": 1,
+      "avg_position": 1.0,
+      "recommendation_heat": 10
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "福州爱美尔",
+      "mention_count": 1,
+      "avg_position": 4.0,
+      "recommendation_heat": 7
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "美莱医美",
+      "mention_count": 1,
+      "avg_position": 2.0,
+      "recommendation_heat": 9
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "美贝尔",
+      "mention_count": 1,
+      "avg_position": 6.0,
+      "recommendation_heat": 5
+    },
+    {
+      "provider": "yuanbao",
+      "brand_name": "艺星医美",
+      "mention_count": 1,
+      "avg_position": 3.0,
+      "recommendation_heat": 8
+    }
+  ],
+  "geo_visibility_summary": {
+    "visibility_score": 50.0,
+    "visibility_level": "medium",
+    "total_ai_responses": 4,
+    "brand_mentioned_responses": 2,
+    "mention_count": 2,
+    "avg_position": 6.0,
+    "sentiment_score": 53,
+    "prompt_success_rate": 1.0,
+    "successful_prompt_count": 1,
+    "prompt_count": 1,
+    "provider_coverage_count": 2,
+    "provider_total_count": 4,
+    "share_of_voice": 0.0625
+  },
+  "prompt_runs": [
+    {
+      "prompt": "推荐一下福州的医美",
+      "provider": "qwen",
+      "ok": true,
+      "error": "",
+      "brand_name": "美贝尔",
+      "brand_mentioned": false,
+      "brand_position": null,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "co_occurring_brands": [
+        "福州海峡美容医院",
+        "福建医科大学附属第一医院整形美容外科",
+        "福建省立医院整形外科",
+        "福州爱美尔医疗美容门诊部",
+        "福州华美整形美容医院",
+        "福州美莱医疗美容医院",
+        "福州格莱美整形医院",
+        "福州名韩整形医院",
+        "福州美贝尔医疗美容门诊部",
+        "福建医科大学附属协和医院整形外科"
+      ],
+      "citation_urls": [],
+      "answer_excerpt": "福州医美机构选择丰富，公立三甲安全稳健，老牌民营技术成熟，连锁品牌服务规范，建议根据项目类型、安全需求与审美偏好综合选择。"
+    },
+    {
+      "prompt": "推荐一下福州的医美",
+      "provider": "doubao",
+      "ok": true,
+      "error": "",
+      "brand_name": "美贝尔",
+      "brand_mentioned": false,
+      "brand_position": null,
+      "sentiment_score": 50,
+      "sentiment_label": "neutral",
+      "co_occurring_brands": [
+        "福州海峡美容医院",
+        "美莱医美（福州美莱华美美容医院）",
+        "福州爱美尔医疗美容",
+        "艺星医美（福州艺星医疗美容）",
+        "福州名韩医疗美容",
+        "美贝尔（福州鼓楼美贝尔医疗美容门诊部）"
+      ],
+      "citation_urls": [],
+      "answer_excerpt": "以下为福州地区具备正规资质、市场认知度较高的医美机构推荐，涵盖整形、皮肤管理、抗衰等各类医美项目，你可结合自身需求与机构擅长方向选择："
+    },
+    {
+      "prompt": "推荐一下福州的医美",
+      "provider": "yuanbao",
+      "ok": true,
+      "error": "",
+      "brand_name": "美贝尔",
+      "brand_mentioned": true,
+      "brand_position": 6,
+      "sentiment_score": 65,
+      "sentiment_label": "neutral",
+      "co_occurring_brands": [
+        "福州海峡美容医院",
+        "美莱医美",
+        "艺星医美",
+        "福州爱美尔",
+        "福州名韩",
+        "美贝尔"
+      ],
+      "citation_urls": [],
+      "answer_excerpt": "福州医美机构挺多的，像海峡、美莱、艺星、爱美尔、名韩、美贝尔这些都比较主流，可以根据项目和位置选。"
+    },
+    {
+      "prompt": "推荐一下福州的医美",
+      "provider": "deepseek",
+      "ok": true,
+      "error": "",
+      "brand_name": "美贝尔",
+      "brand_mentioned": true,
+      "brand_position": 6,
+      "sentiment_score": 76,
+      "sentiment_label": "positive",
+      "co_occurring_brands": [
+        "福州海峡美容医院",
+        "美莱医美",
+        "艺星医美",
+        "福州爱美尔",
+        "福州名韩",
+        "美贝尔",
+        "福州华美整形",
+        "福州维多利亚整形",
+        "福州丽都整形",
+        "福州星范医美"
+      ],
+      "citation_urls": [
+        "https://www.fzhxyy.com/",
+        "https://www.mylike.com/",
+        "https://www.yestar.com/",
+        "https://www.fzame.com/",
+        "https://www.fzmh.com/",
+        "https://www.fzmebel.com/",
+        "https://www.fzhuamei.com/"
+      ],
+      "answer_excerpt": "福州的医美机构较多，以下是一些在当地口碑较好的主流品牌，供您参考。"
+    }
   ]
 }

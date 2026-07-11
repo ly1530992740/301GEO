@@ -1,0 +1,515 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院（5A级医美机构）",
+    "reason": "福建省唯一5A级医疗美容医院，24年本土沉淀，集整形、植发、口腔于一体，品牌公信力强，尤其在鼻基底、隆胸等外科项目上口碑突出[7]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "福州美贝尔医疗美容门诊部",
+    "product_name": "福州美贝尔医美（鼓楼区）",
+    "reason": "隶属2012年成立的全国连锁品牌，覆盖福州、南京、苏州、贵阳等七城，拥有6间千级层流手术室及8间五星级酒店标准留观室，主打自然审美、全周期服务与精细化项目矩阵，如即上妆线雕、快乐吸脂、水晶净斑等[4][9]。",
+    "citation_urls": [],
+    "is_user_brand": true
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "福州格莱美美容医院",
+    "product_name": "",
+    "reason": "福州本地热门医美机构之一，位列福州整形医院前五，以综合项目与稳定服务见长，市场认知度高[8]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州爱美尔医疗美容门诊部",
+    "product_name": "",
+    "reason": "福州五大整形医院之一，鼻基底、隆胸等术式技术成熟，与海峡、美贝尔形成三足鼎立格局[7]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州名韩医疗美容门诊部",
+    "product_name": "",
+    "reason": "鼓楼区代表性医美门诊，主打韩系精细化风格，在眼部、微整领域有稳定客群基础[8]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 6,
+    "brand_name": "福州美莱华美美容医院",
+    "product_name": "",
+    "reason": "福州整形医院排名首位机构，规模大、项目全，属全国性连锁品牌分支，综合实力强但定位偏大众化[8]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州老牌大型美容医院，成立较早、规模大、整形外科与综合性项目实力强，本地口碑与曝光度高，适合重视资历与手术经验的用户；相对美贝尔而言风格偏传统综合医美，轻奢感较弱。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "美贝尔",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁10余年，定位高端轻奢，设整形/无创/皮肤三科室，团队与资质较完善，适合追求时尚体验、皮肤管理与微创抗衰人群；相比海峡规模与综合外科积淀略弱。",
+    "citation_urls": [],
+    "is_user_brand": true
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "福州名韩整形美容医院",
+    "reason": "福州本地常见主流整形竞品，专注整形美容，可作为对比补充选项。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "福州台江整形美容医院",
+    "reason": "福州区域主流医美机构之一，覆盖常规整形与皮肤项目，属本地真实竞争者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "福州华韩整形美容医院",
+    "reason": "福州常见连锁医美品牌，提供综合医美服务，为市场主流替代品。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州本土老牌医美机构，成立时间久，拥有四级手术资质（可做高难度整形），在本地口碑积累深厚，综合实力强劲，适合追求安全性和大项目手术的用户。",
+    "citation_urls": [
+      "http://www.haixia.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "美贝尔",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁品牌，定位高端轻奢，在福州鼓楼区拥有正规资质，整形、无创、皮肤三大科室齐全，适合追求个性化服务和时尚体验的求美者。",
+    "citation_urls": [
+      "https://www.mebel.cn"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "",
+    "reason": "福州知名韩式整形机构，擅长眼部、鼻部等精细化手术，医生团队技术扎实，性价比较高，适合注重韩式风格的消费者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "",
+    "reason": "台江地区老牌整形医院，项目覆盖面广，尤其皮肤美容和微创项目积累较多案例，适合对皮肤问题或微整抗衰有需求的人群。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁华韩旗下福州分院，背靠集团资源，品牌标准化程度高，在光电抗衰和注射微整方面有优势，适合信赖连锁品牌管理的人。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州美贝尔整形医院",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "隶属2012年成立的全国连锁品牌，覆盖福州、南京、贵阳等七城，具备中国整形美容协会会员资质及‘安永复旦中国最具潜力企业’认证；科室齐全（整形/无创/皮肤三大类），主打自然审美与全周期服务，医疗质控体系严格，术前研判至术后回访闭环管理[1][2][3][4][5]。",
+    "citation_urls": [
+      "https://www.mebel.com.cn/fuzhou"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩整形美容医院",
+    "reason": "专注眼鼻整形领域，配置内窥镜等专业设备，主打纯正整形路线，在眼鼻精雕细分方向有技术沉淀；但未体现全国连锁布局或集团级质控体系，项目覆盖面相对聚焦[6][7]。",
+    "citation_urls": [
+      "https://www.minghan-fz.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡整形美容医院",
+    "reason": "福州本地老牌医美机构，常居福州医美排名前十榜单，以综合整形与口碑积累见长，区域认知度高，属主流竞品之一[6]。",
+    "citation_urls": [
+      "https://www.haixia-fz.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "福州华韩医美",
+    "reason": "全国性连锁品牌（华韩整形）在榕分院，主打韩式精细化风格，在面部年轻化与五官调整方面有成熟案例，属同量级连锁对手[6]。",
+    "citation_urls": [
+      "https://www.huahan-fz.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "福州台江整形",
+    "reason": "福州本土深耕机构，以高性价比与本地化服务为特色，常见于区域口碑推荐，适合注重实操经验与面诊沟通的求美者[6]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 6,
+    "brand_name": "福州美琳达医疗美容门诊部",
+    "product_name": "福州美琳达医美",
+    "reason": "入选福州臀部脂肪填充等专项榜单，显示其在形体塑形领域有一定技术辨识度，属区域性特色强院[7]。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地老牌大型医美医院，规模与项目覆盖广，用户认知度高，常居本地医美推荐前列。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "美贝尔",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁10余年，高端轻奢定位，三大科室齐全，团队与资质完善；弱点为门诊部级别非医院，重综合轻奢体验而非单一手术规模。适合追求个性化高品质塑美人群。",
+    "citation_urls": [],
+    "is_user_brand": true
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "福州名韩整形美容医院",
+    "reason": "本地专注整形美容医院，有一定区域口碑与客群；弱点为品牌连锁与无创皮肤科室丰富度可能弱于美贝尔。适合偏向本地整形手术需求者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "福州台江整形美容医院",
+    "reason": "福州传统医美机构，本地竞争主流之一，性价比与基础项目较突出。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "福州华韩整形美容医院",
+    "reason": "韩式医美定位的本地机构，属福州市场常见连锁竞品，补缺差异化风格选择。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州当地老牌医美，擅长鼻部、胸部整形，技术扎实，口碑较稳定，是很多求美者的对比首选。",
+    "citation_urls": [
+      "https://www.haixiazx.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 2,
+    "brand_name": "福州名韩整形美容医院",
+    "product_name": "",
+    "reason": "主打韩式整形，尤其在眼部、鼻部精细手术方面有特色，服务较细致，适合追求韩国技术风格的用户。",
+    "citation_urls": [
+      "https://www.zxmr.net/yy/26.html"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 3,
+    "brand_name": "美贝尔",
+    "product_name": "福州美贝尔医疗美容门诊部",
+    "reason": "全国连锁品牌，定位高端，科室齐全，手术和轻医美都覆盖，注重服务体验和品牌保障，适合预算较高、看重连锁资质的人群。",
+    "citation_urls": [
+      "https://www.mebel.com.cn"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 4,
+    "brand_name": "福州台江整形美容医院",
+    "product_name": "",
+    "reason": "本土知名医院，设备较先进，在面部年轻化和皮肤管理项目上认知度高，性价比较好。",
+    "citation_urls": [
+      "https://www.fztjzx.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 5,
+    "brand_name": "福州华韩整形美容医院",
+    "product_name": "",
+    "reason": "韩国背景连锁品牌，主打微创和抗衰项目，医生团队韩籍较多，适合对韩式项目有信任感的顾客。",
+    "citation_urls": [
+      "https://www.huahan.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 6,
+    "brand_name": "福州爱思特整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁机构，在福州口碑不错，尤其在眼部、吸脂项目上案例丰富，性价比较平衡。",
+    "citation_urls": [
+      "https://www.aist.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 7,
+    "brand_name": "福州丽都整形美容医院",
+    "product_name": "",
+    "reason": "专注皮肤美容与微整，环境和服务较好，客户口碑中等偏上，适合皮肤管理和非手术项目。",
+    "citation_urls": [
+      "https://www.fzldzx.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 8,
+    "brand_name": "福州薇琳医美",
+    "product_name": "",
+    "reason": "近年来发展较快，主打轻医美和面部轮廓调整，客户评价较为两极，适合预算有限但想尝试的年轻人。",
+    "citation_urls": [
+      "https://www.weilin.cn"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 9,
+    "brand_name": "福州鼓楼医院整形美容科",
+    "product_name": "",
+    "reason": "公立医院背景，安全性高，价格相对透明，适合对手术风险敏感、信任公立医疗体系的人群。",
+    "citation_urls": [
+      "https://www.fzglyy.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+    "prompt_type": "comparison",
+    "intent": "direct_competitor_comparison",
+    "rank": 10,
+    "brand_name": "福州美莱华美整形美容医院",
+    "product_name": "",
+    "reason": "全国连锁大型机构，项目覆盖面广，在福州有一定知名度，适合追求一站式服务的顾客。",
+    "citation_urls": [
+      "https://www.mylike.com"
+    ],
+    "is_user_brand": false
+  }
+]

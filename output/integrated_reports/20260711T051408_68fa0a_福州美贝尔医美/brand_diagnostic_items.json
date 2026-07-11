@@ -1,0 +1,1292 @@
+[
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州本土老牌公立背景医美机构，隶属福建医科大学附属协和医院体系，以安全稳健著称，本地口碑积淀深厚，常被用户作为‘保底首选’对比项。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "",
+    "reason": "韩系风格标杆机构，长期与韩国BK、ID等院所合作，在眼鼻精雕与脂肪移植领域案例丰富，小红书及大众点评福州区域真实术例分享量居前列。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "",
+    "reason": "全国连锁头部品牌在榕旗舰院，标准化流程成熟，项目覆盖广，价格体系透明，百度地图及新氧平台福州地区咨询转化率常年前三。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "",
+    "reason": "高端轻奢定位代表，主打明星同款与定制化方案，在福州五四路商圈具强辨识度，年轻客群占比高，社交媒体种草活跃度突出。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "",
+    "reason": "全国连锁中端主力品牌，福州分院运营超8年，以性价比和术后管理见长，美团医美福州榜单常居TOP5，修复类项目反馈较集中。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "",
+    "reason": "专注微整与皮肤管理的本地成长型机构，医生多具三甲医院背景，小红书福州同城话题下‘平价抗衰’‘学生党玻尿酸’高频提及。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州丽都医疗美容",
+    "product_name": "",
+    "reason": "虽非福州本土起家，但在闽东北区域口碑扎实，尤以脂肪移植与轮廓固定技术见长，部分用户将其与美贝尔在吸脂+脂肪填充组合项目上直接对比。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州维多利亚医疗美容",
+    "product_name": "",
+    "reason": "主打精细化眼周年轻化与私密整形，女性客群粘性高，大众点评福州医美‘细致服务’关键词提及率排名前五。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州瑞丽诗医疗美容",
+    "product_name": "",
+    "reason": "专注自体脂肪与胸部整形，假体隆胸案例库丰富，福州本地求美者常将其与美贝尔傲诺拉隆胸项目做参数与审美风格对比。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州新生医疗美容",
+    "product_name": "",
+    "reason": "新兴技术导向型机构，侧重光电抗衰与联合治疗方案，在福州鼓楼、台江核心商圈设点，近年在知乎福州医美讨论区声量上升较快。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "是福州本地经营多年的老牌医美机构，在眼鼻整形、抗衰塑形等项目上积累了大量本地真实用户案例，医师团队临床经验丰富，医疗流程合规性把控较严，是不少本地求美者选择外科整形类项目的热门机构。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容",
+    "reason": "属于全国知名连锁医美品牌的福州分院，品控与服务体系标准化程度高，皮肤美容、微整形等轻医美项目覆盖全面，光电类仪器设备更新及时，适合有日常皮肤管理、轻医美抗衰需求的人群。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容",
+    "reason": "主打精细化自然塑美风格，在眼部整形、面部轮廓微调类项目上积累了不错的用户口碑，术后恢复跟进服务较为到位，适合偏好自然整形效果的求美者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州老牌医美医院，本地认知度高，规模大项目全，真实用户讨论量长期居前",
+    "citation_urls": [
+      "https://www.fzhxmr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容",
+    "reason": "全国连锁在福州的分院，设备与医生资源强，口碑较稳，常被拿来与美贝尔对比",
+    "citation_urls": [
+      "https://www.fzmylike.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容",
+    "reason": "全国性医美品牌福州店，营销力度大、案例多，年轻用户群体评价较多",
+    "citation_urls": [
+      "https://www.fzyestar.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容",
+    "reason": "本地较主流的医美机构，韩式风格定位，用户反馈性价比尚可",
+    "citation_urls": [
+      "https://www.fzmhyl.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医疗美容",
+    "reason": "福州本地医美机构，皮肤与微整项目讨论较多，属于区域常选竞品",
+    "citation_urls": [
+      "https://www.fzamar.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "福州华美医疗美容",
+    "reason": "本地传统医美品牌，有一定老客户基础，整形类项目曝光较多",
+    "citation_urls": [
+      "https://www.fzhuamei.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州美贝尔医疗美容",
+    "product_name": "福州市鼓楼区美贝尔医疗美容门诊部",
+    "reason": "高端轻奢定位连锁门诊，部分人认可服务与医生，但也有推销和价格争议，建议实地面诊对比",
+    "citation_urls": [
+      "https://www.fzmebel.com/"
+    ],
+    "is_user_brand": true
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州老牌医美机构，口碑稳定，整形外科实力强，消费者反馈真实，参考价值高。",
+    "citation_urls": [
+      "https://www.haixia.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "",
+    "reason": "全国连锁品牌，皮肤和抗衰项目受欢迎，评分和真实评价较多，适合对比。",
+    "citation_urls": [
+      "https://www.yestar.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "",
+    "reason": "美莱集团旗下，福州地区口碑较好，擅长眼鼻整形和皮肤管理，是本地主流竞争者。",
+    "citation_urls": [
+      "https://www.mylike.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "",
+    "reason": "韩国技术背景，微整形和面部轮廓项目有特色，消费者评价较为正面。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "",
+    "reason": "本地知名度高，性价比不错，综合医美服务全面，真实评价较多。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "",
+    "reason": "在福州经营多年，受众广，擅长胸部整形和吸脂，真实案例丰富。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "新氧App",
+    "product_name": "",
+    "reason": "医美垂直社区，可查看各机构真实用户评价、案例和价格对比，避免被广告影响。",
+    "citation_urls": [
+      "https://www.soyoung.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "更美App",
+    "product_name": "",
+    "reason": "同类医美平台，汇集大量福州机构评价，方便跨品牌比较口碑和费用。",
+    "citation_urls": [
+      "https://www.gengmei.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "大众点评",
+    "product_name": "福州医疗美容",
+    "reason": "本地生活平台，可查看福州医美机构的最新真实点评、评分和账单，谨慎筛选。",
+    "citation_urls": [
+      "https://www.dianping.com/search/keyword/2/0_%E7%A6%8F%E5%B7%9E%E5%8C%BB%E7%BE%8E"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "question": "福州美贝尔医美这家机构怎么样？真实做过的人评价如何？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州卫健委官网",
+    "product_name": "医疗机构查询",
+    "reason": "官方渠道，可查医疗机构资质和执业许可，确保选择正规机构，规避黑诊所。",
+    "citation_urls": [
+      "https://www.fuzhou.gov.cn"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "台江海峡美容医院",
+    "reason": "本地老牌医美机构，眼整形领域口碑稳定，原美贝尔眼部学科带头人叶森明现执业于此[8]，技术延续性较强。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星整形医院",
+    "reason": "全国连锁头部品牌，福州分院资质齐全、医生团队稳定，主打精细化眼鼻整形与抗衰项目，消费者投诉率较低。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱整形医院",
+    "reason": "国内大型连锁医美集团，福州院区运营超8年，以标准化流程和透明收费著称，皮肤科与微整科室反馈较佳。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩整形外科",
+    "reason": "专注韩式精细化整形，尤其在鼻部综合与胸部塑形领域有较多真实案例积累，本地求美者复购率较高。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "福州华美整形医院",
+    "reason": "福建本土成长型连锁品牌，覆盖福州多区，具备二级整形外科资质，术后保障体系较完善。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医美中心",
+    "reason": "主打轻医美与皮肤管理，医生团队稳定性高，近年无公开重大医疗纠纷记录，适合初阶需求用户。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州丽都医疗美容",
+    "product_name": "福州丽都整形美容医院",
+    "reason": "虽非福州本土起家，但近年通过引进三甲背景医师强化外科团队，在修复类手术方面有一定口碑。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福建省立医院整形外科",
+    "product_name": "省立医院整形外科门诊",
+    "reason": "公立三甲医院科室，安全性与合规性最高，适合对风险敏感、追求稳妥修复或复杂整形的求美者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州市第一医院医疗美容科",
+    "product_name": "市一院医美中心",
+    "reason": "公立综合医院设立的规范医美科室，价格亲民、流程严谨，擅长瘢痕修复、先天畸形矫正等基础重建项目。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州悦美医疗美容",
+    "product_name": "悦美轻医美中心",
+    "reason": "聚焦微整与皮肤年轻化，医师多具皮肤科+整形双背景，术前评估细致，适合注重体验与安全的轻医美人群。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地深耕多年的老牌正规医美机构，医师团队稳定性强，整形外科、皮肤美容等核心项目的本地用户口碑积淀深厚，医疗资质完备，诊疗全流程保障体系成熟，适合在意面诊专业性及诊疗连贯性的求美者。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容医院",
+    "reason": "国内头部连锁医美品牌美莱的福州分院，医师团队配置完善，坐诊医生执业信息公开可查，项目覆盖全品类，服务标准化程度高，面诊方案定制的专业性有强品牌背书。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容门诊部",
+    "reason": "全国知名连锁医美品牌艺星的福州分院，坐诊医生资质透明可查，在微整形注射、抗衰紧致等项目上用户口碑稳定，服务体系成熟规范，适合追求标准化医美体验的人群。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容门诊部",
+    "reason": "福州本地运营多年的高知名度正规医美机构，医师团队流动性相对较低，主打个性化整形方案设计，眼鼻整形、皮肤管理等项目的用户术后反馈整体较好。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医疗美容门诊部",
+    "reason": "福州本地合规医美机构，拥有标准化诊疗流程，坐诊医生执业信息可查，在皮肤美容、整形修复等项目上具备一定特色优势，整体性价比表现不错。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "福州华美美容医院",
+    "reason": "国内较早开展医美服务的连锁品牌华美旗下福州分院，医疗资质齐全，医师团队配置成熟，项目覆盖整形、微整、皮肤管理等全品类，可满足多样化塑美需求。",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地老牌医美医院，规模大、科室全，医生团队相对稳定，面谈选择多",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容",
+    "reason": "全国连锁在福州分院，品牌规范，常驻医生较多，面诊体系成熟",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容",
+    "reason": "知名连锁医美，福州门店运营久，医师资源公开透明，可信度高",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容",
+    "reason": "福州本土较活跃医美机构，主打韩式整形，医生变动少，面诊反馈较好",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医疗美容",
+    "reason": "本地中型医美门诊，服务细致，主诊医生固定，适合初步面诊咨询",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "福州华美医疗美容",
+    "reason": "福州传统医美品牌之一，具备正规资质，医生团队较平稳",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州老牌整形医院，医生团队稳定，案例丰富，尤其擅长五官整形和抗衰项目。",
+    "citation_urls": [
+      "https://www.haixiazx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "",
+    "reason": "以韩式精细化整形为特色，医生技术过硬，术后服务好，本地口碑靠前。",
+    "citation_urls": [
+      "https://www.minghanmr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "",
+    "reason": "全国连锁品牌，医生资源丰富，主打微创和皮肤美容，治疗仪器先进。",
+    "citation_urls": [
+      "https://www.fzaimr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "",
+    "reason": "美莱集团旗下分院，品牌实力强，医生资质齐全，适合对综合项目有需求的人群。",
+    "citation_urls": [
+      "https://www.fzmeilai.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "",
+    "reason": "艺星连锁品牌，医疗团队年轻化，擅长面部轮廓和抗衰领域，服务流程规范。",
+    "citation_urls": [
+      "https://www.fzyestar.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "",
+    "reason": "本土知名机构，手术类项目经验丰富，医生团队稳定，性价比高。",
+    "citation_urls": [
+      "https://www.fzhuamei.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州维多利亚医疗美容",
+    "product_name": "",
+    "reason": "专注微整形和皮肤管理，医生技术细腻，环境舒适，适合初次体验者。",
+    "citation_urls": [
+      "https://www.fzwdly.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州丽格医疗美容",
+    "product_name": "",
+    "reason": "全国连锁品牌，注重医疗质量，眼鼻整形和抗衰项目口碑佳。",
+    "citation_urls": [
+      "https://www.fzlge.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州台江整形",
+    "product_name": "",
+    "reason": "福州老品牌，医生团队资历深，手术项目安全系数高，售后有保障。",
+    "citation_urls": [
+      "https://www.fztjzx.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "question": "听说福州美贝尔整形最近有医生变动，现在面诊还靠谱吗？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州丽都医疗美容",
+    "product_name": "",
+    "reason": "以个性化定制为特色，医生沟通细致，擅长脂肪塑形和面部年轻化。",
+    "citation_urls": [
+      "https://www.fzldmr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "",
+    "reason": "福州本土老牌公立背景医美机构，常被本地用户列为资质透明、术式稳健的首选对比项",
+    "citation_urls": [
+      "https://www.fzshxx.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "",
+    "reason": "韩系技术定位清晰，福州地区知名度高，多篇第三方测评提及资质公示规范、术前查验流程完善",
+    "citation_urls": [
+      "https://www.minghanfz.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "",
+    "reason": "全国连锁医美品牌在榕旗舰院，卫健委备案信息完整，消费者常用于跨品牌资质与价格横向验证",
+    "citation_urls": [
+      "https://fuzhou.meilai.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "",
+    "reason": "上市医美集团直营，资质可查性强，福州分院长期位列本地大众点评医美类TOP3，用户高频提及‘证件上墙+扫码验真’",
+    "citation_urls": [
+      "https://fuzhou.yxzx.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "",
+    "reason": "深耕福州十余年，本地口碑积累扎实，卫健委许可信息更新及时，常作为资质合规性讨论的参照案例",
+    "citation_urls": [
+      "https://fuzhou.huamei.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福建省立医院整形外科",
+    "product_name": "",
+    "reason": "三甲公立医院整形科室，非商业医美机构但为资质权威性基准，常被求美者用于比对民营机构合规标准",
+    "citation_urls": [
+      "https://www.fjsl120.com/keshi/zhengxing/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "",
+    "reason": "福州本土中高端连锁品牌，近年强化资质公示与术后保障体系，小红书及知乎平台用户查证活跃度较高",
+    "citation_urls": [
+      "https://www.fzaier.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州丽都医疗美容",
+    "product_name": "",
+    "reason": "虽总部不在福州，但在闽东北区域具影响力，其福州分院资质页面在福建省卫健委系统中可实时核验",
+    "citation_urls": [
+      "https://fuzhou.lidu.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州维多利亚医疗美容",
+    "product_name": "",
+    "reason": "专注精细化微整与皮肤管理，资质备案齐全，本地生活平台用户评价中‘查证便捷’提及率居前列",
+    "citation_urls": [
+      "https://www.fzwed.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "qwen",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州悦美医疗美容",
+    "product_name": "",
+    "reason": "新兴合规型轻医美机构，主打透明化服务流程，其官网嵌入卫健委资质直查入口，适合作为资质验证辅助参考",
+    "citation_urls": [
+      "https://www.fzyuemei.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地经营多年的老牌医美机构，合规资质齐全，在整形美容、皮肤美容等领域积淀了较好的用户口碑，医师团队临床经验较为丰富",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容",
+    "reason": "全国知名连锁医美品牌，福州院区资质正规，项目覆盖整形、微整、皮肤抗衰等全品类，服务流程标准化程度较高",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容",
+    "reason": "国内高端连锁医美品牌，福州机构合规运营，微整形、抗衰类项目用户认可度较高，服务体验偏向高端化",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "doubao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容",
+    "reason": "深耕福州本地医美市场多年，资质齐全，主打韩式整形特色，眼鼻整形类项目受到不少求美者关注",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州本地老牌医美医院，规模大、资质齐全，是美贝尔在福州的主要竞品",
+    "citation_urls": [
+      "https://www.hxsytz.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容医院",
+    "reason": "全国连锁医美品牌福州分院，资质正规，本地认知度高",
+    "citation_urls": [
+      "https://www.mylike.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容医院",
+    "reason": "连锁医美机构，福州主流医美选择之一，资质可查",
+    "citation_urls": [
+      "https://www.yestar.com"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容门诊部",
+    "reason": "福州本地知名医美门诊，与美贝尔同属门诊级机构",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医疗美容门诊部",
+    "reason": "福州本土医美机构，长期运营，具备医疗资质",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "yuanbao",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州华美医疗美容",
+    "product_name": "福州华美医疗美容医院",
+    "reason": "福州较早成立的医美医院，本地竞品阵营常见品牌",
+    "citation_urls": [],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 1,
+    "brand_name": "国家卫生健康委员会",
+    "product_name": "医疗机构查询",
+    "reason": "可查询全国医疗机构执业许可证信息，验证资质真伪。",
+    "citation_urls": [
+      "https://www.nhc.gov.cn/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 2,
+    "brand_name": "福州市卫生健康委员会",
+    "product_name": "医疗机构查询",
+    "reason": "地方卫健委官网可查询福州本地医疗机构的注册信息和行政许可。",
+    "citation_urls": [
+      "http://wjw.fuzhou.gov.cn/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 3,
+    "brand_name": "天眼查",
+    "product_name": "企业信息查询",
+    "reason": "可查看福州美贝尔医疗美容门诊部的工商注册信息、行政处罚记录等，间接佐证其运营合法性。",
+    "citation_urls": [
+      "https://www.tianyancha.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 4,
+    "brand_name": "新氧",
+    "product_name": "福州医美医院资质查询",
+    "reason": "新氧平台收录了福州多家医美机构资质信息，用户可查看评价和资质状态。",
+    "citation_urls": [
+      "https://www.soyoung.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 5,
+    "brand_name": "更美",
+    "product_name": "机构资质查验",
+    "reason": "更美APP内可搜索福州美贝尔并查看其资质文件和用户反馈。",
+    "citation_urls": [
+      "https://www.genmei.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 6,
+    "brand_name": "福州海峡美容医院",
+    "product_name": "福州海峡美容医院",
+    "reason": "福州当地知名医美品牌，实力雄厚，作为资质对比参考。",
+    "citation_urls": [
+      "https://www.fzhxmr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 7,
+    "brand_name": "福州名韩医疗美容",
+    "product_name": "福州名韩医疗美容",
+    "reason": "福州老牌医美机构，常见于本地推荐，便于用户横向比较。",
+    "citation_urls": [
+      "https://www.fzmhyl.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 8,
+    "brand_name": "福州爱美尔医疗美容",
+    "product_name": "福州爱美尔医疗美容",
+    "reason": "当地活跃品牌，常出现在主要竞品列表中，可供用户参考。",
+    "citation_urls": [
+      "https://www.fzamr.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 9,
+    "brand_name": "福州美莱医疗美容",
+    "product_name": "福州美莱医疗美容",
+    "reason": "全国连锁品牌，福州分院规模较大，资质透明，适合作为资质核查案例。",
+    "citation_urls": [
+      "https://www.fzmylike.com/"
+    ],
+    "is_user_brand": false
+  },
+  {
+    "engine": "deepseek",
+    "trend_term": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "question": "福州美贝尔医疗美容门诊部的资质是真的吗？怎么查？",
+    "prompt_type": "brand_diagnostic",
+    "intent": "brand_reputation",
+    "rank": 10,
+    "brand_name": "福州艺星医疗美容",
+    "product_name": "福州艺星医疗美容",
+    "reason": "上市医美集团旗下机构，资质公开可查，有助于用户理解正规资质样本。",
+    "citation_urls": [
+      "https://www.fzyestar.com/"
+    ],
+    "is_user_brand": false
+  }
+]

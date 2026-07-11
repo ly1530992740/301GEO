@@ -1,0 +1,418 @@
+[
+  {
+    "url": "https://www.haixia.com",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fuzhou.mylike.com",
+    "domain": "fuzhou.mylike.com",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.yestar.com",
+    "domain": "fz.yestar.com",
+    "label": "福州艺星医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzhuamei.com",
+    "domain": "fzhuamei.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzmh.com",
+    "domain": "fzmh.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzame.com",
+    "domain": "fzame.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mebel.com",
+    "domain": "mebel.com",
+    "label": "福州美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzvictoria.com",
+    "domain": "fzvictoria.com",
+    "label": "福州维多利亚医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzmilifang.com",
+    "domain": "fzmilifang.com",
+    "label": "福州美立方医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fjsl.com.cn",
+    "domain": "fjsl.com.cn",
+    "label": "福建省立医院整形外科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fjslyy.com/department/zhengxing/",
+    "domain": "fjslyy.com",
+    "label": "福建省立医院整形外科",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fjydyy.com/department/zhengxing/",
+    "domain": "fjydyy.com",
+    "label": "福建医科大学附属第一医院整形美容外科",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzhaixia.com/",
+    "domain": "fzhaixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "http://fz.glaimei.com/",
+    "domain": "fz.glaimei.com",
+    "label": "福州格莱美整形医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fztyyy.com/ke/shoumei/",
+    "domain": "fztyyy.com",
+    "label": "福州台江医院整形科",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzmhmy.com/",
+    "domain": "fzmhmy.com",
+    "label": "福州名韩医疗美容",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzairmeier.com/",
+    "domain": "fzairmeier.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzmeilai.com/",
+    "domain": "fzmeilai.com",
+    "label": "福州美莱医疗美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzhuaimei.com/",
+    "domain": "fzhuaimei.com",
+    "label": "福州华美整形美容医院",
+    "engine": "qwen",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mylike.com/",
+    "domain": "mylike.com",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.yestar.com/",
+    "domain": "yestar.com",
+    "label": "福州艺星医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.0591hm.com/",
+    "domain": "0591hm.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.minghanmr.com/",
+    "domain": "minghanmr.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzame.com/",
+    "domain": "fzame.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mebel.cn/",
+    "domain": "mebel.cn",
+    "label": "福州美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzvdly.com/",
+    "domain": "fzvdly.com",
+    "label": "福州维多利亚医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.xinghemei.com/",
+    "domain": "xinghemei.com",
+    "label": "福州星和美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzbaodao.com/",
+    "domain": "fzbaodao.com",
+    "label": "福州宝岛医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fjhaixia.com/",
+    "domain": "fjhaixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.zhihu.com/question/31925408",
+    "domain": "zhihu.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.mylike.com/",
+    "domain": "fz.mylike.com",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.dxy.cn/bbs/newweb/pc/post/44223907",
+    "domain": "dxy.cn",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fz.yestar.com/",
+    "domain": "fz.yestar.com",
+    "label": "福州艺星医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.sohu.com/a/531536008_121124777",
+    "domain": "sohu.com",
+    "label": "福州艺星医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzhuamei.com/",
+    "domain": "fzhuamei.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.163.com/dy/article/H1VU9M9F0517A63J.html",
+    "domain": "163.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.douban.com/group/topic/284230620/",
+    "domain": "douban.com",
+    "label": "福州美贝尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "http://www.fzmh.com/",
+    "domain": "fzmh.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.zhihu.com/question/33320745",
+    "domain": "zhihu.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fzaimeier.com/",
+    "domain": "fzaimeier.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.xiaohongshu.com/discovery/item/62a3f0a9",
+    "domain": "xiaohongshu.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.haixia.com/",
+    "domain": "haixia.com",
+    "label": "福州海峡美容医院",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.minghan.com/",
+    "domain": "minghan.com",
+    "label": "福州名韩医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.aimier.com/",
+    "domain": "aimier.com",
+    "label": "福州爱美尔医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.huamei.com/",
+    "domain": "huamei.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.weilin.com/",
+    "domain": "weilin.com",
+    "label": "福州薇琳医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fztjyy.com/",
+    "domain": "fztjyy.com",
+    "label": "福州台江医院整形美容科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.fjsl.com/",
+    "domain": "fjsl.com",
+    "label": "福建省立医院整形外科",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://fuzhou.mylike.com/",
+    "domain": "fuzhou.mylike.com",
+    "label": "福州美莱医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.hmzx.com/",
+    "domain": "hmzx.com",
+    "label": "福州华美医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.mebel.com/",
+    "domain": "mebel.com",
+    "label": "美贝尔",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  },
+  {
+    "url": "https://www.meilifang.com/",
+    "domain": "meilifang.com",
+    "label": "福州美立方医疗美容",
+    "engine": "deepseek",
+    "source_type": "citation",
+    "trend_term": ""
+  }
+]

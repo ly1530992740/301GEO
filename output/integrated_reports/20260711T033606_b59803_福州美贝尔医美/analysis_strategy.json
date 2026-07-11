@@ -1,0 +1,199 @@
+{
+  "strategy_version": "multi_ai_consensus_v1",
+  "market_language": "zh",
+  "target_market": "domestic",
+  "service_scope": "local_city",
+  "service_region": "福州",
+  "business_type": "local_service",
+  "geo_audience": "consumer_recommendation",
+  "analysis_goal": "consumer_recommendation",
+  "category_local": "医疗美容",
+  "category_en": "medical aesthetics clinic",
+  "geo_probe_subject": "福州医疗美容",
+  "mainstream_competition_only": true,
+  "multi_ai_providers": [
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek",
+    "qwen",
+    "doubao",
+    "yuanbao",
+    "deepseek"
+  ],
+  "recommendation_question": "推荐一下福州的医疗美容",
+  "recommendation_questions": [
+    "推荐一下福州的医疗美容",
+    "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？"
+  ],
+  "brand_diagnostic_questions": [
+    "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+    "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+    "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？"
+  ],
+  "comparison_questions": [
+    "美贝尔和福州海峡美容医院哪个更值得选？",
+    "美贝尔和福州名韩整形美容医院哪个更值得选？"
+  ],
+  "search_intents": [
+    {
+      "intent": "multi_ai_mainstream_recommendation",
+      "neutral_queries": [
+        "推荐一下福州的医疗美容",
+        "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+        "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+        "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+        "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？"
+      ],
+      "ai_probe_question": "推荐一下福州的医疗美容",
+      "reason": "Prompt group uses mainstream user questions across multiple AI models."
+    }
+  ],
+  "neutral_search_queries": [
+    "推荐一下福州的医疗美容",
+    "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+    "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+    "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+    "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？"
+  ],
+  "ai_probe_questions": [
+    {
+      "term": "推荐一下福州的医疗美容",
+      "question": "推荐一下福州的医疗美容",
+      "intent": "consumer_recommendation",
+      "question_type": "neutral_recommendation",
+      "prompt_type": "neutral_recommendation",
+      "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+    },
+    {
+      "term": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+      "intent": "consumer_recommendation",
+      "question_type": "neutral_recommendation",
+      "prompt_type": "neutral_recommendation",
+      "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+    },
+    {
+      "term": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+      "intent": "consumer_recommendation",
+      "question_type": "neutral_recommendation",
+      "prompt_type": "neutral_recommendation",
+      "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+    },
+    {
+      "term": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+      "intent": "consumer_recommendation",
+      "question_type": "neutral_recommendation",
+      "prompt_type": "neutral_recommendation",
+      "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+    },
+    {
+      "term": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+      "intent": "consumer_recommendation",
+      "question_type": "neutral_recommendation",
+      "prompt_type": "neutral_recommendation",
+      "reason": "中立推荐问题，用于 Qwen、豆包、元宝、DeepSeek 主排名；不包含客户品牌名。"
+    }
+  ],
+  "prompt_groups": {
+    "neutral_recommendation": [
+      {
+        "question": "推荐一下福州的医疗美容",
+        "prompt_type": "neutral_recommendation",
+        "intent": "mainstream_recommendation",
+        "reason": "中立主流推荐问题，不包含客户品牌名。"
+      },
+      {
+        "question": "福州有哪些口碑好、资质正规的医疗美容机构推荐？",
+        "prompt_type": "neutral_recommendation",
+        "intent": "mainstream_recommendation",
+        "reason": "覆盖主流用户决策核心诉求（资质+口碑），不指向任何具体品牌，符合本地生活服务类推荐场景，是AI推荐逻辑中最常触发的基础意图"
+      },
+      {
+        "question": "在福州做双眼皮手术，哪家医院或门诊部比较靠谱？",
+        "prompt_type": "neutral_recommendation",
+        "intent": "mainstream_recommendation",
+        "reason": "双眼皮为医美领域TOP3高需求手术项目，地域限定明确，属典型‘品类+城市’中性推荐问题，能有效检验AI对本地主流服务供给的认知覆盖度"
+      },
+      {
+        "question": "福州做光子嫩肤或者皮秒祛斑，推荐几家技术好、医生经验丰富的机构？",
+        "prompt_type": "neutral_recommendation",
+        "intent": "mainstream_recommendation",
+        "reason": "光子嫩肤和皮秒是福州消费者咨询量最高的无创美肤项目，问题聚焦服务质量和专业背书，排除品牌倾向性，测试AI对本地皮肤科服务能力的识别能力"
+      },
+      {
+        "question": "福州鼓楼区附近有没有做面部微整注射比较自然、恢复快的医美地方？",
+        "prompt_type": "neutral_recommendation",
+        "intent": "mainstream_recommendation",
+        "reason": "鼓楼区为福州核心城区及美贝尔实际所在地，该问法体现真实用户的位置敏感性和体验偏好，检验AI是否能准确关联区域与服务能力匹配"
+      }
+    ],
+    "brand_diagnostic": [
+      {
+        "question": "美贝尔医美在福州的口碑怎么样？大家反馈效果和售后如何？",
+        "prompt_type": "brand_diagnostic",
+        "intent": "brand_reputation",
+        "reason": "直接探查品牌在本地市场的声誉水位，聚焦效果与售后两大敏感维度，用于诊断品牌认知与用户情绪落差"
+      },
+      {
+        "question": "听说福州美贝尔整形有几位常驻院长，他们擅长什么项目？真实案例多吗？",
+        "prompt_type": "brand_diagnostic",
+        "intent": "brand_reputation",
+        "reason": "针对其‘汇聚国内外资深医疗团队与常驻大咖’这一关键主张，测试用户是否主动关联并追问细节，反映品牌专业形象落地效果"
+      },
+      {
+        "question": "福州美贝尔医美的价格在本地算贵吗？和海峡、名韩这些比起来性价比如何？",
+        "prompt_type": "brand_diagnostic",
+        "intent": "brand_reputation",
+        "reason": "将客户品牌置于已知竞品（福州海峡、名韩等）对比框架中，可暴露用户心智中其价格带、竞争力及差异化感知的真实状态"
+      }
+    ],
+    "comparison": [
+      {
+        "question": "美贝尔和福州海峡美容医院哪个更值得选？",
+        "prompt_type": "comparison",
+        "intent": "direct_competitor_comparison",
+        "reason": "基于中立推荐排名选取头部竞品，诊断客户品牌与竞品的直接对比表现。"
+      },
+      {
+        "question": "美贝尔和福州名韩整形美容医院哪个更值得选？",
+        "prompt_type": "comparison",
+        "intent": "direct_competitor_comparison",
+        "reason": "基于中立推荐排名选取头部竞品，诊断客户品牌与竞品的直接对比表现。"
+      }
+    ]
+  },
+  "competitor_types": [
+    "multi_ai_recommended"
+  ],
+  "topic_taxonomy": [
+    "资质/专业性",
+    "案例/口碑",
+    "服务范围",
+    "价格/收费",
+    "合规/风险",
+    "响应速度"
+  ],
+  "validation_notes": [
+    "主排名只使用不含客户品牌名的中立推荐问题；品牌诊断和竞品直接对比单独展示，不参与主推荐排名。",
+    "声量数据由 AI 估算，字段使用 estimated_count，不等同于真实平台接口统计。"
+  ]
+}

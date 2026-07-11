@@ -1,0 +1,15 @@
+{
+  "visibility_score": 100.0,
+  "visibility_level": "high",
+  "total_ai_responses": 7,
+  "brand_mentioned_responses": 7,
+  "mention_count": 7,
+  "avg_position": 1.71,
+  "sentiment_score": 65,
+  "prompt_success_rate": 1.0,
+  "successful_prompt_count": 2,
+  "prompt_count": 2,
+  "provider_coverage_count": 4,
+  "provider_total_count": 4,
+  "share_of_voice": 0.1429
+}
