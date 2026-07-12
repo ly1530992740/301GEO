@@ -25,6 +25,9 @@ from geo_app.product_ingestion import UploadedPdf
 from geo_app.storage import Storage
 
 
+LEGACY_HISTORY_PREFIX = "fs:"
+
+
 SERVICE_SCOPE_OPTIONS = {
     "本地/城市": "local_city",
     "省内/区域": "regional",
@@ -445,18 +448,19 @@ def render_history(storage: Storage) -> None:
         limit 30
         """
     )
-    with st.expander("历史查询", expanded=True):
+    rows.extend(_scan_filesystem_history(rows))
+    with st.expander("History", expanded=True):
         if not rows:
-            st.info("暂无历史查询。完成一次 GEO 一键分析后会显示在这里。")
+            st.info("No history found yet. Completed integrated GEO runs will appear here.")
             return
         st.dataframe(
             [
                 {
                     "ID": item.get("id"),
-                    "时间": item.get("created_at"),
-                    "产品/品牌": item.get("subject") or item.get("customer_product"),
-                    "类目": item.get("industry"),
-                    "报告": item.get("file_path"),
+                    "Created At": item.get("created_at"),
+                    "Subject": item.get("subject") or item.get("customer_product"),
+                    "Industry": item.get("industry"),
+                    "Report": item.get("file_path"),
                 }
                 for item in rows
             ],
@@ -464,28 +468,79 @@ def render_history(storage: Storage) -> None:
             hide_index=True,
         )
         options = {
-            f"#{item.get('id')} | {item.get('created_at')} | {item.get('subject') or item.get('customer_product') or '未命名'}": item.get("id")
+            f"#{item.get('id')} | {item.get('created_at')} | {item.get('subject') or item.get('customer_product') or 'Untitled'}": item.get("id")
             for item in rows
         }
-        selected_label = st.selectbox("选择历史查询", list(options.keys()), key="history_report_select")
-        if st.button("加载到当前看板", key="load_history_report"):
-            load_history_report(storage, int(options[selected_label]))
+        selected_label = st.selectbox("Select history", list(options.keys()), key="history_report_select")
+        if st.button("Load into current dashboard", key="load_history_report"):
+            load_history_report(storage, options[selected_label])
 
 
-def load_history_report(storage: Storage, report_id: int) -> None:
-    report = storage.get_one(
-        """
-        select id, raw_json, file_path
-        from strategy_reports
-        where id=? and report_type='integrated_geo'
-        """,
-        (report_id,),
-    )
-    if not report:
-        st.error("历史报告不存在。")
-        return
-    data = json.loads(report.get("raw_json") or "{}")
-    run_dir = Path(data.get("run_dir") or Path(report.get("file_path") or ".").parent)
+def _scan_filesystem_history(existing_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    existing_paths = {
+        str(Path(item.get("file_path")).resolve())
+        for item in existing_rows
+        if item.get("file_path")
+    }
+    report_dirs = Path("output/integrated_reports")
+    if not report_dirs.exists():
+        return []
+
+    discovered: list[dict[str, Any]] = []
+    for run_dir in sorted(report_dirs.iterdir(), key=lambda item: item.stat().st_mtime, reverse=True):
+        if not run_dir.is_dir():
+            continue
+        md_path = run_dir / "integrated_report.md"
+        data_path = run_dir / "integrated_data.json"
+        if not md_path.exists() and not data_path.exists():
+            continue
+        resolved_md = str(md_path.resolve()) if md_path.exists() else ""
+        if resolved_md and resolved_md in existing_paths:
+            continue
+        payload: dict[str, Any] = {}
+        if data_path.exists():
+            try:
+                payload = json.loads(data_path.read_text(encoding="utf-8"))
+            except Exception:
+                payload = {}
+        subject = payload.get("subject") or payload.get("customer_product") or payload.get("product_profile", {}).get("product_name")
+        discovered.append(
+            {
+                "id": f"{LEGACY_HISTORY_PREFIX}{run_dir.resolve()}",
+                "created_at": datetime.fromtimestamp(run_dir.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S"),
+                "subject": subject,
+                "customer_product": payload.get("customer_product"),
+                "industry": payload.get("industry") or payload.get("product_profile", {}).get("industry"),
+                "file_path": str(md_path if md_path.exists() else data_path),
+            }
+        )
+    return discovered[:30]
+
+
+def load_history_report(storage: Storage, report_id: Any) -> None:
+    report: dict[str, Any] | None = None
+    data: dict[str, Any] = {}
+    if isinstance(report_id, str) and report_id.startswith(LEGACY_HISTORY_PREFIX):
+        run_dir = Path(report_id[len(LEGACY_HISTORY_PREFIX) :])
+        report = {
+            "id": report_id,
+            "raw_json": "{}",
+            "file_path": str(run_dir / "integrated_report.md"),
+        }
+    else:
+        report = storage.get_one(
+            """
+            select id, raw_json, file_path
+            from strategy_reports
+            where id=? and report_type='integrated_geo'
+            """,
+            (int(report_id),),
+        )
+        if not report:
+            st.error("History report not found.")
+            return
+        data = json.loads(report.get("raw_json") or "{}")
+        run_dir = Path(data.get("run_dir") or Path(report.get("file_path") or ".").parent)
     data_path = run_dir / "integrated_data.json"
     if data_path.exists():
         try:
@@ -513,7 +568,7 @@ def load_history_report(storage: Storage, report_id: int) -> None:
         "report_md": md_path.read_text(encoding="utf-8") if md_path.exists() else "",
         "analysis_data": data,
     }
-    st.success("已加载历史查询到当前看板。")
+    st.success("History loaded into the current dashboard.")
 
 
 def render_result() -> None:
