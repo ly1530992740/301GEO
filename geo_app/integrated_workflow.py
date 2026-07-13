@@ -5,12 +5,17 @@ import uuid
 from pathlib import Path
 from typing import Any, Callable
 
+from .action_planner import build_action_plan
 from .config import AppConfig, OUTPUT_DIR
+from .content_monitoring import build_content_monitoring
+from .geo_metrics import build_standard_geo_metrics
 from .integrated_report_renderer import render_integrated_outputs
 from .multi_ai_geo_workflow import run_multi_ai_geo_competition
+from .owned_asset_audit import audit_owned_assets
 from .platform_matcher import PlatformMatcher
 from .product_ingestion import UploadedPdf, collect_product_sources, source_text_for_ai
 from .qwen_client import QwenClient
+from .source_intelligence import build_source_intelligence
 from .storage import Storage
 from .utils import domain_from_url, safe_filename, utc_now_iso, write_text
 
@@ -149,6 +154,7 @@ def run_integrated_geo_analysis(
     content_analysis_meta = multi_ai.get("content_analysis_meta") or {}
     article_generation_format = multi_ai["article_generation_format"]
     content_topic_analysis = multi_ai["content_topic_analysis"]
+    top_brand_pool = multi_ai.get("top_brand_pool") or ai_recommendation_ranking[:10]
     probes = [
         {
             "engine": item.get("engine", ""),
@@ -193,12 +199,54 @@ def run_integrated_geo_analysis(
     write_text(run_dir / "content_pattern_report.md", content_pattern_report)
     write_text(run_dir / "article_generation_format.md", article_generation_format)
 
+    record_status("生成 GEO 标准指标、AI 信源分析和官网结构化信源审计")
+    metric_input = {
+        "neutral_visibility_summary": neutral_visibility_summary,
+        "geo_visibility_summary": geo_visibility_summary,
+        "brand_diagnostic_summary": brand_diagnostic_summary,
+        "prompt_runs": prompt_runs,
+        "brand_visibility_metrics": brand_visibility_metrics,
+        "recommendation_items": recommendation_items,
+    }
+    standard_geo_metrics = build_standard_geo_metrics(metric_input)
+    source_intelligence = build_source_intelligence(
+        source_links=source_links,
+        source_articles=source_articles,
+        recommendation_items=recommendation_items,
+        top_brands=top_brand_pool,
+        profile=confirmed_profile,
+    )
+    owned_asset_audit = audit_owned_assets(profile_run.get("sources") or {}, confirmed_profile)
+    content_monitoring = build_content_monitoring(
+        {
+            **metric_input,
+            "brand_diagnostic_prompt_runs": brand_diagnostic_prompt_runs,
+            "comparison_prompt_runs": comparison_prompt_runs,
+            "source_intelligence": source_intelligence,
+            "content_positioning_analysis": content_positioning_analysis,
+        }
+    )
+    write_text(run_dir / "standard_geo_metrics.json", json.dumps(standard_geo_metrics, ensure_ascii=False, indent=2))
+    write_text(run_dir / "source_intelligence.json", json.dumps(source_intelligence, ensure_ascii=False, indent=2))
+    write_text(run_dir / "owned_asset_audit.json", json.dumps(owned_asset_audit, ensure_ascii=False, indent=2))
+    write_text(run_dir / "content_monitoring.json", json.dumps(content_monitoring, ensure_ascii=False, indent=2))
+
     record_status("用 AI 返回的来源链接匹配媒介库资源和报价")
     media_matches = _match_media_sources(storage, config, source_links, record_status)
     media_cost_analysis = _derive_media_cost_analysis(media_matches, search_volume_ranking or search_visibility_ranking)
+    geo_actions = build_action_plan(
+        {
+            "standard_geo_metrics": standard_geo_metrics,
+            "source_intelligence": source_intelligence,
+            "owned_asset_audit": owned_asset_audit,
+            "content_monitoring": content_monitoring,
+            "media_cost_analysis": media_cost_analysis,
+        }
+    )
     write_text(run_dir / "media_matches.json", json.dumps(media_matches, ensure_ascii=False, indent=2))
     write_text(run_dir / "content_topic_analysis.json", json.dumps(content_topic_analysis, ensure_ascii=False, indent=2))
     write_text(run_dir / "media_cost_analysis.json", json.dumps(media_cost_analysis, ensure_ascii=False, indent=2))
+    write_text(run_dir / "geo_actions.json", json.dumps(geo_actions, ensure_ascii=False, indent=2))
 
     analysis_data = {
         "workflow_version": WORKFLOW_VERSION,
@@ -242,6 +290,11 @@ def run_integrated_geo_analysis(
         "content_positioning_analysis": content_positioning_analysis,
         "content_analysis_meta": content_analysis_meta,
         "article_generation_format": article_generation_format,
+        "standard_geo_metrics": standard_geo_metrics,
+        "source_intelligence": source_intelligence,
+        "owned_asset_audit": owned_asset_audit,
+        "content_monitoring": content_monitoring,
+        "geo_actions": geo_actions,
         "media_matches": media_matches,
         "media_cost_analysis": media_cost_analysis,
         "multi_ai_recommendation_results": multi_ai.get("multi_ai_recommendation_results") or [],

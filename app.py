@@ -737,6 +737,11 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
     diagnostic_prompt_runs = data.get("brand_diagnostic_prompt_runs") or []
     comparison_prompt_runs = data.get("comparison_prompt_runs") or []
     provider_matrix = data.get("provider_visibility_matrix") or []
+    standard_geo_metrics = data.get("standard_geo_metrics") or {}
+    source_intelligence = data.get("source_intelligence") or {}
+    owned_asset_audit = data.get("owned_asset_audit") or {}
+    content_monitoring = data.get("content_monitoring") or {}
+    geo_actions = data.get("geo_actions") or {}
 
     tab_overview, tab_step1, tab_step2, tab_step3 = st.tabs(["GEO可见度总览", "第一步：AI推荐排名", "第二步：五平台声量", "第三步：文章与定位分析"])
     with tab_overview:
@@ -787,6 +792,12 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             else:
                 st.info("暂无 Prompt 级明细。")
 
+        st.markdown("#### GEO 指标定义")
+        _render_standard_geo_metrics_streamlit(standard_geo_metrics)
+
+        st.markdown("#### 优化建议概览")
+        _render_actions_streamlit(geo_actions, compact=True)
+
     with tab_step1:
         st.markdown("#### 第一步输入：AI 搜索问题设计")
         _render_question_planning(data)
@@ -803,6 +814,9 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
                 st.table(_compact_recommendation_source_rows(recommendation_source_rows[:20]))
         else:
             st.info("暂无 AI 推荐来源明细。")
+
+        st.markdown("#### AI 推荐引用信源")
+        _render_source_intelligence_streamlit(source_intelligence)
 
         platform_rows = _competitor_platform_rows(data.get("recommendation_items") or [])
         if platform_rows:
@@ -870,6 +884,12 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             st.info("暂无文章分析报告。")
 
         st.markdown("#### 内容主题分布")
+        st.markdown("#### 品牌数字资产与官网结构化信源")
+        _render_owned_asset_audit_streamlit(owned_asset_audit)
+
+        st.markdown("#### 内容监控与舆情监控")
+        _render_content_monitoring_streamlit(content_monitoring)
+
         _render_pie(topics, names="topic", values="count")
         if matrix:
             st.markdown("#### 品牌内容重点矩阵")
@@ -884,6 +904,10 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
                 st.caption("抓取失败通常表示目标站点 TLS、反爬、502 或连接中断；这只能说明本次自动抓取不可用，不代表该品牌没有内容资产。")
         else:
             st.info("暂无文章链接抓取数据。")
+
+
+        st.markdown("#### 品牌优化建议")
+        _render_actions_streamlit(geo_actions, compact=False)
 
 
 def render_dashboard_charts(data: dict[str, Any], labels: dict[str, str]) -> None:
@@ -952,6 +976,200 @@ def render_media_cost(data: dict[str, Any]) -> None:
         width="stretch",
         hide_index=True,
     )
+
+
+def _render_standard_geo_metrics_streamlit(metrics: dict[str, Any]) -> None:
+    if not metrics:
+        st.info("暂无 GEO 指标定义数据。")
+        return
+    rows = []
+    for label, key in [
+        ("Competitors / 竞争品牌", "competitors"),
+        ("Visibility / 可见度", "visibility"),
+        ("Sentiment / 情绪分", "sentiment"),
+        ("Position / 平均排名", "position"),
+        ("SOV / 提及份额", "sov"),
+        ("Prompt 成功率", "prompt_success"),
+    ]:
+        item = metrics.get(key) or {}
+        if key == "competitors":
+            rows.append({"指标": label, "当前值": "见 AI 推荐排名", "计算方式": "AI 推荐结果中出现的品牌集合", "业务含义": "用于界定客户在 AI 推荐语境里的直接竞争对象。"})
+            continue
+        rows.append(
+            {
+                "指标": label,
+                "当前值": item.get("value_label") or item.get("score") or item.get("avg_rank") or "",
+                "计算方式": item.get("formula", ""),
+                "业务含义": item.get("business_meaning", ""),
+            }
+        )
+    st.dataframe(rows, width="stretch", hide_index=True)
+
+
+def _render_source_intelligence_streamlit(source_intelligence: dict[str, Any]) -> None:
+    rows = source_intelligence.get("domain_summary") or []
+    if not rows:
+        st.info("暂无 AI 推荐引用信源数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        c1, c2 = st.columns(2)
+        with c1:
+            type_rows = source_intelligence.get("domain_type_distribution") or []
+            if type_rows:
+                fig = px.pie(pd.DataFrame(type_rows), names="domain_type", values="count", hole=0.35, title="AI 引用信源类型")
+                fig.update_traces(textinfo="label+percent+value")
+                st.plotly_chart(fig, width="stretch")
+        with c2:
+            fig = px.bar(df.head(12), x="citation_count", y="domain", orientation="h", title="AI 引用域名次数 Top")
+            fig.update_layout(yaxis={"categoryorder": "total ascending"})
+            st.plotly_chart(fig, width="stretch")
+    except Exception:
+        pass
+    display_rows = [
+        {
+            "排名": item.get("rank", ""),
+            "域名": item.get("domain", ""),
+            "类型": item.get("domain_type", ""),
+            "引用次数": item.get("citation_count", 0),
+            "Used %": f"{round(float(item.get('used_rate') or 0) * 100, 1)}%",
+            "客户品牌出现": "是" if item.get("mentioned_user_brand") else "否",
+            "出现品牌": ", ".join(item.get("brands_appear") or []),
+            "建议动作": item.get("action", ""),
+        }
+        for item in rows[:20]
+    ]
+    st.dataframe(display_rows, width="stretch", hide_index=True)
+
+
+def _render_owned_asset_audit_streamlit(audit: dict[str, Any]) -> None:
+    rows = audit.get("asset_checks") or []
+    if not rows:
+        st.info("暂无官网结构化信源审计数据。")
+        return
+    c1, c2, c3 = st.columns(3)
+    c1.metric("官网 AI 可读性评分", f"{audit.get('ai_readability_score', 0)}/100")
+    c2.metric("页面抓取成功", f"{audit.get('crawl_success_count', 0)}/{audit.get('crawl_total_count', 0)}")
+    c3.metric("结构化信号", len(audit.get("schema_signals") or []))
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        chart_df = pd.DataFrame(
+            [{"资产项": item.get("asset_name", ""), "是否具备": 1 if item.get("present") else 0, "状态": "已具备" if item.get("present") else "缺失"} for item in rows]
+        )
+        fig = px.bar(chart_df, x="是否具备", y="资产项", color="状态", orientation="h", title="官网结构化信源资产检查")
+        fig.update_xaxes(range=[0, 1])
+        st.plotly_chart(fig, width="stretch")
+    except Exception:
+        pass
+    st.dataframe(
+        [
+            {
+                "资产项": item.get("asset_name", ""),
+                "是否具备": "是" if item.get("present") else "否",
+                "建议": item.get("recommendation", ""),
+            }
+            for item in rows
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+
+def _render_content_monitoring_streamlit(monitoring: dict[str, Any]) -> None:
+    opinion = monitoring.get("opinion_monitoring") or {}
+    content = monitoring.get("content_monitoring") or {}
+    risk_rows = opinion.get("risk_topics") or []
+    advantage_rows = opinion.get("competitor_advantages") or []
+    gap_rows = content.get("articles_mentioning_competitors_only") or []
+    if not risk_rows and not advantage_rows and not gap_rows:
+        st.info("暂无内容监控与舆情监控数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        c1, c2 = st.columns(2)
+        with c1:
+            if risk_rows:
+                risk_df = pd.DataFrame([{"问题": str(item.get("prompt") or item.get("provider") or "风险项")[:36], "风险强度": max(1, 100 - int(item.get("sentiment_score") or 50))} for item in risk_rows[:12]])
+                fig = px.bar(risk_df, x="风险强度", y="问题", orientation="h", title="舆情风险问题")
+                st.plotly_chart(fig, width="stretch")
+        with c2:
+            if advantage_rows:
+                adv_df = pd.DataFrame([{"品牌": item.get("brand_name", ""), "AI提及次数": item.get("mention_count", 0)} for item in advantage_rows[:12]])
+                fig = px.bar(adv_df, x="AI提及次数", y="品牌", orientation="h", title="竞品优势提及")
+                st.plotly_chart(fig, width="stretch")
+    except Exception:
+        pass
+    with st.expander("查看舆情风险明细", expanded=False):
+        st.dataframe(
+            [
+                {
+                    "严重度": item.get("severity", ""),
+                    "AI平台": item.get("provider", ""),
+                    "情绪分": item.get("sentiment_score", 50),
+                    "风险词": ", ".join(item.get("risk_terms") or []),
+                    "证据": item.get("evidence", ""),
+                }
+                for item in risk_rows
+            ],
+            width="stretch",
+            hide_index=True,
+        )
+    with st.expander("查看内容缺口明细", expanded=False):
+        st.dataframe(
+            [
+                {
+                    "域名": item.get("domain", ""),
+                    "已出现品牌": ", ".join(item.get("brands_appear") or []),
+                    "建议": item.get("action", ""),
+                }
+                for item in gap_rows
+            ],
+            width="stretch",
+            hide_index=True,
+        )
+
+
+def _render_actions_streamlit(plan: dict[str, Any], compact: bool = False) -> None:
+    rows = plan.get("actions") or []
+    if not rows:
+        st.info("暂无优化建议数据。")
+        return
+    try:
+        import pandas as pd
+        import plotly.express as px
+
+        df = pd.DataFrame(rows)
+        c1, c2 = st.columns(2)
+        with c1:
+            priority = df.groupby("priority", as_index=False).size().rename(columns={"size": "任务数"})
+            fig = px.pie(priority, names="priority", values="任务数", hole=0.35, title="Actions 优先级占比")
+            st.plotly_chart(fig, width="stretch")
+        with c2:
+            module = df.groupby("module", as_index=False).size().rename(columns={"size": "任务数"})
+            fig = px.bar(module, x="任务数", y="module", orientation="h", title="Actions 模块分布")
+            st.plotly_chart(fig, width="stretch")
+    except Exception:
+        pass
+    display = [
+        {
+            "排名": item.get("rank", ""),
+            "优先级": item.get("priority", ""),
+            "模块": item.get("module", ""),
+            "任务": item.get("task", ""),
+            "原因": item.get("reason", ""),
+            "目标指标": item.get("expected_metric", ""),
+            "预估成本": item.get("estimated_cost", ""),
+        }
+        for item in rows[: (8 if compact else 30)]
+    ]
+    st.dataframe(display, width="stretch", hide_index=True)
 
 
 def _recommendation_source_rows(items: list[dict[str, Any]], ranking: list[dict[str, Any]]) -> list[dict[str, Any]]:

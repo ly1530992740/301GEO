@@ -51,6 +51,8 @@ def build_prompt_visibility_rows(results: list[Any], profile: dict[str, Any]) ->
                 "brand_position": brand_position,
                 "sentiment_score": sentiment["sentiment_score"] if brand_position is not None else 50,
                 "sentiment_label": sentiment["sentiment_label"] if brand_position is not None else "neutral",
+                "positive_terms": sentiment["positive_terms"] if brand_position is not None else [],
+                "risk_terms": sentiment["risk_terms"] if brand_position is not None else [],
                 "co_occurring_brands": list(dict.fromkeys(co_brands))[:10],
                 "citation_urls": list(dict.fromkeys(citation_urls))[:10],
                 "answer_excerpt": answer[:500],

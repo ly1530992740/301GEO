@@ -25454,5 +25454,2573 @@
       "endpoint": "https://api.deepseek.com/chat/completions",
       "timeout": 30
     }
-  ]
+  ],
+  "standard_geo_metrics": {
+    "metric_version": "geo_metrics_v1",
+    "visibility": {
+      "score": 89.5,
+      "level": "high",
+      "value_label": "89.5%",
+      "formula": "客户品牌被提及的有效 AI 回答数 / 有效 AI 回答总数",
+      "numerator": 17,
+      "denominator": 19,
+      "business_meaning": "品牌在中立推荐类 AI 回答中出现得越频繁，GEO 可见度越高。"
+    },
+    "sentiment": {
+      "score": 64,
+      "label": "偏正面",
+      "formula": "AI 回答中对客户品牌的正负面描述、风险词和背书词综合评分",
+      "positive_terms": [
+        "正规",
+        "知名",
+        "连锁",
+        "资质",
+        "经验",
+        "案例",
+        "高端"
+      ],
+      "risk_terms": [],
+      "business_meaning": "分数越高，AI 对品牌描述越正面；低分通常意味着投诉、风险、价格不透明等表达较多。"
+    },
+    "position": {
+      "avg_rank": 6.59,
+      "value_label": "#6.59",
+      "formula": "客户品牌在 AI 推荐列表中出现时的平均名次",
+      "business_meaning": "平均名次越靠前，越容易被用户注意到并形成点击或咨询。"
+    },
+    "sov": {
+      "score": 0.1083,
+      "value_label": "10.8%",
+      "formula": "客户品牌 AI 提及次数 / 所有品牌 AI 提及次数",
+      "numerator": 17,
+      "denominator": 157,
+      "business_meaning": "SOV 越高，代表客户品牌在 AI 推荐声量中的占比越大。"
+    },
+    "provider_coverage": {
+      "covered": 4,
+      "total": 4,
+      "formula": "提及客户品牌的 AI 平台数 / 本轮测试 AI 平台总数"
+    },
+    "prompt_success": {
+      "score": 1.0,
+      "value_label": "100.0%",
+      "formula": "客户品牌出现过的测试问题数 / 测试问题总数"
+    },
+    "prompt_count": 5
+  },
+  "source_intelligence": {
+    "source_intelligence_version": "source_intelligence_v1",
+    "domain_summary": [
+      {
+        "domain": "mebel.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 2,
+        "used_rate": 0.1053,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": true,
+        "brands_appear": [
+          "美贝尔",
+          "福州美贝尔医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.mebel.com"
+        ],
+        "action": "保持该信源内容更新，并补充可引用的价格、案例、FAQ 和来源依据。",
+        "rank": 1
+      },
+      {
+        "domain": "zhihu.com",
+        "domain_type": "UGC",
+        "citation_count": 2,
+        "used_response_count": 2,
+        "used_rate": 0.1053,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州海峡美容医院",
+          "海峡美容",
+          "福州名韩医疗美容",
+          "名韩"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.zhihu.com/question/31925408",
+          "https://www.zhihu.com/question/33320745"
+        ],
+        "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。",
+        "rank": 2
+      },
+      {
+        "domain": "fuzhou.mylike.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美莱医疗美容",
+          "美莱"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://fuzhou.mylike.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 3
+      },
+      {
+        "domain": "fz.yestar.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州艺星医疗美容",
+          "艺星"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://fz.yestar.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 4
+      },
+      {
+        "domain": "fzame.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州爱美尔医疗美容",
+          "爱美尔"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzame.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 5
+      },
+      {
+        "domain": "fzhuamei.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzhuamei.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 6
+      },
+      {
+        "domain": "fzmh.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州名韩医疗美容",
+          "名韩"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzmh.com",
+          "http://www.fzmh.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 7
+      },
+      {
+        "domain": "haixia.com",
+        "domain_type": "Corporate",
+        "citation_count": 2,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 2.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州海峡美容医院",
+          "海峡美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.haixia.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 8
+      },
+      {
+        "domain": "0591hm.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.0591hm.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 9
+      },
+      {
+        "domain": "163.com",
+        "domain_type": "Editorial",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.163.com/dy/article/H1VU9M9F0517A63J.html"
+        ],
+        "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。",
+        "rank": 10
+      },
+      {
+        "domain": "aimier.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州爱美尔医疗美容",
+          "爱美尔"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.aimier.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 11
+      },
+      {
+        "domain": "douban.com",
+        "domain_type": "UGC",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": true,
+        "brands_appear": [
+          "美贝尔",
+          "福州美贝尔医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.douban.com/group/topic/284230620"
+        ],
+        "action": "保持该信源内容更新，并补充可引用的价格、案例、FAQ 和来源依据。",
+        "rank": 12
+      },
+      {
+        "domain": "dxy.cn",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美莱医疗美容",
+          "美莱"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.dxy.cn/bbs/newweb/pc/post/44223907"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 13
+      },
+      {
+        "domain": "fjhaixia.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州海峡美容医院",
+          "海峡美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fjhaixia.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 14
+      },
+      {
+        "domain": "fjsl.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福建省立医院整形外科",
+          "福建省立医院"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fjsl.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 15
+      },
+      {
+        "domain": "fjsl.com.cn",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福建省立医院整形外科",
+          "福建省立医院"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fjsl.com.cn"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 16
+      },
+      {
+        "domain": "fjslyy.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福建省立医院整形外科",
+          "福建省立医院"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fjslyy.com/department/zhengxing"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 17
+      },
+      {
+        "domain": "fjydyy.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福建医科大学附属第一医院整形美容外科",
+          "福建医科大学附属第一医院"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fjydyy.com/department/zhengxing"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 18
+      },
+      {
+        "domain": "fz.glaimei.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州格莱美整形医院"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "http://fz.glaimei.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 19
+      },
+      {
+        "domain": "fz.mylike.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美莱医疗美容",
+          "美莱"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://fz.mylike.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 20
+      },
+      {
+        "domain": "fzaimeier.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州爱美尔医疗美容",
+          "爱美尔"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzaimeier.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 21
+      },
+      {
+        "domain": "fzairmeier.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州爱美尔医疗美容",
+          "爱美尔"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fzairmeier.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 22
+      },
+      {
+        "domain": "fzbaodao.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州宝岛医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzbaodao.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 23
+      },
+      {
+        "domain": "fzhaixia.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州海峡美容医院",
+          "海峡美容"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fzhaixia.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 24
+      },
+      {
+        "domain": "fzhuaimei.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美整形美容医院"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fzhuaimei.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 25
+      },
+      {
+        "domain": "fzmeilai.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美莱医疗美容",
+          "福州美莱医疗美容医院",
+          "美莱"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fzmeilai.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 26
+      },
+      {
+        "domain": "fzmhmy.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州名韩医疗美容",
+          "名韩"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fzmhmy.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 27
+      },
+      {
+        "domain": "fzmilifang.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美立方医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzmilifang.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 28
+      },
+      {
+        "domain": "fztjyy.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州台江医院整形美容科"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fztjyy.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 29
+      },
+      {
+        "domain": "fztyyy.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州台江医院整形科"
+        ],
+        "providers": [
+          "qwen"
+        ],
+        "sample_urls": [
+          "https://www.fztyyy.com/ke/shoumei"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 30
+      },
+      {
+        "domain": "fzvdly.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州维多利亚医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzvdly.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 31
+      },
+      {
+        "domain": "fzvictoria.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州维多利亚医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.fzvictoria.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 32
+      },
+      {
+        "domain": "hmzx.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.hmzx.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 33
+      },
+      {
+        "domain": "huamei.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州华美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.huamei.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 34
+      },
+      {
+        "domain": "mebel.cn",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": true,
+        "brands_appear": [
+          "美贝尔",
+          "福州美贝尔医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.mebel.cn"
+        ],
+        "action": "保持该信源内容更新，并补充可引用的价格、案例、FAQ 和来源依据。",
+        "rank": 35
+      },
+      {
+        "domain": "meilifang.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美立方医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.meilifang.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 36
+      },
+      {
+        "domain": "minghan.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州名韩医疗美容",
+          "名韩"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.minghan.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 37
+      },
+      {
+        "domain": "minghanmr.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州名韩医疗美容",
+          "名韩"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.minghanmr.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 38
+      },
+      {
+        "domain": "mylike.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州美莱医疗美容",
+          "美莱"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.mylike.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 39
+      },
+      {
+        "domain": "sohu.com",
+        "domain_type": "Editorial",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州艺星医疗美容",
+          "艺星"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.sohu.com/a/531536008_121124777"
+        ],
+        "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。",
+        "rank": 40
+      },
+      {
+        "domain": "weilin.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州薇琳医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.weilin.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 41
+      },
+      {
+        "domain": "xiaohongshu.com",
+        "domain_type": "UGC",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州爱美尔医疗美容",
+          "爱美尔"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.xiaohongshu.com/discovery/item/62a3f0a9"
+        ],
+        "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。",
+        "rank": 42
+      },
+      {
+        "domain": "xinghemei.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州星和美医疗美容"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.xinghemei.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 43
+      },
+      {
+        "domain": "yestar.com",
+        "domain_type": "Corporate",
+        "citation_count": 1,
+        "used_response_count": 1,
+        "used_rate": 0.0526,
+        "avg_citations": 1.0,
+        "mentioned_user_brand": false,
+        "brands_appear": [
+          "福州艺星医疗美容",
+          "艺星"
+        ],
+        "providers": [
+          "deepseek"
+        ],
+        "sample_urls": [
+          "https://www.yestar.com"
+        ],
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "rank": 44
+      }
+    ],
+    "domain_type_distribution": [
+      {
+        "domain_type": "Corporate",
+        "count": 39
+      },
+      {
+        "domain_type": "UGC",
+        "count": 3
+      },
+      {
+        "domain_type": "Editorial",
+        "count": 2
+      }
+    ],
+    "source_opportunities": [
+      {
+        "domain": "zhihu.com",
+        "domain_type": "UGC",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。",
+        "priority": "高"
+      },
+      {
+        "domain": "fuzhou.mylike.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "fz.yestar.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "fzame.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "fzhuamei.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "fzmh.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "haixia.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "高"
+      },
+      {
+        "domain": "0591hm.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "中"
+      },
+      {
+        "domain": "163.com",
+        "domain_type": "Editorial",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。",
+        "priority": "中"
+      },
+      {
+        "domain": "aimier.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "中"
+      },
+      {
+        "domain": "dxy.cn",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "中"
+      },
+      {
+        "domain": "fjhaixia.com",
+        "domain_type": "Corporate",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+        "priority": "中"
+      }
+    ],
+    "definitions": {
+      "domain_type": "Corporate/UGC/Editorial/Reference/Institutional/Other 的信源类型分类。",
+      "used_rate": "至少一次出现在 AI 回答引用中的回答占比。",
+      "avg_citations": "该域名被引用时，平均每个回答贡献的引用次数。",
+      "mentioned_user_brand": "抓取文本或链接标签中是否识别到客户品牌。",
+      "brands_appear": "该信源内容或引用标签中出现的品牌/竞品。"
+    }
+  },
+  "owned_asset_audit": {
+    "owned_asset_audit_version": "owned_asset_audit_v1",
+    "website_url": "http://www.fzmebel.com/",
+    "owned_asset_score": 51,
+    "ai_readability_score": 51,
+    "crawl_success_count": 1,
+    "crawl_total_count": 1,
+    "pdf_document_count": 0,
+    "schema_signals": [],
+    "asset_checks": [
+      {
+        "asset_key": "brand_intro",
+        "asset_name": "品牌介绍",
+        "present": true,
+        "matched_pages": [
+          {
+            "url": "http://www.fzmebel.com/",
+            "matched_terms": [
+              "品牌"
+            ]
+          }
+        ],
+        "recommendation": "已识别到品牌介绍信号，建议补充更新时间、来源依据和可直接引用的结论句。"
+      },
+      {
+        "asset_key": "product_service",
+        "asset_name": "产品/服务页",
+        "present": true,
+        "matched_pages": [
+          {
+            "url": "http://www.fzmebel.com/",
+            "matched_terms": [
+              "服务",
+              "项目"
+            ]
+          }
+        ],
+        "recommendation": "已识别到产品/服务页信号，建议补充更新时间、来源依据和可直接引用的结论句。"
+      },
+      {
+        "asset_key": "price",
+        "asset_name": "价格/套餐/费用",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充价格区间、套餐边界或询价说明，避免 AI 只能引用竞品价格。"
+      },
+      {
+        "asset_key": "case",
+        "asset_name": "案例/客户故事",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充真实案例、客户故事或前后对比，并标注适用场景与限制。"
+      },
+      {
+        "asset_key": "faq",
+        "asset_name": "FAQ/问答",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "新增围绕“医疗美容怎么选/价格/风险/适合人群”的 FAQ 页面。"
+      },
+      {
+        "asset_key": "credential",
+        "asset_name": "资质/证书/备案",
+        "present": true,
+        "matched_pages": [
+          {
+            "url": "http://www.fzmebel.com/",
+            "matched_terms": [
+              "资质"
+            ]
+          }
+        ],
+        "recommendation": "已识别到资质/证书/备案信号，建议补充更新时间、来源依据和可直接引用的结论句。"
+      },
+      {
+        "asset_key": "comparison",
+        "asset_name": "对比/选择指南",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充对比/选择指南页面，帮助 AI 在推荐场景中引用客户品牌。"
+      },
+      {
+        "asset_key": "media",
+        "asset_name": "媒体报道/新闻",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "新增媒体报道/新闻页面或内容块，让官网成为 AI 可引用的结构化信源。"
+      },
+      {
+        "asset_key": "location",
+        "asset_name": "地区/门店/联系方式",
+        "present": true,
+        "matched_pages": [
+          {
+            "url": "http://www.fzmebel.com/",
+            "matched_terms": [
+              "电话",
+              "联系"
+            ]
+          }
+        ],
+        "recommendation": "已识别到地区/门店/联系方式信号，建议补充更新时间、来源依据和可直接引用的结论句。"
+      }
+    ],
+    "missing_assets": [
+      {
+        "asset_key": "price",
+        "asset_name": "价格/套餐/费用",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充价格区间、套餐边界或询价说明，避免 AI 只能引用竞品价格。"
+      },
+      {
+        "asset_key": "case",
+        "asset_name": "案例/客户故事",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充真实案例、客户故事或前后对比，并标注适用场景与限制。"
+      },
+      {
+        "asset_key": "faq",
+        "asset_name": "FAQ/问答",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "新增围绕“医疗美容怎么选/价格/风险/适合人群”的 FAQ 页面。"
+      },
+      {
+        "asset_key": "comparison",
+        "asset_name": "对比/选择指南",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "补充对比/选择指南页面，帮助 AI 在推荐场景中引用客户品牌。"
+      },
+      {
+        "asset_key": "media",
+        "asset_name": "媒体报道/新闻",
+        "present": false,
+        "matched_pages": [],
+        "recommendation": "新增媒体报道/新闻页面或内容块，让官网成为 AI 可引用的结构化信源。"
+      }
+    ],
+    "structured_source_actions": [
+      {
+        "priority": "高",
+        "action": "为官网补充 Organization/LocalBusiness/FAQPage JSON-LD",
+        "reason": "结构化数据能帮助 AI 和搜索引擎识别品牌、地区、服务和 FAQ。"
+      },
+      {
+        "priority": "高",
+        "action": "补充价格区间、套餐边界或询价说明，避免 AI 只能引用竞品价格。",
+        "reason": "缺少价格/套餐/费用会让 AI 更难引用客户官网作为权威来源。"
+      },
+      {
+        "priority": "中",
+        "action": "补充真实案例、客户故事或前后对比，并标注适用场景与限制。",
+        "reason": "缺少案例/客户故事会让 AI 更难引用客户官网作为权威来源。"
+      },
+      {
+        "priority": "高",
+        "action": "新增围绕“医疗美容怎么选/价格/风险/适合人群”的 FAQ 页面。",
+        "reason": "缺少FAQ/问答会让 AI 更难引用客户官网作为权威来源。"
+      },
+      {
+        "priority": "高",
+        "action": "补充对比/选择指南页面，帮助 AI 在推荐场景中引用客户品牌。",
+        "reason": "缺少对比/选择指南会让 AI 更难引用客户官网作为权威来源。"
+      },
+      {
+        "priority": "中",
+        "action": "新增媒体报道/新闻页面或内容块，让官网成为 AI 可引用的结构化信源。",
+        "reason": "缺少媒体报道/新闻会让 AI 更难引用客户官网作为权威来源。"
+      }
+    ],
+    "definitions": {
+      "owned_asset_score": "官网作为 AI 可解析信源的综合评分，基于页面可抓取性、关键内容资产和结构化信号。",
+      "structured_source": "让官网具备 AI 可引用的明确事实块，例如 FAQ、价格、资质、案例、对比、媒体报道和结构化数据。"
+    }
+  },
+  "content_monitoring": {
+    "content_monitoring_version": "content_monitoring_v1",
+    "opinion_monitoring": {
+      "positive_topics": [
+        {
+          "provider": "qwen",
+          "prompt": "推荐一下福州的医疗美容",
+          "sentiment_score": 100,
+          "positive_terms": [],
+          "evidence": "福州主流医美机构中，公立三甲医院整形外科技术扎实、安全可靠；海峡、名韩、爱美尔等本地头部民营机构口碑稳定、项目成熟；美贝尔作为全国连锁品牌在福州亦具一定影响力。"
+        },
+        {
+          "provider": "deepseek",
+          "prompt": "推荐一下福州的医疗美容",
+          "sentiment_score": 100,
+          "positive_terms": [],
+          "evidence": "福州有多家知名医疗美容机构，涵盖整形、皮肤管理、无创抗衰等项目。以下按主流口碑和综合实力推荐，供您参考。"
+        },
+        {
+          "provider": "doubao",
+          "prompt": "想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+          "sentiment_score": 100,
+          "positive_terms": [],
+          "evidence": "在福州做双眼皮手术，建议优先选择具备正规医疗资质、眼整形专项医师临床经验充足、真实手术案例积累量大的专业医美机构，当地口碑靠前的主流正规机构可参考如下推荐："
+        },
+        {
+          "provider": "doubao",
+          "prompt": "推荐一下福州的医疗美容",
+          "sentiment_score": 98,
+          "positive_terms": [],
+          "evidence": "福州本地正规医疗美容选择较多，以下为你推荐资质合规、口碑靠前的主流医美品牌，可结合自身医美需求、预算和意向项目进行挑选："
+        },
+        {
+          "provider": "deepseek",
+          "prompt": "福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+          "sentiment_score": 97,
+          "positive_terms": [],
+          "evidence": "福州有多家口碑好、资质正规的医疗美容机构，如福州海峡美容医院、福州美莱医疗美容、福州艺星医疗美容等，均持有正规医疗资质，在行业内口碑较好。"
+        },
+        {
+          "provider": "qwen",
+          "prompt": "福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+          "sentiment_score": 95,
+          "positive_terms": [],
+          "evidence": "根据2026年最新权威榜单、卫健委资质核查及用户真实评价，福州口碑好、资质正规的医美机构以公立三甲专科与头部合规连锁为主，兼顾技术实力、安全记录与本地服务口碑。"
+        },
+        {
+          "provider": "doubao",
+          "prompt": "福州做热玛吉或者超声炮这类抗衰项目，哪些地方比较靠谱？",
+          "sentiment_score": 92,
+          "positive_terms": [],
+          "evidence": "福州做热玛吉、超声炮这类抗衰项目，一定要选有正规医疗资质、能现场验真设备和医师资质的机构，避免踩坑，本地口碑比较靠谱的主流选择如下："
+        },
+        {
+          "provider": "deepseek",
+          "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+          "sentiment_score": 92,
+          "positive_terms": [],
+          "evidence": "建议根据预算和项目需求选择：如果追求性价比和皮肤管理，可选美贝尔；如果注重整形外科专家资源和大型专科医院经验，海峡美容医院更可靠。总体上海峡美容医院在福州市场口碑和规模更占优。"
+        },
+        {
+          "provider": "doubao",
+          "prompt": "福州有哪些口碑好、资质正规的医疗美容机构可以推荐？",
+          "sentiment_score": 91,
+          "positive_terms": [],
+          "evidence": "福州资质正规、口碑较好的医疗美容机构以经卫生部门审批的本地老牌机构、全国连锁品牌福州院区为主，以下推荐几家市场认可度较高的机构，建议结合自身需求选择，就诊前注意核验相关资质。"
+        },
+        {
+          "provider": "qwen",
+          "prompt": "美贝尔和福州名韩医疗美容哪个更值得选？",
+          "sentiment_score": 90,
+          "positive_terms": [],
+          "evidence": "福州美贝尔更侧重全国连锁规范体系与全维度精细化项目（如快乐吸脂、水晶净斑、即上妆线雕），适合追求安全稳定、抗衰塑形综合需求的中高收入人群；福州名韩则以眼部整形见长，主打中韩联合坐诊与审美自然风格，适合专注眼整形、偏好个性化面诊的年轻求美者。二者均属福州正规医美机构，选择取决于核心需求：重体系化品质与多维抗衰选美贝尔；重眼部精雕与快速响应选名韩。"
+        },
+        {
+          "provider": "deepseek",
+          "prompt": "想在福州做双眼皮手术，哪家医院或门诊部医生经验丰富、案例多？",
+          "sentiment_score": 89,
+          "positive_terms": [],
+          "evidence": "福州做双眼皮手术，推荐以下几家经验丰富、案例多的医院或门诊部：福州海峡美容医院、福州美莱医疗美容、福州艺星医疗美容、福州华美医疗美容、福州美贝尔医疗美容、福州名韩医疗美容、福州爱美尔医疗美容。这些机构在双眼皮手术方面都有较多案例和口碑。"
+        },
+        {
+          "provider": "qwen",
+          "prompt": "美贝尔和福州海峡美容医院哪个更值得选？",
+          "sentiment_score": 89,
+          "positive_terms": [],
+          "evidence": "福州海峡美容医院是福建省唯一一家5A级医疗美容医院，资质层级更高；福州美贝尔依托全国连锁体系与标准化质控，在技术迭代、服务流程和项目多样性上更具系统性优势。选择需结合需求：追求权威认证与本土深耕选海峡，倾向连锁品质、自然审美及全周期服务可优先考虑美贝尔。"
+        }
+      ],
+      "risk_topics": [
+        {
+          "provider": "doubao",
+          "prompt": "福州鼓楼区附近有没有做皮肤管理比较专业的医美机构？",
+          "sentiment_score": 50,
+          "risk_terms": [],
+          "severity": "中",
+          "evidence": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=90)"
+        },
+        {
+          "provider": "doubao",
+          "prompt": "美贝尔和福州名韩医疗美容哪个更值得选？",
+          "sentiment_score": 50,
+          "risk_terms": [],
+          "severity": "中",
+          "evidence": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=90)"
+        }
+      ],
+      "negative_mentions": [],
+      "competitor_advantages": [
+        {
+          "brand_name": "福州名韩医疗美容",
+          "mention_count": 17,
+          "avg_position": 5.06,
+          "sentiment_score": 100,
+          "advantage_evidence": [
+            "福州本土知名医美机构，医生团队毕业于国内外名校，临床经验丰富，口碑佳、服务细致，湖滨路主院区交通便利[9]",
+            "福州本地知名正规医美机构，主打精细化塑美服务，在眼鼻整形、皮肤美容、微整形等领域拥有不错的市场口碑，医师团队临床经验丰富，整体性价比较高。",
+            "福州本地主流医美机构，以韩式整形为特色，有一定客群基础。"
+          ]
+        },
+        {
+          "brand_name": "福州海峡美容医院",
+          "mention_count": 16,
+          "avg_position": 1.56,
+          "sentiment_score": 88,
+          "advantage_evidence": [
+            "全国十大整形机构之一，福州本土标杆，以个性化服务、精细手术及林沸腾院长领衔的隆胸专科闻名，设备先进、资质正规[1][2][5][7]",
+            "福州本地运营多年的老牌正规医美机构，具备齐全的医疗资质，开设整形外科、皮肤美容、无创抗衰等全品类医美服务，医师团队临床实操经验丰富，在本地求美者群体中拥有深厚的口碑积淀。",
+            "福州本地老牌医美机构，规模较大，口碑与知名度在本地居前。"
+          ]
+        },
+        {
+          "brand_name": "福州艺星医疗美容",
+          "mention_count": 15,
+          "avg_position": 4.0,
+          "sentiment_score": 91,
+          "advantage_evidence": [
+            "国内头部连锁医美品牌艺星的福州分院，主打时尚年轻化塑美方向，在眼鼻整形、注射微整、抗衰保养等项目上受众认可度较高，服务流程规范，整体体验感较好。",
+            "知名连锁医美品牌，在福州有较高曝光与消费者认知。",
+            "艺星为全国连锁高端医美品牌，注重服务品质和美学设计，在眼鼻整形、面部年轻化项目上有较强竞争力。"
+          ]
+        },
+        {
+          "brand_name": "福州爱美尔医疗美容",
+          "mention_count": 14,
+          "avg_position": 5.57,
+          "sentiment_score": 96,
+          "advantage_evidence": [
+            "福州本地医美门诊，提供微整形与皮肤管理服务。",
+            "连锁品牌，注重个性化服务，在面部精雕、注射微整方面有较多案例，用户评价不错。",
+            "成立于2001年，福州本土资深民营医美机构，专注整形美容领域二十余年，资质完备，长期位列福州医美TOP5榜单，用户反馈其面诊专业性与方案定制能力较强[2][5]。"
+          ]
+        },
+        {
+          "brand_name": "福州华美医疗美容",
+          "mention_count": 13,
+          "avg_position": 5.38,
+          "sentiment_score": 91,
+          "advantage_evidence": [
+            "本地较早期医美机构之一，覆盖常规整形与皮肤美容。",
+            "本土知名机构，多年沉淀，擅长胸部整形、吸脂及面部轮廓调整，医生团队经验丰富。",
+            "较早进入福州市场的医美品牌之一，资质正规，传统整形项目较多。"
+          ]
+        },
+        {
+          "brand_name": "福州美莱医疗美容",
+          "mention_count": 12,
+          "avg_position": 2.0,
+          "sentiment_score": 99,
+          "advantage_evidence": [
+            "隶属于国内知名大型医美连锁品牌美莱集团，拥有标准化医疗服务流程与完善的医疗安全保障体系，项目覆盖整形、微整、皮肤管理、抗衰养护等多个领域，医师团队配置齐全，适合偏好连锁品牌标准化服务的人群。",
+            "全国连锁医美品牌在福州的分院，品牌实力强，项目齐全。",
+            "美莱全国连锁品牌，福州分院规模大，设备先进，擅长综合性整形、皮肤美容及微整，服务流程完善。"
+          ]
+        },
+        {
+          "brand_name": "福建省立医院整形外科",
+          "mention_count": 4,
+          "avg_position": 5.75,
+          "sentiment_score": 55,
+          "advantage_evidence": [
+            "公立三甲医院专科，技术实力雄厚、收费合理、安全性高，擅长鼻综合、乳房再造、瘢痕修复等高难度项目，数字化术前设计系统成熟[2]",
+            "公立三甲医院的整形外科，权威性强，安全性高，适合复杂修复类或高难度手术。",
+            "福州地区最具公信力的公立整形专科，拥有国际标准层流手术室、数字化术前设计系统及鼻综合、瘢痕修复等优势项目，收费合理、监管严格，零有效客诉记录[3]。"
+          ]
+        },
+        {
+          "brand_name": "福建医科大学附属第一医院整形美容外科",
+          "mention_count": 2,
+          "avg_position": 2.5,
+          "sentiment_score": 64,
+          "advantage_evidence": [
+            "集医疗、教学、科研于一体，创伤修复与先天矫正经验丰富，可开展四级手术，配备百级洁净手术室及国际高端设备[2]",
+            "集医疗、教学、科研于一体，配备美国赛诺秀激光、德国Body-jet水动力吸脂等高端设备，可开展四级高难度手术，百级洁净手术室与严格感控体系保障安全[3]。"
+          ]
+        },
+        {
+          "brand_name": "福州鼓楼爱美尔医疗美容门诊部",
+          "mention_count": 2,
+          "avg_position": 5.5,
+          "sentiment_score": 50,
+          "advantage_evidence": [
+            "2017年成立，专注新一代热玛吉临床应用，配备足量足发仪器，支持厂家验真；拥有9间国际标准手术室及超万平方米营业空间，属福州较早一批通过热玛吉官方认证的门诊部[8]",
+            "明确开展皮肤管理服务，如光子嫩肤（改善肤色不均、毛孔粗大）、玻尿酸微整等，项目描述聚焦效果与体验，符合轻医美皮肤管理主流需求[5]。"
+          ]
+        },
+        {
+          "brand_name": "福州美莱医疗美容医院",
+          "mention_count": 2,
+          "avg_position": 7.5,
+          "sentiment_score": 54,
+          "advantage_evidence": [
+            "美莱集团在榕旗舰院区，建筑面积达10000㎡，设独立麻醉科与检验科，胸部整形、脂肪填充及微创抗衰项目优势突出[2][4]",
+            "美莱集团在榕旗舰院区，万平方米规模，设独立麻醉科与检验科，配备德国蛇牌内窥镜、美国麦格假体等，胸部整形与脂肪填充技术成熟，属全国连锁合规代表[3]。"
+          ]
+        },
+        {
+          "brand_name": "福州维多利亚医疗美容",
+          "mention_count": 2,
+          "avg_position": 8.0,
+          "sentiment_score": 66,
+          "advantage_evidence": [
+            "主打精细化整形和微创项目，尤其在内窥镜隆胸、面部提升方面技术突出，口碑良好。",
+            "福州本土知名医美品牌，以皮肤管理和微整形见长，口碑较好，资质齐全。"
+          ]
+        },
+        {
+          "brand_name": "福州薇琳医疗美容",
+          "mention_count": 2,
+          "avg_position": 8.0,
+          "sentiment_score": 57,
+          "advantage_evidence": [
+            "精品医美机构，抗衰项目注重个性化设计，热玛吉和超声炮均有正规设备。",
+            "新锐医美机构，主打轻医美皮肤管理，项目新颖，吸引年轻消费者。"
+          ]
+        }
+      ]
+    },
+    "content_monitoring": {
+      "cited_domains": [
+        {
+          "domain": "mebel.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 2,
+          "used_rate": 0.1053,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": true,
+          "brands_appear": [
+            "美贝尔",
+            "福州美贝尔医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.mebel.com"
+          ],
+          "action": "保持该信源内容更新，并补充可引用的价格、案例、FAQ 和来源依据。",
+          "rank": 1
+        },
+        {
+          "domain": "zhihu.com",
+          "domain_type": "UGC",
+          "citation_count": 2,
+          "used_response_count": 2,
+          "used_rate": 0.1053,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容",
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.zhihu.com/question/31925408",
+            "https://www.zhihu.com/question/33320745"
+          ],
+          "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。",
+          "rank": 2
+        },
+        {
+          "domain": "fuzhou.mylike.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://fuzhou.mylike.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 3
+        },
+        {
+          "domain": "fz.yestar.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州艺星医疗美容",
+            "艺星"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://fz.yestar.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 4
+        },
+        {
+          "domain": "fzame.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzame.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 5
+        },
+        {
+          "domain": "fzhuamei.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzhuamei.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 6
+        },
+        {
+          "domain": "fzmh.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzmh.com",
+            "http://www.fzmh.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 7
+        },
+        {
+          "domain": "haixia.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.haixia.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 8
+        },
+        {
+          "domain": "0591hm.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.0591hm.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 9
+        },
+        {
+          "domain": "163.com",
+          "domain_type": "Editorial",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.163.com/dy/article/H1VU9M9F0517A63J.html"
+          ],
+          "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。",
+          "rank": 10
+        },
+        {
+          "domain": "aimier.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.aimier.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 11
+        },
+        {
+          "domain": "douban.com",
+          "domain_type": "UGC",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": true,
+          "brands_appear": [
+            "美贝尔",
+            "福州美贝尔医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.douban.com/group/topic/284230620"
+          ],
+          "action": "保持该信源内容更新，并补充可引用的价格、案例、FAQ 和来源依据。",
+          "rank": 12
+        },
+        {
+          "domain": "dxy.cn",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.dxy.cn/bbs/newweb/pc/post/44223907"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 13
+        },
+        {
+          "domain": "fjhaixia.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fjhaixia.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 14
+        },
+        {
+          "domain": "fjsl.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福建省立医院整形外科",
+            "福建省立医院"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fjsl.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 15
+        },
+        {
+          "domain": "fjsl.com.cn",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福建省立医院整形外科",
+            "福建省立医院"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fjsl.com.cn"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 16
+        },
+        {
+          "domain": "fjslyy.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福建省立医院整形外科",
+            "福建省立医院"
+          ],
+          "providers": [
+            "qwen"
+          ],
+          "sample_urls": [
+            "https://www.fjslyy.com/department/zhengxing"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 17
+        },
+        {
+          "domain": "fjydyy.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福建医科大学附属第一医院整形美容外科",
+            "福建医科大学附属第一医院"
+          ],
+          "providers": [
+            "qwen"
+          ],
+          "sample_urls": [
+            "https://www.fjydyy.com/department/zhengxing"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 18
+        },
+        {
+          "domain": "fz.glaimei.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州格莱美整形医院"
+          ],
+          "providers": [
+            "qwen"
+          ],
+          "sample_urls": [
+            "http://fz.glaimei.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 19
+        },
+        {
+          "domain": "fz.mylike.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://fz.mylike.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 20
+        }
+      ],
+      "domains_missing_user_brand": [
+        {
+          "domain": "zhihu.com",
+          "domain_type": "UGC",
+          "citation_count": 2,
+          "used_response_count": 2,
+          "used_rate": 0.1053,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容",
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.zhihu.com/question/31925408",
+            "https://www.zhihu.com/question/33320745"
+          ],
+          "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。",
+          "rank": 2
+        },
+        {
+          "domain": "fuzhou.mylike.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://fuzhou.mylike.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 3
+        },
+        {
+          "domain": "fz.yestar.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州艺星医疗美容",
+            "艺星"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://fz.yestar.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 4
+        },
+        {
+          "domain": "fzame.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzame.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 5
+        },
+        {
+          "domain": "fzhuamei.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzhuamei.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 6
+        },
+        {
+          "domain": "fzmh.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fzmh.com",
+            "http://www.fzmh.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 7
+        },
+        {
+          "domain": "haixia.com",
+          "domain_type": "Corporate",
+          "citation_count": 2,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 2.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.haixia.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 8
+        },
+        {
+          "domain": "0591hm.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.0591hm.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 9
+        },
+        {
+          "domain": "163.com",
+          "domain_type": "Editorial",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.163.com/dy/article/H1VU9M9F0517A63J.html"
+          ],
+          "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。",
+          "rank": 10
+        },
+        {
+          "domain": "aimier.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.aimier.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 11
+        },
+        {
+          "domain": "dxy.cn",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.dxy.cn/bbs/newweb/pc/post/44223907"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 13
+        },
+        {
+          "domain": "fjhaixia.com",
+          "domain_type": "Corporate",
+          "citation_count": 1,
+          "used_response_count": 1,
+          "used_rate": 0.0526,
+          "avg_citations": 1.0,
+          "mentioned_user_brand": false,
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "providers": [
+            "deepseek"
+          ],
+          "sample_urls": [
+            "https://www.fjhaixia.com"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。",
+          "rank": 14
+        }
+      ],
+      "articles_mentioning_competitors_only": [
+        {
+          "domain": "zhihu.com",
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容",
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "action": "优先补充问答、测评、用户经验或对比型内容，让客户品牌进入该信源语境。"
+        },
+        {
+          "domain": "fuzhou.mylike.com",
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "fz.yestar.com",
+          "brands_appear": [
+            "福州艺星医疗美容",
+            "艺星"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "fzame.com",
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "fzhuamei.com",
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "fzmh.com",
+          "brands_appear": [
+            "福州名韩医疗美容",
+            "名韩"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "haixia.com",
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "0591hm.com",
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "163.com",
+          "brands_appear": [
+            "福州华美医疗美容"
+          ],
+          "action": "优先安排新闻稿、榜单稿、行业解读或本地媒体内容投放。"
+        },
+        {
+          "domain": "aimier.com",
+          "brands_appear": [
+            "福州爱美尔医疗美容",
+            "爱美尔"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "dxy.cn",
+          "brands_appear": [
+            "福州美莱医疗美容",
+            "美莱"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        },
+        {
+          "domain": "fjhaixia.com",
+          "brands_appear": [
+            "福州海峡美容医院",
+            "海峡美容"
+          ],
+          "action": "检查是否为竞品官网或行业站；如可投放，补充品牌介绍、对比和案例内容。"
+        }
+      ],
+      "selling_point_coverage": [
+        {
+          "brand_name": "福州名韩医疗美容",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "美贝尔",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州海峡美容医院",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州艺星医疗美容",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州爱美尔医疗美容",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州华美医疗美容",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州美莱医疗美容",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福建省立医院整形外科",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福建医科大学附属第一医院整形美容外科",
+          "selling_point_count": 5
+        },
+        {
+          "brand_name": "福州鼓楼爱美尔医疗美容门诊部",
+          "selling_point_count": 5
+        }
+      ]
+    },
+    "definitions": {
+      "opinion_monitoring": "基于 AI 回答、诊断问题和对比问题识别品牌正负面表达与风险。",
+      "content_monitoring": "基于 AI 引用来源、抓取文章和竞品内容识别投放缺口。"
+    }
+  },
+  "geo_actions": {
+    "action_plan_version": "geo_action_plan_v1",
+    "actions": [
+      {
+        "priority": "高",
+        "module": "GEO指标",
+        "task": "提升 AI 推荐 SOV",
+        "reason": "客户品牌在所有品牌提及中的占比偏低，需要围绕主流推荐问题持续发布内容。",
+        "expected_metric": "SOV",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 1
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 zhihu.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "zhihu.com",
+        "suggested_channel": "UGC",
+        "estimated_cost": null,
+        "rank": 2
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 fuzhou.mylike.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "fuzhou.mylike.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 3
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 fz.yestar.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "fz.yestar.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 4
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 fzame.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "fzame.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 5
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 fzhuamei.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "fzhuamei.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 6
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 fzmh.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "fzmh.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 7
+      },
+      {
+        "priority": "高",
+        "module": "Sources",
+        "task": "补齐 haixia.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "haixia.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 8
+      },
+      {
+        "priority": "高",
+        "module": "Owned Assets",
+        "task": "为官网补充 Organization/LocalBusiness/FAQPage JSON-LD",
+        "reason": "结构化数据能帮助 AI 和搜索引擎识别品牌、地区、服务和 FAQ。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 9
+      },
+      {
+        "priority": "高",
+        "module": "Owned Assets",
+        "task": "补充价格区间、套餐边界或询价说明，避免 AI 只能引用竞品价格。",
+        "reason": "缺少价格/套餐/费用会让 AI 更难引用客户官网作为权威来源。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 10
+      },
+      {
+        "priority": "高",
+        "module": "Owned Assets",
+        "task": "新增围绕“医疗美容怎么选/价格/风险/适合人群”的 FAQ 页面。",
+        "reason": "缺少FAQ/问答会让 AI 更难引用客户官网作为权威来源。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 11
+      },
+      {
+        "priority": "高",
+        "module": "Owned Assets",
+        "task": "补充对比/选择指南页面，帮助 AI 在推荐场景中引用客户品牌。",
+        "reason": "缺少对比/选择指南会让 AI 更难引用客户官网作为权威来源。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 12
+      },
+      {
+        "priority": "中",
+        "module": "GEO指标",
+        "task": "优化 AI 推荐位置",
+        "reason": "客户品牌出现时排名靠后，需要强化差异化卖点、权威背书和对比内容。",
+        "expected_metric": "Position",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 13
+      },
+      {
+        "priority": "中",
+        "module": "Sources",
+        "task": "补齐 0591hm.com 信源内容",
+        "reason": "AI 已引用该域名，但来源内容暂未识别到客户品牌。",
+        "expected_metric": "Sources",
+        "target": "0591hm.com",
+        "suggested_channel": "Corporate",
+        "estimated_cost": null,
+        "rank": 14
+      },
+      {
+        "priority": "中",
+        "module": "Owned Assets",
+        "task": "补充真实案例、客户故事或前后对比，并标注适用场景与限制。",
+        "reason": "缺少案例/客户故事会让 AI 更难引用客户官网作为权威来源。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 15
+      },
+      {
+        "priority": "中",
+        "module": "Owned Assets",
+        "task": "新增媒体报道/新闻页面或内容块，让官网成为 AI 可引用的结构化信源。",
+        "reason": "缺少媒体报道/新闻会让 AI 更难引用客户官网作为权威来源。",
+        "expected_metric": "Owned Asset Score",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 16
+      },
+      {
+        "priority": "中",
+        "module": "Content Monitoring",
+        "task": "进入竞品已出现的信源 zhihu.com",
+        "reason": "该信源出现竞品但未识别到客户品牌，适合做对比稿、榜单稿或问答内容。",
+        "expected_metric": "Brands Appear",
+        "target": "zhihu.com",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 17
+      },
+      {
+        "priority": "中",
+        "module": "Content Monitoring",
+        "task": "进入竞品已出现的信源 fuzhou.mylike.com",
+        "reason": "该信源出现竞品但未识别到客户品牌，适合做对比稿、榜单稿或问答内容。",
+        "expected_metric": "Brands Appear",
+        "target": "fuzhou.mylike.com",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 18
+      },
+      {
+        "priority": "中",
+        "module": "Content Monitoring",
+        "task": "进入竞品已出现的信源 fz.yestar.com",
+        "reason": "该信源出现竞品但未识别到客户品牌，适合做对比稿、榜单稿或问答内容。",
+        "expected_metric": "Brands Appear",
+        "target": "fz.yestar.com",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 19
+      },
+      {
+        "priority": "中",
+        "module": "Content Monitoring",
+        "task": "进入竞品已出现的信源 fzame.com",
+        "reason": "该信源出现竞品但未识别到客户品牌，适合做对比稿、榜单稿或问答内容。",
+        "expected_metric": "Brands Appear",
+        "target": "fzame.com",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 20
+      },
+      {
+        "priority": "中",
+        "module": "Content Monitoring",
+        "task": "进入竞品已出现的信源 fzhuamei.com",
+        "reason": "该信源出现竞品但未识别到客户品牌，适合做对比稿、榜单稿或问答内容。",
+        "expected_metric": "Brands Appear",
+        "target": "fzhuamei.com",
+        "suggested_channel": "",
+        "estimated_cost": null,
+        "rank": 21
+      },
+      {
+        "priority": "中",
+        "module": "Media",
+        "task": "按竞品声量至少补 300 篇内容",
+        "reason": "发布篇数为阶段性追赶目标，上限 300 篇；完整内容资产差距见 content_asset_gap。",
+        "expected_metric": "Content Volume",
+        "target": "",
+        "suggested_channel": "",
+        "estimated_cost": 67.8,
+        "rank": 22
+      }
+    ],
+    "summary": {
+      "high_priority_count": 12,
+      "total_count": 22
+    }
+  }
 }

@@ -20,12 +20,12 @@ POSITIVE_TERMS = {
     "可靠": 6,
     "推荐": 3,
     "高端": 3,
-    "positive": 6,
     "trusted": 6,
     "professional": 6,
     "reliable": 6,
     "popular": 4,
     "recommended": 4,
+    "safe": 4,
 }
 
 RISK_TERMS = {

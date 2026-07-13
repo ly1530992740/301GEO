@@ -7,12 +7,17 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from .action_planner import build_action_plan
+from .content_monitoring import build_content_monitoring
+from .geo_metrics import build_standard_geo_metrics
 from .geo_visibility_metrics import (
     build_brand_visibility_metrics,
     build_geo_visibility_summary,
     build_prompt_visibility_rows,
     build_provider_visibility_matrix,
 )
+from .owned_asset_audit import audit_owned_assets
+from .source_intelligence import build_source_intelligence
 from .topic_analysis import derive_content_topic_analysis
 from .utils import write_text
 
@@ -175,6 +180,26 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
                 f"| {_cell(item.get('brand_name'))} | {item.get('mention_count', 0)} | {_cell(_display_rank(item.get('avg_position')))} | {item.get('sentiment_score', 50)} | {round(float(item.get('share_of_voice') or 0) * 100, 1)}% |"
             )
         lines.append("")
+    standard_geo_metrics = analysis_data.get("standard_geo_metrics") or {}
+    if standard_geo_metrics:
+        lines.extend(_standard_geo_metrics_markdown(standard_geo_metrics))
+
+    source_intelligence = analysis_data.get("source_intelligence") or {}
+    if source_intelligence:
+        lines.extend(_source_intelligence_markdown(source_intelligence))
+
+    owned_asset_audit = analysis_data.get("owned_asset_audit") or {}
+    if owned_asset_audit:
+        lines.extend(_owned_asset_audit_markdown(owned_asset_audit))
+
+    content_monitoring = analysis_data.get("content_monitoring") or {}
+    if content_monitoring:
+        lines.extend(_content_monitoring_markdown(content_monitoring))
+
+    geo_actions = analysis_data.get("geo_actions") or {}
+    if geo_actions:
+        lines.extend(_geo_actions_markdown(geo_actions))
+
     if trend.get("fallback_used"):
         lines.extend([f"## {labels['fallback']}", "", trend.get("fallback_note") or "Fallback terms were used.", ""])
 
@@ -340,6 +365,7 @@ def build_html_report(analysis_data: dict[str, Any], labels: dict[str, str], mar
     competitor_discovery = analysis_data.get("competitor_discovery") or {}
     trend = analysis_data.get("trend_discovery") or {}
     ranking = analysis_data.get("ai_recommendation_ranking") or analysis_data.get("brand_ranking") or []
+    brand_visibility_metrics = analysis_data.get("brand_visibility_metrics") or []
     search_ranking = analysis_data.get("search_visibility_ranking") or []
     search_volume = analysis_data.get("search_volume_ranking") or []
     visibility_strategy = analysis_data.get("visibility_query_strategy") or {}
@@ -458,6 +484,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     payload = _dashboard_payload(analysis_data)
     visibility_summary = analysis_data.get("geo_visibility_summary") or {}
     ranking = analysis_data.get("ai_recommendation_ranking") or analysis_data.get("brand_ranking") or []
+    brand_visibility_metrics = analysis_data.get("brand_visibility_metrics") or []
     search_ranking = analysis_data.get("search_visibility_ranking") or []
     search_volume = analysis_data.get("search_volume_ranking") or []
     gap_ranking = analysis_data.get("competitive_gap_ranking") or []
@@ -477,12 +504,23 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     question_table = _dashboard_question_table(analysis_data)
     competitor_table = _provider_recommendation_table(_provider_recommendation_rows(analysis_data.get("recommendation_items") or []))
     diagnostic_table = _prompt_run_table(analysis_data.get("brand_diagnostic_prompt_runs") or [])
+    sentiment_mapping_table = _sentiment_mapping_table(brand_visibility_metrics[:15])
     comparison_table = _prompt_run_table(analysis_data.get("comparison_prompt_runs") or [])
     search_visibility_table = _search_visibility_table(search_ranking)
     gap_table = _gap_table(gap_ranking)
     platform_detail_table = _visibility_platform_table(search_volume)
     article_table = _source_article_table(source_articles)
     topic_table = _topic_table(topics.get("topics") or [])
+    standard_geo_metrics = analysis_data.get("standard_geo_metrics") or {}
+    source_intelligence = analysis_data.get("source_intelligence") or {}
+    owned_asset_audit = analysis_data.get("owned_asset_audit") or {}
+    content_monitoring = analysis_data.get("content_monitoring") or {}
+    geo_actions = analysis_data.get("geo_actions") or {}
+    geo_metrics_table = _dashboard_geo_metrics_table(standard_geo_metrics)
+    source_intelligence_table = _dashboard_source_intelligence_table(source_intelligence)
+    owned_asset_table = _dashboard_owned_asset_table(owned_asset_audit)
+    content_monitoring_table = _dashboard_content_monitoring_table(content_monitoring)
+    geo_actions_table = _dashboard_geo_actions_table(geo_actions)
     content_report = analysis_data.get("content_pattern_report") or ""
     content_report_block = (
         f'<details class="details"><summary>查看完整品牌调研与市场定位文字报告</summary><pre class="markdown">{html.escape(content_report)}</pre></details>'
@@ -577,6 +615,14 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div id="promptSuccessPie" class="chart"></div>
       <div id="providerMentionHeatmap" class="chart"></div>
     </div>
+    <h3>GEO 指标定义</h3>
+    <div class="table-wrap">{geo_metrics_table}</div>
+    <div class="grid2">
+      <div id="actionPriorityPie" class="chart"></div>
+      <div id="actionModuleBar" class="chart"></div>
+    </div>
+    <h3>Actions 优化待办清单</h3>
+    <div class="table-wrap">{geo_actions_table}</div>
   </section>
 
   <section id="step1">
@@ -588,6 +634,12 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div id="recommendationSourcePie" class="chart"></div>
       <div id="recommendationHeatmap" class="chart"></div>
     </div>
+    <h3>AI 推荐引用信源</h3>
+    <div class="grid2">
+      <div id="sourceTypePie" class="chart"></div>
+      <div id="sourceCitationBar" class="chart"></div>
+    </div>
+    <div class="table-wrap">{source_intelligence_table}</div>
     <h3>竞品校准（按 AI 平台展示）</h3>
     <div class="table-wrap">{competitor_table}</div>
     <h3>品牌诊断（不参与主推荐排名）</h3>
@@ -630,6 +682,15 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     </div>
     <div id="assetScoreChart" class="chart wide"></div>
     <div id="articleStatusPie" class="chart"></div>
+    <h3>官网结构化信源审计</h3>
+    <div id="ownedAssetBar" class="chart"></div>
+    <div class="table-wrap">{owned_asset_table}</div>
+    <h3>内容监控与舆情监控</h3>
+    <div class="grid2">
+      <div id="riskTopicBar" class="chart"></div>
+      <div id="competitorAdvantageBar" class="chart"></div>
+    </div>
+    <div class="table-wrap">{content_monitoring_table}</div>
     <h3>文章抓取明细</h3>
     <div class="table-wrap">{article_table}</div>
     <h3>内容主题分布</h3>
@@ -675,6 +736,13 @@ plot("assetScoreChart", D.assetScores.traces, {{title:"数字资产评分", barm
 plot("articleStatusPie", [{{type:"pie", labels:D.articleStatus.labels, values:D.articleStatus.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"文章链接抓取状态"}});
 plot("topicChart", [{{type:"pie", labels:C.topics.labels, values:C.topics.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"内容主题分布"}});
 plot("topicMatrixChart", [{{type:"heatmap", x:C.topicMatrix.x, y:C.topicMatrix.y, z:C.topicMatrix.z, colorscale:"Blues"}}], {{title:"品牌内容重点矩阵"}});
+plot("actionPriorityPie", [{{type:"pie", labels:D.actionPriority.labels, values:D.actionPriority.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Actions 优先级占比"}});
+plot("actionModuleBar", [{{type:"bar", x:D.actionModules.values, y:D.actionModules.labels, orientation:"h", marker:{{color:"#475569"}}}}], {{title:"Actions 模块分布", xaxis:{{title:"任务数"}}}});
+plot("sourceTypePie", [{{type:"pie", labels:D.sourceTypes.labels, values:D.sourceTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 引用信源类型"}});
+plot("sourceCitationBar", [{{type:"bar", x:D.sourceCitations.values, y:D.sourceCitations.labels, orientation:"h", marker:{{color:"#0ea5e9"}}}}], {{title:"AI 引用域名次数 Top", xaxis:{{title:"引用次数"}}}});
+plot("ownedAssetBar", [{{type:"bar", x:D.ownedAssets.values, y:D.ownedAssets.labels, orientation:"h", marker:{{color:D.ownedAssets.colors}}}}], {{title:"官网结构化信源资产检查", xaxis:{{title:"是否具备", range:[0,1]}}, yaxis:{{automargin:true}}}});
+plot("riskTopicBar", [{{type:"bar", x:D.riskTopics.values, y:D.riskTopics.labels, orientation:"h", marker:{{color:"#dc2626"}}}}], {{title:"舆情风险问题", xaxis:{{title:"风险强度"}}}});
+plot("competitorAdvantageBar", [{{type:"bar", x:D.competitorAdvantages.values, y:D.competitorAdvantages.labels, orientation:"h", marker:{{color:"#2563eb"}}}}], {{title:"竞品优势提及", xaxis:{{title:"AI提及次数"}}}});
 </script>
 </body>
 </html>"""
@@ -760,6 +828,109 @@ def _sentiment_mapping_table(rows: list[dict[str, Any]]) -> str:
         body.append(f"<tr><td>{index}</td><td>{brand}</td><td>{brand_type}</td><td>{score}</td></tr>")
     return '<table><thead><tr><th>No.</th><th>Brand</th><th>Brand Type</th><th>Sentiment Score</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table>'
 
+
+def _dashboard_geo_metrics_table(metrics: dict[str, Any]) -> str:
+    rows = [
+        ("Visibility", metrics.get("visibility") or {}),
+        ("Sentiment", metrics.get("sentiment") or {}),
+        ("Position", metrics.get("position") or {}),
+        ("SOV", metrics.get("sov") or {}),
+        ("Prompt 成功率", metrics.get("prompt_success") or {}),
+    ]
+    body = []
+    for name, item in rows:
+        value = item.get("value_label") or item.get("score") or item.get("avg_rank") or ""
+        body.append(
+            f"<tr><td>{html.escape(str(name))}</td><td>{html.escape(str(value))}</td><td>{html.escape(str(item.get('formula') or ''))}</td><td>{html.escape(str(item.get('business_meaning') or ''))}</td></tr>"
+        )
+    return "<table><thead><tr><th>指标</th><th>当前值</th><th>计算方式</th><th>业务含义</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def _dashboard_source_intelligence_table(source_intelligence: dict[str, Any]) -> str:
+    rows = source_intelligence.get("domain_summary") or []
+    if not rows:
+        return '<p class="note">暂无 AI 引用信源数据。</p>'
+    body = []
+    for item in rows[:15]:
+        body.append(
+            f"<tr><td>{html.escape(str(item.get('rank', '')))}</td><td>{html.escape(str(item.get('domain', '')))}</td><td>{html.escape(str(item.get('domain_type', '')))}</td><td>{html.escape(str(item.get('citation_count', 0)))}</td><td>{round(float(item.get('used_rate') or 0) * 100, 1)}%</td><td>{'是' if item.get('mentioned_user_brand') else '否'}</td><td>{html.escape(', '.join(item.get('brands_appear') or []))}</td><td>{html.escape(str(item.get('action') or ''))}</td></tr>"
+        )
+    return "<table><thead><tr><th>排名</th><th>域名</th><th>类型</th><th>引用次数</th><th>Used %</th><th>客户出现</th><th>出现品牌</th><th>建议动作</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def _dashboard_owned_asset_table(audit: dict[str, Any]) -> str:
+    rows = audit.get("asset_checks") or []
+    if not rows:
+        return '<p class="note">暂无官网结构化信源审计数据。</p>'
+    summary = f"<p class=\"note\">官网 AI 可读性评分：{html.escape(str(audit.get('ai_readability_score', 0)))}/100；页面抓取成功：{html.escape(str(audit.get('crawl_success_count', 0)))}/{html.escape(str(audit.get('crawl_total_count', 0)))}</p>"
+    body = []
+    for item in rows:
+        body.append(
+            f"<tr><td>{html.escape(str(item.get('asset_name', '')))}</td><td>{'是' if item.get('present') else '否'}</td><td>{html.escape(str(item.get('recommendation') or ''))}</td></tr>"
+        )
+    return summary + "<table><thead><tr><th>资产项</th><th>是否具备</th><th>建议</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def _dashboard_content_monitoring_table(monitoring: dict[str, Any]) -> str:
+    opinion = monitoring.get("opinion_monitoring") or {}
+    risks = opinion.get("risk_topics") or []
+    advantages = opinion.get("competitor_advantages") or []
+    if not risks and not advantages:
+        return '<p class="note">暂无内容监控与舆情监控数据。</p>'
+    risk_rows = "".join(
+        f"<tr><td>{html.escape(str(item.get('severity', '')))}</td><td>{html.escape(str(item.get('provider', '')))}</td><td>{html.escape(str(item.get('sentiment_score', 50)))}</td><td>{html.escape(', '.join(item.get('risk_terms') or []))}</td><td>{html.escape(str(item.get('evidence') or ''))}</td></tr>"
+        for item in risks[:10]
+    )
+    advantage_rows = "".join(
+        f"<tr><td>{html.escape(str(item.get('brand_name', '')))}</td><td>{html.escape(str(item.get('mention_count', 0)))}</td><td>{html.escape(str(item.get('sentiment_score', 50)))}</td><td>{html.escape('；'.join(item.get('advantage_evidence') or []))}</td></tr>"
+        for item in advantages[:10]
+    )
+    return (
+        "<h4>舆情风险</h4><table><thead><tr><th>严重度</th><th>AI平台</th><th>情绪分</th><th>风险词</th><th>证据</th></tr></thead><tbody>"
+        + risk_rows
+        + "</tbody></table><h4>竞品优势</h4><table><thead><tr><th>品牌</th><th>AI提及</th><th>情绪分</th><th>证据摘要</th></tr></thead><tbody>"
+        + advantage_rows
+        + "</tbody></table>"
+    )
+
+
+def _dashboard_geo_actions_table(plan: dict[str, Any]) -> str:
+    rows = plan.get("actions") or []
+    if not rows:
+        return '<p class="note">暂无 Actions 待办数据。</p>'
+    body = []
+    for item in rows[:20]:
+        body.append(
+            f"<tr><td>{html.escape(str(item.get('rank', '')))}</td><td>{html.escape(str(item.get('priority', '')))}</td><td>{html.escape(str(item.get('module', '')))}</td><td>{html.escape(str(item.get('task', '')))}</td><td>{html.escape(str(item.get('reason', '')))}</td></tr>"
+        )
+    return "<table><thead><tr><th>排名</th><th>优先级</th><th>模块</th><th>任务</th><th>原因</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def _source_citation_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    top = sorted(rows, key=lambda item: int(item.get("citation_count") or 0), reverse=True)[:12]
+    return {"labels": [str(item.get("domain") or "") for item in top], "values": [int(item.get("citation_count") or 0) for item in top]}
+
+
+def _owned_asset_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    labels = [str(item.get("asset_name") or "") for item in rows]
+    values = [1 if item.get("present") else 0 for item in rows]
+    colors = ["#059669" if value else "#dc2626" for value in values]
+    return {"labels": labels, "values": values, "colors": colors}
+
+
+def _risk_topic_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    top = rows[:12]
+    return {
+        "labels": [str(item.get("prompt") or item.get("provider") or "风险项")[:36] for item in top],
+        "values": [max(1, 100 - int(item.get("sentiment_score") or 50)) for item in top],
+    }
+
+
+def _competitor_advantage_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    top = sorted(rows, key=lambda item: int(item.get("mention_count") or 0), reverse=True)[:12]
+    return {"labels": [str(item.get("brand_name") or "") for item in top], "values": [int(item.get("mention_count") or 0) for item in top]}
+
+
 def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
     ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
     brand_metrics = data.get("brand_visibility_metrics") or []
@@ -772,8 +943,19 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
     content = data.get("content_positioning_analysis") or _derive_content_positioning_analysis(data)
     articles = data.get("source_articles") or []
     provider_status = data.get("multi_ai_provider_status") or _provider_status_from_results(data)
+    source_intelligence = data.get("source_intelligence") or {}
+    owned_asset_audit = data.get("owned_asset_audit") or {}
+    content_monitoring = data.get("content_monitoring") or {}
+    geo_actions = data.get("geo_actions") or {}
     return {
         "providerStatusRows": provider_status,
+        "actionPriority": _count_payload(geo_actions.get("actions") or [], "priority", "task"),
+        "actionModules": _count_payload(geo_actions.get("actions") or [], "module", "task"),
+        "sourceTypes": _sum_payload(source_intelligence.get("domain_type_distribution") or [], "domain_type", "count"),
+        "sourceCitations": _source_citation_payload(source_intelligence.get("domain_summary") or []),
+        "ownedAssets": _owned_asset_payload(owned_asset_audit.get("asset_checks") or []),
+        "riskTopics": _risk_topic_payload((content_monitoring.get("opinion_monitoring") or {}).get("risk_topics") or []),
+        "competitorAdvantages": _competitor_advantage_payload((content_monitoring.get("opinion_monitoring") or {}).get("competitor_advantages") or []),
         "ranking": {
             "x": [item.get("brand_name", "") for item in ranking[:20]],
             "y": [item.get("recommendation_count", 0) for item in ranking[:20]],
@@ -1642,7 +1824,155 @@ def enrich_analysis_data(analysis_data: dict[str, Any]) -> dict[str, Any]:
             data.get("media_matches") or {},
             data.get("search_volume_ranking") or data.get("baidu_mentions") or [],
         )
+    if not data.get("standard_geo_metrics"):
+        data["standard_geo_metrics"] = build_standard_geo_metrics(
+            {
+                "neutral_visibility_summary": data.get("neutral_visibility_summary") or {},
+                "geo_visibility_summary": data.get("geo_visibility_summary") or {},
+                "brand_diagnostic_summary": data.get("brand_diagnostic_summary") or {},
+                "prompt_runs": data.get("prompt_runs") or [],
+                "brand_visibility_metrics": data.get("brand_visibility_metrics") or [],
+                "recommendation_items": data.get("recommendation_items") or [],
+            }
+        )
+    if not data.get("source_intelligence"):
+        data["source_intelligence"] = build_source_intelligence(
+            source_links=data.get("source_links") or [],
+            source_articles=data.get("source_articles") or [],
+            recommendation_items=data.get("recommendation_items") or [],
+            top_brands=data.get("ai_recommendation_ranking") or data.get("brand_ranking") or [],
+            profile=data.get("product_profile") or {},
+        )
+    if not data.get("owned_asset_audit"):
+        data["owned_asset_audit"] = audit_owned_assets(data.get("sources") or {}, data.get("product_profile") or {})
+    if not data.get("content_monitoring"):
+        data["content_monitoring"] = build_content_monitoring(
+            {
+                "prompt_runs": data.get("prompt_runs") or [],
+                "brand_diagnostic_prompt_runs": data.get("brand_diagnostic_prompt_runs") or [],
+                "comparison_prompt_runs": data.get("comparison_prompt_runs") or [],
+                "brand_visibility_metrics": data.get("brand_visibility_metrics") or [],
+                "recommendation_items": data.get("recommendation_items") or [],
+                "source_intelligence": data.get("source_intelligence") or {},
+                "content_positioning_analysis": data.get("content_positioning_analysis") or {},
+            }
+        )
+    if not data.get("geo_actions"):
+        data["geo_actions"] = build_action_plan(
+            {
+                "standard_geo_metrics": data.get("standard_geo_metrics") or {},
+                "source_intelligence": data.get("source_intelligence") or {},
+                "owned_asset_audit": data.get("owned_asset_audit") or {},
+                "content_monitoring": data.get("content_monitoring") or {},
+                "media_cost_analysis": data.get("media_cost_analysis") or {},
+            }
+        )
     return data
+
+
+def _standard_geo_metrics_markdown(metrics: dict[str, Any]) -> list[str]:
+    rows = [
+        ("Visibility 可见度", metrics.get("visibility") or {}),
+        ("Sentiment 情绪分", metrics.get("sentiment") or {}),
+        ("Position 平均位置", metrics.get("position") or {}),
+        ("SOV 推荐份额", metrics.get("sov") or {}),
+        ("Prompt 成功率", metrics.get("prompt_success") or {}),
+    ]
+    lines = [
+        "## GEO 指标定义",
+        "",
+        "| 指标 | 当前值 | 计算方式 | 业务含义 |",
+        "|---|---:|---|---|",
+    ]
+    for name, item in rows:
+        lines.append(
+            f"| {_cell(name)} | {_cell(item.get('value_label') or item.get('score') or item.get('avg_rank') or '')} | {_cell(item.get('formula'))} | {_cell(item.get('business_meaning'))} |"
+        )
+    lines.append("")
+    return lines
+
+
+def _source_intelligence_markdown(source_intelligence: dict[str, Any]) -> list[str]:
+    lines = [
+        "## Sources AI 信源分析",
+        "",
+        "| 排名 | 域名 | 类型 | 引用次数 | Used % | Avg Citations | 客户品牌出现 | 出现品牌 | 建议动作 |",
+        "|---:|---|---|---:|---:|---:|---|---|---|",
+    ]
+    for item in (source_intelligence.get("domain_summary") or [])[:12]:
+        lines.append(
+            f"| {item.get('rank', '')} | {_cell(item.get('domain'))} | {_cell(item.get('domain_type'))} | {item.get('citation_count', 0)} | {round(float(item.get('used_rate') or 0) * 100, 1)}% | {item.get('avg_citations', 0)} | {'是' if item.get('mentioned_user_brand') else '否'} | {_cell(', '.join(item.get('brands_appear') or []))} | {_cell(item.get('action'))} |"
+        )
+    lines.extend(["", "### 信源机会", "", "| 优先级 | 域名 | 类型 | 原因 |", "|---|---|---|---|"])
+    for item in (source_intelligence.get("source_opportunities") or [])[:10]:
+        lines.append(f"| {_cell(item.get('priority'))} | {_cell(item.get('domain'))} | {_cell(item.get('domain_type'))} | {_cell(item.get('reason'))} |")
+    lines.append("")
+    return lines
+
+
+def _owned_asset_audit_markdown(audit: dict[str, Any]) -> list[str]:
+    lines = [
+        "## 官网结构化信源审计",
+        "",
+        f"- 官网 AI 可读性评分：{audit.get('ai_readability_score', 0)}/100",
+        f"- 页面抓取成功：{audit.get('crawl_success_count', 0)}/{audit.get('crawl_total_count', 0)}",
+        f"- 结构化信号：{', '.join(audit.get('schema_signals') or []) or '暂未识别'}",
+        "",
+        "| 资产项 | 是否具备 | 建议 |",
+        "|---|---|---|",
+    ]
+    for item in audit.get("asset_checks") or []:
+        lines.append(f"| {_cell(item.get('asset_name'))} | {'是' if item.get('present') else '否'} | {_cell(item.get('recommendation'))} |")
+    lines.extend(["", "### 官网待补动作", "", "| 优先级 | 动作 | 原因 |", "|---|---|---|"])
+    for item in audit.get("structured_source_actions") or []:
+        lines.append(f"| {_cell(item.get('priority'))} | {_cell(item.get('action'))} | {_cell(item.get('reason'))} |")
+    lines.append("")
+    return lines
+
+
+def _content_monitoring_markdown(monitoring: dict[str, Any]) -> list[str]:
+    opinion = monitoring.get("opinion_monitoring") or {}
+    content = monitoring.get("content_monitoring") or {}
+    lines = [
+        "## 内容监控与舆情监控",
+        "",
+        "### 舆情风险",
+        "",
+        "| 严重度 | AI平台 | 情绪分 | 风险词 | 证据 |",
+        "|---|---|---:|---|---|",
+    ]
+    for item in opinion.get("risk_topics") or []:
+        lines.append(
+            f"| {_cell(item.get('severity'))} | {_cell(item.get('provider'))} | {item.get('sentiment_score', 50)} | {_cell(', '.join(item.get('risk_terms') or []))} | {_cell(item.get('evidence'))} |"
+        )
+    lines.extend(["", "### 竞品优势", "", "| 品牌 | AI提及次数 | 平均位置 | 情绪分 | 证据摘要 |", "|---|---:|---:|---:|---|"])
+    for item in opinion.get("competitor_advantages") or []:
+        lines.append(
+            f"| {_cell(item.get('brand_name'))} | {item.get('mention_count', 0)} | {_cell(_display_rank(item.get('avg_position')))} | {item.get('sentiment_score', 50)} | {_cell('；'.join(item.get('advantage_evidence') or []))} |"
+        )
+    lines.extend(["", "### 内容缺口", "", "| 域名 | 已出现品牌 | 建议 |", "|---|---|---|"])
+    for item in content.get("articles_mentioning_competitors_only") or []:
+        lines.append(f"| {_cell(item.get('domain'))} | {_cell(', '.join(item.get('brands_appear') or []))} | {_cell(item.get('action'))} |")
+    lines.append("")
+    return lines
+
+
+def _geo_actions_markdown(plan: dict[str, Any]) -> list[str]:
+    lines = [
+        "## Actions 优化待办清单",
+        "",
+        f"- 高优先级任务：{(plan.get('summary') or {}).get('high_priority_count', 0)}",
+        f"- 任务总数：{(plan.get('summary') or {}).get('total_count', 0)}",
+        "",
+        "| 排名 | 优先级 | 模块 | 任务 | 原因 | 目标指标 | 预估成本 |",
+        "|---:|---|---|---|---|---|---:|",
+    ]
+    for item in plan.get("actions") or []:
+        lines.append(
+            f"| {item.get('rank', '')} | {_cell(item.get('priority'))} | {_cell(item.get('module'))} | {_cell(item.get('task'))} | {_cell(item.get('reason'))} | {_cell(item.get('expected_metric'))} | {_cell(item.get('estimated_cost') or '')} |"
+        )
+    lines.append("")
+    return lines
 
 
 def _build_search_visibility_ranking(baidu_mentions: list[dict[str, Any]]) -> list[dict[str, Any]]:
