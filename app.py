@@ -762,7 +762,7 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             _render_bar(brand_metrics, x="brand_name", y="avg_position", color="is_user_brand")
         with c2:
             st.markdown("#### AI 描述情绪分")
-            _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand")
+            _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
 
         c3, c4 = st.columns(2)
         with c3:
@@ -1903,9 +1903,16 @@ def _render_stacked_visibility(rows: list[dict[str, Any]]) -> None:
         st.dataframe(rows, width="stretch", hide_index=True)
 
 
-def _render_bar(rows: list[dict[str, Any]], x: str, y: str, color: str | None = None) -> None:
+def _render_bar(
+    rows: list[dict[str, Any]],
+    x: str,
+    y: str,
+    color: str | None = None,
+    use_index_axis: bool = False,
+    show_mapping_table: bool = False,
+) -> None:
     if not rows:
-        st.info("暂无数据。")
+        st.info("No data available.")
         return
     try:
         import pandas as pd
@@ -1919,19 +1926,49 @@ def _render_bar(rows: list[dict[str, Any]], x: str, y: str, color: str | None = 
         if color and color in chart_df.columns:
             chart_color = _chart_label(color)
             if color == "is_user_brand":
-                chart_df[chart_color] = chart_df[color].map(lambda value: "客户品牌" if bool(value) else "竞品")
+                chart_df[chart_color] = chart_df[color].map(lambda value: "Customer Brand" if bool(value) else "Competitor")
             else:
                 chart_df[chart_color] = chart_df[color]
         if x in chart_df.columns:
             chart_df[chart_x] = chart_df[x]
         if y in chart_df.columns:
             chart_df[chart_y] = chart_df[y]
-        fig = px.bar(chart_df, x=chart_x, y=chart_y, color=chart_color, height=420)
+
+        mapping_df = None
+        if use_index_axis and x in chart_df.columns:
+            chart_df["Index"] = list(range(1, len(chart_df) + 1))
+            mapping_df = pd.DataFrame({
+                "No.": chart_df["Index"],
+                "Brand": chart_df[x],
+                "Brand Type": chart_df[chart_color] if chart_color and chart_color in chart_df.columns else "",
+                "Sentiment Score": chart_df[y],
+            })
+
+        plot_x = "Index" if use_index_axis and "Index" in chart_df.columns else chart_x
+        custom_data = [chart_x]
+        if chart_color:
+            custom_data.append(chart_color)
+        fig = px.bar(chart_df, x=plot_x, y=chart_y, color=chart_color, height=420, custom_data=custom_data)
+        hover_parts = ["No.: %{x}", "Brand: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
+        if chart_color:
+            hover_parts.append(f"{chart_color}: %{{customdata[1]}}")
+        hover_parts.append(f"{chart_y}: %{{y}}")
+        fig.update_traces(hovertemplate="<br>".join(hover_parts) + "<extra></extra>")
         fig.update_layout(margin=dict(l=20, r=20, t=20, b=90), legend_title_text=chart_color or "")
-        fig.update_xaxes(title_text=chart_x)
+        fig.update_xaxes(title_text=("No." if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
         fig.update_yaxes(title_text=chart_y)
-        st.plotly_chart(fig, width="stretch")
-        with st.expander("查看详细数据", expanded=False):
+
+        if show_mapping_table and mapping_df is not None:
+            left_col, right_col = st.columns([3, 2])
+            with left_col:
+                st.plotly_chart(fig, width="stretch")
+            with right_col:
+                st.markdown("##### Brand Number Mapping")
+                st.dataframe(mapping_df, width="stretch", hide_index=True)
+        else:
+            st.plotly_chart(fig, width="stretch")
+
+        with st.expander("View detail data", expanded=False):
             st.dataframe(df, width="stretch", hide_index=True)
     except Exception:
         st.dataframe(rows, width="stretch", hide_index=True)

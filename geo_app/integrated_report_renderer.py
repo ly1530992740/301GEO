@@ -522,6 +522,9 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     h3 {{ margin:18px 0 10px; font-size:17px; color:#334155; }}
     .grid2 {{ display:grid; grid-template-columns: repeat(auto-fit,minmax(460px,1fr)); gap:14px; }}
     .chart {{ min-height:420px; }}
+    .chart-with-table {{ display:grid; grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr); gap:12px; align-items:start; }}
+    .chart-inner {{ min-height:420px; }}
+    .sentiment-map-wrap {{ margin-top:0; max-height:420px; overflow:auto; }}
     .wide {{ min-height:480px; }}
     table {{ width:100%; border-collapse:collapse; font-size:13px; }}
     th,td {{ border-bottom:1px solid #e5e7eb; padding:9px; text-align:left; vertical-align:top; }}
@@ -567,7 +570,10 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     </div>
     <div class="grid2">
       <div id="avgPositionChart" class="chart"></div>
-      <div id="sentimentChart" class="chart"></div>
+      <div class="chart chart-with-table">
+        <div id="sentimentChart" class="chart-inner"></div>
+        <div class="table-wrap sentiment-map-wrap">{sentiment_mapping_table}</div>
+      </div>
       <div id="promptSuccessPie" class="chart"></div>
       <div id="providerMentionHeatmap" class="chart"></div>
     </div>
@@ -742,6 +748,18 @@ def _chart_payload(
     }
 
 
+
+def _sentiment_mapping_table(rows: list[dict[str, Any]]) -> str:
+    if not rows:
+        return '<p class="note">No sentiment brand mapping available.</p>'
+    body = []
+    for index, item in enumerate(rows[:15], start=1):
+        brand = html.escape(str(item.get("brand_name", "")))
+        brand_type = "Customer Brand" if item.get("is_user_brand") else "Competitor"
+        score = html.escape(str(item.get("sentiment_score", 50)))
+        body.append(f"<tr><td>{index}</td><td>{brand}</td><td>{brand_type}</td><td>{score}</td></tr>")
+    return '<table><thead><tr><th>No.</th><th>Brand</th><th>Brand Type</th><th>Sentiment Score</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table>'
+
 def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
     ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
     brand_metrics = data.get("brand_visibility_metrics") or []
@@ -769,9 +787,10 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
             "colors": ["#dc2626" if item.get("is_user_brand") else "#2563eb" for item in brand_metrics[:15]],
         },
         "sentiment": {
-            "x": [item.get("brand_name", "") for item in brand_metrics[:15]],
+            "x": list(range(1, len(brand_metrics[:15]) + 1)),
             "y": [item.get("sentiment_score", 50) for item in brand_metrics[:15]],
             "colors": ["#dc2626" if item.get("is_user_brand") else "#f59e0b" for item in brand_metrics[:15]],
+            "customdata": [[item.get("brand_name", ""), "Customer Brand" if item.get("is_user_brand") else "Competitor"] for item in brand_metrics[:15]],
         },
         "promptSuccess": _prompt_success_payload(prompt_runs),
         "providerMentionHeatmap": _heatmap_payload(
