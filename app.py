@@ -25,6 +25,9 @@ from geo_app.product_ingestion import UploadedPdf
 from geo_app.storage import Storage
 
 
+LEGACY_HISTORY_PREFIX = "fs:"
+
+
 SERVICE_SCOPE_OPTIONS = {
     "本地/城市": "local_city",
     "省内/区域": "regional",
@@ -445,18 +448,19 @@ def render_history(storage: Storage) -> None:
         limit 30
         """
     )
-    with st.expander("历史查询", expanded=True):
+    rows.extend(_scan_filesystem_history(rows))
+    with st.expander("History", expanded=True):
         if not rows:
-            st.info("暂无历史查询。完成一次 GEO 一键分析后会显示在这里。")
+            st.info("No history found yet. Completed integrated GEO runs will appear here.")
             return
         st.dataframe(
             [
                 {
                     "ID": item.get("id"),
-                    "时间": item.get("created_at"),
-                    "产品/品牌": item.get("subject") or item.get("customer_product"),
-                    "类目": item.get("industry"),
-                    "报告": item.get("file_path"),
+                    "Created At": item.get("created_at"),
+                    "Subject": item.get("subject") or item.get("customer_product"),
+                    "Industry": item.get("industry"),
+                    "Report": item.get("file_path"),
                 }
                 for item in rows
             ],
@@ -464,28 +468,79 @@ def render_history(storage: Storage) -> None:
             hide_index=True,
         )
         options = {
-            f"#{item.get('id')} | {item.get('created_at')} | {item.get('subject') or item.get('customer_product') or '未命名'}": item.get("id")
+            f"#{item.get('id')} | {item.get('created_at')} | {item.get('subject') or item.get('customer_product') or 'Untitled'}": item.get("id")
             for item in rows
         }
-        selected_label = st.selectbox("选择历史查询", list(options.keys()), key="history_report_select")
-        if st.button("加载到当前看板", key="load_history_report"):
-            load_history_report(storage, int(options[selected_label]))
+        selected_label = st.selectbox("Select history", list(options.keys()), key="history_report_select")
+        if st.button("Load into current dashboard", key="load_history_report"):
+            load_history_report(storage, options[selected_label])
 
 
-def load_history_report(storage: Storage, report_id: int) -> None:
-    report = storage.get_one(
-        """
-        select id, raw_json, file_path
-        from strategy_reports
-        where id=? and report_type='integrated_geo'
-        """,
-        (report_id,),
-    )
-    if not report:
-        st.error("历史报告不存在。")
-        return
-    data = json.loads(report.get("raw_json") or "{}")
-    run_dir = Path(data.get("run_dir") or Path(report.get("file_path") or ".").parent)
+def _scan_filesystem_history(existing_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    existing_paths = {
+        str(Path(item.get("file_path")).resolve())
+        for item in existing_rows
+        if item.get("file_path")
+    }
+    report_dirs = Path("output/integrated_reports")
+    if not report_dirs.exists():
+        return []
+
+    discovered: list[dict[str, Any]] = []
+    for run_dir in sorted(report_dirs.iterdir(), key=lambda item: item.stat().st_mtime, reverse=True):
+        if not run_dir.is_dir():
+            continue
+        md_path = run_dir / "integrated_report.md"
+        data_path = run_dir / "integrated_data.json"
+        if not md_path.exists() and not data_path.exists():
+            continue
+        resolved_md = str(md_path.resolve()) if md_path.exists() else ""
+        if resolved_md and resolved_md in existing_paths:
+            continue
+        payload: dict[str, Any] = {}
+        if data_path.exists():
+            try:
+                payload = json.loads(data_path.read_text(encoding="utf-8"))
+            except Exception:
+                payload = {}
+        subject = payload.get("subject") or payload.get("customer_product") or payload.get("product_profile", {}).get("product_name")
+        discovered.append(
+            {
+                "id": f"{LEGACY_HISTORY_PREFIX}{run_dir.resolve()}",
+                "created_at": datetime.fromtimestamp(run_dir.stat().st_mtime).strftime("%Y-%m-%d %H:%M:%S"),
+                "subject": subject,
+                "customer_product": payload.get("customer_product"),
+                "industry": payload.get("industry") or payload.get("product_profile", {}).get("industry"),
+                "file_path": str(md_path if md_path.exists() else data_path),
+            }
+        )
+    return discovered[:30]
+
+
+def load_history_report(storage: Storage, report_id: Any) -> None:
+    report: dict[str, Any] | None = None
+    data: dict[str, Any] = {}
+    if isinstance(report_id, str) and report_id.startswith(LEGACY_HISTORY_PREFIX):
+        run_dir = Path(report_id[len(LEGACY_HISTORY_PREFIX) :])
+        report = {
+            "id": report_id,
+            "raw_json": "{}",
+            "file_path": str(run_dir / "integrated_report.md"),
+        }
+    else:
+        report = storage.get_one(
+            """
+            select id, raw_json, file_path
+            from strategy_reports
+            where id=? and report_type='integrated_geo'
+            """,
+            (int(report_id),),
+        )
+        if not report:
+            st.error("History report not found.")
+            return
+        data = json.loads(report.get("raw_json") or "{}")
+        run_dir = Path(data.get("run_dir") or Path(report.get("file_path") or ".").parent)
     data_path = run_dir / "integrated_data.json"
     if data_path.exists():
         try:
@@ -513,7 +568,7 @@ def load_history_report(storage: Storage, report_id: int) -> None:
         "report_md": md_path.read_text(encoding="utf-8") if md_path.exists() else "",
         "analysis_data": data,
     }
-    st.success("已加载历史查询到当前看板。")
+    st.success("History loaded into the current dashboard.")
 
 
 def render_result() -> None:
@@ -707,7 +762,7 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             _render_bar(brand_metrics, x="brand_name", y="avg_position", color="is_user_brand")
         with c2:
             st.markdown("#### AI 描述情绪分")
-            _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand")
+            _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
 
         c3, c4 = st.columns(2)
         with c3:
@@ -1848,9 +1903,16 @@ def _render_stacked_visibility(rows: list[dict[str, Any]]) -> None:
         st.dataframe(rows, width="stretch", hide_index=True)
 
 
-def _render_bar(rows: list[dict[str, Any]], x: str, y: str, color: str | None = None) -> None:
+def _render_bar(
+    rows: list[dict[str, Any]],
+    x: str,
+    y: str,
+    color: str | None = None,
+    use_index_axis: bool = False,
+    show_mapping_table: bool = False,
+) -> None:
     if not rows:
-        st.info("暂无数据。")
+        st.info("No data available.")
         return
     try:
         import pandas as pd
@@ -1864,19 +1926,49 @@ def _render_bar(rows: list[dict[str, Any]], x: str, y: str, color: str | None = 
         if color and color in chart_df.columns:
             chart_color = _chart_label(color)
             if color == "is_user_brand":
-                chart_df[chart_color] = chart_df[color].map(lambda value: "客户品牌" if bool(value) else "竞品")
+                chart_df[chart_color] = chart_df[color].map(lambda value: "Customer Brand" if bool(value) else "Competitor")
             else:
                 chart_df[chart_color] = chart_df[color]
         if x in chart_df.columns:
             chart_df[chart_x] = chart_df[x]
         if y in chart_df.columns:
             chart_df[chart_y] = chart_df[y]
-        fig = px.bar(chart_df, x=chart_x, y=chart_y, color=chart_color, height=420)
+
+        mapping_df = None
+        if use_index_axis and x in chart_df.columns:
+            chart_df["Index"] = list(range(1, len(chart_df) + 1))
+            mapping_df = pd.DataFrame({
+                "No.": chart_df["Index"],
+                "Brand": chart_df[x],
+                "Brand Type": chart_df[chart_color] if chart_color and chart_color in chart_df.columns else "",
+                "Sentiment Score": chart_df[y],
+            })
+
+        plot_x = "Index" if use_index_axis and "Index" in chart_df.columns else chart_x
+        custom_data = [chart_x]
+        if chart_color:
+            custom_data.append(chart_color)
+        fig = px.bar(chart_df, x=plot_x, y=chart_y, color=chart_color, height=420, custom_data=custom_data)
+        hover_parts = ["No.: %{x}", "Brand: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
+        if chart_color:
+            hover_parts.append(f"{chart_color}: %{{customdata[1]}}")
+        hover_parts.append(f"{chart_y}: %{{y}}")
+        fig.update_traces(hovertemplate="<br>".join(hover_parts) + "<extra></extra>")
         fig.update_layout(margin=dict(l=20, r=20, t=20, b=90), legend_title_text=chart_color or "")
-        fig.update_xaxes(title_text=chart_x)
+        fig.update_xaxes(title_text=("No." if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
         fig.update_yaxes(title_text=chart_y)
-        st.plotly_chart(fig, width="stretch")
-        with st.expander("查看详细数据", expanded=False):
+
+        if show_mapping_table and mapping_df is not None:
+            left_col, right_col = st.columns([3, 2])
+            with left_col:
+                st.plotly_chart(fig, width="stretch")
+            with right_col:
+                st.markdown("##### Brand Number Mapping")
+                st.dataframe(mapping_df, width="stretch", hide_index=True)
+        else:
+            st.plotly_chart(fig, width="stretch")
+
+        with st.expander("View detail data", expanded=False):
             st.dataframe(df, width="stretch", hide_index=True)
     except Exception:
         st.dataframe(rows, width="stretch", hide_index=True)
