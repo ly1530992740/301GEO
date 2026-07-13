@@ -501,10 +501,14 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
         gap_ranking,
         search_volume,
     )
-    question_table = _dashboard_question_table(analysis_data)
+    question_table = _dashboard_question_groups_html(analysis_data)
+    prompt_metrics_html = _dashboard_prompt_metrics_groups_html(analysis_data.get("prompt_runs") or [])
     competitor_table = _provider_recommendation_table(_provider_recommendation_rows(analysis_data.get("recommendation_items") or []))
     diagnostic_table = _prompt_run_table(analysis_data.get("brand_diagnostic_prompt_runs") or [])
-    sentiment_mapping_table = _sentiment_mapping_table(brand_visibility_metrics[:15])
+    brand_profile_table = _dashboard_brand_profile_table(analysis_data)
+    mention_mapping_table = _brand_mapping_table(brand_visibility_metrics[:20], "mention_count")
+    sentiment_mapping_table = _brand_mapping_table(brand_visibility_metrics[:20], "sentiment_score")
+    ranking_mapping_table = _brand_mapping_table(ranking[:20], "recommendation_count")
     comparison_table = _prompt_run_table(analysis_data.get("comparison_prompt_runs") or [])
     search_visibility_table = _search_visibility_table(search_ranking)
     gap_table = _gap_table(gap_ranking)
@@ -521,6 +525,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     owned_asset_table = _dashboard_owned_asset_table(owned_asset_audit)
     content_monitoring_table = _dashboard_content_monitoring_table(content_monitoring)
     geo_actions_table = _dashboard_geo_actions_table(geo_actions)
+    reports_todo_table = _dashboard_reports_todo_table()
     content_report = analysis_data.get("content_pattern_report") or ""
     content_report_block = (
         f'<details class="details"><summary>查看完整品牌调研与市场定位文字报告</summary><pre class="markdown">{html.escape(content_report)}</pre></details>'
@@ -544,34 +549,51 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
   <title>{html.escape(title)}</title>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <style>
-    body {{ margin:0; background:#f6f7fb; color:#172033; font-family: Arial, "Microsoft YaHei", sans-serif; }}
-    main {{ max-width: 1280px; margin: 0 auto; padding: 28px 22px 60px; }}
-    .hero {{ background:#111827; color:white; padding:24px; border-radius:10px; margin-bottom:18px; }}
+    body {{ margin:0; background:#0e1117; color:#f8fafc; font-family: Arial, "Microsoft YaHei", sans-serif; }}
+    main {{ max-width: 1480px; margin: 0 auto; padding: 26px 28px 60px; }}
+    .hero {{ display:none; }}
     .hero h1 {{ margin:0 0 10px; font-size:30px; }}
     .meta {{ display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-top:18px; }}
-    .metric {{ background:white; border:1px solid #e5e7eb; border-radius:8px; padding:14px; }}
-    .metric span {{ color:#64748b; font-size:13px; }}
-    .metric strong {{ display:block; margin-top:6px; font-size:20px; color:#111827; }}
+    .metric {{ background:#0e1117; border:0; border-radius:8px; padding:10px 0; }}
+    .metric span {{ color:#f8fafc; font-size:15px; font-weight:700; }}
+    .metric strong {{ display:block; margin-top:8px; font-size:38px; line-height:1.08; color:#fff; font-weight:500; }}
     .kpi strong {{ font-size:30px; }}
     .toc {{ display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }}
     .toc a {{ color:#0f766e; background:white; border:1px solid #d9e2ec; border-radius:8px; padding:9px 12px; text-decoration:none; font-size:14px; }}
-    section {{ background:white; border:1px solid #e5e7eb; border-radius:10px; padding:20px; margin:18px 0; }}
-    h2 {{ margin:0 0 14px; font-size:22px; }}
-    h3 {{ margin:18px 0 10px; font-size:17px; color:#334155; }}
+    .pe-shell {{ display:grid; grid-template-columns: 340px minmax(0,1fr); gap:28px; align-items:start; }}
+    .pe-side {{ position:sticky; top:16px; background:#0e1117; border:0; border-radius:10px; padding:4px 0; }}
+    .pe-side h2 {{ font-size:22px; margin:0 0 12px; }}
+    .pe-side a {{ display:block; color:#f8fafc; text-decoration:none; padding:7px 8px 7px 28px; border-radius:6px; font-size:16px; line-height:1.28; font-weight:700; position:relative; }}
+    .pe-side a::before {{ content:""; position:absolute; left:0; top:9px; width:17px; height:17px; border:1px solid #334155; border-radius:50%; }}
+    .pe-side a:first-of-type::before {{ background:#ff4b4b; border-color:#ff4b4b; box-shadow:inset 0 0 0 5px #ff4b4b; }}
+    .pe-side a:hover {{ background:#111827; color:#fff; }}
+    .pe-content {{ min-width:0; }}
+    section {{ background:#0e1117; border:0; border-radius:0; padding:0; margin:0 0 36px; }}
+    h2 {{ margin:0 0 14px; font-size:30px; color:#fff; }}
+    h3 {{ margin:22px 0 12px; font-size:22px; color:#fff; }}
     .grid2 {{ display:grid; grid-template-columns: repeat(auto-fit,minmax(460px,1fr)); gap:14px; }}
     .chart {{ min-height:420px; }}
     .chart-with-table {{ display:grid; grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr); gap:12px; align-items:start; }}
     .chart-inner {{ min-height:420px; }}
     .sentiment-map-wrap {{ margin-top:0; max-height:420px; overflow:auto; }}
+    .mapping-scroll {{ height:400px; overflow-y:auto; overflow-x:hidden; border:1px solid #374151; border-radius:0; }}
+    .mapping-scroll table {{ table-layout:fixed; }}
+    .mapping-scroll th {{ position:sticky; top:0; z-index:1; }}
+    .mapping-scroll th:nth-child(1), .mapping-scroll td:nth-child(1) {{ width:48px; text-align:right; }}
+    .mapping-scroll th:nth-child(3), .mapping-scroll td:nth-child(3) {{ width:74px; text-align:right; }}
+    .mapping-scroll td:nth-child(2) {{ white-space:normal; word-break:break-word; line-height:1.45; }}
     .wide {{ min-height:480px; }}
     table {{ width:100%; border-collapse:collapse; font-size:13px; }}
-    th,td {{ border-bottom:1px solid #e5e7eb; padding:9px; text-align:left; vertical-align:top; }}
-    th {{ background:#f8fafc; }}
-    .table-wrap {{ overflow:auto; border:1px solid #e5e7eb; border-radius:8px; margin-top:10px; }}
-    .note {{ color:#64748b; font-size:13px; line-height:1.7; }}
-    .details {{ margin-top:12px; border:1px solid #e5e7eb; border-radius:8px; padding:12px 14px; }}
-    .details summary {{ cursor:pointer; font-weight:700; color:#334155; }}
-    .markdown {{ white-space:pre-wrap; line-height:1.75; color:#334155; background:#f8fafc; border-radius:8px; padding:12px; overflow:auto; }}
+    th,td {{ border:1px solid #374151; padding:10px 12px; text-align:left; vertical-align:top; color:#f8fafc; }}
+    th {{ background:#1f232b; }}
+    .table-wrap {{ overflow:auto; border:1px solid #374151; border-radius:8px; margin-top:10px; }}
+    .note {{ color:#8aa0bd; font-size:14px; line-height:1.7; }}
+    .details {{ margin-top:12px; border:1px solid #374151; border-radius:8px; padding:12px 14px; }}
+    .details summary {{ cursor:pointer; font-weight:700; color:#f8fafc; }}
+    .markdown {{ white-space:pre-wrap; line-height:1.75; color:#f8fafc; background:#111827; border-radius:8px; padding:12px; overflow:auto; }}
+    .prompt-group {{ margin:12px 0; border:1px solid #374151; border-radius:8px; padding:10px 12px; }}
+    .prompt-group summary {{ cursor:pointer; font-weight:700; }}
+    @media (max-width: 980px) {{ .pe-shell {{ grid-template-columns: 1fr; }} .pe-side {{ position:relative; top:auto; }} }}
   </style>
 </head>
 <body>
@@ -587,13 +609,25 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     </div>
   </div>
 
-  <nav class="toc">
-    <a href="#overview">GEO 可见度总览</a>
-    <a href="#step1">第一步：AI 推荐排名</a>
-    <a href="#step2">第二步：五平台声量</a>
-    <a href="#step3">第三步：品牌调研与定位</a>
-  </nav>
-
+  <div class="pe-shell">
+  <aside class="pe-side">
+    <h2>Prompt Edge</h2>
+    <a href="#overview">01 Overview 总览</a>
+    <a href="#brand">02 Brand 品牌初始化</a>
+    <a href="#prompts">03 Prompts 问题设计</a>
+    <a href="#models">04 Models 模型状态</a>
+    <a href="#metrics">05 Metrics 指标体系</a>
+    <a href="#competitors">06 Competitors 竞品排名</a>
+    <a href="#step2">07 Voice 五平台声量</a>
+    <a href="#sources">08 Sources 引用来源</a>
+    <a href="#step3">09 Research 品牌调研</a>
+    <a href="#assets">10 Assets 数字资产</a>
+    <a href="#structured">11 Structured 官网信源</a>
+    <a href="#monitoring">12 Monitoring 内容监控</a>
+    <a href="#actions">13 Actions 优化建议</a>
+    <a href="#reports">14 Reports 后续接口</a>
+  </aside>
+  <div class="pe-content">
   <section id="overview">
     <h2>GEO 可见度总览</h2>
     <p class="note">主 GEO 可见度只统计不含客户品牌名的中立推荐问题；品牌诊断和竞品直接对比单独展示，不参与主推荐排名。</p>
@@ -606,48 +640,96 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div class="metric kpi"><span>AI 平台覆盖</span><strong>{html.escape(provider_coverage)}</strong></div>
       <div class="metric kpi"><span>竞品对比提及</span><strong>{html.escape(str(comparison_summary.get("brand_mentioned_responses", 0)))}</strong></div>
     </div>
-    <div class="grid2">
-      <div id="avgPositionChart" class="chart"></div>
-      <div class="chart chart-with-table">
-        <div id="sentimentChart" class="chart-inner"></div>
-        <div class="table-wrap sentiment-map-wrap">{sentiment_mapping_table}</div>
+    <h3>AI 提及次数</h3>
+    <div class="chart-with-table">
+      <div id="mentionChart" class="chart-inner"></div>
+      <div>
+        <h3>品牌序号 Mapping</h3>
+        {mention_mapping_table}
       </div>
+    </div>
+    <h3>AI 描述情绪分</h3>
+    <div class="chart-with-table">
+      <div id="sentimentChart" class="chart-inner"></div>
+      <div>
+        <h3>品牌序号 Mapping</h3>
+        {sentiment_mapping_table}
+      </div>
+    </div>
+    <div class="grid2">
       <div id="promptSuccessPie" class="chart"></div>
       <div id="providerMentionHeatmap" class="chart"></div>
     </div>
-    <h3>GEO 指标定义</h3>
-    <div class="table-wrap">{geo_metrics_table}</div>
     <div class="grid2">
       <div id="actionPriorityPie" class="chart"></div>
       <div id="actionModuleBar" class="chart"></div>
     </div>
-    <h3>Actions 优化待办清单</h3>
-    <div class="table-wrap">{geo_actions_table}</div>
   </section>
 
-  <section id="step1">
-    <h2>第一步：AI 推荐排名</h2>
-    <h3>第一步输入：AI 搜索问题设计</h3>
-    <div class="table-wrap">{question_table}</div>
-    <div id="rankingChart" class="chart wide"></div>
+  <section id="brand">
+    <h2>Brand 品牌初始化</h2>
+    <p class="note">展示本次分析识别到的品牌、类目、服务地区、目标市场和官网来源。</p>
+    <div class="table-wrap">{brand_profile_table}</div>
+  </section>
+
+  <section id="prompts">
+    <h2>Prompts 问题设计</h2>
+    <p class="note">按中立推荐、品牌诊断、竞品对比和客户自定义分组展示，避免所有问题挤在一个长表里。</p>
+    <div id="promptTypePie" class="chart"></div>
+    {question_table}
+  </section>
+
+  <section id="models">
+    <h2>Models 模型状态</h2>
+    <div class="grid2">
+      <div id="modelStatusPie" class="chart"></div>
+      <div id="modelCountBar" class="chart"></div>
+    </div>
+    <details class="details"><summary>查看模型调用明细</summary><div class="table-wrap">{_provider_status_table(provider_status)}</div></details>
+  </section>
+
+  <section id="metrics">
+    <h2>Metrics 指标体系</h2>
+    <h3>GEO 指标定义</h3>
+    <div class="table-wrap">{geo_metrics_table}</div>
+    <h3>Prompt 级指标</h3>
+    <div class="grid2">
+      <div id="promptMetricPie" class="chart"></div>
+      <div id="promptMentionBar" class="chart"></div>
+    </div>
+    {prompt_metrics_html}
+  </section>
+
+  <section id="competitors">
+    <h2>Competitors 竞品排名</h2>
+    <div class="chart-with-table">
+      <div id="rankingChart" class="chart-inner"></div>
+      <div>
+        <h3>品牌序号 Mapping</h3>
+        {ranking_mapping_table}
+      </div>
+    </div>
+    <details class="details"><summary>查看竞品排名明细</summary><div class="table-wrap">{_ranking_table(ranking, labels)}</div></details>
+    <h3>分 AI 平台推荐来源</h3>
     <div class="grid2">
       <div id="recommendationSourcePie" class="chart"></div>
       <div id="recommendationHeatmap" class="chart"></div>
     </div>
+    <details class="details"><summary>查看 AI 平台推荐来源明细</summary><div class="table-wrap">{competitor_table}</div></details>
+    <h3>品牌诊断（不参与主推荐排名）</h3>
+    <div class="table-wrap">{diagnostic_table}</div>
+    <h3>竞品直接对比（不参与主推荐排名）</h3>
+    <div class="table-wrap">{comparison_table}</div>
+  </section>
+
+  <section id="sources">
+    <h2>Sources 引用来源</h2>
     <h3>AI 推荐引用信源</h3>
     <div class="grid2">
       <div id="sourceTypePie" class="chart"></div>
       <div id="sourceCitationBar" class="chart"></div>
     </div>
     <div class="table-wrap">{source_intelligence_table}</div>
-    <h3>竞品校准（按 AI 平台展示）</h3>
-    <div class="table-wrap">{competitor_table}</div>
-    <h3>品牌诊断（不参与主推荐排名）</h3>
-    <div class="table-wrap">{diagnostic_table}</div>
-    <h3>竞品直接对比（不参与主推荐排名）</h3>
-    <div class="table-wrap">{comparison_table}</div>
-    <h3>多 AI 平台调用状态</h3>
-    <div class="table-wrap">{_provider_status_table(provider_status)}</div>
   </section>
 
   <section id="step2">
@@ -680,19 +762,36 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div id="personaBar" class="chart"></div>
       <div id="sellingPointBar" class="chart"></div>
     </div>
+  </section>
+
+  <section id="assets">
+    <h2>Assets 数字资产</h2>
     <div id="assetScoreChart" class="chart wide"></div>
+  </section>
+
+  <section id="structured">
+    <h2>Structured 官网信源</h2>
+    <p class="note">检查官网是否具备 AI 可解析、可引用的品牌事实块：FAQ、价格、案例、资质、对比、联系方式、Schema。</p>
     <div id="articleStatusPie" class="chart"></div>
     <h3>官网结构化信源审计</h3>
     <div id="ownedAssetBar" class="chart"></div>
     <div class="table-wrap">{owned_asset_table}</div>
+    <h3>文章抓取明细</h3>
+    <div class="table-wrap">{article_table}</div>
+  </section>
+
+  <section id="monitoring">
+    <h2>Monitoring 内容监控</h2>
+    <p class="note">第一版为手动监控快照：舆情风险、内容缺口、竞品优势。自动定时监控后续再做。</p>
     <h3>内容监控与舆情监控</h3>
     <div class="grid2">
       <div id="riskTopicBar" class="chart"></div>
       <div id="competitorAdvantageBar" class="chart"></div>
     </div>
     <div class="table-wrap">{content_monitoring_table}</div>
-    <h3>文章抓取明细</h3>
-    <div class="table-wrap">{article_table}</div>
+  </section>
+
+  <section id="topics">
     <h3>内容主题分布</h3>
     <div class="grid2">
       <div id="topicChart" class="chart"></div>
@@ -701,23 +800,42 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     <div class="table-wrap">{topic_table}</div>
     {content_report_block}
   </section>
+  <section id="actions">
+    <h2>Actions 优化建议</h2>
+    <h3>Actions 优化待办清单</h3>
+    <div class="table-wrap">{geo_actions_table}</div>
+  </section>
+  <section id="reports">
+    <h2>Reports 后续接口</h2>
+    <p class="note">这里展示已明确要后续接入、当前不应伪装成真实数据的能力。</p>
+    <div class="table-wrap">{reports_todo_table}</div>
+  </section>
+  </div>
+  </div>
 </main>
 <script>
 const D = {_script_json(payload)};
 const C = {_script_json(charts)};
-const layout = {{ margin: {{ l: 60, r: 24, t: 54, b: 110 }}, paper_bgcolor: "white", plot_bgcolor: "white" }};
-const compact = {{ margin: {{ l: 30, r: 20, t: 54, b: 30 }}, paper_bgcolor: "white", plot_bgcolor: "white" }};
+const axisBase = {{ gridcolor:"#374151", zerolinecolor:"#4b5563", linecolor:"#4b5563", tickfont:{{color:"#f8fafc"}}, titlefont:{{color:"#f8fafc"}} }};
+const layout = {{ margin: {{ l: 60, r: 24, t: 54, b: 110 }}, paper_bgcolor: "#0e1117", plot_bgcolor: "#0e1117", font:{{color:"#f8fafc"}}, legend:{{font:{{color:"#f8fafc"}}}} }};
+const compact = {{ margin: {{ l: 30, r: 20, t: 54, b: 30 }}, paper_bgcolor: "#0e1117", plot_bgcolor: "#0e1117", font:{{color:"#f8fafc"}}, legend:{{font:{{color:"#f8fafc"}}}} }};
 function plot(id, traces, extra={{}}) {{
   const el = document.getElementById(id);
   if (!el || !traces || !traces.length) return;
-  Plotly.newPlot(id, traces, {{...layout, ...extra}}, {{responsive:true, displaylogo:false}});
+  const merged = {{...layout, ...extra, xaxis:{{...axisBase, ...(extra.xaxis || {{}})}}, yaxis:{{...axisBase, ...(extra.yaxis || {{}})}}}};
+  Plotly.newPlot(id, traces, merged, {{responsive:true, displaylogo:false}});
 }}
-plot("rankingChart", [{{type:"bar", x:D.ranking.x, y:D.ranking.y, marker:{{color:D.ranking.colors}}}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"品牌"}}}});
+plot("rankingChart", [{{type:"bar", x:D.ranking.index, y:D.ranking.y, marker:{{color:D.ranking.colors}}, customdata:D.ranking.x, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata}}<br>AI推荐次数: %{{y}}<extra></extra>"}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"序号", dtick:1}}}});
 plot("recommendationSourcePie", [{{type:"pie", labels:D.recommendationSource.labels, values:D.recommendationSource.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 推荐来源占比"}});
 plot("recommendationHeatmap", [{{type:"heatmap", x:D.recommendationHeatmap.x, y:D.recommendationHeatmap.y, z:D.recommendationHeatmap.z, colorscale:"YlGnBu"}}], {{title:"AI 推荐热度矩阵"}});
-plot("avgPositionChart", [{{type:"bar", x:D.avgPosition.x, y:D.avgPosition.y, marker:{{color:D.avgPosition.colors}}}}], {{title:"平均推荐位置（越低越好）", yaxis:{{title:"平均名次", autorange:"reversed"}}, xaxis:{{title:"品牌"}}}});
-plot("sentimentChart", [{{type:"bar", x:D.sentiment.x, y:D.sentiment.y, marker:{{color:D.sentiment.colors}}}}], {{title:"AI 描述情绪分", yaxis:{{title:"情绪分", range:[0,100]}}, xaxis:{{title:"品牌"}}}});
+plot("mentionChart", [{{type:"bar", x:D.mentions.index, y:D.mentions.y, marker:{{color:D.mentions.colors}}, customdata:D.mentions.x, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata}}<br>AI提及次数: %{{y}}<extra></extra>"}}], {{title:"AI 提及次数", yaxis:{{title:"AI提及次数"}}, xaxis:{{title:"序号", dtick:1}}}});
+plot("sentimentChart", [{{type:"bar", x:D.sentiment.x, y:D.sentiment.y, marker:{{color:D.sentiment.colors}}, customdata:D.sentiment.customdata, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata[0]}}<br>情绪分: %{{y}}<extra></extra>"}}], {{title:"AI 描述情绪分", yaxis:{{title:"情绪分", range:[0,100]}}, xaxis:{{title:"序号", dtick:1}}}});
 plot("promptSuccessPie", [{{type:"pie", labels:D.promptSuccess.labels, values:D.promptSuccess.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Prompt 触发表现"}});
+plot("promptTypePie", [{{type:"pie", labels:D.promptTypes.labels, values:D.promptTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"问题类型占比"}});
+plot("promptMetricPie", [{{type:"pie", labels:D.promptMetricTypes.labels, values:D.promptMetricTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Prompt 回答类型占比"}});
+plot("promptMentionBar", [{{type:"bar", x:D.promptMentionByType.labels, y:D.promptMentionByType.values, marker:{{color:"#2563eb"}}}}], {{title:"各问题类型提及客户次数", yaxis:{{title:"提及客户次数"}}, xaxis:{{title:"问题类型"}}}});
+plot("modelStatusPie", [{{type:"pie", labels:D.modelStatus.labels, values:D.modelStatus.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"模型调用状态占比"}});
+plot("modelCountBar", D.modelCounts.traces, {{title:"各模型返回数量", barmode:"group", yaxis:{{title:"数量"}}, xaxis:{{title:"AI平台"}}}});
 plot("providerMentionHeatmap", [{{type:"heatmap", x:D.providerMentionHeatmap.x, y:D.providerMentionHeatmap.y, z:D.providerMentionHeatmap.z, colorscale:"Blues"}}], {{title:"AI 平台 x 品牌提及矩阵"}});
 plot("platformPie", [{{type:"pie", labels:D.platformTotals.labels, values:D.platformTotals.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"五平台总占比"}});
 plot("platformBar", [{{type:"bar", x:D.platformTotals.values, y:D.platformTotals.labels, orientation:"h", marker:{{color:"#0f766e"}}}}], {{title:"五平台内容数量对比", xaxis:{{title:"内容数量估算"}}, yaxis:{{title:"平台"}}}});
@@ -817,16 +935,19 @@ def _chart_payload(
 
 
 
-def _sentiment_mapping_table(rows: list[dict[str, Any]]) -> str:
+def _brand_mapping_table(rows: list[dict[str, Any]], value_key: str) -> str:
     if not rows:
-        return '<p class="note">No sentiment brand mapping available.</p>'
+        return '<p class="note">暂无品牌序号 Mapping。</p>'
     body = []
-    for index, item in enumerate(rows[:15], start=1):
+    for index, item in enumerate(rows[:20], start=1):
         brand = html.escape(str(item.get("brand_name", "")))
-        brand_type = "Customer Brand" if item.get("is_user_brand") else "Competitor"
-        score = html.escape(str(item.get("sentiment_score", 50)))
-        body.append(f"<tr><td>{index}</td><td>{brand}</td><td>{brand_type}</td><td>{score}</td></tr>")
-    return '<table><thead><tr><th>No.</th><th>Brand</th><th>Brand Type</th><th>Sentiment Score</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table>'
+        value = html.escape(str(item.get(value_key, "")))
+        body.append(f"<tr><td>{index}</td><td>{brand}</td><td>{value}</td></tr>")
+    return '<div class="mapping-scroll"><table><thead><tr><th>序号</th><th>品牌</th><th>指标值</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table></div>'
+
+
+def _sentiment_mapping_table(rows: list[dict[str, Any]]) -> str:
+    return _brand_mapping_table(rows, "sentiment_score")
 
 
 def _dashboard_geo_metrics_table(metrics: dict[str, Any]) -> str:
@@ -844,6 +965,34 @@ def _dashboard_geo_metrics_table(metrics: dict[str, Any]) -> str:
             f"<tr><td>{html.escape(str(name))}</td><td>{html.escape(str(value))}</td><td>{html.escape(str(item.get('formula') or ''))}</td><td>{html.escape(str(item.get('business_meaning') or ''))}</td></tr>"
         )
     return "<table><thead><tr><th>指标</th><th>当前值</th><th>计算方式</th><th>业务含义</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
+
+
+def _dashboard_brand_profile_table(data: dict[str, Any]) -> str:
+    profile = data.get("product_profile") or {}
+    sources = data.get("sources") or {}
+    rows = [
+        ("产品/服务名", profile.get("product_name", "")),
+        ("品牌名", profile.get("brand_name", "")),
+        ("别名", ", ".join(profile.get("brand_aliases") or [])),
+        ("类目", _display_category(profile)),
+        ("目标市场", profile.get("target_market", "")),
+        ("服务地区", profile.get("primary_region", "")),
+        ("业务类型", profile.get("business_type", "")),
+        ("官网", sources.get("website_url") or profile.get("website_url", "")),
+    ]
+    body = "".join(f"<tr><th>{html.escape(label)}</th><td>{html.escape(str(value or ''))}</td></tr>" for label, value in rows)
+    return "<table><tbody>" + body + "</tbody></table>"
+
+
+def _dashboard_reports_todo_table() -> str:
+    rows = [
+        ("真实用户搜索词热度/概率", "AI 生成/规则补齐", "百度指数、5118/爱站、搜索平台或第三方关键词 API"),
+        ("国外 AI 模型", "未调用", "ChatGPT / Gemini / Grok provider"),
+        ("五平台真实声量", "多 AI 估算", "百度、搜狗、360、抖音、小红书真实搜索/内容数据 API"),
+        ("自动监控", "手动快照", "定时任务、重跑、趋势对比、提醒通知"),
+    ]
+    body = "".join(f"<tr><td>{html.escape(module)}</td><td>{html.escape(status)}</td><td>{html.escape(api)}</td></tr>" for module, status, api in rows)
+    return "<table><thead><tr><th>模块</th><th>当前状态</th><th>后续接口</th></tr></thead><tbody>" + body + "</tbody></table>"
 
 
 def _dashboard_source_intelligence_table(source_intelligence: dict[str, Any]) -> str:
@@ -957,16 +1106,29 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
         "riskTopics": _risk_topic_payload((content_monitoring.get("opinion_monitoring") or {}).get("risk_topics") or []),
         "competitorAdvantages": _competitor_advantage_payload((content_monitoring.get("opinion_monitoring") or {}).get("competitor_advantages") or []),
         "ranking": {
+            "index": list(range(1, len(ranking[:20]) + 1)),
             "x": [item.get("brand_name", "") for item in ranking[:20]],
             "y": [item.get("recommendation_count", 0) for item in ranking[:20]],
             "colors": ["#dc2626" if item.get("is_user_brand") else "#64748b" for item in ranking[:20]],
         },
+        "promptTypes": _prompt_type_count_payload(data),
+        "promptMetricTypes": _prompt_metric_type_payload(prompt_runs, mentioned_only=False),
+        "promptMentionByType": _prompt_metric_type_payload(prompt_runs, mentioned_only=True),
+        "modelStatus": _model_status_payload(provider_status),
+        "modelCounts": _model_count_payload(provider_status),
         "recommendationSource": _count_payload(rec_chart, "AI平台", "品牌"),
         "recommendationHeatmap": _heatmap_payload(rec_chart, row_key="品牌", col_key="AI平台", value_key="推荐热度", limit=20),
         "avgPosition": {
+            "index": list(range(1, len(brand_metrics[:15]) + 1)),
             "x": [item.get("brand_name", "") for item in brand_metrics[:15]],
             "y": [item.get("avg_position") or 0 for item in brand_metrics[:15]],
             "colors": ["#dc2626" if item.get("is_user_brand") else "#2563eb" for item in brand_metrics[:15]],
+        },
+        "mentions": {
+            "index": list(range(1, len(brand_metrics[:20]) + 1)),
+            "x": [item.get("brand_name", "") for item in brand_metrics[:20]],
+            "y": [item.get("mention_count", 0) for item in brand_metrics[:20]],
+            "colors": ["#0b70c9" if item.get("is_user_brand") else "#7cc4f8" for item in brand_metrics[:20]],
         },
         "sentiment": {
             "x": list(range(1, len(brand_metrics[:15]) + 1)),
@@ -1102,6 +1264,51 @@ def _prompt_success_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     success = len([item for item in rows if item.get("brand_mentioned")])
     failed = len(rows) - success
     return {"labels": ["客户品牌被推荐", "客户品牌未出现"], "values": [success, failed]}
+
+
+def _prompt_type_count_payload(data: dict[str, Any]) -> dict[str, Any]:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    counts: Counter[str] = Counter()
+    if isinstance(prompt_groups, dict) and prompt_groups:
+        for group, items in prompt_groups.items():
+            counts[_prompt_type_label(group)] += len(items or [])
+    else:
+        questions = question_discovery.get("questions") or (data.get("trend_discovery") or {}).get("probe_questions") or []
+        if questions:
+            counts["中立推荐"] += len(questions)
+    items = counts.most_common()
+    return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _prompt_metric_type_payload(rows: list[dict[str, Any]], mentioned_only: bool = False) -> dict[str, Any]:
+    counts: Counter[str] = Counter()
+    for item in rows:
+        if mentioned_only and not item.get("brand_mentioned"):
+            continue
+        counts[_prompt_type_label(item.get("prompt_type")) or "未分类"] += 1
+    items = counts.most_common()
+    return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _model_status_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    counts: Counter[str] = Counter()
+    for item in rows:
+        counts["推荐排名 OK" if item.get("recommendation_ok") else "推荐排名 FAIL"] += 1
+        counts["声量估算 OK" if item.get("visibility_ok") else "声量估算 FAIL"] += 1
+    items = counts.most_common()
+    return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
+
+
+def _model_count_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    providers = [_provider_label(item.get("provider", "")) for item in rows]
+    return {
+        "traces": [
+            {"type": "bar", "name": "推荐条数", "x": providers, "y": [_safe_int(item.get("recommendation_count")) for item in rows]},
+            {"type": "bar", "name": "声量品牌数", "x": providers, "y": [_safe_int(item.get("visibility_count")) for item in rows]},
+        ]
+    }
 
 
 def _stacked_payload(rows: list[dict[str, Any]], x_key: str, stack_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
@@ -1294,9 +1501,66 @@ def _provider_status_table(rows: list[dict[str, Any]]) -> str:
 def _prompt_type_label(value: Any) -> str:
     return {
         "neutral_recommendation": "中立推荐",
+        "mainstream_recommendation": "中立推荐",
         "brand_diagnostic": "品牌诊断",
+        "brand_reputation": "品牌诊断",
         "comparison": "竞品对比",
+        "direct_competitor_comparison": "竞品对比",
+        "custom": "客户自定义",
     }.get(str(value or ""), str(value or ""))
+
+
+def _dashboard_question_groups_html(data: dict[str, Any]) -> str:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    rows: list[dict[str, str]] = []
+    if isinstance(prompt_groups, dict) and prompt_groups:
+        for group, items in prompt_groups.items():
+            for item in items or []:
+                rows.append(
+                    {
+                        "type": _prompt_type_label(group),
+                        "question": str(item.get("question") or item.get("query") or ""),
+                        "intent": str(item.get("intent") or ""),
+                        "reason": str(item.get("reason") or ""),
+                    }
+                )
+    else:
+        for item in question_discovery.get("questions") or (data.get("trend_discovery") or {}).get("probe_questions") or []:
+            if isinstance(item, dict):
+                rows.append({"type": "中立推荐", "question": str(item.get("question") or item.get("term") or ""), "intent": str(item.get("intent") or ""), "reason": str(item.get("reason") or "")})
+            else:
+                rows.append({"type": "中立推荐", "question": str(item), "intent": "", "reason": ""})
+    if not rows:
+        return "<p class='note'>暂无 Prompt 设计数据。</p>"
+    parts = []
+    for group in ["中立推荐", "品牌诊断", "竞品对比", "客户自定义"]:
+        group_rows = [row for row in rows if row["type"] == group]
+        if not group_rows:
+            continue
+        body = "".join(
+            f"<tr><td>{html.escape(row['question'])}</td><td>{html.escape(row['intent'])}</td><td>{html.escape(row['reason'][:260])}</td></tr>"
+            for row in group_rows
+        )
+        parts.append(f"<details class='prompt-group' {'open' if group == '中立推荐' else ''}><summary>{group}（{len(group_rows)} 个问题）</summary><div class='table-wrap'><table><thead><tr><th>问题</th><th>意图</th><th>说明</th></tr></thead><tbody>{body}</tbody></table></div></details>")
+    return "".join(parts)
+
+
+def _dashboard_prompt_metrics_groups_html(rows: list[dict[str, Any]]) -> str:
+    if not rows:
+        return "<p class='note'>暂无 Prompt 级指标。</p>"
+    parts = []
+    for group in ["中立推荐", "品牌诊断", "竞品对比", "客户自定义"]:
+        group_rows = [item for item in rows if _prompt_type_label(item.get("prompt_type")) == group]
+        if not group_rows:
+            continue
+        body = "".join(
+            f"<tr><td>{html.escape(str(item.get('prompt', '')))}</td><td>{html.escape(_provider_label(item.get('provider', '')))}</td><td>{'是' if item.get('brand_mentioned') else '否'}</td><td>{html.escape(str(item.get('brand_position') or '未出现'))}</td><td>{html.escape(str(item.get('sentiment_score', 50)))}</td><td>{len(item.get('co_occurring_brands') or [])}</td><td>{len(item.get('citation_urls') or [])}</td></tr>"
+            for item in group_rows
+        )
+        parts.append(f"<details class='prompt-group' {'open' if group == '中立推荐' else ''}><summary>{group} Prompt 指标（{len(group_rows)} 条回答）</summary><div class='table-wrap'><table><thead><tr><th>Prompt</th><th>AI平台</th><th>是否提及客户</th><th>Position</th><th>Sentiment</th><th>Mentions</th><th>引用链接数</th></tr></thead><tbody>{body}</tbody></table></div></details>")
+    return "".join(parts)
 
 
 def _prompt_run_table(rows: list[dict[str, Any]]) -> str:

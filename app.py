@@ -559,7 +559,7 @@ def load_history_report(storage: Storage, report_id: Any) -> None:
             dashboard_html_path = Path(outputs["dashboard_html_path"])
         except Exception:
             pass
-    st.session_state.integrated_result = {
+    result = {
         "report_id": report_id,
         "report_md_path": str(md_path),
         "report_html_path": str(html_path),
@@ -568,35 +568,68 @@ def load_history_report(storage: Storage, report_id: Any) -> None:
         "report_md": md_path.read_text(encoding="utf-8") if md_path.exists() else "",
         "analysis_data": data,
     }
+    result = refresh_integrated_result_outputs(result)
+    st.session_state.integrated_result = result
     st.success("History loaded into the current dashboard.")
+
+
+def _infer_integrated_run_dir(result: dict[str, Any], data: dict[str, Any]) -> Path | None:
+    candidates = [
+        data.get("run_dir"),
+        result.get("data_path"),
+        result.get("report_md_path"),
+        result.get("report_html_path"),
+        result.get("dashboard_html_path"),
+    ]
+    for value in candidates:
+        if not value:
+            continue
+        path = Path(str(value))
+        run_dir = path if path.is_dir() else path.parent
+        if (run_dir / "integrated_data.json").exists() or (run_dir / "integrated_report.md").exists():
+            return run_dir
+    return None
+
+
+def refresh_integrated_result_outputs(result: dict[str, Any]) -> dict[str, Any]:
+    data = enrich_analysis_data(result.get("analysis_data") or {})
+    run_dir = _infer_integrated_run_dir(result, data)
+    if not run_dir or not run_dir.exists():
+        result["analysis_data"] = data
+        return result
+    data_path = run_dir / "integrated_data.json"
+    if data_path.exists():
+        try:
+            disk_data = json.loads(data_path.read_text(encoding="utf-8"))
+            disk_data.update(data)
+            data = enrich_analysis_data(disk_data)
+        except Exception:
+            pass
+    data["run_dir"] = str(run_dir)
+    outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+    result.update(
+        {
+            "report_md_path": outputs["report_md_path"],
+            "report_html_path": outputs["report_html_path"],
+            "dashboard_html_path": outputs["dashboard_html_path"],
+            "data_path": outputs["data_path"],
+            "report_md": outputs["report_md"],
+            "analysis_data": enrich_analysis_data(data),
+        }
+    )
+    return result
 
 
 def render_result() -> None:
     result = st.session_state.get("integrated_result")
     if not result:
         return
+    try:
+        result = refresh_integrated_result_outputs(result)
+        st.session_state.integrated_result = result
+    except Exception as exc:
+        st.caption(f"报告已加载，但自动刷新 HTML/Markdown 失败：{exc}")
     data = enrich_analysis_data(result.get("analysis_data") or {})
-    run_dir_value = data.get("run_dir")
-    if run_dir_value:
-        run_dir = Path(run_dir_value)
-        if run_dir.exists():
-            try:
-                outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
-                dashboard_path = outputs.get("dashboard_html_path") or str(run_dir / "dashboard_report.html")
-                result.update(
-                    {
-                        "report_md_path": outputs["report_md_path"],
-                        "report_html_path": outputs["report_html_path"],
-                        "dashboard_html_path": dashboard_path,
-                        "data_path": outputs["data_path"],
-                        "report_md": outputs["report_md"],
-                        "analysis_data": enrich_analysis_data(data),
-                    }
-                )
-                st.session_state.integrated_result = result
-                data = result["analysis_data"]
-            except Exception as exc:
-                st.caption(f"报告已加载，但自动刷新 HTML/Markdown 失败：{exc}")
     labels = _labels(data.get("report_language", "zh"))
 
     st.markdown("### 分析结果")
