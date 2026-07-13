@@ -6,7 +6,7 @@ from typing import Any
 import requests
 
 
-DEFAULT_BAIDU_SEARCH_API_KEY = "bce-v3/ALTAK-6Jq4vo37NSn0f6eri8Xfh/93544ae499e4f917a4acdb902803b60a1f8603ad"
+DEFAULT_BAIDU_SEARCH_API_KEY = ""
 DEFAULT_BAIDU_SEARCH_URL = "https://qianfan.baidubce.com/v2/ai_search/web_search"
 
 
@@ -26,7 +26,6 @@ class BaiduSearchClient:
             or os.getenv("BAIDU_API_KEY", "").strip()
             or os.getenv("BAIDU_QIANFAN_API_KEY", "").strip()
             or os.getenv("BAIDU_SEARCH_API_KEY", "").strip()
-            or DEFAULT_BAIDU_SEARCH_API_KEY
         )
         self.endpoint = (endpoint or os.getenv("BAIDU_SEARCH_API_URL", "") or DEFAULT_BAIDU_SEARCH_URL).strip()
         self.edition = (edition or os.getenv("BAIDU_SEARCH_EDITION", "") or "lite").strip()
