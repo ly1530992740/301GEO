@@ -97,3 +97,64 @@
 3. 给每个图表增加一句业务解读。
 4. 增加“销售可用结论”：为什么需要 GEO、差距在哪里、预算做什么。
 5. 后续导出 PPT 或 PDF 版本。
+
+## 7. Prompt Edge / Topify 风格产品化改造
+
+当前状态：
+
+1. 历史看板已改为 Prompt Edge 风格左侧大纲布局。
+2. 现有历史数据会尽量回填 Overview、Prompts、Models、Metrics、Competitors、Voice、Sources、Research、Assets、Structured、Monitoring、Actions 等模块。
+3. 旧数据没有的模块会显示空态，不伪造数据。
+
+后续待完善：
+
+1. 将左侧大纲扩展为真正的可配置工作台，而不是只做历史报告展示。
+2. 增加品牌初始化编辑保存：品牌名、行业、公司简介、主要服务市场、产品矩阵、目标地区、目标客户。
+3. 增加竞品池手动编辑：AI 推荐竞品 + 用户手动添加竞品 + 用户剔除误判竞品。
+4. 增加 Prompt 工作台：中立推荐、品牌诊断、竞品对比、客户自定义问题最多 5 个。
+5. 增加 Prompt/Topic/Source 级指标趋势，支持同一品牌同一 Prompt 多次监控对比。
+
+## 8. 真实用户搜索词热度/概率 API
+
+当前状态：
+
+1. Prompt 设计仍主要依赖 AI 生成和规则兜底。
+2. “AI Volume / 搜索热度 / 概率推测”目前不是第三方真实接口统计。
+
+后续待完善：
+
+1. 调研并接入 5118、爱站、百度指数或其他关键词数据 API。
+2. 将关键词分为 Short-tail、Long-tail、Alternative-to、品牌诊断、竞品对比、客户自定义。
+3. 在 Prompt 工作台中展示关键词来源、热度、置信度、适用地区、适用人群。
+4. 报告中明确区分“真实关键词 API 数据”和“AI 生成补充”。
+
+## 9. 海外 AI 模型接入
+
+当前状态：
+
+1. 当前正式流程只调用 Qwen、豆包、元宝、DeepSeek。
+2. ChatGPT、Gemini、Grok 暂未调用。
+3. `.env.example` 已预留 OPENAI、GEMINI、GROK 配置项。
+
+后续待完善：
+
+1. 新增 OpenAI/ChatGPT provider。
+2. 新增 Gemini provider。
+3. 新增 Grok provider。
+4. 根据目标市场选择模型池：国内市场默认国内模型，海外市场默认海外模型，也允许用户手动选择。
+5. 多模型结果统一进入同一套 Competitors / Visibility / Sentiment / Position / SOV 指标体系。
+
+## 10. 五平台声量真实 API
+
+当前状态：
+
+1. 百度、搜狗、360、抖音、小红书五平台声量仍由多 AI 估算。
+2. `.env.example` 已预留真实五平台接口 URL 配置项。
+
+后续待完善：
+
+1. 接入真实百度搜索结果数量。
+2. 接入搜狗、360 搜索结果数量。
+3. 调研抖音、小红书内容数量接口或合规第三方数据源。
+4. 将 `multi_ai_estimated_count` 升级为真实来源字段，例如 `baidu_api_count`、`douyin_api_count`。
+5. 声量模块同时展示真实接口值、AI 估算值和数据可信度。

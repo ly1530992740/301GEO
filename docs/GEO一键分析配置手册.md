@@ -197,3 +197,50 @@ GEO_AI_ENABLE_PROMPT_DISCOVERY=true
 ```
 
 高密度监控适合后期自动化，不建议当前日常测试使用。
+
+## 7. 后续海外模型占位配置
+
+以下配置项已写入 `.env.example`，当前主流程不会调用，后续接入 ChatGPT、Gemini、Grok 时启用。
+
+```env
+OPENAI_API_KEY=your-openai-api-key
+OPENAI_CHAT_API_URL=https://api.openai.com/v1/chat/completions
+OPENAI_MODEL=gpt-5
+OPENAI_TIMEOUT_SECONDS=60
+
+GEMINI_API_KEY=your-gemini-api-key
+GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models
+GEMINI_MODEL=gemini-2.5-pro
+GEMINI_TIMEOUT_SECONDS=60
+
+GROK_API_KEY=your-grok-api-key
+GROK_API_URL=https://api.x.ai/v1/chat/completions
+GROK_MODEL=grok-4
+GROK_TIMEOUT_SECONDS=60
+```
+
+说明：
+
+1. 当前项目主攻国内 GEO，默认仍使用 Qwen、豆包、元宝、DeepSeek。
+2. 后续如果目标市场为海外，可按市场语言切换到 ChatGPT、Gemini、Grok 等模型池。
+3. 海外模型接入后仍复用同一套 Competitors / Visibility / Sentiment / Position / SOV 指标。
+
+## 8. 后续真实关键词与五平台声量 API 占位配置
+
+当前 Prompt 热度和五平台声量仍是 AI 估算，后续可接真实数据源。
+
+```env
+KEYWORD_INTELLIGENCE_API_KEY=
+KEYWORD_INTELLIGENCE_API_URL=
+REAL_BAIDU_SEARCH_COUNT_API_URL=
+REAL_SOGOU_SEARCH_COUNT_API_URL=
+REAL_360_SEARCH_COUNT_API_URL=
+REAL_DOUYIN_CONTENT_COUNT_API_URL=
+REAL_XIAOHONGSHU_CONTENT_COUNT_API_URL=
+```
+
+后续接入后需要在报告里明确展示：
+
+1. 数据来源：真实 API / AI 估算 / 人工补充。
+2. 统计口径：搜索结果数、内容数、视频数、笔记数或指数值。
+3. 置信度：真实接口统计优先，AI 估算只作为补充。

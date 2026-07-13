@@ -708,6 +708,8 @@ def render_downloads(result: dict[str, Any]) -> None:
 
 def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> None:
     data = enrich_analysis_data(data)
+    _render_prompt_edge_dashboard(data, labels)
+    return
     ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
     search_volume = data.get("search_volume_ranking") or []
     search_ranking = data.get("search_visibility_ranking") or []
@@ -976,6 +978,532 @@ def render_media_cost(data: dict[str, Any]) -> None:
         width="stretch",
         hide_index=True,
     )
+
+
+def _render_prompt_edge_dashboard(data: dict[str, Any], labels: dict[str, str]) -> None:
+    del labels
+    data = enrich_analysis_data(data)
+    sections = [
+        "Overview 总览",
+        "Brand 品牌初始化",
+        "Prompts 问题设计",
+        "Models 模型状态",
+        "Metrics 指标体系",
+        "Competitors 竞品排名",
+        "Voice 五平台声量",
+        "Sources 引用来源",
+        "Research 品牌调研",
+        "Assets 数字资产",
+        "Structured 官网信源",
+        "Monitoring 内容监控",
+        "Actions 优化建议",
+        "Reports 后续接口",
+    ]
+    sections = [f"{index:02d} {section}" for index, section in enumerate(sections, start=1)]
+    st.markdown(
+        """
+        <style>
+        .pe-card {border:1px solid #e5e7eb;border-radius:8px;padding:14px 16px;background:#fff;margin:8px 0 14px;}
+        .pe-note {color:#64748b;font-size:13px;line-height:1.7;}
+        .pe-section-title {font-size:22px;font-weight:700;margin:0 0 8px;}
+        div[role="radiogroup"] label {line-height:1.35;}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    left, right = st.columns([1.35, 4.65], gap="large")
+    with left:
+        st.markdown("### Prompt Edge")
+        selected = st.radio("导航", sections, label_visibility="collapsed", key="prompt_edge_dashboard_nav")
+        st.caption("旧历史数据缺失的模块会显示空态；重新跑分析后会逐步补齐。")
+    with right:
+        if "Overview" in selected:
+            _pe_overview(data)
+        elif "Brand" in selected:
+            _pe_brand_profile(data)
+        elif "Prompts" in selected:
+            _pe_prompts(data)
+        elif "Models" in selected:
+            _pe_models(data)
+        elif "Metrics" in selected:
+            _pe_metrics(data)
+        elif "Competitors" in selected:
+            _pe_competitors(data)
+        elif "Voice" in selected:
+            _pe_voice_volume(data)
+        elif "Sources" in selected:
+            _pe_sources(data)
+        elif "Research" in selected:
+            _pe_research(data)
+        elif "Assets" in selected:
+            _pe_digital_assets(data)
+        elif "Structured" in selected:
+            _pe_structured_source(data)
+        elif "Monitoring" in selected:
+            _pe_monitoring(data)
+        elif "Actions" in selected:
+            _pe_actions(data)
+        else:
+            _pe_reports_todo()
+
+
+def _pe_section(title: str, note: str = "") -> None:
+    st.markdown(f'<div class="pe-section-title">{title}</div>', unsafe_allow_html=True)
+    if note:
+        st.markdown(f'<div class="pe-note">{note}</div>', unsafe_allow_html=True)
+
+
+def _pe_empty(message: str) -> None:
+    st.info(message)
+
+
+def _pe_simple_table(rows: list[dict[str, Any]], columns: list[str] | None = None) -> None:
+    if not rows:
+        return
+    display_rows = rows
+    if columns:
+        display_rows = [{column: row.get(column, "") for column in columns} for row in rows]
+    st.dataframe(display_rows, width="stretch", hide_index=True)
+
+
+def _pe_render_mapping_rows(rows: list[dict[str, Any]], height_px: int = 400) -> None:
+    if not rows:
+        return
+    html_rows = []
+    for row in rows:
+        html_rows.append(
+            "<tr>"
+            f"<td>{row.get('序号', '')}</td>"
+            f"<td class='pe-brand-cell'>{row.get('品牌', '')}</td>"
+            f"<td>{row.get('指标值', '')}</td>"
+            "</tr>"
+        )
+    st.markdown(
+        """
+        <style>
+        .pe-mapping-scroll {height:var(--pe-map-height);overflow-y:auto;overflow-x:hidden;border:1px solid rgba(148,163,184,.35);}
+        .pe-mapping-table {width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
+        .pe-mapping-table th,.pe-mapping-table td {border:1px solid rgba(148,163,184,.35);padding:8px 10px;vertical-align:top;}
+        .pe-mapping-table th {background:rgba(148,163,184,.12);font-weight:700;position:sticky;top:0;z-index:1;}
+        .pe-mapping-table th:nth-child(1),.pe-mapping-table td:nth-child(1){width:48px;text-align:right;}
+        .pe-mapping-table th:nth-child(3),.pe-mapping-table td:nth-child(3){width:74px;text-align:right;}
+        .pe-brand-cell {white-space:normal;word-break:break-word;line-height:1.45;}
+        </style>
+        """
+        + f"<div class='pe-mapping-scroll' style='--pe-map-height:{height_px}px'>"
+        + "<table class='pe-mapping-table'><thead><tr><th>序号</th><th>品牌</th><th>指标值</th></tr></thead><tbody>"
+        + "".join(html_rows)
+        + "</tbody></table></div>",
+        unsafe_allow_html=True,
+    )
+
+
+def _pe_group_label(value: Any) -> str:
+    raw = str(value or "").strip()
+    return {
+        "neutral_recommendation": "中立推荐",
+        "mainstream_recommendation": "中立推荐",
+        "brand_diagnostic": "品牌诊断",
+        "brand_reputation": "品牌诊断",
+        "comparison": "竞品对比",
+        "direct_competitor_comparison": "竞品对比",
+        "custom": "客户自定义",
+    }.get(raw, raw or "未分类")
+
+
+def _pe_overview(data: dict[str, Any]) -> None:
+    _pe_section("Overview 总览", "按 Topify / Prompt Edge 思路，将品牌、Prompt、模型、竞品、声量、Sources、资产和 Actions 放在同一张诊断看板里。")
+    profile = data.get("product_profile") or {}
+    neutral = data.get("neutral_visibility_summary") or data.get("geo_visibility_summary") or {}
+    diagnostic = data.get("brand_diagnostic_summary") or {}
+    ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    sources = (data.get("source_intelligence") or {}).get("domain_summary") or []
+    actions = (data.get("geo_actions") or {}).get("actions") or []
+    c1, c2, c3, c4, c5, c6 = st.columns(6)
+    c1.metric("品牌", profile.get("brand_name") or profile.get("product_name") or "-")
+    c2.metric("Visibility", f"{neutral.get('visibility_score', 0)}%")
+    c3.metric("Sentiment", f"{diagnostic.get('sentiment_score', neutral.get('sentiment_score', 50))}/100")
+    c4.metric("Position", _pe_rank(neutral.get("avg_position")))
+    c5.metric("竞品数", len(ranking))
+    c6.metric("Sources", len(sources))
+    c7, c8, c9 = st.columns(3)
+    c7.metric("Prompt 成功率", f"{round(float(neutral.get('prompt_success_rate') or 0) * 100, 1)}%")
+    c8.metric("AI 平台覆盖", f"{neutral.get('provider_coverage_count', 0)}/{neutral.get('provider_total_count', 0)}")
+    c9.metric("待办事项", len(actions))
+    _pe_chart_brand_metrics(data.get("brand_visibility_metrics") or [])
+    if actions:
+        st.markdown("#### 高优先级 Actions")
+        st.dataframe(_pe_action_rows(actions, limit=8), width="stretch", hide_index=True)
+
+
+def _pe_brand_profile(data: dict[str, Any]) -> None:
+    _pe_section("Brand 品牌初始化", "PDF 要求品牌初始化信息可编辑；当前历史看板先展示已识别字段，编辑保存工作台后续再做。")
+    profile = data.get("product_profile") or {}
+    sources = data.get("sources") or {}
+    if not profile:
+        _pe_empty("暂无品牌画像。旧数据可能缺少 product_profile，需要重新跑产品资料抽取。")
+        return
+    rows = [
+        {"字段": "产品/服务名", "当前值": profile.get("product_name", "")},
+        {"字段": "品牌名", "当前值": profile.get("brand_name", "")},
+        {"字段": "别名", "当前值": ", ".join(profile.get("brand_aliases") or [])},
+        {"字段": "类目", "当前值": profile.get("category_local") or profile.get("category_en") or ""},
+        {"字段": "目标市场", "当前值": profile.get("target_market", "")},
+        {"字段": "服务地区", "当前值": profile.get("primary_region", "")},
+        {"字段": "业务类型", "当前值": profile.get("business_type", "")},
+        {"字段": "官网", "当前值": sources.get("website_url") or profile.get("website_url", "")},
+    ]
+    st.dataframe(rows, width="stretch", hide_index=True)
+    summary = profile.get("summary") or profile.get("profile_md") or ""
+    if summary:
+        with st.expander("查看品牌画像文本", expanded=False):
+            st.markdown(summary)
+
+
+def _pe_prompts(data: dict[str, Any]) -> None:
+    _pe_section("Prompts 问题设计", "问题分为中立推荐、品牌诊断、竞品对比和客户自定义。真实热度/概率 API 后续接入，当前显示 AI 生成或历史保存的问题。")
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    rows: list[dict[str, Any]] = []
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    if isinstance(prompt_groups, dict):
+        group_names = {
+            "neutral_recommendation": "中立推荐",
+            "brand_diagnostic": "品牌诊断",
+            "comparison": "竞品对比",
+            "custom": "客户自定义",
+        }
+        for group, items in prompt_groups.items():
+            for item in items or []:
+                rows.append(
+                    {
+                        "分组": group_names.get(group, group),
+                        "问题": item.get("question") or item.get("query") or "",
+                        "意图": item.get("intent", ""),
+                        "说明": item.get("reason", ""),
+                    }
+                )
+    if not rows:
+        for q in question_discovery.get("questions") or (data.get("trend_discovery") or {}).get("probe_questions") or []:
+            rows.append({"分组": "中立推荐", "问题": q.get("question") if isinstance(q, dict) else str(q), "意图": q.get("intent", "") if isinstance(q, dict) else "", "说明": ""})
+    if rows:
+        normalized_rows = [
+            {
+                "问题类型": _pe_group_label(row.get("分组")),
+                "问题": row.get("问题", ""),
+                "意图": row.get("意图", ""),
+                "说明": row.get("说明", ""),
+            }
+            for row in rows
+        ]
+        summary_rows = []
+        for group in ["中立推荐", "品牌诊断", "竞品对比", "客户自定义", "未分类"]:
+            count = len([row for row in normalized_rows if row.get("问题类型") == group])
+            if count:
+                summary_rows.append({"问题类型": group, "问题数": count})
+        if summary_rows:
+            _render_pie(summary_rows, names="问题类型", values="问题数")
+        for index, summary in enumerate(summary_rows):
+            group = summary["问题类型"]
+            group_rows = [row for row in normalized_rows if row.get("问题类型") == group]
+            with st.expander(f"{group}（{len(group_rows)} 个问题）", expanded=index == 0):
+                _pe_simple_table(group_rows, ["问题", "意图", "说明"])
+    else:
+        _pe_empty("暂无 Prompt 设计数据。")
+    st.caption("TODO：接入真实用户搜索词热度/概率 API 后，将在这里展示 Short-tail / Long-tail / Alternative-to / 自定义问题来源。")
+
+
+def _pe_models(data: dict[str, Any]) -> None:
+    _pe_section("Models 模型状态", "国内模型已接入 Qwen、豆包、元宝、DeepSeek；ChatGPT/Gemini/Grok 先保留配置占位，后续接入。")
+    rows = _pe_provider_rows(data)
+    if rows:
+        try:
+            import pandas as pd
+            import plotly.express as px
+
+            df = pd.DataFrame(rows)
+            status_rows = []
+            for column, label in [("推荐排名", "推荐排名调用"), ("声量估算", "声量估算调用")]:
+                if column in df.columns:
+                    for status, count in df[column].value_counts().items():
+                        status_rows.append({"模块": label, "状态": status, "平台数": int(count)})
+            if status_rows:
+                c1, c2 = st.columns([1.05, 1.45], gap="large")
+                with c1:
+                    fig = px.pie(pd.DataFrame(status_rows), names="状态", values="平台数", color="状态", facet_col="模块", hole=0.35, title="模型调用状态占比")
+                    fig.update_traces(textinfo="label+percent+value")
+                    fig.update_layout(margin=dict(l=10, r=10, t=60, b=10), legend_title_text="调用状态")
+                    st.plotly_chart(fig, width="stretch")
+                with c2:
+                    count_df = df[["AI平台", "推荐条数", "声量品牌数"]].melt(id_vars="AI平台", var_name="指标", value_name="数量")
+                    fig2 = px.bar(count_df, x="AI平台", y="数量", color="指标", barmode="group", title="各模型返回数量")
+                    fig2.update_layout(margin=dict(l=20, r=20, t=60, b=40), legend_title_text="指标")
+                    st.plotly_chart(fig2, width="stretch")
+        except Exception:
+            pass
+        with st.expander("查看模型调用明细", expanded=False):
+            st.dataframe(rows, width="stretch", hide_index=True)
+    else:
+        _pe_empty("暂无多 AI 平台调用状态。")
+    st.markdown("#### 后续模型占位")
+    st.dataframe(
+        [
+            {"模型": "ChatGPT", "状态": "待接入", "配置": "OPENAI_API_KEY / OPENAI_MODEL"},
+            {"模型": "Gemini", "状态": "待接入", "配置": "GEMINI_API_KEY / GEMINI_MODEL"},
+            {"模型": "Grok", "状态": "待接入", "配置": "GROK_API_KEY / GROK_MODEL"},
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+
+def _pe_metrics(data: dict[str, Any]) -> None:
+    _pe_section("Metrics 指标体系", "Competitors / Visibility / Sentiment / Position / SOV / AI Volume / Mentions 贯穿品牌、Prompt、Topic 和 Sources。")
+    _render_standard_geo_metrics_streamlit(data.get("standard_geo_metrics") or {})
+    st.markdown("#### Prompt 级指标")
+    prompt_runs = data.get("prompt_runs") or []
+    if prompt_runs:
+        metric_rows = _pe_prompt_metric_rows(prompt_runs)
+        summary_rows = []
+        for group in ["中立推荐", "品牌诊断", "竞品对比", "客户自定义", "未分类"]:
+            group_rows = [row for row in metric_rows if _pe_group_label(row.get("类型")) == group]
+            if group_rows:
+                mentioned = len([row for row in group_rows if row.get("是否提及客户") == "是"])
+                summary_rows.append({"问题类型": group, "回答数": len(group_rows), "提及客户": mentioned})
+        if summary_rows:
+            c1, c2 = st.columns(2, gap="large")
+            with c1:
+                _render_pie(summary_rows, names="问题类型", values="回答数")
+            with c2:
+                _render_bar(summary_rows, x="问题类型", y="提及客户")
+        for index, summary in enumerate(summary_rows):
+            group = summary["问题类型"]
+            group_rows = [row for row in metric_rows if _pe_group_label(row.get("类型")) == group]
+            with st.expander(f"{group} Prompt 指标（{len(group_rows)} 条回答）", expanded=index == 0):
+                _pe_simple_table(group_rows, ["Prompt", "AI平台", "是否提及客户", "Position", "Sentiment", "Mentions", "引用链接数"])
+    else:
+        _pe_empty("暂无 Prompt 级指标。")
+    st.markdown("#### Topic 级指标")
+    topics = (data.get("content_topic_analysis") or {}).get("topics") or []
+    if topics:
+        _render_pie(topics, names="topic", values="count")
+        st.dataframe(topics, width="stretch", hide_index=True)
+    else:
+        _pe_empty("暂无 Topic 级指标。")
+
+
+def _pe_competitors(data: dict[str, Any]) -> None:
+    _pe_section("Competitors 竞品排名", "展示 AI 推荐结果、分模型来源和可手动校准的竞品池。")
+    ranking = data.get("ai_recommendation_ranking") or data.get("brand_ranking") or []
+    if ranking:
+        _render_bar(ranking, x="brand_name", y="recommendation_count", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
+        with st.expander("查看竞品排名明细", expanded=False):
+            st.dataframe(_pe_competitor_rows(ranking), width="stretch", hide_index=True)
+    else:
+        _pe_empty("暂无竞品排名。")
+    source_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
+    if source_rows:
+        st.markdown("#### 分 AI 平台推荐来源")
+        _render_recommendation_source_charts(source_rows)
+        with st.expander("查看来源明细", expanded=False):
+            st.dataframe(_stringify_rows(source_rows), width="stretch", hide_index=True)
+
+
+def _pe_voice_volume(data: dict[str, Any]) -> None:
+    _pe_section("Voice 五平台声量", "当前为多 AI 估算，不等于百度/搜狗/360/抖音/小红书官方真实接口统计；真实 API 后续接入。")
+    search_volume = data.get("search_volume_ranking") or []
+    search_ranking = data.get("search_visibility_ranking") or []
+    gap_ranking = data.get("competitive_gap_ranking") or []
+    if search_volume:
+        _render_platform_breakdown_charts(search_volume)
+        with st.expander("查看五平台拆分明细", expanded=False):
+            st.dataframe(_visibility_platform_rows(search_volume), width="stretch", hide_index=True)
+    else:
+        _pe_empty("暂无五平台声量估算。")
+    if search_ranking:
+        st.markdown("#### 品牌内容声量排名")
+        _render_bar(search_ranking, x="brand_name", y="mentioned_count", color="is_user_brand")
+    if gap_ranking:
+        st.markdown("#### AI 推荐与内容声量差异")
+        _render_bar(gap_ranking, x="brand_name", y="gap_score", color="is_user_brand")
+
+
+def _pe_sources(data: dict[str, Any]) -> None:
+    _pe_section("Sources 引用来源", "对应 PDF 中的 Domain Charts / Domain Type / Used % / Avg Citations / Mentioned / Brands Appear / Action。")
+    _render_source_intelligence_streamlit(data.get("source_intelligence") or {})
+
+
+def _pe_research(data: dict[str, Any]) -> None:
+    _pe_section("Research 品牌调研", "围绕品类边界、客单价、消费心理动机、用户画像、卖点解析和品牌内容定位展示。")
+    positioning = data.get("content_positioning_analysis") or _derive_content_positioning_analysis(data)
+    if positioning:
+        _render_content_positioning_charts(positioning, data.get("source_articles") or [])
+    else:
+        _pe_empty("暂无品牌调研结构化数据。")
+    report = data.get("content_pattern_report") or ""
+    if report:
+        with st.expander("查看完整品牌调研文本", expanded=False):
+            st.markdown(report)
+
+
+def _pe_digital_assets(data: dict[str, Any]) -> None:
+    _pe_section("Assets 数字资产", "按 PDF 的模力指数思路，先展示官网、搜索、新媒体、第三方信源、媒介发布等资产快照。")
+    rows = _pe_digital_asset_rows(data)
+    if rows:
+        try:
+            import pandas as pd
+            import plotly.express as px
+
+            df = pd.DataFrame(rows)
+            fig = px.bar(df, x="评分", y="资产模块", color="状态", orientation="h", title="品牌数字资产评估")
+            st.plotly_chart(fig, width="stretch")
+        except Exception:
+            pass
+        st.dataframe(rows, width="stretch", hide_index=True)
+    else:
+        _pe_empty("暂无数字资产评估数据。")
+
+
+def _pe_structured_source(data: dict[str, Any]) -> None:
+    _pe_section("Structured 官网信源", "检查官网是否具备 AI 可解析、可引用的品牌事实块：FAQ、价格、案例、资质、对比、联系方式、Schema。")
+    _render_owned_asset_audit_streamlit(data.get("owned_asset_audit") or {})
+
+
+def _pe_monitoring(data: dict[str, Any]) -> None:
+    _pe_section("Monitoring 内容监控", "第一版为手动监控快照：舆情风险、内容缺口、竞品优势。自动定时监控后续再做。")
+    _render_content_monitoring_streamlit(data.get("content_monitoring") or {})
+
+
+def _pe_actions(data: dict[str, Any]) -> None:
+    _pe_section("Actions 优化建议", "由指标、Sources、官网资产、内容监控和媒介成本共同生成，用于指导 GEO 优化与投放。")
+    _render_actions_streamlit(data.get("geo_actions") or {}, compact=False)
+    st.markdown("#### 媒介成本")
+    render_media_cost(data)
+
+
+def _pe_reports_todo() -> None:
+    _pe_section("Reports 后续接口", "这里展示已明确要后续接入、当前不应伪装成真实数据的能力。")
+    st.dataframe(
+        [
+            {"模块": "真实用户搜索词热度/概率", "当前状态": "AI 生成/规则补齐", "后续接口": "百度指数、5118/爱站、搜索平台或第三方关键词 API"},
+            {"模块": "国外 AI 模型", "当前状态": "未调用", "后续接口": "ChatGPT / Gemini / Grok provider"},
+            {"模块": "五平台真实声量", "当前状态": "多 AI 估算", "后续接口": "百度、搜狗、360、抖音、小红书真实搜索/内容数据 API"},
+            {"模块": "自动监控", "当前状态": "手动快照", "后续接口": "定时任务、重跑、趋势对比、提醒通知"},
+        ],
+        width="stretch",
+        hide_index=True,
+    )
+
+
+def _pe_rank(value: Any) -> str:
+    if value in (None, "", "None"):
+        return "未出现"
+    try:
+        return f"#{float(value):g}"
+    except Exception:
+        return str(value)
+
+
+def _pe_chart_brand_metrics(rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        _pe_empty("暂无品牌指标。")
+        return
+    st.markdown("#### AI 提及次数")
+    _render_bar(rows, x="brand_name", y="mention_count", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
+    st.markdown("#### AI 描述情绪分")
+    _render_bar(rows, x="brand_name", y="sentiment_score", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
+
+
+def _pe_provider_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = data.get("multi_ai_provider_status") or _provider_status_from_available_data(data)
+    result = []
+    for item in rows:
+        result.append(
+            {
+                "AI平台": _provider_label(item.get("provider", "")),
+                "推荐排名": "OK" if item.get("recommendation_ok") else "FAIL",
+                "推荐条数": item.get("recommendation_count", 0),
+                "声量估算": "OK" if item.get("visibility_ok") else "FAIL",
+                "声量品牌数": item.get("visibility_count", 0),
+                "模型": item.get("model", ""),
+                "错误": item.get("recommendation_error") or item.get("visibility_error") or "",
+            }
+        )
+    return result
+
+
+def _pe_action_rows(actions: list[dict[str, Any]], limit: int = 8) -> list[dict[str, Any]]:
+    rows = []
+    for index, item in enumerate(actions[:limit], start=1):
+        rows.append(
+            {
+                "序号": item.get("rank") or index,
+                "优先级": item.get("priority", ""),
+                "模块": item.get("module", ""),
+                "任务": item.get("task", ""),
+                "原因": item.get("reason", ""),
+                "目标指标": item.get("expected_metric", ""),
+                "预估成本": item.get("estimated_cost", ""),
+            }
+        )
+    return rows
+
+
+def _pe_prompt_metric_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for item in rows:
+        result.append(
+            {
+                "Prompt": item.get("prompt", ""),
+                "类型": _prompt_type_label(item.get("prompt_type", "")),
+                "AI平台": _provider_label(item.get("provider", "")),
+                "是否提及客户": "是" if item.get("brand_mentioned") else "否",
+                "Position": _pe_rank(item.get("brand_position")),
+                "Sentiment": item.get("sentiment_score", 50),
+                "Mentions": len(item.get("co_occurring_brands") or []),
+                "引用链接数": len(item.get("citation_urls") or []),
+            }
+        )
+    return result
+
+
+def _pe_competitor_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for idx, item in enumerate(rows[:30], start=1):
+        result.append(
+            {
+                "排名": item.get("ai_recommendation_rank") or idx,
+                "品牌": item.get("brand_name", ""),
+                "推荐次数": item.get("recommendation_count", 0),
+                "平均排名": item.get("avg_rank", ""),
+                "是否客户品牌": "是" if item.get("is_user_brand") else "否",
+                "AI平台": item.get("engine", ""),
+            }
+        )
+    return result
+
+
+def _pe_digital_asset_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
+    audit = data.get("owned_asset_audit") or {}
+    search_volume = data.get("search_volume_ranking") or []
+    sources = (data.get("source_intelligence") or {}).get("domain_summary") or []
+    media = ((data.get("media_matches") or {}).get("matches") or [])
+    content = data.get("content_positioning_analysis") or {}
+    rows = []
+    if audit:
+        rows.append({"资产模块": "官网结构化资产", "评分": int(audit.get("ai_readability_score") or 0), "状态": "已有审计", "说明": "FAQ、价格、案例、资质、Schema 等"})
+    if search_volume:
+        rows.append({"资产模块": "搜索/新媒体声量资产", "评分": min(100, len(search_volume) * 8), "状态": "AI估算", "说明": "百度、搜狗、360、抖音、小红书"})
+    if sources:
+        covered = len([item for item in sources if item.get("mentioned_user_brand")])
+        rows.append({"资产模块": "第三方信源资产", "评分": round((covered / max(len(sources), 1)) * 100), "状态": "已有来源", "说明": "AI 引用域名中客户品牌出现比例"})
+    if content.get("selling_points"):
+        rows.append({"资产模块": "品牌内容资产", "评分": min(100, len(content.get("selling_points") or []) * 8), "状态": "已有分析", "说明": "卖点、用户画像、心理动机"})
+    if media:
+        rows.append({"资产模块": "媒介发布资产", "评分": min(100, len(media) * 10), "状态": "已匹配", "说明": "媒介库报价和可投放资源"})
+    if not rows:
+        rows.append({"资产模块": "品牌知识库", "评分": 0, "状态": "暂无数据", "说明": "需重新跑产品资料抽取或补充官网/附件"})
+    return rows
 
 
 def _render_standard_geo_metrics_streamlit(metrics: dict[str, Any]) -> None:
@@ -1478,8 +2006,12 @@ def _prompt_run_display_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]
 def _prompt_type_label(value: Any) -> str:
     return {
         "neutral_recommendation": "中立推荐",
+        "mainstream_recommendation": "中立推荐",
         "brand_diagnostic": "品牌诊断",
+        "brand_reputation": "品牌诊断",
         "comparison": "竞品对比",
+        "direct_competitor_comparison": "竞品对比",
+        "custom": "客户自定义",
     }.get(str(value or ""), str(value or ""))
 
 
@@ -2015,6 +2547,13 @@ def _render_article_status_charts(rows: list[dict[str, Any]]) -> None:
 
 
 def _chart_label(name: str) -> str:
+    prompt_edge_labels = {
+        "mention_count": "AI 提及次数",
+        "sentiment_score": "AI 描述情绪分",
+        "avg_position": "平均推荐位置",
+    }
+    if name in prompt_edge_labels:
+        return prompt_edge_labels[name]
     return {
         "brand_name": "品牌",
         "mentioned_count": "传统搜索声量",
@@ -2144,7 +2683,7 @@ def _render_bar(
         if color and color in chart_df.columns:
             chart_color = _chart_label(color)
             if color == "is_user_brand":
-                chart_df[chart_color] = chart_df[color].map(lambda value: "Customer Brand" if bool(value) else "Competitor")
+                chart_df[chart_color] = chart_df[color].map(lambda value: "客户品牌" if bool(value) else "竞品")
             else:
                 chart_df[chart_color] = chart_df[color]
         if x in chart_df.columns:
@@ -2156,33 +2695,32 @@ def _render_bar(
         if use_index_axis and x in chart_df.columns:
             chart_df["Index"] = list(range(1, len(chart_df) + 1))
             mapping_df = pd.DataFrame({
-                "No.": chart_df["Index"],
-                "Brand": chart_df[x],
-                "Brand Type": chart_df[chart_color] if chart_color and chart_color in chart_df.columns else "",
-                "Sentiment Score": chart_df[y],
+                "序号": chart_df["Index"],
+                "品牌": chart_df[x],
+                "指标值": chart_df[y],
             })
 
         plot_x = "Index" if use_index_axis and "Index" in chart_df.columns else chart_x
         custom_data = [chart_x]
         if chart_color:
             custom_data.append(chart_color)
-        fig = px.bar(chart_df, x=plot_x, y=chart_y, color=chart_color, height=420, custom_data=custom_data)
-        hover_parts = ["No.: %{x}", "Brand: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
+        fig = px.bar(chart_df, x=plot_x, y=chart_y, color=chart_color, height=440, custom_data=custom_data)
+        hover_parts = ["序号: %{x}", "品牌: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
         if chart_color:
             hover_parts.append(f"{chart_color}: %{{customdata[1]}}")
         hover_parts.append(f"{chart_y}: %{{y}}")
         fig.update_traces(hovertemplate="<br>".join(hover_parts) + "<extra></extra>")
         fig.update_layout(margin=dict(l=20, r=20, t=20, b=90), legend_title_text=chart_color or "")
-        fig.update_xaxes(title_text=("No." if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
+        fig.update_xaxes(title_text=("序号" if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
         fig.update_yaxes(title_text=chart_y)
 
         if show_mapping_table and mapping_df is not None:
-            left_col, right_col = st.columns([3, 2])
+            left_col, right_col = st.columns([3.5, 2.2], gap="large")
             with left_col:
                 st.plotly_chart(fig, width="stretch")
             with right_col:
-                st.markdown("##### Brand Number Mapping")
-                st.dataframe(mapping_df, width="stretch", hide_index=True)
+                st.markdown("##### 品牌序号 Mapping")
+                _pe_render_mapping_rows(mapping_df.to_dict("records"))
         else:
             st.plotly_chart(fig, width="stretch")
 
