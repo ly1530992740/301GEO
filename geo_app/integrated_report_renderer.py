@@ -528,6 +528,9 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     content_monitoring_table = _dashboard_content_monitoring_table(content_monitoring)
     geo_actions_table = _dashboard_geo_actions_table(geo_actions)
     reports_todo_table = _dashboard_reports_todo_table()
+    keyword_overview_html = _dashboard_keyword_overview_html(analysis_data)
+    keyword_explanation_html = _dashboard_keyword_explanation_html(analysis_data)
+    media_keyword_suggestions_html = _dashboard_media_keyword_suggestions_html(analysis_data)
     content_report = analysis_data.get("content_pattern_report") or ""
     content_report_block = (
         f'<details class="details"><summary>查看完整品牌调研与市场定位文字报告</summary><pre class="markdown">{html.escape(content_report)}</pre></details>'
@@ -644,6 +647,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div class="metric kpi"><span>AI 平台覆盖</span><strong>{html.escape(provider_coverage)}</strong></div>
       <div class="metric kpi"><span>竞品对比提及</span><strong>{html.escape(str(comparison_summary.get("brand_mentioned_responses", 0)))}</strong></div>
     </div>
+    {keyword_overview_html}
     <h3>AI认知度</h3>
     <div class="chart-with-table">
       <div id="mentionChart" class="chart-inner"></div>
@@ -710,6 +714,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
 
   <section id="competitors">
     <h2>Competitors 竞品排名</h2>
+    {keyword_explanation_html}
     <div class="chart-with-table">
       <div id="rankingChart" class="chart-inner"></div>
       <div>
@@ -815,6 +820,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
   </section>
   <section id="actions">
     <h2>Actions 优化建议</h2>
+    {media_keyword_suggestions_html}
     <h3>Actions 优化待办清单</h3>
     <div class="table-wrap">{geo_actions_table}</div>
   </section>
@@ -846,6 +852,7 @@ function matrixCustomdata(matrix) {{
   ]));
 }}
 plot("rankingChart", [{{type:"bar", x:D.ranking.index, y:D.ranking.y, marker:{{color:D.ranking.colors}}, customdata:D.ranking.x, hovertemplate:"品牌序号: %{{x}}<br>品牌: %{{customdata}}<br>AI推荐次数: %{{y}}<extra></extra>"}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"品牌序号", dtick:1}}}});
+plot("keywordDemandBar", [{{type:"bar", x:D.keywordDemand.labels, y:D.keywordDemand.values, marker:{{color:"#0ea5e9"}}, customdata:D.keywordDemand.customdata, hovertemplate:"关键词: %{{x}}<br>热度评分: %{{y}}<br>长尾词数: %{{customdata[0]}}<br>竞价公司数: %{{customdata[1]}}<extra></extra>"}}], {{title:"5118 真实搜索需求 Top", yaxis:{{title:"热度评分"}}, xaxis:{{title:"关键词"}}}});
 plot("recommendationSourcePie", [{{type:"pie", labels:D.recommendationSource.labels, values:D.recommendationSource.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 推荐来源占比"}});
 plot("recommendationHeatmap", [{{type:"heatmap", x:D.recommendationHeatmap.x, y:D.recommendationHeatmap.y, z:D.recommendationHeatmap.z, colorscale:"YlGnBu"}}], {{title:"AI 推荐热度矩阵"}});
 plot("mentionChart", [{{type:"bar", x:D.mentions.index, y:D.mentions.y, marker:{{color:D.mentions.colors}}, customdata:D.mentions.x, hovertemplate:"品牌序号: %{{x}}<br>品牌: %{{customdata}}<br>AI认知度: %{{y}}<extra></extra>"}}], {{title:"AI认知度", yaxis:{{title:"AI认知度"}}, xaxis:{{title:"品牌序号", dtick:1}}}});
@@ -874,6 +881,7 @@ plot("articleStatusPie", [{{type:"pie", labels:D.articleStatus.labels, values:D.
 plot("topicChart", [{{type:"pie", labels:C.topics.labels, values:C.topics.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"内容主题分布"}});
 plot("topicMatrixChart", [{{type:"heatmap", x:C.topicMatrix.x, y:C.topicMatrix.y, z:C.topicMatrix.z, colorscale:"YlGnBu", customdata:matrixCustomdata(C.topicMatrix), hovertemplate:"品牌序号: %{{y}}<br>品牌: %{{customdata[0]}}<br>主题序号: %{{x}}<br>主题: %{{customdata[1]}}<br>次数: %{{z}}<extra></extra>"}}], {{title:"品牌内容重点矩阵", xaxis:{{title:"主题序号", dtick:1}}, yaxis:{{title:"品牌序号", dtick:1}}}});
 plot("actionModulePriorityBar", D.actionModulePriority.traces, {{title:"Actions 模块分布", barmode:"stack", xaxis:{{title:"任务数"}}, yaxis:{{title:"模块", automargin:true}}}});
+plot("mediaKeywordBar", [{{type:"bar", x:D.mediaKeywords.values, y:D.mediaKeywords.labels, orientation:"h", marker:{{color:"#f59e0b"}}}}], {{title:"媒介投放关键词建议优先级", xaxis:{{title:"建议优先级"}}, yaxis:{{title:"投放关键词", automargin:true}}}});
 plot("sourceTypePie", [{{type:"pie", labels:D.sourceTypes.labels, values:D.sourceTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 引用信源类型"}});
 plot("sourceCitationBar", [{{type:"bar", x:D.sourceCitations.values, y:D.sourceCitations.labels, orientation:"h", marker:{{color:"#0ea5e9"}}}}], {{title:"AI 引用域名次数 Top", xaxis:{{title:"引用次数"}}}});
 plot("ownedAssetBar", [{{type:"bar", x:D.ownedAssets.values, y:D.ownedAssets.labels, orientation:"h", marker:{{color:D.ownedAssets.colors}}}}], {{title:"官网结构化信源资产检查", xaxis:{{title:"是否具备", range:[0,1]}}, yaxis:{{automargin:true}}}});
@@ -1103,6 +1111,180 @@ def _dashboard_geo_actions_table(plan: dict[str, Any]) -> str:
     return "<table><thead><tr><th>排名</th><th>优先级</th><th>模块</th><th>任务</th><th>原因</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
 
 
+def _keyword_intelligence_from_data(data: dict[str, Any]) -> dict[str, Any]:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    keyword_intelligence = data.get("keyword_intelligence") or question_discovery.get("keyword_intelligence") or strategy.get("keyword_intelligence") or {}
+    return keyword_intelligence if isinstance(keyword_intelligence, dict) else {}
+
+
+def _keyword_summary(data: dict[str, Any]) -> dict[str, Any]:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    profile = data.get("product_profile") or {}
+    neutral_rows = keyword_intelligence.get("neutral_prompt_candidates") or []
+    brand_rows = keyword_intelligence.get("competitor_or_brand_candidates") or []
+    ranked_rows = keyword_intelligence.get("ranked_terms") or []
+    own_brand_rows = [
+        item
+        for item in [*brand_rows, *ranked_rows]
+        if item.get("is_own_brand") or _contains_text(item.get("keyword"), profile.get("brand_name")) or _contains_text(item.get("keyword"), profile.get("product_name"))
+    ]
+    commercial_rows = [
+        item
+        for item in neutral_rows
+        if _safe_int(item.get("bid_company_count")) > 0 or bool(item.get("sem_price")) or any(term in str(item.get("keyword") or "") for term in ["推荐", "哪家好", "排名", "价格", "品牌", "医院", "机构", "购买"])
+    ]
+    return {
+        "status": keyword_intelligence.get("status") or ("ok" if neutral_rows else "empty"),
+        "neutral_count": len(neutral_rows),
+        "commercial_count": len(commercial_rows),
+        "brand_heat_count": len(own_brand_rows),
+        "brand_heat_label": "有品牌词热度" if own_brand_rows else "未检出明显品牌词热度",
+        "top_keyword": str((neutral_rows[0] or {}).get("keyword", "")) if neutral_rows else "-",
+    }
+
+
+def _contains_text(value: Any, needle: Any) -> bool:
+    value_text = str(value or "").strip().lower()
+    needle_text = str(needle or "").strip().lower()
+    return bool(value_text and needle_text and needle_text in value_text)
+
+
+def _dashboard_keyword_overview_html(data: dict[str, Any]) -> str:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    if not keyword_intelligence:
+        return '<h3>5118 真实搜索需求校准</h3><p class="note">暂无 5118 真实用户搜索词数据。旧历史数据如果没有该模块会保持空状态，重新跑分析后会自动补齐。</p>'
+    summary = _keyword_summary(data)
+    return f"""
+    <h3>5118 真实搜索需求校准</h3>
+    <p class="note">5118 只用于校准真实用户搜索需求和生成更中立的 AI 测试问题，不直接参与 AI 推荐排名计分。</p>
+    <div class="meta">
+      <div class="metric kpi"><span>真实搜索词数量</span><strong>{html.escape(str(summary["neutral_count"]))}</strong></div>
+      <div class="metric kpi"><span>高商业价值词数量</span><strong>{html.escape(str(summary["commercial_count"]))}</strong></div>
+      <div class="metric kpi"><span>品牌词热度</span><strong>{html.escape(str(summary["brand_heat_label"]))}</strong></div>
+      <div class="metric kpi"><span>最高需求词</span><strong>{html.escape(str(summary["top_keyword"]))}</strong></div>
+    </div>
+    <div id="keywordDemandBar" class="chart"></div>
+    """
+
+
+def _keyword_prompt_explanation_rows(data: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    rows = []
+    for item in keyword_intelligence.get("generated_prompt_items") or []:
+        rows.append(
+            {
+                "source": item.get("keyword_source") or "5118",
+                "keyword": item.get("source_keyword") or "",
+                "question": item.get("question") or "",
+                "intent": item.get("intent") or "AI推荐排名",
+                "reason": item.get("reason") or "",
+            }
+        )
+    if rows:
+        return rows[:limit]
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    for item in (prompt_groups.get("neutral_recommendation") if isinstance(prompt_groups, dict) else []) or []:
+        if item.get("keyword_source") == "5118" or item.get("source_keyword"):
+            rows.append(
+                {
+                    "source": item.get("keyword_source") or "5118",
+                    "keyword": item.get("source_keyword") or "",
+                    "question": item.get("question") or item.get("query") or "",
+                    "intent": item.get("intent") or "AI推荐排名",
+                    "reason": item.get("reason") or "",
+                }
+            )
+    return rows[:limit]
+
+
+def _dashboard_keyword_explanation_html(data: dict[str, Any]) -> str:
+    rows = _keyword_prompt_explanation_rows(data)
+    if not rows:
+        return '<h3>AI 推荐排名解释：为什么这样问 AI</h3><p class="note">暂无来自 5118 的 AI 推荐问题解释。旧数据缺失时这里会显示空，重新跑分析后会自动补齐。</p>'
+    body = "".join(
+        "<tr>"
+        f"<td>{html.escape(str(item.get('source') or '5118'))}</td>"
+        f"<td>{html.escape(str(item.get('keyword') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('question') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('intent') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('reason') or '')[:260])}</td>"
+        "</tr>"
+        for item in rows
+    )
+    return (
+        "<h3>AI 推荐排名解释：为什么这样问 AI</h3>"
+        '<p class="note">AI 推荐排名仍来自 Qwen / 豆包 / 元宝 / DeepSeek 的回答；5118 的作用是提供真实用户搜索需求，让测试问题更接近真实搜索语境。</p>'
+        "<div class='table-wrap'><table><thead><tr><th>来源</th><th>真实搜索词</th><th>AI测试问题</th><th>用途</th><th>说明</th></tr></thead><tbody>"
+        + body
+        + "</tbody></table></div>"
+    )
+
+
+def _media_keyword_suggestion_rows(data: dict[str, Any], limit: int = 10) -> list[dict[str, Any]]:
+    profile = data.get("product_profile") or {}
+    category = _display_category(profile) or "品类"
+    rows = []
+    for item in (_keyword_intelligence_from_data(data).get("neutral_prompt_candidates") or [])[:limit]:
+        keyword = str(item.get("keyword") or "").strip()
+        if not keyword:
+            continue
+        rows.append(
+            {
+                "keyword": keyword,
+                "topic": f"{keyword}选择指南 / 真实案例 / 口碑对比",
+                "purpose": f"围绕“{keyword}”补充可被 AI 引用的{category}内容资产",
+                "evidence": f"5118热度评分{_safe_int(item.get('score'))}，长尾词{_safe_int(item.get('longtail_count'))}，竞价公司{_safe_int(item.get('bid_company_count'))}",
+                "sem": item.get("sem_price", ""),
+            }
+        )
+    return rows
+
+
+def _dashboard_media_keyword_suggestions_html(data: dict[str, Any]) -> str:
+    rows = _media_keyword_suggestion_rows(data)
+    if not rows:
+        return '<h3>媒介投放关键词建议</h3><p class="note">暂无媒介投放关键词建议。需要 5118 真实搜索词数据。</p>'
+    body = "".join(
+        "<tr>"
+        f"<td>{html.escape(str(item.get('keyword') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('topic') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('purpose') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('evidence') or ''))}</td>"
+        f"<td>{html.escape(str(item.get('sem') or ''))}</td>"
+        "</tr>"
+        for item in rows
+    )
+    return (
+        "<h3>媒介投放关键词建议</h3>"
+        '<p class="note">这些词用于指导后续发稿选题和锚文本布局，不等同于五平台精确声量。</p>'
+        '<div id="mediaKeywordBar" class="chart"></div>'
+        "<div class='table-wrap'><table><thead><tr><th>投放关键词</th><th>建议内容方向</th><th>GEO用途</th><th>需求证据</th><th>SEM参考</th></tr></thead><tbody>"
+        + body
+        + "</tbody></table></div>"
+    )
+
+
+def _keyword_demand_payload(keyword_intelligence: dict[str, Any]) -> dict[str, Any]:
+    rows = (keyword_intelligence.get("neutral_prompt_candidates") or [])[:10]
+    return {
+        "labels": [str(item.get("keyword") or "") for item in rows],
+        "values": [_safe_int(item.get("score")) for item in rows],
+        "customdata": [[_safe_int(item.get("longtail_count")), _safe_int(item.get("bid_company_count"))] for item in rows],
+    }
+
+
+def _media_keyword_payload(data: dict[str, Any]) -> dict[str, Any]:
+    rows = _media_keyword_suggestion_rows(data)
+    count = len(rows)
+    return {
+        "labels": [item["keyword"] for item in rows],
+        "values": [count - index for index, _ in enumerate(rows)],
+    }
+
+
 def _source_citation_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     top = sorted(rows, key=lambda item: int(item.get("citation_count") or 0), reverse=True)[:12]
     return {"labels": [str(item.get("domain") or "") for item in top], "values": [int(item.get("citation_count") or 0) for item in top]}
@@ -1144,7 +1326,10 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
     owned_asset_audit = data.get("owned_asset_audit") or {}
     content_monitoring = data.get("content_monitoring") or {}
     geo_actions = data.get("geo_actions") or {}
+    keyword_intelligence = _keyword_intelligence_from_data(data)
     return {
+        "keywordDemand": _keyword_demand_payload(keyword_intelligence),
+        "mediaKeywords": _media_keyword_payload(data),
         "providerStatusRows": provider_status,
         "actionPriority": _count_payload(geo_actions.get("actions") or [], "priority", "task"),
         "actionModules": _count_payload(geo_actions.get("actions") or [], "module", "task"),

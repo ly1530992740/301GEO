@@ -1110,6 +1110,168 @@ def _pe_empty(message: str) -> None:
     st.info(message)
 
 
+def _keyword_intelligence_from_data(data: dict[str, Any]) -> dict[str, Any]:
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    keyword_intelligence = data.get("keyword_intelligence") or question_discovery.get("keyword_intelligence") or strategy.get("keyword_intelligence") or {}
+    return keyword_intelligence if isinstance(keyword_intelligence, dict) else {}
+
+
+def _keyword_score_rows(keyword_intelligence: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
+    rows = keyword_intelligence.get("neutral_prompt_candidates") or []
+    result: list[dict[str, Any]] = []
+    for item in rows[:limit]:
+        result.append(
+            {
+                "关键词": item.get("keyword", ""),
+                "热度评分": _safe_int(item.get("score")),
+                "长尾词数": _safe_int(item.get("longtail_count")),
+                "竞价公司数": _safe_int(item.get("bid_company_count")),
+                "SEM参考": item.get("sem_price", ""),
+            }
+        )
+    return result
+
+
+def _keyword_summary(data: dict[str, Any]) -> dict[str, Any]:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    profile = data.get("product_profile") or {}
+    neutral_rows = keyword_intelligence.get("neutral_prompt_candidates") or []
+    brand_rows = keyword_intelligence.get("competitor_or_brand_candidates") or []
+    ranked_rows = keyword_intelligence.get("ranked_terms") or []
+    own_brand_rows = [
+        item
+        for item in [*brand_rows, *ranked_rows]
+        if item.get("is_own_brand") or _contains_text(item.get("keyword"), profile.get("brand_name")) or _contains_text(item.get("keyword"), profile.get("product_name"))
+    ]
+    commercial_rows = [
+        item
+        for item in neutral_rows
+        if _safe_int(item.get("bid_company_count")) > 0 or bool(item.get("sem_price")) or any(term in str(item.get("keyword") or "") for term in ["推荐", "哪家好", "排名", "价格", "品牌", "医院", "机构", "购买"])
+    ]
+    top_keyword = str((neutral_rows[0] or {}).get("keyword", "")) if neutral_rows else ""
+    return {
+        "enabled": keyword_intelligence.get("enabled"),
+        "status": keyword_intelligence.get("status") or ("ok" if neutral_rows else "empty"),
+        "source": keyword_intelligence.get("source") or "5118",
+        "neutral_count": len(neutral_rows),
+        "commercial_count": len(commercial_rows),
+        "brand_heat_count": len(own_brand_rows),
+        "brand_heat_label": "有品牌词热度" if own_brand_rows else "未检出明显品牌词热度",
+        "top_keyword": top_keyword or "-",
+        "total_longtail_count": sum(_safe_int(item.get("longtail_count")) for item in neutral_rows),
+        "errors": keyword_intelligence.get("errors") or [],
+    }
+
+
+def _contains_text(value: Any, needle: Any) -> bool:
+    value_text = str(value or "").strip().lower()
+    needle_text = str(needle or "").strip().lower()
+    return bool(value_text and needle_text and needle_text in value_text)
+
+
+def _keyword_prompt_explanation_rows(data: dict[str, Any], limit: int = 12) -> list[dict[str, Any]]:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    generated = keyword_intelligence.get("generated_prompt_items") or []
+    rows: list[dict[str, Any]] = []
+    for item in generated:
+        rows.append(
+            {
+                "来源": item.get("keyword_source") or "5118",
+                "真实搜索词": item.get("source_keyword") or "",
+                "AI测试问题": item.get("question") or "",
+                "用途": item.get("intent") or "AI推荐排名",
+                "说明": item.get("reason") or "",
+            }
+        )
+    if rows:
+        return rows[:limit]
+
+    question_discovery = data.get("question_discovery") or {}
+    strategy = data.get("analysis_strategy") or {}
+    prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
+    for item in (prompt_groups.get("neutral_recommendation") if isinstance(prompt_groups, dict) else []) or []:
+        if item.get("keyword_source") == "5118" or item.get("source_keyword"):
+            rows.append(
+                {
+                    "来源": item.get("keyword_source") or "5118",
+                    "真实搜索词": item.get("source_keyword") or "",
+                    "AI测试问题": item.get("question") or item.get("query") or "",
+                    "用途": item.get("intent") or "AI推荐排名",
+                    "说明": item.get("reason") or "",
+                }
+            )
+    return rows[:limit]
+
+
+def _media_keyword_suggestion_rows(data: dict[str, Any], limit: int = 10) -> list[dict[str, Any]]:
+    profile = data.get("product_profile") or {}
+    category = profile.get("category_local") or profile.get("category_en") or "品类"
+    rows = []
+    for item in (_keyword_intelligence_from_data(data).get("neutral_prompt_candidates") or [])[:limit]:
+        keyword = str(item.get("keyword") or "").strip()
+        if not keyword:
+            continue
+        rows.append(
+            {
+                "投放关键词": keyword,
+                "建议内容方向": f"{keyword}选择指南 / 真实案例 / 口碑对比",
+                "GEO用途": f"围绕“{keyword}”补充可被 AI 引用的{category}内容资产",
+                "需求证据": f"5118热度评分{_safe_int(item.get('score'))}，长尾词{_safe_int(item.get('longtail_count'))}，竞价公司{_safe_int(item.get('bid_company_count'))}",
+                "SEM参考": item.get("sem_price", ""),
+            }
+        )
+    return rows
+
+
+def _render_keyword_intelligence_overview(data: dict[str, Any]) -> None:
+    keyword_intelligence = _keyword_intelligence_from_data(data)
+    summary = _keyword_summary(data)
+    if not keyword_intelligence:
+        _pe_empty("暂无 5118 真实用户搜索词数据。旧历史数据如果没有该模块会保持空状态，重新跑分析后会自动补齐。")
+        return
+    st.markdown("#### 5118 真实搜索需求校准")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("真实搜索词数量", summary["neutral_count"])
+    c2.metric("高商业价值词数量", summary["commercial_count"])
+    c3.metric("品牌词热度", summary["brand_heat_label"], f"{summary['brand_heat_count']} 条")
+    c4.metric("最高需求词", summary["top_keyword"])
+    st.caption("5118 只用于校准真实用户搜索需求和生成更中立的 AI 测试问题，不直接参与 AI 推荐排名计分。")
+    chart_rows = _keyword_score_rows(keyword_intelligence, limit=10)
+    if chart_rows:
+        _render_bar(chart_rows, x="关键词", y="热度评分")
+
+
+def _render_ai_ranking_keyword_explanation(data: dict[str, Any]) -> None:
+    rows = _keyword_prompt_explanation_rows(data)
+    if not rows:
+        _pe_empty("暂无来自 5118 的 AI 推荐问题解释。旧数据缺失时这里会显示空，重新跑分析后会自动补齐。")
+        return
+    st.markdown("#### AI 推荐排名解释：为什么这样问 AI")
+    st.caption("AI 推荐排名仍来自 Qwen / 豆包 / 元宝 / DeepSeek 的回答；5118 的作用是提供真实用户搜索需求，让测试问题更接近真实搜索语境。")
+    chart_rows = [{"真实搜索词": row["真实搜索词"] or row["AI测试问题"][:18], "生成问题数": 1} for row in rows]
+    _render_bar(chart_rows, x="真实搜索词", y="生成问题数")
+    with st.expander("查看 5118 到 AI 测试问题的映射", expanded=False):
+        st.dataframe(_stringify_rows(rows), width="stretch", hide_index=True)
+
+
+def _render_media_keyword_suggestions(data: dict[str, Any]) -> None:
+    rows = _media_keyword_suggestion_rows(data)
+    if not rows:
+        _pe_empty("暂无媒介投放关键词建议。需要 5118 真实搜索词数据。")
+        return
+    st.markdown("#### 媒介投放关键词建议")
+    st.caption("这些词用于指导后续发稿选题和锚文本布局，不等同于五平台精确声量。")
+    top_rows = rows[:10]
+    _render_bar(
+        [{"投放关键词": row["投放关键词"], "建议优先级": len(top_rows) - index} for index, row in enumerate(top_rows)],
+        x="投放关键词",
+        y="建议优先级",
+    )
+    with st.expander("查看投放关键词建议明细", expanded=True):
+        st.dataframe(_stringify_rows(rows), width="stretch", hide_index=True)
+
+
 def _pe_simple_table(rows: list[dict[str, Any]], columns: list[str] | None = None) -> None:
     if not rows:
         return
@@ -1183,6 +1345,7 @@ def _pe_overview(data: dict[str, Any]) -> None:
     c7.metric("Prompt 成功率", f"{round(float(neutral.get('prompt_success_rate') or 0) * 100, 1)}%")
     c8.metric("AI 平台覆盖", f"{neutral.get('provider_coverage_count', 0)}/{neutral.get('provider_total_count', 0)}")
     c9.metric("待办事项", len(actions))
+    _render_keyword_intelligence_overview(data)
     _pe_chart_brand_metrics(data.get("brand_visibility_metrics") or [])
     st.markdown("#### AI 平台 x 品牌提及矩阵")
     _render_provider_mention_matrix(data)
@@ -1374,6 +1537,7 @@ def _pe_competitors(data: dict[str, Any]) -> None:
             st.dataframe(_pe_competitor_rows(ranking), width="stretch", hide_index=True)
     else:
         _pe_empty("暂无竞品排名。")
+    _render_ai_ranking_keyword_explanation(data)
     source_rows = _recommendation_source_rows(data.get("recommendation_items") or [], ranking)
     if source_rows:
         st.markdown("#### 分 AI 平台推荐来源")
@@ -1450,6 +1614,7 @@ def _pe_monitoring(data: dict[str, Any]) -> None:
 def _pe_actions(data: dict[str, Any]) -> None:
     _pe_section("Actions 优化建议", "由指标、Sources、官网资产、内容监控和媒介成本共同生成，用于指导 GEO 优化与投放。")
     _render_actions_streamlit(data.get("geo_actions") or {}, compact=False)
+    _render_media_keyword_suggestions(data)
     st.markdown("#### 媒介成本")
     render_media_cost(data)
 
