@@ -801,12 +801,12 @@ def render_dashboard_charts_v2(data: dict[str, Any], labels: dict[str, str]) -> 
             st.markdown("#### 平均推荐位置")
             _render_bar(brand_metrics, x="brand_name", y="avg_position", color="is_user_brand")
         with c2:
-            st.markdown("#### AI 描述情绪分")
+            st.markdown("#### AI好感度")
             _render_bar(brand_metrics, x="brand_name", y="sentiment_score", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
 
         c3, c4 = st.columns(2)
         with c3:
-            st.markdown("#### Prompt 触发表现")
+            st.markdown("#### Prompt 级表现")
             prompt_pie_rows = _prompt_pie_rows(prompt_runs)
             _render_pie(prompt_pie_rows, names="状态", values="数量")
         with c4:
@@ -1164,9 +1164,13 @@ def _pe_overview(data: dict[str, Any]) -> None:
     c8.metric("AI 平台覆盖", f"{neutral.get('provider_coverage_count', 0)}/{neutral.get('provider_total_count', 0)}")
     c9.metric("待办事项", len(actions))
     _pe_chart_brand_metrics(data.get("brand_visibility_metrics") or [])
+    st.markdown("#### AI 平台 x 品牌提及矩阵")
+    _render_provider_mention_matrix(data)
     if actions:
-        st.markdown("#### 高优先级 Actions")
-        st.dataframe(_pe_action_rows(actions, limit=8), width="stretch", hide_index=True)
+        st.markdown("#### Actions 模块分布")
+        _render_actions_streamlit({"actions": actions}, compact=True)
+        with st.expander("查看高优先级 Actions", expanded=False):
+            st.dataframe(_pe_action_rows(actions, limit=8), width="stretch", hide_index=True)
 
 
 def _pe_brand_profile(data: dict[str, Any]) -> None:
@@ -1291,7 +1295,7 @@ def _pe_models(data: dict[str, Any]) -> None:
 
 
 def _pe_metrics(data: dict[str, Any]) -> None:
-    _pe_section("Metrics 指标体系", "Competitors / Visibility / Sentiment / Position / SOV / AI Volume / Mentions 贯穿品牌、Prompt、Topic 和 Sources。")
+    _pe_section("Metrics 指标体系", "竞争品牌 / AI认知度 / AI好感度 / 平均排名 / 提及率占比 / AI声量 / 提及贯穿品牌、Prompt、Topic 和 Sources。")
     _render_standard_geo_metrics_streamlit(data.get("standard_geo_metrics") or {})
     st.markdown("#### Prompt 级指标")
     prompt_runs = data.get("prompt_runs") or []
@@ -1441,10 +1445,84 @@ def _pe_chart_brand_metrics(rows: list[dict[str, Any]]) -> None:
     if not rows:
         _pe_empty("暂无品牌指标。")
         return
-    st.markdown("#### AI 提及次数")
+    st.markdown("#### AI认知度")
     _render_bar(rows, x="brand_name", y="mention_count", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
-    st.markdown("#### AI 描述情绪分")
+    st.markdown("#### AI好感度")
     _render_bar(rows, x="brand_name", y="sentiment_score", color="is_user_brand", use_index_axis=True, show_mapping_table=True)
+
+
+def _render_provider_mention_matrix(data: dict[str, Any]) -> None:
+    provider_matrix = data.get("provider_visibility_matrix") or []
+    if not provider_matrix:
+        _pe_empty("暂无 AI 平台 x 品牌提及矩阵。旧数据如果缺失该模块，重新跑分析后会补齐。")
+        return
+    rows = []
+    for item in provider_matrix:
+        brand = str(item.get("brand_name") or "").strip()
+        provider = _provider_label(item.get("provider", ""))
+        if not brand or not provider:
+            continue
+        rows.append({"品牌": brand, "AI平台": provider, "提及次数": _safe_int(item.get("mention_count"))})
+    if not rows:
+        _pe_empty("暂无可绘制的 AI 平台 x 品牌提及矩阵。")
+        return
+    try:
+        import plotly.graph_objects as go
+
+        totals: dict[str, int] = {}
+        for row in rows:
+            totals[row["品牌"]] = totals.get(row["品牌"], 0) + int(row["提及次数"])
+        brands = [brand for brand, _ in sorted(totals.items(), key=lambda pair: pair[1], reverse=True)[:20]]
+        provider_order = ["DeepSeek", "元宝", "Qwen", "豆包"]
+        providers = [name for name in provider_order if any(row["AI平台"] == name for row in rows)]
+        providers.extend([row["AI平台"] for row in rows if row["AI平台"] not in providers])
+        providers = list(dict.fromkeys(providers))
+        lookup = {(row["品牌"], row["AI平台"]): int(row["提及次数"]) for row in rows}
+        z = [[lookup.get((brand, provider), 0) for provider in providers] for brand in brands]
+        customdata = [
+            [[brand, lookup.get((brand, provider), 0)] for provider in providers]
+            for brand in brands
+        ]
+        colorscale = [
+            [0, "#FFE81C"],
+            [0.2, "#FFE082"],
+            [0.4, "#FFCA28"],
+            [0.6, "#FFC107"],
+            [0.8, "#FFA000"],
+            [1, "#FF8F00"],
+        ]
+        fig = go.Figure(
+            data=go.Heatmap(
+                x=providers,
+                y=list(range(1, len(brands) + 1)),
+                z=z,
+                zmin=0,
+                zmax=5,
+                colorscale=colorscale,
+                customdata=customdata,
+                hovertemplate="品牌序号: %{y}<br>品牌: %{customdata[0]}<br>AI平台: %{x}<br>提及次数: %{customdata[1]}<extra></extra>",
+                colorbar={"title": "提及次数"},
+            )
+        )
+        fig.update_layout(height=460, margin=dict(l=60, r=20, t=20, b=70))
+        fig.update_xaxes(title_text="AI平台")
+        fig.update_yaxes(title_text="品牌序号", tickmode="linear")
+        left_col, right_col = st.columns([3.5, 2.2], gap="large")
+        with left_col:
+            st.plotly_chart(fig, width="stretch")
+        with right_col:
+            st.markdown("##### 品牌序号")
+            _pe_render_mapping_rows(
+                [
+                    {"序号": index, "品牌": brand, "指标值": totals.get(brand, 0)}
+                    for index, brand in enumerate(brands, start=1)
+                ],
+                height_px=420,
+            )
+        with st.expander("查看 AI 平台 x 品牌提及矩阵明细", expanded=False):
+            st.dataframe(rows, width="stretch", hide_index=True)
+    except Exception:
+        st.dataframe(rows, width="stretch", hide_index=True)
 
 
 def _pe_provider_rows(data: dict[str, Any]) -> list[dict[str, Any]]:
@@ -1546,10 +1624,10 @@ def _render_standard_geo_metrics_streamlit(metrics: dict[str, Any]) -> None:
     rows = []
     for label, key in [
         ("Competitors / 竞争品牌", "competitors"),
-        ("Visibility / 可见度", "visibility"),
-        ("Sentiment / 情绪分", "sentiment"),
-        ("Position / 平均排名", "position"),
-        ("SOV / 提及份额", "sov"),
+        ("AI认知度", "visibility"),
+        ("AI好感度", "sentiment"),
+        ("平均排名", "position"),
+        ("提及率占比", "sov"),
         ("Prompt 成功率", "prompt_success"),
     ]:
         item = metrics.get(key) or {}
@@ -1559,9 +1637,9 @@ def _render_standard_geo_metrics_streamlit(metrics: dict[str, Any]) -> None:
         rows.append(
             {
                 "指标": label,
-                "当前值": item.get("value_label") or item.get("score") or item.get("avg_rank") or "",
-                "计算方式": item.get("formula", ""),
-                "业务含义": item.get("business_meaning", ""),
+                "当前值": str(item.get("value_label") or item.get("score") or item.get("avg_rank") or ""),
+                "计算方式": str(item.get("formula", "")),
+                "业务含义": str(item.get("business_meaning", "")),
             }
         )
     st.dataframe(rows, width="stretch", hide_index=True)
@@ -1707,22 +1785,36 @@ def _render_actions_streamlit(plan: dict[str, Any], compact: bool = False) -> No
         import plotly.express as px
 
         df = pd.DataFrame(rows)
-        c1, c2 = st.columns(2)
-        with c1:
-            priority = df.groupby("priority", as_index=False).size().rename(columns={"size": "任务数"})
-            fig = px.pie(priority, names="priority", values="任务数", hole=0.35, title="Actions 优先级占比")
-            st.plotly_chart(fig, width="stretch")
-        with c2:
-            module = df.groupby("module", as_index=False).size().rename(columns={"size": "任务数"})
-            fig = px.bar(module, x="任务数", y="module", orientation="h", title="Actions 模块分布")
-            st.plotly_chart(fig, width="stretch")
+        df["模块"] = df["module"].map(_action_module_label)
+        df["优先级"] = df["priority"].map(_action_priority_label)
+        module = df.groupby(["模块", "优先级"], as_index=False).size().rename(columns={"size": "任务数"})
+        module_order = (
+            module.groupby("模块", as_index=False)["任务数"].sum()
+            .sort_values("任务数", ascending=True)["模块"]
+            .tolist()
+        )
+        fig = px.bar(
+            module,
+            x="任务数",
+            y="模块",
+            color="优先级",
+            orientation="h",
+            title="Actions 模块分布",
+            color_discrete_map={"高": "#66FBB8", "中": "#C6FFC9", "低": "#94a3b8", "未知": "#64748b"},
+            category_orders={"模块": module_order, "优先级": ["高", "中", "低", "未知"]},
+            height=460 if not compact else 360,
+        )
+        fig.update_layout(barmode="stack", margin=dict(l=110, r=20, t=50, b=50), legend_title_text="优先级")
+        fig.update_xaxes(title_text="任务数")
+        fig.update_yaxes(title_text="模块")
+        st.plotly_chart(fig, width="stretch")
     except Exception:
         pass
     display = [
         {
             "排名": item.get("rank", ""),
-            "优先级": item.get("priority", ""),
-            "模块": item.get("module", ""),
+            "优先级": _action_priority_label(item.get("priority", "")),
+            "模块": _action_module_label(item.get("module", "")),
             "任务": item.get("task", ""),
             "原因": item.get("reason", ""),
             "目标指标": item.get("expected_metric", ""),
@@ -2581,8 +2673,8 @@ def _render_article_status_charts(rows: list[dict[str, Any]]) -> None:
 
 def _chart_label(name: str) -> str:
     prompt_edge_labels = {
-        "mention_count": "AI 提及次数",
-        "sentiment_score": "AI 描述情绪分",
+        "mention_count": "AI认知度",
+        "sentiment_score": "AI好感度",
         "avg_position": "平均推荐位置",
     }
     if name in prompt_edge_labels:
@@ -2612,6 +2704,41 @@ def _safe_int(value: Any) -> int:
 def _provider_label(value: Any) -> str:
     key = str(value or "").strip().lower()
     return {"qwen": "Qwen", "doubao": "豆包", "yuanbao": "元宝", "deepseek": "DeepSeek"}.get(key, str(value or ""))
+
+
+def _action_priority_label(value: Any) -> str:
+    text = str(value or "").strip()
+    key = text.lower()
+    if key in {"high", "高", "p0", "p1", "urgent"}:
+        return "高"
+    if key in {"medium", "mid", "中", "p2"}:
+        return "中"
+    if key in {"low", "低", "p3"}:
+        return "低"
+    return text or "未知"
+
+
+def _action_module_label(value: Any) -> str:
+    text = str(value or "").strip()
+    key = text.lower().replace("_", " ").replace("-", " ")
+    mapping = {
+        "sources": "信源建设",
+        "source": "信源建设",
+        "owned assets": "自有资产",
+        "owned asset": "自有资产",
+        "ownedassets": "自有资产",
+        "content monitoring": "内容监控",
+        "monitoring": "内容监控",
+        "geo指标": "GEO指标",
+        "geo metrics": "GEO指标",
+        "metrics": "GEO指标",
+        "media": "媒介投放",
+        "media cost": "媒介投放",
+        "content": "内容建设",
+        "prompts": "问题策略",
+        "prompt": "问题策略",
+    }
+    return mapping.get(key, text or "未分类")
 
 
 def _infer_boundary_type(text: str) -> str:
@@ -2738,13 +2865,13 @@ def _render_bar(
         if chart_color:
             custom_data.append(chart_color)
         fig = px.bar(chart_df, x=plot_x, y=chart_y, color=chart_color, height=440, custom_data=custom_data)
-        hover_parts = ["序号: %{x}", "品牌: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
+        hover_parts = ["品牌序号: %{x}", "品牌: %{customdata[0]}"] if use_index_axis else [f"{chart_x}: %{{x}}"]
         if chart_color:
             hover_parts.append(f"{chart_color}: %{{customdata[1]}}")
         hover_parts.append(f"{chart_y}: %{{y}}")
         fig.update_traces(hovertemplate="<br>".join(hover_parts) + "<extra></extra>")
         fig.update_layout(margin=dict(l=20, r=20, t=20, b=90), legend_title_text=chart_color or "")
-        fig.update_xaxes(title_text=("序号" if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
+        fig.update_xaxes(title_text=("品牌序号" if use_index_axis else chart_x), tickmode=("linear" if use_index_axis else None))
         fig.update_yaxes(title_text=chart_y)
 
         if show_mapping_table and mapping_df is not None:
@@ -2752,7 +2879,7 @@ def _render_bar(
             with left_col:
                 st.plotly_chart(fig, width="stretch")
             with right_col:
-                st.markdown("##### 品牌序号 Mapping")
+                st.markdown("##### 品牌序号")
                 _pe_render_mapping_rows(mapping_df.to_dict("records"))
         else:
             st.plotly_chart(fig, width="stretch")
@@ -2793,9 +2920,23 @@ def _render_heatmap(rows: list[dict[str, Any]]) -> None:
 
         df = pd.DataFrame(rows)
         pivot = df.pivot_table(index="brand", columns="topic", values="count", aggfunc="sum", fill_value=0)
-        fig = px.imshow(pivot.head(12), aspect="auto", height=520, labels=dict(x="内容主题", y="品牌", color="次数"))
-        fig.update_layout(margin=dict(l=120, r=20, t=20, b=80))
-        st.plotly_chart(fig, width="stretch")
+        pivot = pivot.head(20)
+        indexed = pivot.copy()
+        indexed.index = list(range(1, len(indexed) + 1))
+        fig = px.imshow(indexed, aspect="auto", height=520, labels=dict(x="内容主题", y="品牌序号", color="次数"))
+        fig.update_layout(margin=dict(l=70, r=20, t=20, b=100))
+        fig.update_yaxes(title_text="品牌序号", tickmode="linear")
+        left_col, right_col = st.columns([3.5, 2.2], gap="large")
+        with left_col:
+            st.plotly_chart(fig, width="stretch")
+        with right_col:
+            st.markdown("##### 品牌序号")
+            _pe_render_mapping_rows(
+                [
+                    {"序号": index, "品牌": brand, "指标值": int(pivot.loc[brand].sum())}
+                    for index, brand in enumerate(pivot.index, start=1)
+                ]
+            )
         with st.expander("查看详细数据", expanded=False):
             st.dataframe(df, width="stretch", hide_index=True)
     except Exception:

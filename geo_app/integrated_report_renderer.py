@@ -165,9 +165,9 @@ def build_markdown_report(analysis_data: dict[str, Any], labels: dict[str, str])
                 "## GEO 可见度总览",
                 "",
                 f"- GEO 可见度总分：{visibility_summary.get('visibility_score', 0)}%",
-                f"- AI 提及次数：{visibility_summary.get('mention_count', 0)}",
+                f"- AI认知度：{visibility_summary.get('mention_count', 0)}",
                 f"- 平均推荐位置：{_display_rank(visibility_summary.get('avg_position'))}",
-                f"- AI 描述情绪分：{visibility_summary.get('sentiment_score', 50)}/100",
+                f"- AI好感度：{visibility_summary.get('sentiment_score', 50)}/100",
                 f"- Prompt 成功率：{round(float(visibility_summary.get('prompt_success_rate') or 0) * 100, 1)}%",
                 f"- AI 平台覆盖：{visibility_summary.get('provider_coverage_count', 0)}/{visibility_summary.get('provider_total_count', 0)}",
                 "",
@@ -509,6 +509,8 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     mention_mapping_table = _brand_mapping_table(brand_visibility_metrics[:20], "mention_count")
     sentiment_mapping_table = _brand_mapping_table(brand_visibility_metrics[:20], "sentiment_score")
     ranking_mapping_table = _brand_mapping_table(ranking[:20], "recommendation_count")
+    provider_heatmap_mapping_table = _heatmap_row_mapping_table(payload.get("providerMentionHeatmap") or {})
+    topic_matrix_mapping_table = _topic_matrix_mapping_table(charts.get("topicMatrix") or {})
     comparison_table = _prompt_run_table(analysis_data.get("comparison_prompt_runs") or [])
     search_visibility_table = _search_visibility_table(search_ranking)
     gap_table = _gap_table(gap_ranking)
@@ -582,6 +584,8 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     .mapping-scroll th:nth-child(1), .mapping-scroll td:nth-child(1) {{ width:48px; text-align:right; }}
     .mapping-scroll th:nth-child(3), .mapping-scroll td:nth-child(3) {{ width:74px; text-align:right; }}
     .mapping-scroll td:nth-child(2) {{ white-space:normal; word-break:break-word; line-height:1.45; }}
+    .topic-mapping {{ display:block; }}
+    .topic-mapping table + table {{ margin-top:14px; }}
     .wide {{ min-height:480px; }}
     table {{ width:100%; border-collapse:collapse; font-size:13px; }}
     th,td {{ border:1px solid #374151; padding:10px 12px; text-align:left; vertical-align:top; color:#f8fafc; }}
@@ -640,29 +644,33 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
       <div class="metric kpi"><span>AI 平台覆盖</span><strong>{html.escape(provider_coverage)}</strong></div>
       <div class="metric kpi"><span>竞品对比提及</span><strong>{html.escape(str(comparison_summary.get("brand_mentioned_responses", 0)))}</strong></div>
     </div>
-    <h3>AI 提及次数</h3>
+    <h3>AI认知度</h3>
     <div class="chart-with-table">
       <div id="mentionChart" class="chart-inner"></div>
       <div>
-        <h3>品牌序号 Mapping</h3>
+        <h3>品牌序号</h3>
         {mention_mapping_table}
       </div>
     </div>
-    <h3>AI 描述情绪分</h3>
+    <h3>AI好感度</h3>
     <div class="chart-with-table">
       <div id="sentimentChart" class="chart-inner"></div>
       <div>
-        <h3>品牌序号 Mapping</h3>
+        <h3>品牌序号</h3>
         {sentiment_mapping_table}
       </div>
     </div>
-    <div class="grid2">
-      <div id="promptSuccessPie" class="chart"></div>
-      <div id="providerMentionHeatmap" class="chart"></div>
+    <h3>AI 平台 x 品牌提及矩阵</h3>
+    <div class="chart-with-table">
+      <div id="providerMentionHeatmap" class="chart-inner"></div>
+      <div>
+        <h3>品牌序号</h3>
+        {provider_heatmap_mapping_table}
+      </div>
     </div>
-    <div class="grid2">
-      <div id="actionPriorityPie" class="chart"></div>
-      <div id="actionModuleBar" class="chart"></div>
+    <h3>Actions 模块分布</h3>
+    <div>
+      <div id="actionModulePriorityBar" class="chart wide"></div>
     </div>
   </section>
 
@@ -705,7 +713,7 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
     <div class="chart-with-table">
       <div id="rankingChart" class="chart-inner"></div>
       <div>
-        <h3>品牌序号 Mapping</h3>
+        <h3>品牌序号</h3>
         {ranking_mapping_table}
       </div>
     </div>
@@ -793,9 +801,14 @@ def build_dashboard_html_report(analysis_data: dict[str, Any], labels: dict[str,
 
   <section id="topics">
     <h3>内容主题分布</h3>
-    <div class="grid2">
-      <div id="topicChart" class="chart"></div>
-      <div id="topicMatrixChart" class="chart"></div>
+    <div id="topicChart" class="chart wide"></div>
+    <h3>品牌内容重点矩阵</h3>
+    <div class="chart-with-table">
+      <div id="topicMatrixChart" class="chart-inner"></div>
+      <div>
+        <h3>序号说明</h3>
+        {topic_matrix_mapping_table}
+      </div>
     </div>
     <div class="table-wrap">{topic_table}</div>
     {content_report_block}
@@ -825,18 +838,24 @@ function plot(id, traces, extra={{}}) {{
   const merged = {{...layout, ...extra, xaxis:{{...axisBase, ...(extra.xaxis || {{}})}}, yaxis:{{...axisBase, ...(extra.yaxis || {{}})}}}};
   Plotly.newPlot(id, traces, merged, {{responsive:true, displaylogo:false}});
 }}
-plot("rankingChart", [{{type:"bar", x:D.ranking.index, y:D.ranking.y, marker:{{color:D.ranking.colors}}, customdata:D.ranking.x, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata}}<br>AI推荐次数: %{{y}}<extra></extra>"}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"序号", dtick:1}}}});
+const aiHeatColors = [[0,"#FFE81C"],[0.2,"#FFE082"],[0.4,"#FFCA28"],[0.6,"#FFC107"],[0.8,"#FFA000"],[1,"#FF8F00"]];
+function matrixCustomdata(matrix) {{
+  return (matrix.z || []).map((row, rowIndex) => row.map((_, colIndex) => [
+    (matrix.rowLabels || [])[rowIndex] || "",
+    (matrix.colLabels || matrix.x || [])[colIndex] || ""
+  ]));
+}}
+plot("rankingChart", [{{type:"bar", x:D.ranking.index, y:D.ranking.y, marker:{{color:D.ranking.colors}}, customdata:D.ranking.x, hovertemplate:"品牌序号: %{{x}}<br>品牌: %{{customdata}}<br>AI推荐次数: %{{y}}<extra></extra>"}}], {{title:"综合 AI 推荐排名", yaxis:{{title:"AI推荐次数"}}, xaxis:{{title:"品牌序号", dtick:1}}}});
 plot("recommendationSourcePie", [{{type:"pie", labels:D.recommendationSource.labels, values:D.recommendationSource.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 推荐来源占比"}});
 plot("recommendationHeatmap", [{{type:"heatmap", x:D.recommendationHeatmap.x, y:D.recommendationHeatmap.y, z:D.recommendationHeatmap.z, colorscale:"YlGnBu"}}], {{title:"AI 推荐热度矩阵"}});
-plot("mentionChart", [{{type:"bar", x:D.mentions.index, y:D.mentions.y, marker:{{color:D.mentions.colors}}, customdata:D.mentions.x, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata}}<br>AI提及次数: %{{y}}<extra></extra>"}}], {{title:"AI 提及次数", yaxis:{{title:"AI提及次数"}}, xaxis:{{title:"序号", dtick:1}}}});
-plot("sentimentChart", [{{type:"bar", x:D.sentiment.x, y:D.sentiment.y, marker:{{color:D.sentiment.colors}}, customdata:D.sentiment.customdata, hovertemplate:"序号: %{{x}}<br>品牌: %{{customdata[0]}}<br>情绪分: %{{y}}<extra></extra>"}}], {{title:"AI 描述情绪分", yaxis:{{title:"情绪分", range:[0,100]}}, xaxis:{{title:"序号", dtick:1}}}});
-plot("promptSuccessPie", [{{type:"pie", labels:D.promptSuccess.labels, values:D.promptSuccess.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Prompt 触发表现"}});
+plot("mentionChart", [{{type:"bar", x:D.mentions.index, y:D.mentions.y, marker:{{color:D.mentions.colors}}, customdata:D.mentions.x, hovertemplate:"品牌序号: %{{x}}<br>品牌: %{{customdata}}<br>AI认知度: %{{y}}<extra></extra>"}}], {{title:"AI认知度", yaxis:{{title:"AI认知度"}}, xaxis:{{title:"品牌序号", dtick:1}}}});
+plot("sentimentChart", [{{type:"bar", x:D.sentiment.x, y:D.sentiment.y, marker:{{color:D.sentiment.colors}}, customdata:D.sentiment.customdata, hovertemplate:"品牌序号: %{{x}}<br>品牌: %{{customdata[0]}}<br>AI好感度: %{{y}}<extra></extra>"}}], {{title:"AI好感度", yaxis:{{title:"AI好感度", range:[0,100]}}, xaxis:{{title:"品牌序号", dtick:1}}}});
 plot("promptTypePie", [{{type:"pie", labels:D.promptTypes.labels, values:D.promptTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"问题类型占比"}});
 plot("promptMetricPie", [{{type:"pie", labels:D.promptMetricTypes.labels, values:D.promptMetricTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Prompt 回答类型占比"}});
 plot("promptMentionBar", [{{type:"bar", x:D.promptMentionByType.labels, y:D.promptMentionByType.values, marker:{{color:"#2563eb"}}}}], {{title:"各问题类型提及客户次数", yaxis:{{title:"提及客户次数"}}, xaxis:{{title:"问题类型"}}}});
 plot("modelStatusPie", [{{type:"pie", labels:D.modelStatus.labels, values:D.modelStatus.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"模型调用状态占比"}});
 plot("modelCountBar", D.modelCounts.traces, {{title:"各模型返回数量", barmode:"group", yaxis:{{title:"数量"}}, xaxis:{{title:"AI平台"}}}});
-plot("providerMentionHeatmap", [{{type:"heatmap", x:D.providerMentionHeatmap.x, y:D.providerMentionHeatmap.y, z:D.providerMentionHeatmap.z, colorscale:"Blues"}}], {{title:"AI 平台 x 品牌提及矩阵"}});
+plot("providerMentionHeatmap", [{{type:"heatmap", x:D.providerMentionHeatmap.x, y:D.providerMentionHeatmap.y, z:D.providerMentionHeatmap.z, colorscale:aiHeatColors, zmin:0, zmax:5, customdata:matrixCustomdata(D.providerMentionHeatmap), hovertemplate:"品牌序号: %{{y}}<br>品牌: %{{customdata[0]}}<br>AI平台: %{{x}}<br>提及次数: %{{z}}<extra></extra>"}}], {{title:"AI 平台 x 品牌提及矩阵", xaxis:{{title:"AI平台"}}, yaxis:{{title:"品牌序号", dtick:1}}}});
 plot("platformPie", [{{type:"pie", labels:D.platformTotals.labels, values:D.platformTotals.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"五平台总占比"}});
 plot("platformBar", [{{type:"bar", x:D.platformTotals.values, y:D.platformTotals.labels, orientation:"h", marker:{{color:"#0f766e"}}}}], {{title:"五平台内容数量对比", xaxis:{{title:"内容数量估算"}}, yaxis:{{title:"平台"}}}});
 plot("brandPlatformStack", D.brandPlatform.traces, {{title:"各品牌五平台拆分", barmode:"stack", yaxis:{{title:"内容数量估算"}}, xaxis:{{title:"品牌"}}}});
@@ -853,9 +872,8 @@ plot("sellingPointBar", [{{type:"bar", x:D.sellingPoints.values, y:D.sellingPoin
 plot("assetScoreChart", D.assetScores.traces, {{title:"数字资产评分", barmode:"group", yaxis:{{title:"评分"}}, xaxis:{{title:"品牌"}}}});
 plot("articleStatusPie", [{{type:"pie", labels:D.articleStatus.labels, values:D.articleStatus.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"文章链接抓取状态"}});
 plot("topicChart", [{{type:"pie", labels:C.topics.labels, values:C.topics.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"内容主题分布"}});
-plot("topicMatrixChart", [{{type:"heatmap", x:C.topicMatrix.x, y:C.topicMatrix.y, z:C.topicMatrix.z, colorscale:"Blues"}}], {{title:"品牌内容重点矩阵"}});
-plot("actionPriorityPie", [{{type:"pie", labels:D.actionPriority.labels, values:D.actionPriority.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"Actions 优先级占比"}});
-plot("actionModuleBar", [{{type:"bar", x:D.actionModules.values, y:D.actionModules.labels, orientation:"h", marker:{{color:"#475569"}}}}], {{title:"Actions 模块分布", xaxis:{{title:"任务数"}}}});
+plot("topicMatrixChart", [{{type:"heatmap", x:C.topicMatrix.x, y:C.topicMatrix.y, z:C.topicMatrix.z, colorscale:"YlGnBu", customdata:matrixCustomdata(C.topicMatrix), hovertemplate:"品牌序号: %{{y}}<br>品牌: %{{customdata[0]}}<br>主题序号: %{{x}}<br>主题: %{{customdata[1]}}<br>次数: %{{z}}<extra></extra>"}}], {{title:"品牌内容重点矩阵", xaxis:{{title:"主题序号", dtick:1}}, yaxis:{{title:"品牌序号", dtick:1}}}});
+plot("actionModulePriorityBar", D.actionModulePriority.traces, {{title:"Actions 模块分布", barmode:"stack", xaxis:{{title:"任务数"}}, yaxis:{{title:"模块", automargin:true}}}});
 plot("sourceTypePie", [{{type:"pie", labels:D.sourceTypes.labels, values:D.sourceTypes.values, hole:0.35, textinfo:"label+percent+value"}}], {{...compact, title:"AI 引用信源类型"}});
 plot("sourceCitationBar", [{{type:"bar", x:D.sourceCitations.values, y:D.sourceCitations.labels, orientation:"h", marker:{{color:"#0ea5e9"}}}}], {{title:"AI 引用域名次数 Top", xaxis:{{title:"引用次数"}}}});
 plot("ownedAssetBar", [{{type:"bar", x:D.ownedAssets.values, y:D.ownedAssets.labels, orientation:"h", marker:{{color:D.ownedAssets.colors}}}}], {{title:"官网结构化信源资产检查", xaxis:{{title:"是否具备", range:[0,1]}}, yaxis:{{automargin:true}}}});
@@ -923,8 +941,10 @@ def _chart_payload(
             "values": [item.get("count", 0) for item in topic_rows],
         },
         "topicMatrix": {
-            "x": matrix_topics,
-            "y": matrix_brands,
+            "x": list(range(1, len(matrix_topics) + 1)),
+            "y": list(range(1, len(matrix_brands) + 1)),
+            "rowLabels": matrix_brands,
+            "colLabels": matrix_topics,
             "z": [[matrix_lookup.get((brand, topic), 0) for topic in matrix_topics] for brand in matrix_brands],
         },
         "cost": {
@@ -937,7 +957,7 @@ def _chart_payload(
 
 def _brand_mapping_table(rows: list[dict[str, Any]], value_key: str) -> str:
     if not rows:
-        return '<p class="note">暂无品牌序号 Mapping。</p>'
+        return '<p class="note">暂无品牌序号。</p>'
     body = []
     for index, item in enumerate(rows[:20], start=1):
         brand = html.escape(str(item.get("brand_name", "")))
@@ -946,16 +966,44 @@ def _brand_mapping_table(rows: list[dict[str, Any]], value_key: str) -> str:
     return '<div class="mapping-scroll"><table><thead><tr><th>序号</th><th>品牌</th><th>指标值</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table></div>'
 
 
+def _heatmap_row_mapping_table(payload: dict[str, Any]) -> str:
+    labels = payload.get("rowLabels") or payload.get("y") or []
+    z_rows = payload.get("z") or []
+    if not labels:
+        return '<p class="note">暂无品牌序号。</p>'
+    body = []
+    for index, label in enumerate(labels[:20], start=1):
+        total = sum(_safe_int(value) for value in (z_rows[index - 1] if index - 1 < len(z_rows) else []))
+        body.append(f"<tr><td>{index}</td><td>{html.escape(str(label))}</td><td>{total}</td></tr>")
+    return '<div class="mapping-scroll"><table><thead><tr><th>序号</th><th>品牌</th><th>指标值</th></tr></thead><tbody>' + ''.join(body) + '</tbody></table></div>'
+
+
+def _topic_matrix_mapping_table(payload: dict[str, Any]) -> str:
+    brand_labels = payload.get("rowLabels") or []
+    topic_labels = payload.get("colLabels") or []
+    if not brand_labels and not topic_labels:
+        return '<p class="note">暂无矩阵序号说明。</p>'
+    brand_body = "".join(f"<tr><td>{index}</td><td>{html.escape(str(label))}</td></tr>" for index, label in enumerate(brand_labels[:20], start=1))
+    topic_body = "".join(f"<tr><td>{index}</td><td>{html.escape(str(label))}</td></tr>" for index, label in enumerate(topic_labels[:20], start=1))
+    return (
+        '<div class="mapping-scroll topic-mapping"><table><thead><tr><th>品牌序号</th><th>品牌</th></tr></thead><tbody>'
+        + brand_body
+        + '</tbody></table><table><thead><tr><th>主题序号</th><th>主题</th></tr></thead><tbody>'
+        + topic_body
+        + "</tbody></table></div>"
+    )
+
+
 def _sentiment_mapping_table(rows: list[dict[str, Any]]) -> str:
     return _brand_mapping_table(rows, "sentiment_score")
 
 
 def _dashboard_geo_metrics_table(metrics: dict[str, Any]) -> str:
     rows = [
-        ("Visibility", metrics.get("visibility") or {}),
-        ("Sentiment", metrics.get("sentiment") or {}),
-        ("Position", metrics.get("position") or {}),
-        ("SOV", metrics.get("sov") or {}),
+        ("AI认知度", metrics.get("visibility") or {}),
+        ("AI好感度", metrics.get("sentiment") or {}),
+        ("平均排名", metrics.get("position") or {}),
+        ("提及率占比", metrics.get("sov") or {}),
         ("Prompt 成功率", metrics.get("prompt_success") or {}),
     ]
     body = []
@@ -1050,7 +1098,7 @@ def _dashboard_geo_actions_table(plan: dict[str, Any]) -> str:
     body = []
     for item in rows[:20]:
         body.append(
-            f"<tr><td>{html.escape(str(item.get('rank', '')))}</td><td>{html.escape(str(item.get('priority', '')))}</td><td>{html.escape(str(item.get('module', '')))}</td><td>{html.escape(str(item.get('task', '')))}</td><td>{html.escape(str(item.get('reason', '')))}</td></tr>"
+            f"<tr><td>{html.escape(str(item.get('rank', '')))}</td><td>{html.escape(_action_priority_label(item.get('priority', '')))}</td><td>{html.escape(_action_module_label(item.get('module', '')))}</td><td>{html.escape(str(item.get('task', '')))}</td><td>{html.escape(str(item.get('reason', '')))}</td></tr>"
         )
     return "<table><thead><tr><th>排名</th><th>优先级</th><th>模块</th><th>任务</th><th>原因</th></tr></thead><tbody>" + "".join(body) + "</tbody></table>"
 
@@ -1100,6 +1148,7 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
         "providerStatusRows": provider_status,
         "actionPriority": _count_payload(geo_actions.get("actions") or [], "priority", "task"),
         "actionModules": _count_payload(geo_actions.get("actions") or [], "module", "task"),
+        "actionModulePriority": _action_module_priority_payload(geo_actions.get("actions") or []),
         "sourceTypes": _sum_payload(source_intelligence.get("domain_type_distribution") or [], "domain_type", "count"),
         "sourceCitations": _source_citation_payload(source_intelligence.get("domain_summary") or []),
         "ownedAssets": _owned_asset_payload(owned_asset_audit.get("asset_checks") or []),
@@ -1150,6 +1199,7 @@ def _dashboard_payload(data: dict[str, Any]) -> dict[str, Any]:
             col_key="AI平台",
             value_key="提及次数",
             limit=20,
+            index_rows=True,
         ),
         "platformTotals": _sum_payload(platform_rows, "平台", "内容数量估算"),
         "brandPlatform": _stacked_payload(platform_rows, x_key="品牌", stack_key="平台", value_key="内容数量估算", limit=10),
@@ -1258,6 +1308,66 @@ def _sum_payload(rows: list[dict[str, Any]], label_key: str, value_key: str) -> 
     return {"labels": [item[0] for item in items], "values": [item[1] for item in items]}
 
 
+def _action_priority_label(value: Any) -> str:
+    text = str(value or "").strip()
+    key = text.lower()
+    if key in {"high", "高", "p0", "p1", "urgent"}:
+        return "高"
+    if key in {"medium", "mid", "中", "p2"}:
+        return "中"
+    if key in {"low", "低", "p3"}:
+        return "低"
+    return text or "未知"
+
+
+def _action_module_label(value: Any) -> str:
+    text = str(value or "").strip()
+    key = text.lower().replace("_", " ").replace("-", " ")
+    mapping = {
+        "sources": "信源建设",
+        "source": "信源建设",
+        "owned assets": "自有资产",
+        "owned asset": "自有资产",
+        "ownedassets": "自有资产",
+        "content monitoring": "内容监控",
+        "monitoring": "内容监控",
+        "geo指标": "GEO指标",
+        "geo metrics": "GEO指标",
+        "metrics": "GEO指标",
+        "media": "媒介投放",
+        "media cost": "媒介投放",
+        "content": "内容建设",
+        "prompts": "问题策略",
+        "prompt": "问题策略",
+    }
+    return mapping.get(key, text or "未分类")
+
+
+def _action_module_priority_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    grouped: defaultdict[tuple[str, str], int] = defaultdict(int)
+    totals: defaultdict[str, int] = defaultdict(int)
+    for item in rows:
+        module = _action_module_label(item.get("module"))
+        priority = _action_priority_label(item.get("priority"))
+        grouped[(module, priority)] += 1
+        totals[module] += 1
+    modules = [module for module, _ in sorted(totals.items(), key=lambda pair: pair[1])]
+    color_map = {"高": "#66FBB8", "中": "#C6FFC9", "低": "#94a3b8", "未知": "#64748b"}
+    priorities = [priority for priority in ["高", "中", "低", "未知"] if any(grouped.get((module, priority), 0) for module in modules)]
+    traces = [
+        {
+            "type": "bar",
+            "name": priority,
+            "x": [grouped.get((module, priority), 0) for module in modules],
+            "y": modules,
+            "orientation": "h",
+            "marker": {"color": color_map.get(priority, "#64748b")},
+        }
+        for priority in priorities
+    ]
+    return {"labels": modules, "traces": traces}
+
+
 def _prompt_success_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
     if not rows:
         return {"labels": [], "values": []}
@@ -1335,7 +1445,14 @@ def _stacked_payload(rows: list[dict[str, Any]], x_key: str, stack_key: str, val
     return {"x": xs, "traces": traces}
 
 
-def _heatmap_payload(rows: list[dict[str, Any]], row_key: str, col_key: str, value_key: str, limit: int | None = None) -> dict[str, Any]:
+def _heatmap_payload(
+    rows: list[dict[str, Any]],
+    row_key: str,
+    col_key: str,
+    value_key: str,
+    limit: int | None = None,
+    index_rows: bool = False,
+) -> dict[str, Any]:
     row_totals: defaultdict[str, int] = defaultdict(int)
     for item in rows:
         row_totals[str(item.get(row_key) or "")] += _safe_int(item.get(value_key))
@@ -1344,7 +1461,10 @@ def _heatmap_payload(rows: list[dict[str, Any]], row_key: str, col_key: str, val
         y = y[:limit]
     x = list(dict.fromkeys(str(item.get(col_key) or "") for item in rows if item.get(col_key)))
     lookup = {(str(item.get(row_key) or ""), str(item.get(col_key) or "")): _safe_int(item.get(value_key)) for item in rows}
-    return {"x": x, "y": y, "z": [[lookup.get((row, col), 0) for col in x] for row in y]}
+    z = [[lookup.get((row, col), 0) for col in x] for row in y]
+    if index_rows:
+        return {"x": x, "y": list(range(1, len(y) + 1)), "rowLabels": y, "colLabels": x, "z": z}
+    return {"x": x, "y": y, "rowLabels": y, "colLabels": x, "z": z}
 
 
 def _asset_score_payload(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -2136,10 +2256,10 @@ def enrich_analysis_data(analysis_data: dict[str, Any]) -> dict[str, Any]:
 
 def _standard_geo_metrics_markdown(metrics: dict[str, Any]) -> list[str]:
     rows = [
-        ("Visibility 可见度", metrics.get("visibility") or {}),
-        ("Sentiment 情绪分", metrics.get("sentiment") or {}),
-        ("Position 平均位置", metrics.get("position") or {}),
-        ("SOV 推荐份额", metrics.get("sov") or {}),
+        ("AI认知度", metrics.get("visibility") or {}),
+        ("AI好感度", metrics.get("sentiment") or {}),
+        ("平均排名", metrics.get("position") or {}),
+        ("提及率占比", metrics.get("sov") or {}),
         ("Prompt 成功率", metrics.get("prompt_success") or {}),
     ]
     lines = [
