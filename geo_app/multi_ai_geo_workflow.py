@@ -8,6 +8,7 @@ from typing import Any, Callable
 from .brand_normalizer import brand_key, canonicalize_brand_name
 from .config import AppConfig
 from .geo_visibility_metrics import build_visibility_metric_bundle
+from .keyword_intelligence_workflow import build_keyword_prompt_items, run_5118_keyword_intelligence
 from .multi_ai_clients import build_default_providers
 from .product_ingestion import collect_website_pages
 from .qwen_client import QwenClient
@@ -38,6 +39,7 @@ def run_multi_ai_geo_competition(
         diagnostic_count,
         progress,
     )
+    keyword_intelligence = prompt_groups.pop("_keyword_intelligence", {}) if isinstance(prompt_groups, dict) else {}
     prompt_questions = [item["question"] for item in prompt_groups["neutral_recommendation"]]
     diagnostic_questions = [item["question"] for item in prompt_groups["brand_diagnostic"]]
     if progress:
@@ -184,6 +186,7 @@ def run_multi_ai_geo_competition(
         "brand_diagnostic_questions": diagnostic_questions,
         "comparison_questions": comparison_questions,
         "prompt_groups": prompt_groups,
+        "keyword_intelligence": keyword_intelligence,
     }
     question_discovery["prompt_generation"] = {
         "prompt_count": len(prompt_questions),
@@ -224,6 +227,7 @@ def run_multi_ai_geo_competition(
         "neutral_search_queries": prompt_questions,
         "ai_probe_questions": question_discovery["questions"],
         "prompt_groups": prompt_groups,
+        "keyword_intelligence": keyword_intelligence,
         "competitor_types": ["multi_ai_recommended"],
         "topic_taxonomy": _default_topic_taxonomy(profile),
         "validation_notes": [
@@ -256,6 +260,7 @@ def run_multi_ai_geo_competition(
         "analysis_strategy": analysis_strategy,
         "competitor_discovery": competitor_discovery,
         "question_discovery": question_discovery,
+        "keyword_intelligence": keyword_intelligence,
         "trend_discovery": trend_discovery,
         "multi_ai_recommendation_results": [item.raw for item in recommendation_results],
         "brand_diagnostic_results": [item.raw for item in diagnostic_results],
@@ -343,6 +348,8 @@ def build_prompt_groups(
 ) -> dict[str, list[dict[str, str]]]:
     neutral_rows: list[dict[str, str]] = []
     diagnostic_rows: list[dict[str, str]] = []
+    keyword_intelligence = run_5118_keyword_intelligence(config, profile, report_language, progress)
+    keyword_rows = build_keyword_prompt_items(keyword_intelligence, profile, prompt_count)
     if getattr(config.geo_ai, "enable_ai_prompt_discovery", True):
         try:
             if progress:
@@ -392,7 +399,7 @@ JSON schema:
                 progress(f"AI 搜索问题生成失败，使用规则兜底：{exc}")
 
     neutral_questions = _filter_neutral_questions(
-        [base_question, *[item["question"] for item in neutral_rows]],
+        [*[item["question"] for item in keyword_rows], base_question, *[item["question"] for item in neutral_rows]],
         profile,
         prompt_count,
     )
@@ -405,9 +412,18 @@ JSON schema:
             prompt_count,
         )
     neutral_items = [
-        _prompt_item(question, "neutral_recommendation", "mainstream_recommendation", _prompt_reason_for(question, neutral_rows) or "中立主流推荐问题，不包含客户品牌名。")
+        _prompt_item(
+            question,
+            "neutral_recommendation",
+            _prompt_intent_for(question, keyword_rows + neutral_rows) or "mainstream_recommendation",
+            _prompt_reason_for(question, keyword_rows + neutral_rows) or "中立主流推荐问题，不包含客户品牌名。",
+        )
         for question in neutral_questions[:prompt_count]
     ]
+    for item in neutral_items:
+        meta = _prompt_meta_for(item["question"], keyword_rows)
+        if meta:
+            item.update(meta)
 
     diagnostic_questions = _unique_questions([item["question"] for item in diagnostic_rows], diagnostic_count)
     if len(diagnostic_questions) < diagnostic_count:
@@ -426,6 +442,7 @@ JSON schema:
         "neutral_recommendation": neutral_items,
         "brand_diagnostic": diagnostic_items,
         "comparison": [],
+        "_keyword_intelligence": keyword_intelligence,
     }
 
 
@@ -1330,6 +1347,24 @@ def _prompt_reason_for(question: str, rows: list[dict[str, str]]) -> str:
         if row.get("question") == question:
             return row.get("reason", "")
     return ""
+
+
+def _prompt_intent_for(question: str, rows: list[dict[str, str]]) -> str:
+    for row in rows:
+        if row.get("question") == question:
+            return row.get("intent", "")
+    return ""
+
+
+def _prompt_meta_for(question: str, rows: list[dict[str, str]]) -> dict[str, str]:
+    for row in rows:
+        if row.get("question") == question:
+            return {
+                key: str(row.get(key) or "")
+                for key in ("keyword_source", "source_keyword")
+                if row.get(key)
+            }
+    return {}
 
 
 def _own_brand_terms(profile: dict[str, Any]) -> list[str]:

@@ -22,8 +22,11 @@ from geo_app.baidu_search_client import (  # noqa: E402
     extract_baidu_results,
     extract_baidu_total_count,
 )
+from geo_app.aizhan_client import AizhanClient  # noqa: E402
+from geo_app.client_5118 import Client5118  # noqa: E402
 from geo_app.config import load_config  # noqa: E402
 from geo_app.qwen_client import QwenClient  # noqa: E402
+from geo_app.toumei_geo_client import ToumeiGEOClient  # noqa: E402
 
 
 DEFAULT_BAIDU_SEARCH_URL = "https://qianfan.baidubce.com/v2/ai_search/web_search"
@@ -515,12 +518,127 @@ def test_deepseek(query: str) -> ConnectivityResult:
     )
 
 
+def test_5118(query: str) -> ConnectivityResult:
+    _load_dotenv()
+    started = time.perf_counter()
+    timeout = _int_env(30, "API_5118_TIMEOUT_SECONDS")
+    suggest_key, suggest_source = _env_first("API_5118_SUGGEST")
+    longtail_key, longtail_source = _env_first("API_5118_LONGTAIL_V2")
+    endpoint = Client5118.BASE_URL
+
+    if suggest_key:
+        key = suggest_key
+        source = suggest_source
+        mode = "suggest"
+    elif longtail_key:
+        key = longtail_key
+        source = longtail_source
+        mode = "longtail"
+    else:
+        return ConnectivityResult(
+            "5118",
+            False,
+            0,
+            "Missing API_5118_SUGGEST or API_5118_LONGTAIL_V2.",
+            endpoint=endpoint,
+        )
+
+    try:
+        client = Client5118(api_key=key, timeout_seconds=timeout)
+        if mode == "suggest":
+            rows = client.suggest_words(query[:40], platform=os.getenv("API_5118_TEST_PLATFORM", "baidu").strip() or "baidu")
+            samples = [{"title": item.keyword, "url": item.platform, "snippet": item.parent_keyword} for item in rows[:5]]
+            detail = f"5118 suggest returned {len(rows)} row(s)."
+        else:
+            rows = client.longtail_keywords(query[:40], page_size=10)
+            samples = [
+                {"title": item.keyword, "url": "", "snippet": f"pc={item.pc_index}, mobile={item.mobile_index}"}
+                for item in rows[:5]
+            ]
+            detail = f"5118 longtail returned {len(rows)} row(s)."
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        return ConnectivityResult("5118", True, elapsed_ms, detail, endpoint=endpoint, credential_source=source, samples=samples)
+    except Exception as exc:
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        return ConnectivityResult("5118", False, elapsed_ms, _safe_text(exc, 1000), endpoint=endpoint, credential_source=source)
+
+
+def test_aizhan(query: str) -> ConnectivityResult:
+    _load_dotenv()
+    started = time.perf_counter()
+    api_key, key_name = _env_first("AIZHAN_API_KEY")
+    timeout = _int_env(30, "AIZHAN_TIMEOUT_SECONDS")
+    endpoint = AizhanClient.BASE_URL
+    if not api_key:
+        return ConnectivityResult("aizhan", False, 0, "Missing AIZHAN_API_KEY.", endpoint=endpoint)
+    try:
+        client = AizhanClient(api_key=api_key, timeout_seconds=timeout)
+        rows = client.related_words(query[:40], page_size=10)
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        samples = [
+            {"title": item.keyword, "url": "", "snippet": f"pc={item.pc_index}, mobile={item.mobile_index}"}
+            for item in rows[:5]
+        ]
+        return ConnectivityResult(
+            "aizhan",
+            True,
+            elapsed_ms,
+            f"Aizhan related words returned {len(rows)} row(s).",
+            endpoint=endpoint,
+            credential_source=key_name,
+            samples=samples,
+        )
+    except Exception as exc:
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        return ConnectivityResult("aizhan", False, elapsed_ms, _safe_text(exc, 1000), endpoint=endpoint, credential_source=key_name)
+
+
+def test_toumei(query: str) -> ConnectivityResult:
+    _load_dotenv()
+    started = time.perf_counter()
+    secret_id, sid_source = _env_first("TOUMEI_GEO_SECRET_ID")
+    secret_key, _ = _env_first("TOUMEI_GEO_SECRET_KEY")
+    base_url, base_source = _env_first("TOUMEI_GEO_BASE_URL")
+    base_url = base_url or ToumeiGEOClient.BASE_URL
+    timeout = _int_env(60, "TOUMEI_GEO_TIMEOUT_SECONDS")
+    if not secret_id or not secret_key:
+        return ConnectivityResult(
+            "toumei",
+            False,
+            0,
+            "Missing TOUMEI_GEO_SECRET_ID or TOUMEI_GEO_SECRET_KEY.",
+            endpoint=base_url,
+        )
+    try:
+        client = ToumeiGEOClient(secret_id=secret_id, secret_key=secret_key, base_url=base_url, timeout_seconds=timeout)
+        payload = client.user_info()
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        data = payload.get("data") if isinstance(payload.get("data"), dict) else {}
+        samples = [{"title": str(data.get("username") or "Toumei GEO"), "url": "", "snippet": f"money={data.get('money', '')} level={data.get('level', '')}"}]
+        endpoint_note = "" if base_source else " Default endpoint used."
+        return ConnectivityResult(
+            "toumei",
+            True,
+            elapsed_ms,
+            f"Toumei GEO userInfo returned code={payload.get('code')}.{endpoint_note}",
+            endpoint=base_url,
+            credential_source=sid_source,
+            samples=samples,
+        )
+    except Exception as exc:
+        elapsed_ms = int((time.perf_counter() - started) * 1000)
+        return ConnectivityResult("toumei", False, elapsed_ms, _safe_text(exc, 1000), endpoint=base_url, credential_source=sid_source)
+
+
 PROVIDER_TESTS: dict[str, Callable[[str], ConnectivityResult]] = {
     "qwen": test_qwen,
     "baidu": test_baidu,
     "doubao": test_doubao,
     "yuanbao": test_yuanbao,
     "deepseek": test_deepseek,
+    "5118": test_5118,
+    "aizhan": test_aizhan,
+    "toumei": test_toumei,
 }
 
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 
@@ -74,12 +74,28 @@ class GEOAIConfig:
 
 
 @dataclass
+class KeywordIntelligenceConfig:
+    enable_5118: bool = True
+    api_5118_longtail_v2: str = ""
+    api_5118_suggest: str = ""
+    api_5118_kw_param_v2: str = ""
+    api_5118_rank_pc: str = ""
+    api_5118_kwrank_pc: str = ""
+    timeout_seconds: int = 30
+    max_seed_terms: int = 9
+    longtail_page_size: int = 10
+    enable_suggest: bool = False
+    request_interval_seconds: float = 1.2
+
+
+@dataclass
 class AppConfig:
     qwen: QwenConfig
     meijieku: MeijiekuConfig
     serpapi: SerpApiConfig
     budget: BudgetConfig
     geo_ai: GEOAIConfig
+    keyword_intelligence: KeywordIntelligenceConfig = field(default_factory=KeywordIntelligenceConfig)
 
 
 def normalize_meijieku_base_url(value: str) -> str:
@@ -157,6 +173,19 @@ def load_config() -> AppConfig:
             article_fetch_limit=max(0, min(_int_env("GEO_AI_ARTICLE_FETCH_LIMIT", 40), 120)),
             enable_ai_prompt_discovery=os.getenv("GEO_AI_ENABLE_PROMPT_DISCOVERY", "true").lower()
             not in {"0", "false", "no"},
+        ),
+        keyword_intelligence=KeywordIntelligenceConfig(
+            enable_5118=os.getenv("ENABLE_5118_KEYWORD_INTELLIGENCE", "true").lower() not in {"0", "false", "no"},
+            api_5118_longtail_v2=os.getenv("API_5118_LONGTAIL_V2", "").strip(),
+            api_5118_suggest=os.getenv("API_5118_SUGGEST", "").strip(),
+            api_5118_kw_param_v2=os.getenv("API_5118_KW_PARAM_V2", "").strip(),
+            api_5118_rank_pc=os.getenv("API_5118_RANK_PC", "").strip(),
+            api_5118_kwrank_pc=os.getenv("API_5118_KWRANK_PC", "").strip(),
+            timeout_seconds=max(5, min(_int_env("API_5118_TIMEOUT_SECONDS", 30), 120)),
+            max_seed_terms=max(3, min(_int_env("KEYWORD_INTELLIGENCE_MAX_SEED_TERMS", 9), 20)),
+            longtail_page_size=max(3, min(_int_env("KEYWORD_INTELLIGENCE_LONGTAIL_PAGE_SIZE", 10), 50)),
+            enable_suggest=os.getenv("KEYWORD_INTELLIGENCE_ENABLE_SUGGEST", "false").lower() in {"1", "true", "yes"},
+            request_interval_seconds=max(0.0, min(_float_env("KEYWORD_INTELLIGENCE_REQUEST_INTERVAL_SECONDS", 1.2), 10.0)),
         ),
     )
 

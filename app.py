@@ -128,6 +128,7 @@ def sidebar_config() -> AppConfig:
             require_fuzzy_confirmation=True,
         ),
         geo_ai=_build_geo_ai_config(base.geo_ai),
+        keyword_intelligence=base.keyword_intelligence,
     )
 
 
@@ -570,6 +571,8 @@ def load_history_report(storage: Storage, report_id: Any) -> None:
     }
     result = refresh_integrated_result_outputs(result)
     st.session_state.integrated_result = result
+    if result.get("refresh_warning"):
+        st.warning(result["refresh_warning"])
     st.success("History loaded into the current dashboard.")
 
 
@@ -606,7 +609,24 @@ def refresh_integrated_result_outputs(result: dict[str, Any]) -> dict[str, Any]:
         except Exception:
             pass
     data["run_dir"] = str(run_dir)
-    outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+    try:
+        outputs = render_integrated_outputs(run_dir, data, data.get("report_language", "zh"))
+    except OSError as exc:
+        fallback_md = run_dir / "integrated_report.md"
+        fallback_html = run_dir / "integrated_report.html"
+        fallback_dashboard = run_dir / "dashboard_report.html"
+        result.update(
+            {
+                "report_md_path": str(fallback_md),
+                "report_html_path": str(fallback_html),
+                "dashboard_html_path": str(fallback_dashboard),
+                "data_path": str(data_path),
+                "report_md": fallback_md.read_text(encoding="utf-8") if fallback_md.exists() else result.get("report_md", ""),
+                "analysis_data": data,
+                "refresh_warning": f"历史报告刷新失败，已使用原有导出文件：{exc}",
+            }
+        )
+        return result
     result.update(
         {
             "report_md_path": outputs["report_md_path"],
@@ -1201,6 +1221,22 @@ def _pe_prompts(data: dict[str, Any]) -> None:
     _pe_section("Prompts 问题设计", "问题分为中立推荐、品牌诊断、竞品对比和客户自定义。真实热度/概率 API 后续接入，当前显示 AI 生成或历史保存的问题。")
     question_discovery = data.get("question_discovery") or {}
     strategy = data.get("analysis_strategy") or {}
+    keyword_intelligence = data.get("keyword_intelligence") or question_discovery.get("keyword_intelligence") or strategy.get("keyword_intelligence") or {}
+    keyword_rows = keyword_intelligence.get("neutral_prompt_candidates") or []
+    if keyword_rows:
+        st.markdown("#### 5118 真实用户搜索词")
+        chart_rows = [
+            {
+                "关键词": item.get("keyword", ""),
+                "热度评分": _safe_int(item.get("score")),
+                "长尾词数": _safe_int(item.get("longtail_count")),
+                "竞价公司数": _safe_int(item.get("bid_company_count")),
+            }
+            for item in keyword_rows[:12]
+        ]
+        _render_bar(chart_rows, x="关键词", y="热度评分")
+        with st.expander("查看 5118 关键词明细", expanded=False):
+            st.dataframe(_stringify_rows(chart_rows), width="stretch", hide_index=True)
     rows: list[dict[str, Any]] = []
     prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
     if isinstance(prompt_groups, dict):

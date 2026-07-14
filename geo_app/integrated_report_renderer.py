@@ -1633,6 +1633,7 @@ def _prompt_type_label(value: Any) -> str:
 def _dashboard_question_groups_html(data: dict[str, Any]) -> str:
     question_discovery = data.get("question_discovery") or {}
     strategy = data.get("analysis_strategy") or {}
+    keyword_intelligence = data.get("keyword_intelligence") or question_discovery.get("keyword_intelligence") or strategy.get("keyword_intelligence") or {}
     prompt_groups = question_discovery.get("prompt_groups") or strategy.get("prompt_groups") or {}
     rows: list[dict[str, str]] = []
     if isinstance(prompt_groups, dict) and prompt_groups:
@@ -1655,6 +1656,23 @@ def _dashboard_question_groups_html(data: dict[str, Any]) -> str:
     if not rows:
         return "<p class='note'>暂无 Prompt 设计数据。</p>"
     parts = []
+    keyword_rows = keyword_intelligence.get("neutral_prompt_candidates") or []
+    if keyword_rows:
+        body = "".join(
+            "<tr>"
+            f"<td>{html.escape(str(item.get('keyword') or ''))}</td>"
+            f"<td>{html.escape(str(item.get('score') or 0))}</td>"
+            f"<td>{html.escape(str(item.get('longtail_count') or 0))}</td>"
+            f"<td>{html.escape(str(item.get('bid_company_count') or 0))}</td>"
+            f"<td>{html.escape(str(item.get('sem_price') or ''))}</td>"
+            "</tr>"
+            for item in keyword_rows[:20]
+        )
+        parts.append(
+            "<details class='prompt-group' open><summary>5118 真实用户搜索词</summary>"
+            "<div class='table-wrap'><table><thead><tr><th>关键词</th><th>热度评分</th><th>长尾词数</th><th>竞价公司数</th><th>SEM参考</th></tr></thead>"
+            f"<tbody>{body}</tbody></table></div></details>"
+        )
     for group in ["中立推荐", "品牌诊断", "竞品对比", "客户自定义"]:
         group_rows = [row for row in rows if row["type"] == group]
         if not group_rows:

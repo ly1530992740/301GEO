@@ -123,6 +123,7 @@ def run_integrated_geo_analysis(
     analysis_strategy = multi_ai["analysis_strategy"]
     competitor_discovery = multi_ai["competitor_discovery"]
     question_discovery = multi_ai["question_discovery"]
+    keyword_intelligence = multi_ai.get("keyword_intelligence") or question_discovery.get("keyword_intelligence") or {}
     trend_discovery = multi_ai["trend_discovery"]
     prompt_runs = multi_ai.get("prompt_runs") or []
     geo_visibility_summary = multi_ai.get("geo_visibility_summary") or {}
@@ -168,6 +169,7 @@ def run_integrated_geo_analysis(
     write_text(run_dir / "competitor_discovery.json", json.dumps(competitor_discovery, ensure_ascii=False, indent=2))
     write_text(run_dir / "analysis_strategy.json", json.dumps(analysis_strategy, ensure_ascii=False, indent=2))
     write_text(run_dir / "question_discovery.json", json.dumps(question_discovery, ensure_ascii=False, indent=2))
+    write_text(run_dir / "keyword_intelligence.json", json.dumps(keyword_intelligence, ensure_ascii=False, indent=2))
     write_text(run_dir / "trend_discovery.json", json.dumps(trend_discovery, ensure_ascii=False, indent=2))
     write_text(run_dir / "probe_questions.json", json.dumps(question_discovery.get("questions") or [], ensure_ascii=False, indent=2))
     write_text(run_dir / "ai_probe_results.json", json.dumps(probes, ensure_ascii=False, indent=2))
@@ -258,6 +260,7 @@ def run_integrated_geo_analysis(
         "sources": profile_run.get("sources") or {},
         "competitor_discovery": competitor_discovery,
         "question_discovery": question_discovery,
+        "keyword_intelligence": keyword_intelligence,
         "trend_discovery": trend_discovery,
         "ai_probes": probes,
         "prompt_runs": prompt_runs,
